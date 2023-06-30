@@ -9,7 +9,7 @@ body,
     height: 100%;
     overflow: hidden;
 }
-.testLabel > div
+.testInterface > div
 {
     font-family: Helvetica, Arial;
     position: absolute;

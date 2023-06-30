@@ -2,6 +2,7 @@
 import { Html } from "@react-three/drei"
 import { useRef, useState } from "react"
 import { Select, Selection, EffectComposer, Outline } from '@react-three/postprocessing'
+import Interface from "./Interface"
 
 
 //color is a prop so it can be changed by the gui.
@@ -27,13 +28,13 @@ export default function Cube({color, props}) {
             position={[0, 0.25, 0]}>
                 <boxGeometry />
                 <meshStandardMaterial color= {color}/>
-                <Html 
+                {/* <Html 
                     position={[1, 1, 0]}
                     wrapperClass="testLabel"
                     center
                     distanceFactor={8}
-                
-                >Click Me</Html>
+                >Click Me</Html> */}
+                <Interface/>
             </mesh>
         </Select>
     </Selection>

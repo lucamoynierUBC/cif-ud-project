@@ -18,9 +18,10 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
 
-        <PivotControls>
-            <Cube color={color}/>
-        </PivotControls>
+        
+        <Cube color={color}/>
+        
+        
     
         <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
             <planeGeometry />

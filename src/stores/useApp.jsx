@@ -3,6 +3,8 @@
 import { create } from "zustand"
 
 // Im thinking this is how I will be able to share information from the UI and the 3D scene
+
+// also I think I can use this to spawnn in objects?
 export default create((set) => {
     return {
         color: "purple",

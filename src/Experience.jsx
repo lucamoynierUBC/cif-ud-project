@@ -2,6 +2,8 @@ import * as THREE from 'three'
 import { OrbitControls, TransformControls, PivotControls, Html } from "@react-three/drei"
 import Cube from './Cube'
 import useApp from './stores/useApp'
+import Adu from './Adu'
+
 
 export default function Experience() {
 
@@ -20,9 +22,10 @@ export default function Experience() {
 
         
         <Cube color={color}/>
+        <Adu />
         
-        
-    
+
+
         <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
             <planeGeometry />
             <meshStandardMaterial color = 'beige' />

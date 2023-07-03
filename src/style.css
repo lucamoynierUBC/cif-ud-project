@@ -20,6 +20,22 @@ body,
     overflow: hidden;
     border-radius: 30px;
     user-select: none;
+    transition: width 1s ease; /* Add transition for the width property */
+}
+
+.testInterfaceExpanded > div
+{
+    font-family: Helvetica, Arial;
+    position: absolute;
+    background: #00000088;
+    color: white;
+    padding: 15px;
+    white-space: pre-wrap;
+    overflow: auto;
+    border-radius: 30px;
+    user-select: none;
+    width: 300px;
+    transition: width 1s ease; /* Add transition for the width property */
 }
 
 /* Interfrace */

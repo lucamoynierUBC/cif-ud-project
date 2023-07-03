@@ -5,15 +5,22 @@ export default function Interface() {
 
     //setExpanded will update the state of the interface, expand is the current state
     //when state is updates the component re-renders
+
+    //Todo: pass in the function version, refer to the youtube video about useState
     const [expand, setExpand] = useState(false)
+
+    
+    
+
 
     function handleClick() {
         setExpand(!expand)
+        
     }
     
 
     return <Html position={[1, 1, 0]}
-        wrapperClass='testInterface'
+        wrapperClass= {expand? 'testInterfaceExpanded' : 'testInterface'}
         center
         distanceFactor={8}>
         <div>

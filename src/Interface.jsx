@@ -8,15 +8,29 @@ export default function Interface() {
 
     //Todo: pass in the function version, refer to the youtube video about useState
     const [expand, setExpand] = useState(false)
+    const [housingOpp, setHousingOpp] = useState(false)
 
     
-    
-
-
     function handleClick() {
         setExpand(!expand)
         
     }
+
+    function handleHousingOpp() {
+        setHousingOpp(!housingOpp)
+        setExpand(!expand)
+    }
+
+    let buttonText
+    if (!expand && !housingOpp) {
+        buttonText = "Click Me"
+    } else if (expand && !housingOpp) {
+        buttonText = "Click to collapse"
+    } else if (!expand && housingOpp) {
+        buttonText = ""
+    }
+    
+
     
 
     return <Html position={[1, 1, 0]}
@@ -25,22 +39,20 @@ export default function Interface() {
         distanceFactor={8}>
         <div>
             <div onClick = {handleClick}>
-                {expand ? 'Click to collapse' : 'Click Me'}
+                {buttonText}
             </div>
 
-            {expand && <div> Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed eu arcu ultricies nibh bibendum viverra non eu enim. Maecenas at erat elit. 
-                In at nunc id risus sollicitudin varius sit amet id metus. 
-                Nulla lacinia velit et ipsum placerat, sed pellentesque est ultricies. 
-                Sed tristique urna eleifend, dignissim arcu a, placerat nisi. 
-                Aliquam ut mollis ante. Donec arcu ipsum, ultricies id sapien nec, ultricies auctor tortor. 
-                Aliquam felis nunc, suscipit feugiat turpis id, mattis consequat metus. 
-                Curabitur sollicitudin vulputate lorem eget rhoncus. 
-                Integer vel sodales orci. Nulla facilisi. Ut ligula velit, posuere eget justo vitae, feugiat viverra nisl. 
-                Aliquam facilisis aliquam neque, sed cursus nisi. Pellentesque sed ex consectetur, consectetur nulla a, elementum lacus. 
-                Donec ex velit, fermentum in sem lobortis, consectetur tristique tortor. 
-                In erat velit, consectetur in molestie vel, scelerisque eget lacus.  </div>}
-            
+            {expand && <div> 
+                <button className="testButton"> Carbon Neutrality </button>
+                <button className="testButton"> Economic Oppurtunity </button>
+                <button className="testButton" onClick={handleHousingOpp}> Housing Oppurtunity </button>
+                
+            </div>}
+
+            {housingOpp && <div> 
+                hello
+            </div>}
+
         </div>
     </Html>
 }

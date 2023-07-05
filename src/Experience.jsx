@@ -6,6 +6,8 @@ import { OrbitControls } from './Controls'
 import { Physics, RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import House from './House'
+
 
 
 
@@ -20,8 +22,8 @@ export default function Experience() {
    
     const handlePositionChange = ({ x, z }) => {
         aduPosition.current = {x, z}
-        console.log("X position:", x)
-        console.log("Z position:", z)
+        // console.log("X position:", x)
+        // console.log("Z position:", z)
     }
 
 
@@ -35,8 +37,8 @@ export default function Experience() {
 
     useFrame(() => {
         const {x, z} = aduPosition.current
-        console.log("Rigid Body x: ", x)
-        console.log("Rigid Body z: ", z)
+        // console.log("Rigid Body x: ", x)
+        // console.log("Rigid Body z: ", z)
         aduRigidBody.current.setNextKinematicTranslation({x: x, y: 0,  z: z})
     
 
@@ -83,6 +85,8 @@ export default function Experience() {
             <planeGeometry />
             <meshStandardMaterial color = 'beige' />
         </mesh>
+
+        <House></House>
      
 
     </>

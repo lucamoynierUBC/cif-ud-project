@@ -2,25 +2,31 @@ import { useThree, Canvas } from "@react-three/fiber"
 import { useGesture } from "react-use-gesture"
 import { animated, useSpring} from "@react-spring/three"
 import { useOrbitControls } from "./Controls"
+import { easings } from "@react-spring/three"
 
 
 export default function Adu({ onPositionChange}) {
+
+
     const {size, viewport} = useThree()
     const aspect = size.width / viewport.width
     const { enableCamera, disableCamera } = useOrbitControls()
     const [spring, api] = useSpring(() => ({ 
+        position: [0, 0, 0], 
         scale: [1, 1, 1], 
-        position: [2, 0, 1], 
         rotation: [0, 0, 0], 
-        config: { friction: 15 },
+        config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
+        },
     }))
     const bind = useGesture({
         onDragStart() {
             disableCamera()
+            return api.start({position: [0, 0, 0]})
         },
         onDrag({ offset: [x, z] }) {
-            onPositionChange({x: x / aspect, z: z / aspect})
-            return api.start({position: [x / aspect, 0 ,  z / aspect]})
+            const position = [x / aspect, 0, z / aspect]
+            onPositionChange({x: position[0], z: position[2]})
+            return api.start({to: position})
             
         },
         onHover({ hovering }) {
@@ -28,6 +34,11 @@ export default function Adu({ onPositionChange}) {
         },
         onDragEnd() {
             enableCamera()
+            api.start({position: [0, 0, 0]})
+            api.set({scale: [1 , 1, 1]})
+            
+            
+
         }
         
       }

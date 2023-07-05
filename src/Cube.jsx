@@ -25,7 +25,7 @@ export default function Cube({color, props}) {
             scale-x={1.5}
             scale-y={1.5}
             scale-z={2}
-            position={[0, 0.25, 0]}>
+            position={[2, 1, 0]}>
                 <boxGeometry />
                 <meshStandardMaterial color= {color}/>
                 {/* <Html 

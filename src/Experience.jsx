@@ -4,6 +4,8 @@ import useApp from './stores/useApp'
 import Adu from './Adu'
 import { OrbitControls } from './Controls'
 import { Physics, RigidBody } from '@react-three/rapier'
+import { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 
 
 
@@ -12,8 +14,12 @@ import { Physics, RigidBody } from '@react-three/rapier'
 
 export default function Experience() {
 
+    const aduRigidBody = useRef()
+    const aduPosition = useRef({x: 0, z: 0})
+
    
     const handlePositionChange = ({ x, z }) => {
+        aduPosition.current = {x, z}
         console.log("X position:", x)
         console.log("Z position:", z)
     }
@@ -26,6 +32,18 @@ export default function Experience() {
     })
     console.log(color)
 
+
+    useFrame(() => {
+        const {x, z} = aduPosition.current
+        console.log("Rigid Body x: ", x)
+        console.log("Rigid Body z: ", z)
+        aduRigidBody.current.setNextKinematicTranslation({x: x, y: 0,  z: z})
+    
+
+
+
+    })
+
    
     
 
@@ -37,11 +55,12 @@ export default function Experience() {
 
         <OrbitControls>
             <Physics debug>
-                <RigidBody type="fixed">
+                <RigidBody  gravityScale={0}>
                     <Cube color={color}/>
                 </RigidBody>
                 {/* rigit body does not move because it is set to fixed */}
-                <RigidBody 
+                <RigidBody
+                    ref={aduRigidBody} 
                     type="kinematicPosition">
                     <Adu onPositionChange={handlePositionChange}/>
                 </RigidBody>

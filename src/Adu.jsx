@@ -26,7 +26,7 @@ export default function Adu({ onPositionChange}) {
         onDrag({ offset: [x, z] }) {
             const position = [x / aspect, 0, z / aspect]
             onPositionChange({x: position[0], z: position[2]})
-            return api.start({to: position})
+            return api.start({to: {x: position[0], y: position[1]}})
             
         },
         onHover({ hovering }) {

@@ -7,19 +7,11 @@ import { Physics, RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import House from './House'
+import { useState } from 'react'
 
-function useElementPosition() {
-    const [position, setPosition] = useState(null);
+
   
-    const measurePosition = useCallback((node) => {
-      if (node !== null) {
-        const { top, left } = node.getBoundingClientRect();
-        setPosition({ top, left });
-      }
-    }, []);
-  
-    return [position, measurePosition];
-  }
+    
 
 
 
@@ -29,7 +21,7 @@ export default function Experience() {
 
     const aduRigidBody = useRef()
     const aduPosition = useRef({x: 0, z: 0})
-    const [aduElementPosition, setAduElementPosition] = useElementPosition();
+    
 
    
     const handlePositionChange = ({ x, z }) => {
@@ -98,7 +90,9 @@ export default function Experience() {
             <meshStandardMaterial color = 'beige' />
         </mesh>
 
-        {/* <House></House> */}
+        <House></House>
+
+        
      
 
     </>

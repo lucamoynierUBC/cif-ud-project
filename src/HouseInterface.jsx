@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Html } from "@react-three/drei";
+import useApp from "./stores/useApp";
 
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
+    const showAdu = useApp((state) => state.showAdu)
+    
+
     const handleClick = (blockId) => {
         setSelectedBlock(blockId)
     }
 
     const handleProceed = () => {
         setSelectedBlock(null)
+    }
+
+    const spawnAdu = () => {
+        showAdu()
     }
 
 
@@ -30,10 +38,16 @@ export default function HousingInterface() {
                     Tortor aliquam nulla facilisi cras fermentum odio eu. 
                     Laoreet non curabitur gravida arcu ac tortor dignissim. 
                     Nec feugiat nisl pretium fusce. Sapien nec sagittis aliquam malesuada.</p>
-                <button>Ok</button>
-
-
-
+                <button onClick={() => {handleClick(2), spawnAdu()}}>OK</button>
+            </div>
+            )}
+            {selectedBlock === 2 && (<div>
+                <h1>Overall Benefits</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
+                <button>MORE DATA</button>
+                <button>OK</button>
             </div>
             )}
 

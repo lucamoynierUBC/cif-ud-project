@@ -9,6 +9,23 @@ body,
     height: 100%;
     overflow: hidden;
 }
+.housingInterface > div 
+{
+    font-family: Helvetica, Arial;
+    position: absolute;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    white-space: pre-wrap;
+    overflow: auto;
+    border-radius: 30px;
+    user-select: none;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
 .testInterface > div
 {
     font-family: Helvetica, Arial;

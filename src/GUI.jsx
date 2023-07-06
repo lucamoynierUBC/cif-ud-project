@@ -5,8 +5,7 @@ export default function GUI() {
 
     // state contains our store information
     const changeColor = useApp((state) => state.changeColor)
-    console.log(changeColor)
-
+    
     const buttonClick = () => {
         console.log("button clicked")
         changeColor()

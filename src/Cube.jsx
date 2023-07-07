@@ -6,7 +6,7 @@ import Interface from "./Interface"
 
 
 //color is a prop so it can be changed by the gui.
-export default function Cube({color, props}) {
+export default function Cube({color, props, position}) {
     const ref = useRef()
     
     //hover states, true when mouse is over object, false otherwise
@@ -14,8 +14,8 @@ export default function Cube({color, props}) {
     console.log(hovered)
 
     return <Selection>
-        <EffectComposer multisampling={8} autoClear={false}>
-            <Outline blur visibleEdgeColor="black" edgeStrength={1000} width={1000} />
+        <EffectComposer autoClear={false}>
+            <Outline blur visibleEdgeColor="red" edgeStrength={100} width={1000} />
         </EffectComposer>
             <Select enabled={hovered}>
             <mesh ref={ref} 
@@ -25,7 +25,7 @@ export default function Cube({color, props}) {
             scale-x={1.5}
             scale-y={1.5}
             scale-z={2}
-            position={[6, 1, 0]}>
+            position={position}>
                 <boxGeometry />
                 <meshStandardMaterial color= {color}/>
                 {/* <Html 

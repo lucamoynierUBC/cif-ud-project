@@ -63,9 +63,9 @@ export default function Experience() {
 
         <OrbitControls>
             <Physics debug>
-                <RigidBody  gravityScale={0}>
-                    <Cube color={color}/>
-                </RigidBody>
+                {/* <RigidBody  gravityScale={0}>
+                    <Cube color={color} position={[6, 1, 0]}/>
+                </RigidBody> */}
                 {/* rigit body does not move because it is set to fixed */}
                 <RigidBody
                     ref={aduRigidBody} 
@@ -80,10 +80,10 @@ export default function Experience() {
             <Adu id={3} onPositionChange={handlePositionChange} position={[0, -1, 0]}/>
         
 
-            <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
+            {/* <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
                 <planeGeometry />
                 <meshStandardMaterial color = 'beige' />
-            </mesh>
+            </mesh> */}
         </OrbitControls>
 
         
@@ -92,10 +92,12 @@ export default function Experience() {
         
         <mesh receiveShadow rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
             <planeGeometry />
-            <meshStandardMaterial opacity={.5} color = 'beige' />
+            <meshStandardMaterial opacity={.5} color = 'darkgrey' />
         </mesh>
 
         <House></House>
+        <Cube color={color} position={[6, 1, 0]}/>
+        <Cube color={color} position={[6, 4, 0]}/>
 
 
 

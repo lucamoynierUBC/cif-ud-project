@@ -7,7 +7,8 @@ export default function HousingInterface() {
     const showAdu = useApp((state) => state.showAdu)
     const showAduID = useApp((state) => state.displayNumber)
     
-    // can refactor according the tutorial ~3:31 mark, do not need additional constants below 
+    // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
+    // very redundant 
     const handleClick = (blockId) => {
         setSelectedBlock(blockId)
     }
@@ -63,6 +64,13 @@ export default function HousingInterface() {
                 <button>4</button>
             </div>
             )}
+            {selectedBlock === 4 && (<div>
+                <h1>Attic ADU</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Metus aliquam eleifend mi in nulla posuere.</p>
+                <button onClick={() => {handleClick(3)}}>OK</button>
+            </div>)}
       </div>
 
     </Html>

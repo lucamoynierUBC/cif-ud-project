@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 import HousingInterface from "./HouseInterface";
 
 export default function House(props) {
-  const { nodes, materials } = useGLTF("./house.glb");
+  const { nodes, materials } = useGLTF("./Housev2.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
 
   const handleHouseClick = () => {
@@ -11,22 +11,30 @@ export default function House(props) {
   };
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} scale={0.1}>
       <mesh
         onClick={handleHouseClick}
         castShadow
         receiveShadow
-        geometry={nodes["4149592"].geometry}
-        material={materials["diffuse_0.001"]}
-        scale={0.1}
-        position-y={0.2}
+        geometry={nodes.house.geometry}
+        material={materials["Material.002"]}
+        position={[0, -4.892, 22.168]}
         rotation={[Math.PI / 2, 0, 0]}
-      > 
-        {interfaceVisible && <HousingInterface />}
       
-      </mesh>
+      />
+      <mesh
+        onClick={handleHouseClick}
+        castShadow
+        receiveShadow
+        geometry={nodes.attic.geometry}
+        material={materials["Material.001"]}
+        position={[0.559, 9.369, 0]}
+        rotation={[Math.PI / 2, 0, 0]}
+        
+      />
+      {interfaceVisible && <HousingInterface />}
     </group>
-  );
-}
+    );
+  }
 
-useGLTF.preload("/house.glb");
+useGLTF.preload("/Housev2.glb");

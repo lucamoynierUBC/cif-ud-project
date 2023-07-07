@@ -7,7 +7,7 @@ export default function HousingInterface() {
     const showAdu = useApp((state) => state.showAdu)
     const showAduID = useApp((state) => state.displayNumber)
     
-
+    // can refactor according the tutorial ~3:31 mark, do not need additional constants below 
     const handleClick = (blockId) => {
         setSelectedBlock(blockId)
     }
@@ -57,16 +57,12 @@ export default function HousingInterface() {
             )}
             {selectedBlock === 3 && (<div>
                 <h1> Select an Area</h1>
-                <button>1</button>
+                <button onClick={() => handleClick(4)}>1</button>
                 <button>2</button>
                 <button>3</button>
                 <button>4</button>
             </div>
             )}
-
-
-            
-        
       </div>
 
     </Html>

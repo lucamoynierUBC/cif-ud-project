@@ -15,7 +15,7 @@ export default function Cube({color, props}) {
 
     return <Selection>
         <EffectComposer multisampling={8} autoClear={false}>
-            <Outline blur visibleEdgeColor="white" edgeStrength={100} width={1000} />
+            <Outline blur visibleEdgeColor="black" edgeStrength={1000} width={1000} />
         </EffectComposer>
             <Select enabled={hovered}>
             <mesh ref={ref} 
@@ -25,7 +25,7 @@ export default function Cube({color, props}) {
             scale-x={1.5}
             scale-y={1.5}
             scale-z={2}
-            position={[2, 1, 0]}>
+            position={[6, 1, 0]}>
                 <boxGeometry />
                 <meshStandardMaterial color= {color}/>
                 {/* <Html 

@@ -19,6 +19,8 @@ import { useState } from 'react'
 
 export default function Experience() {
 
+    //figure whats going on here, error is occuring because both ADU's use the same ref,
+    // TODO: fix later
     const aduRigidBody = useRef()
     const aduPosition = useRef({x: 0, z: 0})
     
@@ -68,11 +70,14 @@ export default function Experience() {
                 <RigidBody
                     ref={aduRigidBody} 
                     type="kinematicPosition">
-                    <Adu onPositionChange={handlePositionChange}/>
+                    <Adu id={3} onPositionChange={handlePositionChange} position={[-2, 0, 0]}/>
                 </RigidBody>
+        
 
 
             </Physics>
+            <Adu id={1} onPositionChange={handlePositionChange} position={[2, 0, 0]}/>
+            <Adu id={2} onPositionChange={handlePositionChange} position={[0, -1, 0]}/>
         
 
             <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
@@ -85,12 +90,14 @@ export default function Experience() {
         
         
         
-        <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
+        <mesh receiveShadow rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
             <planeGeometry />
-            <meshStandardMaterial color = 'beige' />
+            <meshStandardMaterial opacity={.5} color = 'beige' />
         </mesh>
 
         <House></House>
+
+
 
         
      

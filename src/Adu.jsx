@@ -4,17 +4,18 @@ import { animated, useSpring} from "@react-spring/three"
 import { useOrbitControls } from "./Controls"
 import  useApp  from "./stores/useApp"
 import { useEffect, useState } from "react"
+import { Html } from "@react-three/drei"
 
 
 
-export default function Adu({ onPositionChange}) {
+export default function Adu({ onPositionChange, position, id}) {
 
 
     const {size, viewport} = useThree()
     const aspect = size.width / viewport.width
     const { enableCamera, disableCamera } = useOrbitControls()
     const [spring, api] = useSpring(() => ({ 
-        position: [-2, 0, 0], 
+        position: position, 
         scale: [1, 1, 1], 
         rotation: [0, 0, 0], 
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
@@ -23,7 +24,7 @@ export default function Adu({ onPositionChange}) {
     const bind = useGesture({
         onDragStart() {
             disableCamera()
-            return api.start({position: [-2, 0, 0]})
+            return api.start({position: position})
         },
         onDrag({ offset: [x, z] }) {
             const position = [x / aspect, 0, z / aspect]
@@ -36,7 +37,7 @@ export default function Adu({ onPositionChange}) {
         },
         onDragEnd() {
             enableCamera()
-            api.start({position: [-2, 0, 0]})
+            api.start({position: position})
             api.set({scale: [1 , 1, 1]})
         }
       }
@@ -44,23 +45,39 @@ export default function Adu({ onPositionChange}) {
     
 
     const [visible, setVisible ] = useState(false)
+    const [displayId, setid] = useState(false)
     
 
     useEffect(() =>
     {
-        const unsubscribeReset = useApp.subscribe(
+        const unsubscribeShowAdu = useApp.subscribe(
             (state) => state.phase,
             (phase) =>
             {
-                console.log('phase changes to', phase)
+                console.log('phase changes to :', phase)
                 if (phase === 'showAdu'){
                     makeVisible()
                 }
             }
         )
+        const unsubscribeNumber = useApp.subscribe(
+            (state) => state.numberIdentification,
+            (numberIdentification) =>
+            {
+                console.log('numberID changes to :', numberIdentification)
+                if (numberIdentification == 'display'){
+                    showId()
+
+                }
+                
+            }
+        )
+
+        
         // cleaning subscriptions
         return () => {
-            unsubscribeReset()
+            unsubscribeShowAdu()
+            unsubscribeNumber()
         }
 
         
@@ -69,6 +86,11 @@ export default function Adu({ onPositionChange}) {
    const makeVisible = () => {
     setVisible(true);
   };
+
+  const showId = () => {
+    setid(true)
+
+  }
 
    //TODO: Finish Coding makeVisible method
 
@@ -79,5 +101,6 @@ export default function Adu({ onPositionChange}) {
         >
         <boxGeometry />
         <meshStandardMaterial color={'white'}/>
+        {displayId && <Html>{id}</Html>}
     </animated.mesh>
 }

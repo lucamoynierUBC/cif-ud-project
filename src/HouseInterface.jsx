@@ -5,6 +5,7 @@ import useApp from "./stores/useApp";
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
     const showAdu = useApp((state) => state.showAdu)
+    const showAduID = useApp((state) => state.displayNumber)
     
 
     const handleClick = (blockId) => {
@@ -17,6 +18,10 @@ export default function HousingInterface() {
 
     const spawnAdu = () => {
         showAdu()
+    }
+
+    const displayAduID = () => {
+        showAduID()
     }
 
 
@@ -47,7 +52,15 @@ export default function HousingInterface() {
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
                 <button>MORE DATA</button>
-                <button>OK</button>
+                <button onClick={() => {handleClick(3), displayAduID()}}>OK</button>
+            </div>
+            )}
+            {selectedBlock === 3 && (<div>
+                <h1> Select an Area</h1>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
             </div>
             )}
 

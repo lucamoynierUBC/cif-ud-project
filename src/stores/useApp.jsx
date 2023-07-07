@@ -9,7 +9,10 @@ import { subscribeWithSelector } from 'zustand/middleware'
 export default create(subscribeWithSelector((set) => {
     return {
         color: 'purple',
+        // state change for displaying each adu
         phase: 'hideAdu',
+        // state change for displaying the number to identify each adu
+        numberIdentification: 'hide',
 
         showAdu: () => {
             console.log("spawning adu!")
@@ -30,8 +33,19 @@ export default create(subscribeWithSelector((set) => {
                 return {color: randomColor}
 
             })
-        }
-        
+        },
+        displayNumber: () => {
+            set(() => {
+                return {numberIdentification: 'display'}
+
+            })
+        },
+        hideNumber: () => {
+            set(() => {
+                return {numberIdentification: 'hide'}
+
+            })
+        },
     }
 }))
 

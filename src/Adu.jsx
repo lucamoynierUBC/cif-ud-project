@@ -51,6 +51,7 @@ export default function Adu({ onPositionChange, position, id}) {
     
     
 
+    //TODO: Change phase
     useEffect(() =>
     {
         const unsubscribeShowAdu = useApp.subscribe(
@@ -74,9 +75,7 @@ export default function Adu({ onPositionChange, position, id}) {
                 }
                 if (numberIdentification == 'hide'){
                     setid(false)
-
                 }
-                
             }
         )
 
@@ -96,21 +95,30 @@ export default function Adu({ onPositionChange, position, id}) {
                 }
                 if (selection === null) {
                     api.start({scale: [1, 1, 1]})
-                    
-
                 }
             }
-
         )
-
-
-
         
+        //NEW CHANGES
+        const unsubscribeClick = useInterface.subscribe(
+            (state) => state.clickSelection,
+            (clickSelection) =>
+            {
+                console.log('hide all adu!')
+                if (clickSelection === 1){
+                    setVisible(false)
+                }
+                if (clickSelection === 2 && id != 2){
+                    setVisible(false)
+                }
+            }
+        )        
         // cleaning subscriptions
         return () => {
             unsubscribeShowAdu()
             unsubscribeNumber()
             unsubscribeSelect()
+            unsubscribeClick()
         }
 
         

@@ -72,6 +72,10 @@ export default function Adu({ onPositionChange, position, id}) {
                     showId()
 
                 }
+                if (numberIdentification == 'hide'){
+                    setid(false)
+
+                }
                 
             }
         )

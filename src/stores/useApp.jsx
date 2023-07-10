@@ -41,6 +41,7 @@ export default create(subscribeWithSelector((set) => {
             })
         },
         hideNumber: () => {
+            console.log('hiding id')
             set(() => {
                 return {numberIdentification: 'hide'}
 

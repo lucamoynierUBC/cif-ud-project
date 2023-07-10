@@ -8,6 +8,7 @@ export default function House(props) {
   const { nodes, materials } = useGLTF("./Housev2.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
   const [ idVisible, setIdVisible] = useState(false)
+  const hideNumber = useApp((state) => state.hideNumber)
 
   const handleHouseClick = () => {
     setInterfaceVisible(!interfaceVisible) // Toggle the visibility
@@ -27,6 +28,9 @@ export default function House(props) {
                 console.log('atticID changes to :', numberIdentification)
                 if (numberIdentification == 'display') {
                   makeVisible()
+                }
+                if (numberIdentification == 'hide') {
+                  setIdVisible(false)
                 } 
             }
         )
@@ -41,7 +45,7 @@ export default function House(props) {
   return (
     <group {...props} dispose={null} scale={0.09}>
       <mesh
-        onClick={handleHouseClick}
+        onClick={() => {handleHouseClick(), hideNumber()}}
         castShadow
         receiveShadow
         geometry={nodes.house.geometry}
@@ -51,7 +55,7 @@ export default function House(props) {
       
       />
       <mesh
-        onClick={handleHouseClick}
+        onClick={() => {handleHouseClick(), hideNumber()}}
         castShadow
         receiveShadow
         geometry={nodes.attic.geometry}

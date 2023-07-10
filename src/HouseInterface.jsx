@@ -32,7 +32,7 @@ export default function HousingInterface() {
     }
 
 
-    return <Html position={[10, 25, 0]}
+    return <Html position={[15, 20, 0]}
         center
         distanceFactor={8}
         wrapperClass='housingInterface'>

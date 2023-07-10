@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import Cube from './Cube'
 import useApp from './stores/useApp'
 import Adu from './Adu'
 import { OrbitControls } from './Controls'
@@ -8,6 +7,8 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import House from './House'
 import { useState } from 'react'
+import TestObject from './TestObject'
+import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 
 
   
@@ -90,14 +91,22 @@ export default function Experience() {
         
         
         
-        <mesh receiveShadow rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>
+        <mesh receiveShadow rotation-x={-(Math.PI/2)} scale-x={4} scale-y={10} position-y={-0.5}>
             <planeGeometry />
             <meshStandardMaterial opacity={.5} color = 'darkgrey' />
         </mesh>
 
         <House></House>
-        <Cube color={color} position={[6, 1, 0]}/>
-        <Cube color={color} position={[6, 4, 0]}/>
+        <Selection>
+            <EffectComposer multisampling={8} autoClear={false}>
+                <Outline blur visibleEdgeColor="white" edgeStrength={100} width={1000} />
+            </EffectComposer>
+            <TestObject position={[5, 3, 0]}/>
+            <TestObject position={[5, 1, 0]}/>
+
+        </Selection>
+       
+        
 
 
 

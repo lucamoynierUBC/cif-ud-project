@@ -5,6 +5,7 @@ import { useOrbitControls } from "./Controls"
 import  useApp  from "./stores/useApp"
 import { useEffect, useState } from "react"
 import { Html } from "@react-three/drei"
+import useInterface from "./stores/useInterface"
 
 
 
@@ -33,6 +34,7 @@ export default function Adu({ onPositionChange, position, id}) {
             
         },
         onHover({ hovering }) {
+            console.log(hovering)
             return api.start({scale: hovering ? [1.2, 1.2, 1.2] : [1, 1, 1] })
         },
         onDragEnd() {
@@ -46,6 +48,7 @@ export default function Adu({ onPositionChange, position, id}) {
 
     const [visible, setVisible ] = useState(false)
     const [displayId, setid] = useState(false)
+    
     
 
     useEffect(() =>
@@ -73,11 +76,37 @@ export default function Adu({ onPositionChange, position, id}) {
             }
         )
 
+        const unsubscribeSelect = useInterface.subscribe(
+            (state) => state.selection,
+            (selection) => 
+            {
+                console.log('expand the scale of adu #', selection)
+                if (selection === 2 && id === 2) {
+                    api.start({scale: [1.2, 1.2, 1.2]})
+                }
+                if (selection === 3 && id === 3) {
+                    api.start({scale: [1.2, 1.2, 1.2]})
+                }
+                if (selection === 4 && id === 4) {
+                    api.start({scale: [1.2, 1.2, 1.2]})
+                }
+                if (selection === null) {
+                    api.start({scale: [1, 1, 1]})
+                    
+
+                }
+            }
+
+        )
+
+
+
         
         // cleaning subscriptions
         return () => {
             unsubscribeShowAdu()
             unsubscribeNumber()
+            unsubscribeSelect()
         }
 
         

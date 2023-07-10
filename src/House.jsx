@@ -39,7 +39,7 @@ export default function House(props) {
 
 
   return (
-    <group {...props} dispose={null} scale={0.1}>
+    <group {...props} dispose={null} scale={0.09}>
       <mesh
         onClick={handleHouseClick}
         castShadow

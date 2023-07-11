@@ -56,6 +56,7 @@ export default function House(props) {
         rotation={[Math.PI / 2, 0, 0]}
       
       />
+      {/* create seperate component for attic, to allow outline selection, split the meshes into two components */}
       <mesh
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu()}}
         castShadow

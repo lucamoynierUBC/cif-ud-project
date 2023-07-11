@@ -19,6 +19,7 @@ export default function Adu({ onPositionChange, position, id}) {
         position: position, 
         scale: [1, 1, 1], 
         rotation: [0, 0, 0], 
+        color: 'white',
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
         },
     }))
@@ -35,7 +36,8 @@ export default function Adu({ onPositionChange, position, id}) {
         },
         onHover({ hovering }) {
             console.log(hovering)
-            return api.start({scale: hovering ? [1.2, 1.2, 1.2] : [1, 1, 1] })
+            api.start({scale: hovering ? [1.2, 1.2, 1.2] : [1, 1, 1] })
+            api.start({color: hovering ? 'indianred' : 'white'})
         },
         onDragEnd() {
             enableCamera()
@@ -154,7 +156,7 @@ export default function Adu({ onPositionChange, position, id}) {
         visible = {visible}
         >
         <boxGeometry />
-        <meshStandardMaterial color={'white'}/>
+        <animated.meshStandardMaterial color={spring.color}/>
         {displayId && <Html wrapperClass="idLabel">{id}</Html>}
     </animated.mesh>
 }

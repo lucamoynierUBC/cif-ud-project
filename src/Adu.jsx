@@ -155,6 +155,6 @@ export default function Adu({ onPositionChange, position, id}) {
         >
         <boxGeometry />
         <meshStandardMaterial color={'white'}/>
-        {displayId && <Html>{id}</Html>}
+        {displayId && <Html wrapperClass="idLabel">{id}</Html>}
     </animated.mesh>
 }

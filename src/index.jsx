@@ -12,7 +12,7 @@ root.render(
             <Experience />
         </Canvas>
 
-        <GUI></GUI>
+        
     </>
 
 	

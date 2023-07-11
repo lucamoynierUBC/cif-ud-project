@@ -66,7 +66,7 @@ export default function House(props) {
         rotation={[Math.PI / 2, 0, 0]}
         
       > 
-        {idVisible && <Html>1</Html>}
+        {idVisible && <Html wrapperClass="idLabel">1</Html>}
       
       </mesh>
       {interfaceVisible && <HousingInterface />}

@@ -51,9 +51,10 @@ export default function Adu({ onPositionChange, position, id}) {
     
     
 
-    //TODO: Change phase
+    //Triggers certain events if state changes are detected
     useEffect(() =>
     {
+        // set adu to visible
         const unsubscribeShowAdu = useApp.subscribe(
             (state) => state.phase,
             (phase) =>
@@ -62,8 +63,12 @@ export default function Adu({ onPositionChange, position, id}) {
                 if (phase === 'showAdu'){
                     makeVisible()
                 }
+                if (phase === 'hideAdu'){
+                    setVisible(false)
+                }
             }
         )
+        //  set adu ID to visible
         const unsubscribeNumber = useApp.subscribe(
             (state) => state.numberIdentification,
             (numberIdentification) =>
@@ -78,7 +83,8 @@ export default function Adu({ onPositionChange, position, id}) {
                 }
             }
         )
-
+        
+        // change adu scale when button is hovered over
         const unsubscribeSelect = useInterface.subscribe(
             (state) => state.selection,
             (selection) => 
@@ -99,7 +105,7 @@ export default function Adu({ onPositionChange, position, id}) {
             }
         )
         
-        //NEW CHANGES
+        // hide specific adu's when button is clicked
         const unsubscribeClick = useInterface.subscribe(
             (state) => state.clickSelection,
             (clickSelection) =>
@@ -109,6 +115,12 @@ export default function Adu({ onPositionChange, position, id}) {
                     setVisible(false)
                 }
                 if (clickSelection === 2 && id != 2){
+                    setVisible(false)
+                }
+                if (clickSelection === 3 && id != 3){
+                    setVisible(false)
+                }
+                if (clickSelection === 4 && id != 4){
                     setVisible(false)
                 }
             }

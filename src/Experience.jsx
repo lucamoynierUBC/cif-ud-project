@@ -9,6 +9,8 @@ import House from './House'
 import { useState } from 'react'
 import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
+import { OrthographicCamera, PerspectiveCamera } from '@react-three/drei'
+
 
 
   
@@ -47,20 +49,28 @@ export default function Experience() {
         // console.log("Rigid Body x: ", x)
         // console.log("Rigid Body z: ", z)
         aduRigidBody.current.setNextKinematicTranslation({x: x, y: 0,  z: z})
+
+        //set camera parameters here
+
+        
     
 
 
 
     })
 
-   
-    
-
     return <>
 
         
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
+        <PerspectiveCamera 
+        makeDefault 
+        position={[4, 5, 7]}
+    
+        />
+
+        
 
         <OrbitControls>
             <Physics debug>

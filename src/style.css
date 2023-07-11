@@ -13,7 +13,7 @@ body,
 {
     font-family: Helvetica, Arial;
     position: absolute;
-    background: #dfdfdf;
+    background: #d3d5d9;
     color: rgb(0, 0, 0);
     padding: 15px;
     white-space: pre-wrap;
@@ -26,6 +26,75 @@ body,
     gap: 50px;
 }
 
+.housingInterfaceButton
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #828892;
+    color: white;
+    padding: 16px 32px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+
+}
+
+.housingInterfaceHeader
+{
+    width: 100%;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.housingInterfaceButton:hover {
+    background-color: #d96b27;
+}
+
+.housingInterfaceButton:focus {
+    outline: none;
+}
+
+.housingInterfaceButton:active {
+    transform: translateY(2px);
+}
+
+.smallHousingInterfaceButton {
+    display: flex;
+    justify-content:flex-end;
+    margin-left: auto;
+    background-color: #828892;
+    color: white;
+    padding: 6px 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+
+}
+.smallHousingInterfaceButton:hover {
+    background-color: #d96b27;
+}
+
+.smallHousingInterfaceButton:focus {
+    outline: none;
+}
+
+.smallHousingInterfaceButton:active {
+    transform: translateY(2px);
+}
+.housingInterfaceHeader 
+/* Everything below is a test/dummy */
 .testInterface > div
 {
     font-family: Helvetica, Arial;

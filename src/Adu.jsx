@@ -63,6 +63,7 @@ export default function Adu({ onPositionChange, position, id}) {
                 if (phase === 'showAdu'){
                     makeVisible()
                 }
+                // bug over here, if called it wont display hide the adus
                 if (phase === 'hideAdu'){
                     setVisible(false)
                 }

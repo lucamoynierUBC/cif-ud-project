@@ -40,9 +40,9 @@ export default function HousingInterface() {
     }
 
 
-    return <Html position={[15, 20, 0]}
+    return <Html position={[20, 20, 0]}
         center
-        distanceFactor={8}
+        distanceFactor={6}
         wrapperClass='housingInterface'>
         <div>
             {selectedBlock === null ? (<div>
@@ -52,47 +52,51 @@ export default function HousingInterface() {
             </div>
             ) : null }
             {selectedBlock === 1 && (<div>
-                <h1>Single Family Home</h1>
+                <h1 className="housingInterfaceHeader">Single Family Home</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Tortor aliquam nulla facilisi cras fermentum odio eu. 
                     Laoreet non curabitur gravida arcu ac tortor dignissim. 
                     Nec feugiat nisl pretium fusce. Sapien nec sagittis aliquam malesuada.</p>
-                <button onClick={() => {handleClick(2), spawnAdu()}}>OK</button>
+                <button className="smallHousingInterfaceButton" onClick={() => {handleClick(2), spawnAdu()}}>OK</button>
             </div>
             )}
             {selectedBlock === 2 && (<div>
-                <h1>Overall Benefits</h1>
+                <h1 className="housingInterfaceHeader">Overall Benefits</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
-                <button>MORE DATA</button>
-                <button onClick={() => {handleClick(3), displayAduID()}}>OK</button>
+                <button className="smallHousingInterfaceButton">MORE DATA</button>
+                <button className="smallHousingInterfaceButton"onClick={() => {handleClick(3), displayAduID()}}>OK</button>
             </div>
             )}
             {selectedBlock === 3 && (<div>
-                <h1> Select an Area</h1>
+                <h1 className="housingInterfaceHeader"> Select an Area</h1>
                 {/* call hideAdu() any time a button is clicked & hideAduID */}
-                <button 
-                onClick={() => {handleClick(4), clickOne(), hideAdu(), hideAduID()}} 
+                <button
+                className="housingInterfaceButton" 
+                onClick={() => {handleClick(4), clickOne(), hideAduID()}} 
                 onMouseEnter={() => selectOne()} 
                 onMouseOut={() => removeSelection()}
                 >1</button>
                 
                 <button 
-                onClick={() => {clickTwo(), hideAdu(), hideAduID()}} 
+                className="housingInterfaceButton" 
+                onClick={() => {clickTwo(), hideAduID()}} 
                 onMouseEnter={() => selectTwo()} 
                 onMouseOut={() => removeSelection()}
                 >2</button>
                 
                 <button 
-                onClick={() => {clickThree(), hideAdu(), hideAduID()}} 
+                className="housingInterfaceButton" 
+                onClick={() => {clickThree(), hideAduID()}} 
                 onMouseEnter={() => selectThree()} 
                 onMouseOut={() => removeSelection()}
                 >3</button>
 
                 <button 
-                onClick={() => {clickFour(), hideAdu(), hideAduID()}} 
+                className="housingInterfaceButton" 
+                onClick={() => {clickFour(), hideAduID()}} 
                 onMouseEnter={() => selectFour()} 
                 onMouseOut={() => removeSelection()}
                 >4</button>

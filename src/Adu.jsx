@@ -109,6 +109,8 @@ export default function Adu({ onPositionChange, position, id}) {
         )
         
         // hide specific adu's when button is clicked
+
+        //does not get called a second time
         const unsubscribeClick = useInterface.subscribe(
             (state) => state.clickSelection,
             (clickSelection) =>

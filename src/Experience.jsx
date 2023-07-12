@@ -109,7 +109,7 @@ export default function Experience() {
         
         <Selection>
             <EffectComposer multisampling={8} autoClear={false}>
-                <Outline blur visibleEdgeColor="white" edgeStrength={100} width={1000} />
+                <Outline  xRay={true} blur={true} visibleEdgeColor="black" hiddenEdgeColor="blue" edgeStrength={100} width={1000} />
             </EffectComposer>
             <TestObject position={[5, 3, 0]}/>
             <TestObject position={[5, 1, 0]}/>

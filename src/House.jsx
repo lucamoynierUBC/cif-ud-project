@@ -3,6 +3,7 @@ import { Html, useGLTF } from "@react-three/drei";
 import HousingInterface from "./HouseInterface";
 import useApp from "./stores/useApp";
 import { Select } from "@react-three/postprocessing";
+import useInterface from "./stores/useInterface";
 
 
 export default function House(props) {
@@ -11,8 +12,9 @@ export default function House(props) {
   const [ idVisible, setIdVisible] = useState(false)
   const hideNumber = useApp((state) => state.hideNumber)
   const hideAdu = useApp((state) => state.hideAdu)
+  const resetClick = useInterface((state) => state.resetClick)
+  
   //outline effect 
-
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
   
@@ -56,7 +58,7 @@ export default function House(props) {
     <group {...props} dispose={null} scale={0.09}>
      
       <mesh
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
         castShadow
         receiveShadow
         geometry={nodes.house.geometry}
@@ -73,7 +75,7 @@ export default function House(props) {
           ref={atticRef}
           onPointerOver={() => atticHover(true)}
           onPointerOut={() => atticHover(false)}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu()}}
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
           receiveShadow
           geometry={nodes.attic.geometry}

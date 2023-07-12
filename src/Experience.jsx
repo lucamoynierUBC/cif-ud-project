@@ -106,13 +106,14 @@ export default function Experience() {
             <meshStandardMaterial opacity={.5} color = 'darkgrey' />
         </mesh>
 
-        <House></House>
+        
         <Selection>
             <EffectComposer multisampling={8} autoClear={false}>
                 <Outline blur visibleEdgeColor="white" edgeStrength={100} width={1000} />
             </EffectComposer>
             <TestObject position={[5, 3, 0]}/>
             <TestObject position={[5, 1, 0]}/>
+            <House></House>
 
         </Selection>
        

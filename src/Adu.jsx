@@ -10,11 +10,12 @@ import useInterface from "./stores/useInterface"
 
 
 export default function Adu({ onPositionChange, position, id}) {
-
-
+    // acess the size and viewport
     const {size, viewport} = useThree()
     const aspect = size.width / viewport.width
+    // Access enableCamera and disableCamera functions from OrbitControls context
     const { enableCamera, disableCamera } = useOrbitControls()
+    // create animated spromg values for different mesh properties
     const [spring, api] = useSpring(() => ({ 
         position: position, 
         scale: [1, 1, 1], 
@@ -23,6 +24,7 @@ export default function Adu({ onPositionChange, position, id}) {
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
         },
     }))
+    // Use useGesture hook to bind drag and hover gestures to the component
     const bind = useGesture({
         onDragStart() {
             disableCamera()
@@ -47,16 +49,16 @@ export default function Adu({ onPositionChange, position, id}) {
       }
     )
     
-
+    // State to toggle Adu visibility and the html for each Adu's id
     const [visible, setVisible ] = useState(false)
     const [displayId, setid] = useState(false)
     
     
 
-    //Triggers certain events if state changes are detected
+    // Subscribe to state changes in the store
     useEffect(() =>
     {
-        // set adu to visible
+        // Set adu to visible when phase changes to 'showAdu'
         const unsubscribeShowAdu = useApp.subscribe(
             (state) => state.phase,
             (phase) =>
@@ -71,7 +73,7 @@ export default function Adu({ onPositionChange, position, id}) {
                 }
             }
         )
-        //  set adu ID to visible
+        // Set adu ID to visible when numberIdentification changes to 'display'
         const unsubscribeNumber = useApp.subscribe(
             (state) => state.numberIdentification,
             (numberIdentification) =>
@@ -87,7 +89,7 @@ export default function Adu({ onPositionChange, position, id}) {
             }
         )
         
-        // change adu scale when button is hovered over
+        // Change adu scale when button is hovered over in the useInterface store
         const unsubscribeSelect = useInterface.subscribe(
             (state) => state.selection,
             (selection) => 
@@ -108,9 +110,7 @@ export default function Adu({ onPositionChange, position, id}) {
             }
         )
         
-        // hide specific adu's when button is clicked
-
-        //does not get called a second time
+        // Hide specific adus when button is clicked in the useInterface store
         const unsubscribeClick = useInterface.subscribe(
             (state) => state.clickSelection,
             (clickSelection) =>
@@ -130,7 +130,7 @@ export default function Adu({ onPositionChange, position, id}) {
                 }
             }
         )        
-        // cleaning subscriptions
+        // Clean up subscriptions
         return () => {
             unsubscribeShowAdu()
             unsubscribeNumber()
@@ -141,16 +141,15 @@ export default function Adu({ onPositionChange, position, id}) {
         
    }, [])
 
+   // Method to set adu to visible
    const makeVisible = () => {
     setVisible(true);
-  };
-
-  const showId = () => {
-    setid(true)
-
   }
 
-   //TODO: Finish Coding makeVisible method
+  // Method to show adu ID
+  const showId = () => {
+    setid(true)
+  }
 
     return <animated.mesh {...spring} {...bind()}
         onPointerOver={(event) => event.stopPropagation() } 

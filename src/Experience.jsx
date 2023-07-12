@@ -1,15 +1,15 @@
-import * as THREE from 'three'
+
 import useApp from './stores/useApp'
 import Adu from './Adu'
 import { OrbitControls } from './Controls'
 import { Physics, RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import House from './House'
-import { useState } from 'react'
 import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
-import { OrthographicCamera, PerspectiveCamera } from '@react-three/drei'
+import { PerspectiveCamera } from '@react-three/drei'
+import OutlineEffect from './OutlineEffect'
+
 
 
 
@@ -64,20 +64,19 @@ export default function Experience() {
         
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
+        <color args={['ivory']} attach="background"/>
         <PerspectiveCamera 
         makeDefault 
         position={[4, 5, 7]}
-    
+        fov={50}
+        far={100}
         />
-
-        
-
         <OrbitControls>
             <Physics debug>
                 {/* <RigidBody  gravityScale={0}>
                     <Cube color={color} position={[6, 1, 0]}/>
                 </RigidBody> */}
-                {/* rigit body does not move because it is set to fixed */}
+                {/* rigid body does not move because it is set to fixed */}
                 <RigidBody
                     ref={aduRigidBody} 
                     type="kinematicPosition">
@@ -97,33 +96,12 @@ export default function Experience() {
             </mesh> */}
         </OrbitControls>
 
-        
-        
-        
-        
         <mesh receiveShadow rotation-x={-(Math.PI/2)} scale-x={4} scale-y={10} position-y={-0.5}>
             <planeGeometry />
             <meshStandardMaterial opacity={.5} color = 'darkgrey' />
         </mesh>
 
-        
-        <Selection>
-            <EffectComposer multisampling={8} autoClear={false}>
-                <Outline  xRay={false} blur={true} visibleEdgeColor={"white"} hiddenEdgeColor={"white"} edgeStrength={100} width={1000} />
 
-            </EffectComposer>
-            <TestObject position={[5, 3, 0]}/>
-            <TestObject position={[5, 1, 0]}/>
-            <House></House>
-
-        </Selection>
-       
-        
-
-
-
-        
-     
-
+        <OutlineEffect></OutlineEffect>
     </>
 }

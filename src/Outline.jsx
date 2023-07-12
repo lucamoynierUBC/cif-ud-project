@@ -1,1 +1,0 @@
-// TODO: make the outline class its own component

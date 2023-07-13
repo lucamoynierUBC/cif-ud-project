@@ -55,7 +55,7 @@ export default function House(props) {
 
 
   return (
-    <group {...props} dispose={null} scale={0.09}>
+    <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]}>
      
       <mesh
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}

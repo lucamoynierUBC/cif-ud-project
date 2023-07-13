@@ -80,14 +80,14 @@ export default function Experience() {
                 <RigidBody
                     ref={aduRigidBody} 
                     type="kinematicPosition">
-                    <Adu id={4} onPositionChange={handlePositionChange} position={[-2, 0, 0]}/>
+                    <Adu id={4} onPositionChange={handlePositionChange} position={[-2, 0, 0]} scale={[1, 1, 1]}/>
                 </RigidBody>
         
 
 
             </Physics>
-            <Adu id={2} onPositionChange={handlePositionChange} position={[2, 0, 0]}/>
-            <Adu id={3} onPositionChange={handlePositionChange} position={[0, -1, 0]}/>
+            <Adu id={2} onPositionChange={handlePositionChange} position={[2, 0, 0]} scale={[1, 1, 1]}/>
+            <Adu id={3} onPositionChange={handlePositionChange} position={[0, -0.75, .4]} scale={[2.5, 0.75, 4.25]}/>
         
 
             {/* <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>

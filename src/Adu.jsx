@@ -9,7 +9,7 @@ import useInterface from "./stores/useInterface"
 
 
 
-export default function Adu({ onPositionChange, position, id}) {
+export default function Adu({ onPositionChange, position, id, scale}) {
     // acess the size and viewport
     const {size, viewport} = useThree()
     const aspect = size.width / viewport.width
@@ -18,7 +18,7 @@ export default function Adu({ onPositionChange, position, id}) {
     // create animated spromg values for different mesh properties
     const [spring, api] = useSpring(() => ({ 
         position: position, 
-        scale: [1, 1, 1], 
+        scale: scale, 
         rotation: [0, 0, 0],
         color: 'white',
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
@@ -38,7 +38,7 @@ export default function Adu({ onPositionChange, position, id}) {
         },
         onHover({ hovering }) {
             console.log(hovering)
-            api.start({scale: hovering ? [1.2, 1.2, 1.2] : [1, 1, 1] })
+            api.start({scale: hovering ? scale.map(value => value * 1.2) : scale })
             api.start({color: hovering ? 'indianred' : 'white'})
 
         },
@@ -97,19 +97,19 @@ export default function Adu({ onPositionChange, position, id}) {
             {
                 console.log('expand the scale of adu #', selection)
                 if (selection === 2 && id === 2) {
-                    api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({scale: scale.map(value => value * 1.2)})
                     api.start({color: 'indianred'})
                 }
                 if (selection === 3 && id === 3) {
-                    api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({scale: scale.map(value => value * 1.2)})
                     api.start({color: 'indianred'})
                 }
                 if (selection === 4 && id === 4) {
-                    api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({scale: scale.map(value => value * 1.2)})
                     api.start({color: 'indianred'})
                 }
                 if (selection === null) {
-                    api.start({scale: [1, 1, 1]})
+                    api.start({scale: scale})
                     api.start({color: 'white'})
                 }
             }

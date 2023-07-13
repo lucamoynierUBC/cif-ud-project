@@ -11,6 +11,7 @@ root.render(
         <Canvas>
             <Experience />
         </Canvas>
+        <GUI></GUI>
 
         
     </>

@@ -33,7 +33,7 @@ export const OrbitControls = ({ children }) => {
       <OrbitControlsContext.Provider value={context}>
         {children}
       </OrbitControlsContext.Provider>
-      <BaseOrbitControls ref={ref} enabled={isEnabled} enableRotate={false} />
+      <BaseOrbitControls ref={ref} enabled={isEnabled} enableRotate={true} />
     </>
   );
 };

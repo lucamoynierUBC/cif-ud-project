@@ -11,8 +11,5 @@ export default function OutlineEffect() {
         </EffectComposer>
         <House></House>
 
-        <TestObject position={[5, 3, 0]}/>
-        <TestObject position={[5, 1, 0]}/>
-
     </Selection>
 }

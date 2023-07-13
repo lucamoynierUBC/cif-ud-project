@@ -19,7 +19,7 @@ export default function Adu({ onPositionChange, position, id}) {
     const [spring, api] = useSpring(() => ({ 
         position: position, 
         scale: [1, 1, 1], 
-        rotation: [0, 0, 0], 
+        rotation: [0, 0, 0],
         color: 'white',
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001
         },
@@ -40,6 +40,7 @@ export default function Adu({ onPositionChange, position, id}) {
             console.log(hovering)
             api.start({scale: hovering ? [1.2, 1.2, 1.2] : [1, 1, 1] })
             api.start({color: hovering ? 'indianred' : 'white'})
+
         },
         onDragEnd() {
             enableCamera()
@@ -97,15 +98,19 @@ export default function Adu({ onPositionChange, position, id}) {
                 console.log('expand the scale of adu #', selection)
                 if (selection === 2 && id === 2) {
                     api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({color: 'indianred'})
                 }
                 if (selection === 3 && id === 3) {
                     api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({color: 'indianred'})
                 }
                 if (selection === 4 && id === 4) {
                     api.start({scale: [1.2, 1.2, 1.2]})
+                    api.start({color: 'indianred'})
                 }
                 if (selection === null) {
                     api.start({scale: [1, 1, 1]})
+                    api.start({color: 'white'})
                 }
             }
         )
@@ -157,7 +162,7 @@ export default function Adu({ onPositionChange, position, id}) {
         visible = {visible}
         >
         <boxGeometry />
-        <animated.meshStandardMaterial color={spring.color}/>
+        <animated.meshStandardMaterial color={spring.color}  />
         {displayId && <Html wrapperClass="idLabel">{id}</Html>}
     </animated.mesh>
 }

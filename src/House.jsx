@@ -46,16 +46,28 @@ export default function House(props) {
                 } 
             }
         )
+
+        const unsubscribeHighlight = useInterface.subscribe(
+          (state) => state.selection,
+          (selection) => {
+            if (selection === 1){
+              atticHover(true)
+            } else {
+              atticHover(false)
+            }
+          }
+        )
         // cleaning subscriptions
         return () => {
             unsubscribeID()
+            unsubscribeHighlight()
         }
    }, [])
 
 
 
   return (
-    <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]}>
+    <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]} onPointerOver={(event) => event.stopPropagation()}>
      
       <mesh
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}

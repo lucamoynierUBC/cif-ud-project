@@ -75,28 +75,28 @@ export default function HousingInterface() {
                 {/* call hideAdu() any time a button is clicked & hideAduID */}
                 <button
                 className="housingInterfaceButton" 
-                onClick={() => {handleClick(4), clickOne(), hideAduID()}} 
+                onClick={() => {handleClick(4), clickOne(), hideAduID(), removeSelection()}} 
                 onMouseEnter={() => selectOne()} 
                 onMouseOut={() => removeSelection()}
                 >1</button>
                 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {clickTwo(), hideAduID()}} 
+                onClick={() => {handleClick(5), clickTwo(), hideAduID(), removeSelection()}} 
                 onMouseEnter={() => selectTwo()} 
                 onMouseOut={() => removeSelection()}
                 >2</button>
                 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {clickThree(), hideAduID()}} 
+                onClick={() => {handleClick(6), clickThree(), hideAduID(), removeSelection()}} 
                 onMouseEnter={() => selectThree()} 
                 onMouseOut={() => removeSelection()}
                 >3</button>
 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {clickFour(), hideAduID()}} 
+                onClick={() => {handleClick(7), clickFour(), hideAduID(), removeSelection()}} 
                 onMouseEnter={() => selectFour()} 
                 onMouseOut={() => removeSelection()}
                 >4</button>
@@ -107,8 +107,32 @@ export default function HousingInterface() {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Metus aliquam eleifend mi in nulla posuere.</p>
-                <button onClick={() => {handleClick(3)}}>OK</button>
+                    {/* first call hideAdu(), then showAdu() to reset state, potential source of bugs in the future
+                    refactor in the furture */}
+                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
             </div>)}
+            {selectedBlock === 5 && (<div>
+                <h1>Side Adu</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Metus aliquam eleifend mi in nulla posuere.</p>
+                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+            </div>)}
+            {selectedBlock === 6 && (<div>
+                <h1>Basement Adu</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Metus aliquam eleifend mi in nulla posuere.</p>
+                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+            </div>)}
+            {selectedBlock === 7 && (<div>
+                <h1>Side Adu</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Metus aliquam eleifend mi in nulla posuere.</p>
+                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+            </div>)}
+            
       </div>
 
     </Html>

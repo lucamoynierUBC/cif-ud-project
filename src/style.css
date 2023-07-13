@@ -20,7 +20,7 @@ body,
     overflow: auto;
     border-radius: 30px;
     user-select: none;
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 50px;

@@ -34,7 +34,14 @@ export const OrbitControls = ({ children }) => {
         {children}
       </OrbitControlsContext.Provider>
       {/* TODO: Adjust polar angles */}
-      <BaseOrbitControls ref={ref} enabled={isEnabled} enableRotate={true} pol />
+      <BaseOrbitControls 
+      ref={ref} 
+      enabled={isEnabled} 
+      enableRotate={true} 
+      maxPolarAngle={Math.PI /4} 
+      maxAzimuthAngle={Math.PI /2}
+      minAzimuthAngle={Math.PI/6}
+      />
     </>
   );
 };

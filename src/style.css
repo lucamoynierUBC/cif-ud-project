@@ -24,6 +24,19 @@ body,
     display: flex;
     flex-direction: column;
     gap: 50px;
+    transform: translate3d(calc(50% + 40px), 0, 0);
+}
+
+.housingInterface::before
+{
+    content: "";
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    height: 150px;
+    width: 5px;
+    transform: rotate(90deg);
+    background: #d3d5d9;
 }
 
 .housingInterfaceButton

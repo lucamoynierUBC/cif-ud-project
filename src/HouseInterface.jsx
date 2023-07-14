@@ -40,9 +40,8 @@ export default function HousingInterface() {
     }
 
 
-    return <Html position={[25, 25, 0]}
-        center
-        distanceFactor={6}
+    return <Html position={[25, 35, 0]}
+        distanceFactor={8}
         wrapperClass='housingInterface'>
         <div>
             {selectedBlock === null ? (<div>
@@ -75,28 +74,28 @@ export default function HousingInterface() {
                 {/* call hideAdu() any time a button is clicked & hideAduID */}
                 <button
                 className="housingInterfaceButton" 
-                onClick={() => {handleClick(4), clickOne(), hideAduID(), removeSelection()}} 
+                onClick={() => {handleClick(4), clickOne(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectOne()} 
                 onMouseOut={() => removeSelection()}
                 >1</button>
                 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {handleClick(5), clickTwo(), hideAduID(), removeSelection()}} 
+                onClick={() => {handleClick(5), clickTwo(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectTwo()} 
                 onMouseOut={() => removeSelection()}
                 >2</button>
                 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {handleClick(6), clickThree(), hideAduID(), removeSelection()}} 
+                onClick={() => {handleClick(6), clickThree(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectThree()} 
                 onMouseOut={() => removeSelection()}
                 >3</button>
 
                 <button 
                 className="housingInterfaceButton" 
-                onClick={() => {handleClick(7), clickFour(), hideAduID(), removeSelection()}} 
+                onClick={() => {handleClick(7), clickFour(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectFour()} 
                 onMouseOut={() => removeSelection()}
                 >4</button>

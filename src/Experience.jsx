@@ -9,6 +9,7 @@ import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 import { Cloud, Environment, PerspectiveCamera, Sky } from '@react-three/drei'
 import OutlineEffect from './OutlineEffect'
+import Ground from './Ground'
 
 
 
@@ -96,14 +97,16 @@ export default function Experience() {
             </mesh> */}
         </OrbitControls>
 
-        <mesh receiveShadow rotation-x={-(Math.PI/2)} scale-x={4} scale-y={10} position-y={-0.5}>
+        {/* <mesh receiveShadow rotation-x={-(Math.PI/2)} scale-x={4} scale-y={10} position-y={-0.5}>
             <planeGeometry  />
             <meshStandardMaterial color = 'darkgrey' />
-        </mesh>
-        <Cloud position={[0,5,0]} scale={0.3}/>
-        <Cloud position={[4,5,-4]} scale={0.3}/>
-        <Cloud position={[-5,5,1]} scale={0.3}/>
+        </mesh> */}
+        <Cloud position={[0,7,0]} scale={0.3}/>
+        <Cloud position={[4,7,-4]} scale={0.3}/>
+        <Cloud position={[-5,7,1]} scale={0.3}/>
         <Environment preset='city'/>
+
+        <Ground></Ground>
         
         
    

@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
-import { Cloud, PerspectiveCamera, Sky } from '@react-three/drei'
+import { Cloud, Environment, PerspectiveCamera, Sky } from '@react-three/drei'
 import OutlineEffect from './OutlineEffect'
 
 
@@ -103,6 +103,7 @@ export default function Experience() {
         <Cloud position={[0,5,0]} scale={0.3}/>
         <Cloud position={[4,5,-4]} scale={0.3}/>
         <Cloud position={[-5,5,1]} scale={0.3}/>
+        <Environment preset='city'/>
         
         
    

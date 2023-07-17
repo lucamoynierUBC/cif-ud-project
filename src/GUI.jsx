@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react"
+import useGUI from "./stores/useGUI";
 
 
 export default function GUI() {
     const [showIntroBox, setShowIntroBox] = useState(true);
+    const guiIntroTurnOff = useGUI((state) => state.guiIntroTurnOff)
 
     const handleCloseIntroBox = () => {
         setShowIntroBox(false);
@@ -12,11 +14,11 @@ export default function GUI() {
         <div className="startOver">START OVER</div>
         <div className="exitTool">EXIT TOOL</div>
         {showIntroBox && ( <div className="introBox">
-            <p class="introText">This tool aims to simulate a Low Density neighborhood. 
+            <p className="introText">This tool aims to simulate a Low Density neighborhood. 
             Lorem ipsum dolor sit amet, apidiscing atque. 
             They are mainly composed of one and two-family residences, 
             and are most common in the outer boroughs.</p>
-            <button class="closeButton" onClick={handleCloseIntroBox}>X</button>
+            <button className="closeButton" onClick={() => {handleCloseIntroBox(), guiIntroTurnOff()}}>X</button>
 
         </div>
         )}

@@ -4,6 +4,8 @@ import HousingInterface from "./HouseInterface";
 import useApp from "./stores/useApp";
 import { Select } from "@react-three/postprocessing";
 import useInterface from "./stores/useInterface";
+import { animated, useSpring } from "@react-spring/three";
+import useGUI from "./stores/useGUI";
 
 
 export default function House(props) {
@@ -13,12 +15,16 @@ export default function House(props) {
   const hideNumber = useApp((state) => state.hideNumber)
   const hideAdu = useApp((state) => state.hideAdu)
   const resetClick = useInterface((state) => state.resetClick)
-  
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
+
+  //animatecolor
+  const [spring, api] = useSpring(() => ({
+    color: 'white',
+    config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
+  }))
   
-  console.log(atticHovered)
   
 
 
@@ -27,26 +33,11 @@ export default function House(props) {
     // TODO: if interface is not visible hide adu ID
   };
 
-  const makeVisible = () => {
-    setIdVisible(true)
-  }
+  
 
   useEffect(() =>
     {
-        const unsubscribeID = useApp.subscribe(
-            (state) => state.numberIdentification,
-            (numberIdentification) =>
-            {
-                console.log('atticID changes to :', numberIdentification)
-                if (numberIdentification == 'display') {
-                  makeVisible()
-                }
-                if (numberIdentification == 'hide') {
-                  setIdVisible(false)
-                } 
-            }
-        )
-
+        
         const unsubscribeHighlight = useInterface.subscribe(
           (state) => state.selection,
           (selection) => {
@@ -57,72 +48,49 @@ export default function House(props) {
             }
           }
         )
+        const unsubscribeColor = useGUI.subscribe(
+          (state) => state.guiIntroPhase,
+          (guiIntroPhase) => {
+            if (guiIntroPhase === 'off'){
+              api.start({color: 'orange'})
+            }
+          }
+        )
         // cleaning subscriptions
         return () => {
-            unsubscribeID()
+            // unsubscribeID()
             unsubscribeHighlight()
+            unsubscribeColor()
         }
    }, [])
 
 
 
   return (
-    // <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]} onPointerOver={(event) => event.stopPropagation()}>
-     
-    //   <mesh
-    //     onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-    //     castShadow
-    //     receiveShadow
-    //     geometry={nodes.house.geometry}
-    //     material={materials["Material.002"]}
-    //     position={[0, -4.892, 22.168]}
-    //     rotation={[Math.PI / 2, 0, 0]}
-      
-    //   />
-    
-      
-    //   {/* create seperate component for attic, to allow outline selection, split the meshes into two components */}
-    //   <Select enabled={atticHovered}>
-    //     <mesh
-    //       ref={atticRef}
-    //       onPointerOver={() => atticHover(true)}
-    //       onPointerOut={() => atticHover(false)}
-    //       onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-    //       castShadow
-    //       receiveShadow
-    //       geometry={nodes.attic.geometry}
-    //       material={materials["Material.001"]}
-    //       position={[0.559, 9.369, 0]}
-    //       rotation={[Math.PI / 2, 0, 0]}> 
-    //         {idVisible && <Html wrapperClass="idLabel">1</Html>}
-    
-    //     </mesh>
-
-    //   </Select>
-      
-    //   {interfaceVisible && <HousingInterface />}
-    // </group>
-    // );
-
     <group {...props} dispose={null} position={[0, 0, 0]} scale={0.4}>
+      <Select enabled={atticHovered}>
       <group position={[0.042, -23.125, 0]} scale={0.305} onPointerOver={(event) => event.stopPropagation()}>
-        <mesh
+        <animated.mesh
+          {...spring}
           onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
           receiveShadow
           geometry={nodes.main_house.geometry}
           material={materials.Material_2}
+          material-color={spring.color}
         />
-        <mesh
+        <animated.mesh
+          {...spring}
           onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
           receiveShadow
           geometry={nodes.main_house_1.geometry}
           material={materials.Plaster}
+          material-color={spring.color}
         />
       </group>
       <group position={[0.042, -23.125, 0]} scale={0.305}>
-        <Select enabled={atticHovered}>
+        {/* <Select enabled={atticHovered}> */}
           <mesh
             ref={atticRef}
             onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
@@ -134,8 +102,6 @@ export default function House(props) {
             material={materials.Material_2}
             
           />
-          {idVisible && <Html wrapperClass="idLabel">1</Html>}
-        </Select>
         <mesh
           onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
@@ -154,6 +120,7 @@ export default function House(props) {
         scale={0.305}
       />
       {interfaceVisible && <HousingInterface />}
+      </Select>
     </group>
   );
 

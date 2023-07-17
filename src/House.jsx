@@ -34,7 +34,7 @@ export default function House(props) {
   };
 
   
-
+  console.log(spring.color)
   useEffect(() =>
     {
         
@@ -53,6 +53,7 @@ export default function House(props) {
           (guiIntroPhase) => {
             if (guiIntroPhase === 'off'){
               api.start({color: 'orange'})
+              atticHover(true)
             }
           }
         )
@@ -78,6 +79,7 @@ export default function House(props) {
           geometry={nodes.main_house.geometry}
           material={materials.Material_2}
           material-color={spring.color}
+          material-opacity ={0.5}
         />
         <animated.mesh
           {...spring}
@@ -87,6 +89,7 @@ export default function House(props) {
           geometry={nodes.main_house_1.geometry}
           material={materials.Plaster}
           material-color={spring.color}
+          material-opacity ={0.5}
         />
       </group>
       <group position={[0.042, -23.125, 0]} scale={0.305}>

@@ -27,17 +27,6 @@ body,
     transform: translate3d(calc(50% + 40px), 0, 0);
 }
 
-.housingInterface::before
-{
-    content: "";
-    position: absolute;
-    top: 50px;
-    left: -50px;
-    height: 150px;
-    width: 5px;
-    transform: rotate(90deg);
-    background: #d3d5d9;
-}
 
 .housingInterfaceButton
 {
@@ -147,6 +136,47 @@ body,
     font-size: 2vh;
 }
 
+.introBox
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.introText {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles for the button */
+  
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    pointer-events: auto; /* Enable pointer events for the button */
+}
+  
+.closeButton:hover {
+    color: #ff0000;
+}
+  
 
 
 

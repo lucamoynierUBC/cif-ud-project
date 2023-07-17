@@ -40,8 +40,7 @@ export default function HousingInterface() {
     }
 
 
-    return <Html position={[25, 35, 0]}
-        distanceFactor={8}
+    return <Html position={[0, 0, 0]}
         wrapperClass='housingInterface'>
         <div>
             {selectedBlock === null ? (<div>

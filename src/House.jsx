@@ -7,7 +7,7 @@ import useInterface from "./stores/useInterface";
 
 
 export default function House(props) {
-  const { nodes, materials } = useGLTF("./Housev2.glb");
+  const { nodes, materials } = useGLTF("./housev3.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
   const [ idVisible, setIdVisible] = useState(false)
   const hideNumber = useApp((state) => state.hideNumber)
@@ -67,42 +67,97 @@ export default function House(props) {
 
 
   return (
-    <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]} onPointerOver={(event) => event.stopPropagation()}>
+    // <group {...props} dispose={null} scale={0.09} position={[0, .25, 0]} onPointerOver={(event) => event.stopPropagation()}>
      
+    //   <mesh
+    //     onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+    //     castShadow
+    //     receiveShadow
+    //     geometry={nodes.house.geometry}
+    //     material={materials["Material.002"]}
+    //     position={[0, -4.892, 22.168]}
+    //     rotation={[Math.PI / 2, 0, 0]}
+      
+    //   />
+    
+      
+    //   {/* create seperate component for attic, to allow outline selection, split the meshes into two components */}
+    //   <Select enabled={atticHovered}>
+    //     <mesh
+    //       ref={atticRef}
+    //       onPointerOver={() => atticHover(true)}
+    //       onPointerOut={() => atticHover(false)}
+    //       onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+    //       castShadow
+    //       receiveShadow
+    //       geometry={nodes.attic.geometry}
+    //       material={materials["Material.001"]}
+    //       position={[0.559, 9.369, 0]}
+    //       rotation={[Math.PI / 2, 0, 0]}> 
+    //         {idVisible && <Html wrapperClass="idLabel">1</Html>}
+    
+    //     </mesh>
+
+    //   </Select>
+      
+    //   {interfaceVisible && <HousingInterface />}
+    // </group>
+    // );
+
+    <group {...props} dispose={null} position={[0, 0, 0]} scale={0.4}>
+      <group position={[0.042, -23.125, 0]} scale={0.305} onPointerOver={(event) => event.stopPropagation()}>
+        <mesh
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+          castShadow
+          receiveShadow
+          geometry={nodes.main_house.geometry}
+          material={materials.Material_2}
+        />
+        <mesh
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+          castShadow
+          receiveShadow
+          geometry={nodes.main_house_1.geometry}
+          material={materials.Plaster}
+        />
+      </group>
+      <group position={[0.042, -23.125, 0]} scale={0.305}>
+        <Select enabled={atticHovered}>
+          <mesh
+            ref={atticRef}
+            onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+            onPointerOver={() => atticHover(true)}
+            onPointerOut={() => atticHover(false)}
+            castShadow
+            receiveShadow
+            geometry={nodes.attic.geometry}
+            material={materials.Material_2}
+            
+          />
+          {idVisible && <Html wrapperClass="idLabel">1</Html>}
+        </Select>
+        <mesh
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+          castShadow
+          receiveShadow
+          geometry={nodes.attic_1.geometry}
+          material={materials.Plaster}
+        />
+      </group>
       <mesh
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
         castShadow
         receiveShadow
-        geometry={nodes.house.geometry}
-        material={materials["Material.002"]}
-        position={[0, -4.892, 22.168]}
-        rotation={[Math.PI / 2, 0, 0]}
-      
+        geometry={nodes.housev2.geometry}
+        material={materials.Material_2}
+        position={[0.042, -23.125, 0]}
+        scale={0.305}
       />
-    
-      
-      {/* create seperate component for attic, to allow outline selection, split the meshes into two components */}
-      <Select enabled={atticHovered}>
-        <mesh
-          ref={atticRef}
-          onPointerOver={() => atticHover(true)}
-          onPointerOut={() => atticHover(false)}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-          castShadow
-          receiveShadow
-          geometry={nodes.attic.geometry}
-          material={materials["Material.001"]}
-          position={[0.559, 9.369, 0]}
-          rotation={[Math.PI / 2, 0, 0]}> 
-            {idVisible && <Html wrapperClass="idLabel">1</Html>}
-    
-        </mesh>
-
-      </Select>
-      
       {interfaceVisible && <HousingInterface />}
     </group>
-    );
+  );
+
+
   }
 
-useGLTF.preload("/Housev2.glb");
+useGLTF.preload("/housev3.glb");

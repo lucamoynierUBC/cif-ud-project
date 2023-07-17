@@ -38,9 +38,7 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={true} 
-      maxPolarAngle={Math.PI /2} 
-      maxAzimuthAngle={Math.PI /2}
-      minAzimuthAngle={0}
+      
       />
     </>
   );

@@ -7,9 +7,10 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
-import { Cloud, Environment, PerspectiveCamera, Sky } from '@react-three/drei'
+import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from '@react-three/drei'
 import OutlineEffect from './OutlineEffect'
-import Ground from './Ground'
+import BackgroundModel from './BackgroundModel'
+
 
 
 
@@ -66,9 +67,10 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
         <color args={['ivory']} attach="background"/>
-        <PerspectiveCamera 
+        <OrthographicCamera
+        zoom={20}
         makeDefault 
-        position={[4, 5, 7]}
+        position={[-50, 40, 35]}
         fov={50}
         far={100}
         />
@@ -81,13 +83,13 @@ export default function Experience() {
                 <RigidBody
                     ref={aduRigidBody} 
                     type="kinematicPosition">
-                    <Adu id={4} onPositionChange={handlePositionChange} position={[-2, 0, 0]} scale={[1, 1, 1]}/>
+                    <Adu id={4} onPositionChange={handlePositionChange} position={[-5, 1, -5]} scale={[2, 2, 2]}/>
                 </RigidBody>
         
 
 
             </Physics>
-            <Adu id={2} onPositionChange={handlePositionChange} position={[2, 0, 0]} scale={[1, 1, 1]}/>
+            <Adu id={2} onPositionChange={handlePositionChange} position={[2, 0, 0]} scale={[3, 3, 3]}/>
             <Adu id={3} onPositionChange={handlePositionChange} position={[0, -0.75, .4]} scale={[2.5, 0.75, 4.25]}/>
         
 
@@ -101,12 +103,11 @@ export default function Experience() {
             <planeGeometry  />
             <meshStandardMaterial color = 'darkgrey' />
         </mesh> */}
-        <Cloud position={[0,7,0]} scale={0.3}/>
+        {/* <Cloud position={[0,7,0]} scale={0.3}/>
         <Cloud position={[4,7,-4]} scale={0.3}/>
-        <Cloud position={[-5,7,1]} scale={0.3}/>
+        <Cloud position={[-5,7,1]} scale={0.3}/> */}
         <Environment preset='city'/>
-
-        <Ground></Ground>
+        <BackgroundModel></BackgroundModel>
         
         
    

@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Html } from "@react-three/drei";
 import useApp from "./stores/useApp";
 import useInterface from "./stores/useInterface";
+import { useFrame } from "@react-three/fiber";
+import { Vector3 } from "three";
 
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
+    const [zoom, setZoom] = useState(false)
     // change state
     const showAdu = useApp((state) => state.showAdu)
     const hideAdu = useApp((state) => state.hideAdu)
@@ -39,32 +42,41 @@ export default function HousingInterface() {
         showAduID()
     }
 
+    
+    // consider refactoring in the future. Use Spring library.
+    useFrame(state => {
+        if (zoom) {
+            state.camera.zoom = 50
+            state.camera.updateProjectionMatrix()
+            setZoom(false)
+        }
+    })
 
-    return <Html position={[0, 0, 0]}
+    return <Html 
+        position={[-15, 5, -5]}
+        center
         wrapperClass='housingInterface'>
         <div>
-            {selectedBlock === null ? (<div>
-                <button className="housingInterfaceButton"> Carbon Neutrality</button>
-                <button className="housingInterfaceButton"> Economic Oppurtunity</button>
-                <button className="housingInterfaceButton"onClick={() => handleClick(1)}> Housing Oppurtunity</button>
+            {selectedBlock === null ? (<div className="houseIcon">
+                <button className="houseButton" onClick={() => {setZoom(!zoom), handleClick(1)}}>
+                    <span className="icon"> 
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                </button>
             </div>
-            ) : null }
+            ) : null } 
             {selectedBlock === 1 && (<div>
                 <h1 className="housingInterfaceHeader">Single Family Home</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Tortor aliquam nulla facilisi cras fermentum odio eu. 
-                    Laoreet non curabitur gravida arcu ac tortor dignissim. 
-                    Nec feugiat nisl pretium fusce. Sapien nec sagittis aliquam malesuada.</p>
-                <button className="smallHousingInterfaceButton" onClick={() => {handleClick(2), spawnAdu()}}>OK</button>
+                <p>Legally, [Character A]’s home is defined as a one “family” residence. 
+                    Only certain changes are possible due to  its shape and structure. </p>
+                <button className="smallHousingInterfaceButton" onClick={() => {handleClick(2)}}>OK</button>
             </div>
             )}
             {selectedBlock === 2 && (<div>
                 <h1 className="housingInterfaceHeader">Overall Benefits</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Curabitur vitae nunc sed velit dignissim sodales ut eu sem.</p>
-                <button className="smallHousingInterfaceButton">MORE DATA</button>
+                <p>[Character A] also happens to have a shed in their lot attached to the house. 
+                    With reliable access to transit, they do not have a car and the space is currently sitting empty.</p>
+                {/* <button className="smallHousingInterfaceButton">MORE DATA</button> */}
                 <button className="smallHousingInterfaceButton"onClick={() => {handleClick(3), displayAduID()}}>OK</button>
             </div>
             )}

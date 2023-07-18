@@ -159,6 +159,7 @@ export default function Adu({ onPositionChange, position, id, scale}) {
     return <animated.mesh {...spring} {...bind()}
         onPointerOver={(event) => event.stopPropagation() } 
         onPointerOut={ (event) => event.stopPropagation() }
+        // toggle visibility here
         visible = {visible}
         >
         <boxGeometry />

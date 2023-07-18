@@ -4,7 +4,7 @@ import { useGLTF } from "@react-three/drei";
 export default function BackgroundModel(props) {
   const { nodes, materials } = useGLTF("/blockbackground.glb");
   return (
-    <group {...props} dispose={null} scale={0.2} position={[-21, -8.85, 0]}>
+    <group {...props} dispose={null} scale={0.2} position={[-21, -8.85, 5]}>
       <mesh
         castShadow
         receiveShadow

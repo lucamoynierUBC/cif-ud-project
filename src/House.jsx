@@ -34,7 +34,7 @@ export default function House(props) {
   };
 
   
-  console.log(spring.color)
+  
   useEffect(() =>
     {
         
@@ -54,6 +54,7 @@ export default function House(props) {
             if (guiIntroPhase === 'off'){
               api.start({color: 'orange'})
               atticHover(true)
+              handleHouseClick()
             }
           }
         )
@@ -68,7 +69,7 @@ export default function House(props) {
 
 
   return (
-    <group {...props} dispose={null} position={[0, 0, 0]} scale={0.4}>
+    <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4}>
       <Select enabled={atticHovered}>
       <group position={[0.042, -23.125, 0]} scale={0.305} onPointerOver={(event) => event.stopPropagation()}>
         <animated.mesh

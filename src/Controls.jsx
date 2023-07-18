@@ -38,7 +38,7 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={true} 
-      
+  
       />
     </>
   );

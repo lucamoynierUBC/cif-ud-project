@@ -77,8 +77,8 @@ export default function Experience() {
         <OrbitControls>
             <Physics debug>
                 {/* <RigidBody  gravityScale={0}>
-                    <Cube color={color} position={[6, 1, 0]}/>
-                </RigidBody> */}
+                    {/* <Cube color={color} position={[6, 1, 0]}/> */}
+                {/*</RigidBody> */}
                 {/* rigid body does not move because it is set to fixed */}
                 <RigidBody
                     ref={aduRigidBody} 

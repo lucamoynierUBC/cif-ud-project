@@ -20,12 +20,33 @@ body,
     overflow: auto;
     border-radius: 30px;
     user-select: none;
-    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 50px;
     transform: translate3d(calc(50% + 40px), 0, 0);
 }
+
+.houseButton{
+    display: inline-flex;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 32px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.icon{
+    display: inline-flex;
+    align-items: center;
+
+}
+
+
+
+
 
 
 .housingInterfaceButton

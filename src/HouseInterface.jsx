@@ -5,6 +5,7 @@ import useInterface from "./stores/useInterface";
 import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
 import useCamera from "./stores/useCamera";
+import useFlow from "./stores/useFlow";
 
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
@@ -24,7 +25,12 @@ export default function HousingInterface() {
     const clickThree = useInterface((state) => state.clickThree)
     const clickFour = useInterface((state) => state.clickFour)
     const resetClick = useInterface((state) => state.resetClick)
+    //camera state changes
     const startZoom = useCamera((state) => state.zoomClose)
+    const rotateToAdu = useCamera((state) => state.rotateToAdu)
+
+    //Flow states eventuall going to override the above ^
+    const setPhaseFour = useFlow((state) => state.setPhaseFour)
     
     // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
     // very redundant 
@@ -45,17 +51,8 @@ export default function HousingInterface() {
     }
 
     
-    // consider refactoring in the future. Use Spring library.
-    // useFrame(state => {
-    //     if (zoom) {
-    //         state.camera.zoom = 50
-    //         state.camera.updateProjectionMatrix()
-    //         setZoom(false)
-    //     }
-    // })
-
     return <Html 
-        position={[-15, 5, -5]}
+        position={[-15, 12, -15]}
         center
         wrapperClass='housingInterface'>
         <div>
@@ -71,7 +68,7 @@ export default function HousingInterface() {
                 <h1 className="housingInterfaceHeader">Single Family Home</h1>
                 <p>Legally, [Character A]’s home is defined as a one “family” residence. 
                     Only certain changes are possible due to  its shape and structure. </p>
-                <button className="smallHousingInterfaceButton" onClick={() => {handleClick(2)}}>OK</button>
+                <button className="smallHousingInterfaceButton" onClick={() => {handleClick(2), setPhaseFour(), rotateToAdu()}}>OK</button>
             </div>
             )}
             {selectedBlock === 2 && (<div>

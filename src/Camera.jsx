@@ -18,19 +18,27 @@ export default function Camera() {
                 console.log('zoom set to :', zoom)
                 if (zoom === 'close'){
                     cameraControlRef.current?.zoom(40, true)
-                    
-                    
-                    
+                }
+            }
+        )
+
+        const unsubscribePanToAdu = useCamera.subscribe(
+            (state) => state.rotate,
+            (rotate) => {
+                if (rotate === 'adu'){
+                    cameraControlRef.current?.rotate(Math.PI/2, 0, true);
                 }
             }
         )
         return () => {
             // unsubscribeID()
             unsubscribeZoom()
+            unsubscribePanToAdu()
         }
 
     }, [])
 
+    
     
     
         

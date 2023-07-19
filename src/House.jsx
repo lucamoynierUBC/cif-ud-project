@@ -6,6 +6,7 @@ import { Select } from "@react-three/postprocessing";
 import useInterface from "./stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
 import useGUI from "./stores/useGUI";
+import useFlow from "./stores/useFlow";
 
 
 export default function House(props) {
@@ -58,11 +59,23 @@ export default function House(props) {
             }
           }
         )
+
+        const unsubscribeDefaultColor = useFlow.subscribe(
+          (state) => state.phase,
+          (phase) => {
+            if (phase === 'interaction4'){
+              api.start({color: 'white'})
+              handleHouseClick()
+            }
+          }
+        )
+        
         // cleaning subscriptions
         return () => {
             // unsubscribeID()
             unsubscribeHighlight()
             unsubscribeColor()
+            unsubscribeDefaultColor()
         }
    }, [])
 

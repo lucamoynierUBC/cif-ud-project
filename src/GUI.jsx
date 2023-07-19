@@ -14,10 +14,10 @@ export default function GUI() {
         <div className="startOver">START OVER</div>
         <div className="exitTool">EXIT TOOL</div>
         {showIntroBox && ( <div className="introBox">
-            <p className="introText">This tool aims to simulate a Low Density neighborhood. 
-            Lorem ipsum dolor sit amet, apidiscing atque. 
-            They are mainly composed of one and two-family residences, 
-            and are most common in the outer boroughs.</p>
+            <p className="introText">This tool simulates a block inside a low density neighborhood. 
+            These neighborhoods are mainly composed of one and two-family residences, 
+            and are most common in the outer boroughs. 
+            Let’s see what kinds of opportunities exist here to increase housing opportunity, economic opportunity, and carbon neutrality!</p>
             <button className="closeButton" onClick={() => {handleCloseIntroBox(), guiIntroTurnOff()}}>X</button>
 
         </div>

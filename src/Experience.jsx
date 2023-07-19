@@ -11,6 +11,8 @@ import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from '
 import OutlineEffect from './OutlineEffect'
 import BackgroundModel from './BackgroundModel'
 import Camera from './Camera'
+import Birds from './Birds'
+
 
 
 
@@ -104,10 +106,12 @@ export default function Experience() {
         <Cloud position={[-5,7,1]} scale={0.3}/> */}
         <Environment preset='city'/>
         <BackgroundModel></BackgroundModel>
+        <Birds></Birds>
         
    
 
 
         <OutlineEffect></OutlineEffect>
+        
     </>
 }

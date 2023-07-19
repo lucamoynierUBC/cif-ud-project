@@ -4,10 +4,11 @@ import useApp from "./stores/useApp";
 import useInterface from "./stores/useInterface";
 import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
+import useCamera from "./stores/useCamera";
 
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
-    const [zoom, setZoom] = useState(false)
+    // const [zoom, setZoom] = useState(false)
     // change state
     const showAdu = useApp((state) => state.showAdu)
     const hideAdu = useApp((state) => state.hideAdu)
@@ -23,6 +24,7 @@ export default function HousingInterface() {
     const clickThree = useInterface((state) => state.clickThree)
     const clickFour = useInterface((state) => state.clickFour)
     const resetClick = useInterface((state) => state.resetClick)
+    const startZoom = useCamera((state) => state.zoomClose)
     
     // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
     // very redundant 
@@ -44,13 +46,13 @@ export default function HousingInterface() {
 
     
     // consider refactoring in the future. Use Spring library.
-    useFrame(state => {
-        if (zoom) {
-            state.camera.zoom = 50
-            state.camera.updateProjectionMatrix()
-            setZoom(false)
-        }
-    })
+    // useFrame(state => {
+    //     if (zoom) {
+    //         state.camera.zoom = 50
+    //         state.camera.updateProjectionMatrix()
+    //         setZoom(false)
+    //     }
+    // })
 
     return <Html 
         position={[-15, 5, -5]}
@@ -58,7 +60,7 @@ export default function HousingInterface() {
         wrapperClass='housingInterface'>
         <div>
             {selectedBlock === null ? (<div className="houseIcon">
-                <button className="houseButton" onClick={() => {setZoom(!zoom), handleClick(1)}}>
+                <button className="houseButton" onClick={() => {startZoom(), handleClick(1)}}>
                     <span className="icon"> 
                         <ion-icon name="home-outline"></ion-icon>
                     </span>

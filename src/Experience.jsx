@@ -10,6 +10,8 @@ import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from '@react-three/drei'
 import OutlineEffect from './OutlineEffect'
 import BackgroundModel from './BackgroundModel'
+import Camera from './Camera'
+
 
 
 
@@ -67,13 +69,7 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
         <color args={['ivory']} attach="background"/>
-        <OrthographicCamera
-        zoom={20}
-        makeDefault 
-        position={[-50, 40, 35]}
-        fov={50}
-        far={100}
-        />
+        <Camera></Camera>
         <OrbitControls>
             <Physics debug>
                 {/* <RigidBody  gravityScale={0}>
@@ -108,7 +104,6 @@ export default function Experience() {
         <Cloud position={[-5,7,1]} scale={0.3}/> */}
         <Environment preset='city'/>
         <BackgroundModel></BackgroundModel>
-        
         
    
 

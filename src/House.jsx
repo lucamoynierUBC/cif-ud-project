@@ -98,8 +98,8 @@ export default function House(props) {
           <mesh
             ref={atticRef}
             onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-            onPointerOver={() => atticHover(true)}
-            onPointerOut={() => atticHover(false)}
+            // onPointerOver={() => atticHover(true)}
+            // onPointerOut={() => atticHover(false)}
             castShadow
             receiveShadow
             geometry={nodes.attic.geometry}

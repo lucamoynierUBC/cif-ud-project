@@ -55,7 +55,7 @@ export default function House(props) {
             if (guiIntroPhase === 'off'){
               api.start({color: 'orange'})
               atticHover(true)
-              handleHouseClick()
+              // handleHouseClick()
             }
           }
         )
@@ -65,7 +65,8 @@ export default function House(props) {
           (phase) => {
             if (phase === 'interaction4'){
               api.start({color: 'white'})
-              handleHouseClick()
+              atticHover(false)
+              
             }
           }
         )

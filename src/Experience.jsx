@@ -5,13 +5,13 @@ import { OrbitControls } from './Controls'
 import { Physics, RigidBody } from '@react-three/rapier'
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
-import TestObject from './TestObject'
 import { EffectComposer, Selection, Outline } from '@react-three/postprocessing'
 import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from '@react-three/drei'
 import OutlineEffect from './OutlineEffect'
 import BackgroundModel from './BackgroundModel'
 import Camera from './Camera'
 import Birds from './Birds'
+import Shed from './Shed'
 
 
 
@@ -106,6 +106,7 @@ export default function Experience() {
         <Cloud position={[-5,7,1]} scale={0.3}/> */}
         <Environment preset='city'/>
         <BackgroundModel></BackgroundModel>
+        <Shed></Shed>
         <Birds></Birds>
         
    

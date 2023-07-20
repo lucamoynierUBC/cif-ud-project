@@ -17,7 +17,7 @@ export default function Camera() {
             (zoom) => {
                 console.log('zoom set to :', zoom)
                 if (zoom === 'close'){
-                    cameraControlRef.current?.zoom(40, true)
+                    cameraControlRef.current?.zoom(25, true)
                 }
             }
         )

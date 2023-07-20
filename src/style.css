@@ -24,6 +24,7 @@ body,
     flex-direction: column;
     gap: 50px;
     transform: translate3d(calc(50% + 40px), 0, 0);
+    width: 300px;
     /* opacity: 50%; */
 }
 

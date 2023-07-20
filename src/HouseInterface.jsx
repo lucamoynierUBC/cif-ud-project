@@ -52,7 +52,7 @@ export default function HousingInterface() {
 
     
     return <Html 
-        position={[-15, 12, -15]}
+        position={[-15, 15, -15]}
         center
         wrapperClass='housingInterface'>
         <div>
@@ -80,35 +80,40 @@ export default function HousingInterface() {
             </div>
             )}
             {selectedBlock === 3 && (<div>
-                <h1 className="housingInterfaceHeader"> Select an Area</h1>
+                {/* <h1 className="housingInterfaceHeader"> Select an Area</h1> */}
                 {/* call hideAdu() any time a button is clicked & hideAduID */}
-                <button
+                {/* <button
                 className="housingInterfaceButton" 
                 onClick={() => {handleClick(4), clickOne(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectOne()} 
                 onMouseOut={() => removeSelection()}
-                >1</button>
+                >1</button> */}
                 
-                <button 
+                {/* <button 
                 className="housingInterfaceButton" 
                 onClick={() => {handleClick(5), clickTwo(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectTwo()} 
                 onMouseOut={() => removeSelection()}
-                >2</button>
+                >2</button> */}
                 
-                <button 
+                {/* <button 
                 className="housingInterfaceButton" 
                 onClick={() => {handleClick(6), clickThree(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectThree()} 
                 onMouseOut={() => removeSelection()}
-                >3</button>
+                >3</button> */}
 
-                <button 
+                {/* <button 
                 className="housingInterfaceButton" 
                 onClick={() => {handleClick(7), clickFour(), hideAduID(), removeSelection(), resetClick()}} 
                 onMouseEnter={() => selectFour()} 
                 onMouseOut={() => removeSelection()}
-                >4</button>
+                >4</button> */}
+                <p>[Character A] could use extra cash to help pay rent, too! 
+                    Their shed becomes an opportunity here, if they convert it to an ADU.</p>
+                <button>WHATS AN ADU?</button>
+                    
+
             </div>
             )}
             {selectedBlock === 4 && (<div>

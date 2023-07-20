@@ -24,6 +24,12 @@ export default create(subscribeWithSelector((set) => {
             set(() => {
                 return {rotate: 'adu'}
             })
+        },
+
+        rotateBirdsEye: () => {
+            set(() => {
+                return{rotate: 'birdsEye'}
+            })
         }
     }
 }))

@@ -3,6 +3,7 @@ import House from "./House";
 
 import { useEffect, useState } from "react";
 import useGUI from "./stores/useGUI";
+import CustomPlot from "./CustomPlot";
 
 export default function OutlineEffect() {
     const [bokehValue, setBokehValue] = useState(6)
@@ -29,6 +30,7 @@ export default function OutlineEffect() {
                 <DepthOfField bokehScale={bokehValue}/>
         </EffectComposer>
         <House></House>
+        <CustomPlot></CustomPlot>
 
     </Selection>
 }

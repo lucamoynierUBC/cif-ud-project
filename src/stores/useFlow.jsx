@@ -9,6 +9,11 @@ export default create(subscribeWithSelector((set) => {
             set(() => {
                 return {phase: 'interaction4'}
             })
+        },
+        setPhaseTen: () => {
+            set(() => {
+                return {phase: 'interaction10'}
+            })
         }
         
     }

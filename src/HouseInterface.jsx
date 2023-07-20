@@ -28,9 +28,11 @@ export default function HousingInterface() {
     //camera state changes
     const startZoom = useCamera((state) => state.zoomClose)
     const rotateToAdu = useCamera((state) => state.rotateToAdu)
+    const rotateBirdsEye = useCamera((state) => state.rotateBirdsEye)
 
     //Flow states eventuall going to override the above ^
     const setPhaseFour = useFlow((state) => state.setPhaseFour)
+    const setPhaseTen = useFlow((state) => state.setPhaseTen)
     
     // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
     // very redundant 
@@ -51,8 +53,8 @@ export default function HousingInterface() {
     }
 
     
-    return <Html 
-        position={[-15, 15, -15]}
+    return <Html
+        position={[0, 15, -15]}
         center
         wrapperClass='housingInterface'>
         <div>
@@ -76,7 +78,7 @@ export default function HousingInterface() {
                 <p>[Character A] also happens to have a shed in their lot attached to the house. 
                     With reliable access to transit, they do not have a car and the space is currently sitting empty.</p>
                 {/* <button className="smallHousingInterfaceButton">MORE DATA</button> */}
-                <button className="smallHousingInterfaceButton"onClick={() => {handleClick(3), displayAduID()}}>OK</button>
+                <button className="smallHousingInterfaceButton"onClick={() => {handleClick(3)}}>OK</button>
             </div>
             )}
             {selectedBlock === 3 && (<div>
@@ -111,19 +113,23 @@ export default function HousingInterface() {
                 >4</button> */}
                 <p>[Character A] could use extra cash to help pay rent, too! 
                     Their shed becomes an opportunity here, if they convert it to an ADU.</p>
-                <button>WHATS AN ADU?</button>
+                <button className="housingInterfaceButton" onClick={() =>{handleClick(4)}}>WHATS AN ADU?</button>
                     
 
             </div>
             )}
             {selectedBlock === 4 && (<div>
-                <h1>Attic ADU</h1>
+                {/* <h1>Attic ADU</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Metus aliquam eleifend mi in nulla posuere.</p>
+                    Metus aliquam eleifend mi in nulla posuere.</p> */}
                     {/* first call hideAdu(), then showAdu() to reset state, potential source of bugs in the future
                     refactor in the furture */}
-                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+                {/* <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button> */}
+                <h1>The 4 Types</h1>
+                <p>We already looked at the shed, which is an attached type. 
+                    Let’s look at this and the other 3 in context.</p>
+                <button className="housingInterfaceButton" onClick={() =>{handleClick(5), setPhaseTen(), rotateBirdsEye()}}>OK</button>
             </div>)}
             {selectedBlock === 5 && (<div>
                 <h1>Side Adu</h1>

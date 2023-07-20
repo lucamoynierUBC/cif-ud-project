@@ -12,6 +12,7 @@ import BackgroundModel from './BackgroundModel'
 import Camera from './Camera'
 import Birds from './Birds'
 import Shed from './Shed'
+import CustomPlot from './CustomPlot'
 
 
 
@@ -71,8 +72,8 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <ambientLight intensity={0.5}/>
         <color args={['ivory']} attach="background"/>
-        <Camera></Camera>
         <OrbitControls>
+            <Camera></Camera>
             <Physics debug>
                 {/* <RigidBody  gravityScale={0}>
                     {/* <Cube color={color} position={[6, 1, 0]}/> */}
@@ -108,6 +109,7 @@ export default function Experience() {
         <BackgroundModel></BackgroundModel>
         <Shed></Shed>
         <Birds></Birds>
+        <CustomPlot/>
         
    
 

@@ -26,13 +26,17 @@ export default function BackgroundModel(props) {
         material={materials.Material_2}
         scale={0.584}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.plot10.geometry}
-        material={materials.Material_2}
-        scale={0.584}
-      />
+      <group>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.plot10.geometry}
+          material={materials.Material_2}
+          material-color={'darkgrey'}
+          scale={0.584}
+        />
+
+      </group>
       <mesh
         castShadow
         receiveShadow
@@ -89,13 +93,13 @@ export default function BackgroundModel(props) {
         material={materials.Material_2}
         scale={0.584}
       />
-      <mesh
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.plot2.geometry}
         material={materials.Material_2}
         scale={0.584}
-      />
+      /> */}
       <mesh
         castShadow
         receiveShadow
@@ -157,6 +161,7 @@ export default function BackgroundModel(props) {
         receiveShadow
         geometry={nodes.plot7.geometry}
         material={materials.Material_2}
+        
         scale={0.584}
       />
       <mesh
@@ -171,6 +176,7 @@ export default function BackgroundModel(props) {
         receiveShadow
         geometry={nodes.plot27.geometry}
         material={materials.Material_2}
+        
         scale={0.584}
       />
       <mesh

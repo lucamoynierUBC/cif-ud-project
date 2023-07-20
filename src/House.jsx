@@ -104,7 +104,6 @@ export default function House(props) {
           geometry={nodes.main_house_1.geometry}
           material={materials.Plaster}
           material-color={spring.color}
-          material-opacity ={0.5}
         />
       </group>
       <group position={[0.042, -23.125, 0]} scale={0.305}>

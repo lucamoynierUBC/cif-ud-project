@@ -14,6 +14,7 @@ import Birds from './Birds'
 import Shed from './Shed'
 import CustomPlot from './CustomPlot'
 import Arrow from './Arrow'
+import PathModel from './PathModel'
 
 
 export default function Experience() {
@@ -100,6 +101,7 @@ export default function Experience() {
         <Birds></Birds>
         <CustomPlot/>
         <Arrow></Arrow>
+        <PathModel></PathModel>
         
    
 

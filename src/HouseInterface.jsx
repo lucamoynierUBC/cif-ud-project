@@ -33,6 +33,7 @@ export default function HousingInterface() {
     //Flow states eventuall going to override the above ^
     const setPhaseFour = useFlow((state) => state.setPhaseFour)
     const setPhaseTen = useFlow((state) => state.setPhaseTen)
+    const setPhaseElleven = useFlow((state) => state.setPhaseElleven)
     
     // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
     // very redundant 
@@ -141,14 +142,18 @@ export default function HousingInterface() {
                 <h1>Lot Size</h1>
                 <p>Average lot size in NYC for this density is 25 ft or even less. 
                     [Character’s] lot is about this width.</p>
-                <button className="housingInterfaceButton">OK</button>
+                <button className="housingInterfaceButton" onClick={() => {handleClick(6), setPhaseElleven()}}>OK</button>
             </div>)}
             {selectedBlock === 6 && (<div>
-                <h1>Basement Adu</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                {/* <h1>Basement Adu</h1> */}
+                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Metus aliquam eleifend mi in nulla posuere.</p>
-                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+                    Metus aliquam eleifend mi in nulla posuere.</p> */}
+                {/* <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button> */}
+                <h1>Attatched ADU</h1>
+                <p>Since [Character]'s lot has an existing walkway, this type works well
+                    because attatched ADUs on lots under 30 ft wide call for adequete walkway spaces
+                </p>
             </div>)}
             {selectedBlock === 7 && (<div>
                 <h1>Side Adu</h1>

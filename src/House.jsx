@@ -23,6 +23,7 @@ export default function House(props) {
   //animatecolor
   const [spring, api] = useSpring(() => ({
     color: 'white',
+    trail: 950,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
   }))
   

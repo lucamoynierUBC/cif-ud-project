@@ -200,6 +200,14 @@ body,
     color: #ff0000;
 }
   
-
+.arrowLengthContainer {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    padding: 8px;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    width: 50px;
+  }
 
 

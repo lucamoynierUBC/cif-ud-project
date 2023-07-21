@@ -126,17 +126,22 @@ export default function HousingInterface() {
                     {/* first call hideAdu(), then showAdu() to reset state, potential source of bugs in the future
                     refactor in the furture */}
                 {/* <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button> */}
+        
                 <h1>The 4 Types</h1>
                 <p>We already looked at the shed, which is an attached type. 
                     Let’s look at this and the other 3 in context.</p>
                 <button className="housingInterfaceButton" onClick={() =>{handleClick(5), setPhaseTen(), rotateBirdsEye()}}>OK</button>
             </div>)}
             {selectedBlock === 5 && (<div>
-                <h1>Side Adu</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                {/* <h1>Side Adu</h1> */}
+                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Metus aliquam eleifend mi in nulla posuere.</p>
-                <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button>
+                    Metus aliquam eleifend mi in nulla posuere.</p> */}
+                {/* <button onClick={() => {handleClick(3), hideAdu(), showAdu(), displayAduID()}}>OK</button> */}
+                <h1>Lot Size</h1>
+                <p>Average lot size in NYC for this density is 25 ft or even less. 
+                    [Character’s] lot is about this width.</p>
+                <button className="housingInterfaceButton">OK</button>
             </div>)}
             {selectedBlock === 6 && (<div>
                 <h1>Basement Adu</h1>

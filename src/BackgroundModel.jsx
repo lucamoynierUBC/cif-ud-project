@@ -32,7 +32,7 @@ export default function BackgroundModel(props) {
           receiveShadow
           geometry={nodes.plot10.geometry}
           material={materials.Material_2}
-          material-color={'darkgrey'}
+          // material-color={'darkgrey'}
           scale={0.584}
         />
 

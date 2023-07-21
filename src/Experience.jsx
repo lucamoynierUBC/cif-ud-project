@@ -13,18 +13,7 @@ import Camera from './Camera'
 import Birds from './Birds'
 import Shed from './Shed'
 import CustomPlot from './CustomPlot'
-
-
-
-
-
-
-
-  
-    
-
-
-
+import Arrow from './Arrow'
 
 
 export default function Experience() {
@@ -110,6 +99,7 @@ export default function Experience() {
         <Shed></Shed>
         <Birds></Birds>
         <CustomPlot/>
+        <Arrow></Arrow>
         
    
 

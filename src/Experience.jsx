@@ -15,6 +15,7 @@ import Shed from './Shed'
 import CustomPlot from './CustomPlot'
 import Arrow from './Arrow'
 import PathModel from './PathModel'
+import Person from './Person'
 
 
 export default function Experience() {
@@ -38,7 +39,6 @@ export default function Experience() {
     const color = useApp((state) => {
         return state.color
     })
-    console.log(color)
 
 
     useFrame(() => {
@@ -102,6 +102,7 @@ export default function Experience() {
         <CustomPlot/>
         <Arrow></Arrow>
         <PathModel></PathModel>
+        <Person position={[-16,-.4,0]} scale={0.2}></Person>
         
    
 

@@ -15,11 +15,11 @@ export default function Birds(props) {
   const ref = useRef()
   const { nodes, materials, animations } = useGLTF("/birds.glb");
   const { actions, names } = useAnimations(animations, group);
-  console.log(group)
 
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play()
   })
+  console.log(actions[names[0]])
 
   useFrame((state, delta) =>{
     ref.current.position.z -= delta*3

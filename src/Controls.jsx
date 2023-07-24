@@ -38,6 +38,7 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={true} 
+      dampingFactor={0.5}
   
       />
     </>

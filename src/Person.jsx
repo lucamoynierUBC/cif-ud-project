@@ -30,7 +30,7 @@ export default function Person(props) {
       }
     }
    
-    console.log(group.current.position)
+    
 
 
 

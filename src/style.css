@@ -133,6 +133,37 @@ body,
 
 }
 
+.mainInterface{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+
+}
+
+.mainInterfaceLayout
+{
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    right: 0;
+    width: 450px;
+    flex-shrink: 0;
+    border: 10px solid #C5C5C5;
+    background: #FFF;
+}
+.navBar
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+}
+
 .gui
 {
     position: fixed;

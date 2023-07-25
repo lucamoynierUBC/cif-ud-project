@@ -30,7 +30,7 @@ export default function OutlineEffect() {
                 <DepthOfField bokehScale={bokehValue}/>
         </EffectComposer>
         <House></House>
-        <CustomPlot></CustomPlot>
+        {/* <CustomPlot></CustomPlot> */}
 
     </Selection>
 }

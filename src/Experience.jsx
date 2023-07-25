@@ -60,7 +60,7 @@ export default function Experience() {
 
         
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
-        <ambientLight intensity={0.5}/>
+        {/* <ambientLight intensity={1}/> */}
         <color args={['ivory']} attach="background"/>
         <OrbitControls>
             <Camera></Camera>
@@ -99,7 +99,7 @@ export default function Experience() {
         <BackgroundModel></BackgroundModel>
         <Shed></Shed>
         <Birds></Birds>
-        <CustomPlot/>
+        {/* <CustomPlot/> */}
         <Arrow></Arrow>
         <PathModel></PathModel>
         <Person position={[-16,-.4,0]} scale={0.2}></Person>

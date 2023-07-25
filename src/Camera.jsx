@@ -114,7 +114,7 @@ export default function Camera() {
             makeDefault 
             position={[-50, 40, 35]}
             fov={50}
-            far={1000} />
+            far={150} />
         // </CameraControls>
         
 

@@ -5,8 +5,10 @@ import Experience from './Experience.jsx'
 import GUI from './GUI'
 import { Suspense } from 'react'
 import { Loader } from '@react-three/drei'
-import NavBar from './Nav/NavBar'
+
 import MainInterface from './UserInterface/MainInterface'
+import Nav from './Nav/Nav'
+
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
 
@@ -19,7 +21,7 @@ root.render(
             </Suspense>
         </Canvas>
         <Loader />
-        <NavBar></NavBar>
+        <Nav></Nav>
         <MainInterface></MainInterface>
         <GUI></GUI>  
 

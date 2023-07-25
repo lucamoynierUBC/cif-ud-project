@@ -1,22 +1,12 @@
 
 
-export default function NavBar() {
-    
-    
-    
 
-
+export default function NavBar(props) {
+      
     return(
-            <div className="navBar">
-                <div>
-                Nav Bar
-                </div>
-                <ul>
-                    <li>Contact Us</li>
-                    <li>About Us</li>
-                </ul>
-
-            </div>
+            <nav className="navBar">
+                <ul className="navBar-nav">{ props.children }</ul>
+            </nav>
         
         
     )

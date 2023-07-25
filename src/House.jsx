@@ -9,6 +9,7 @@ import useGUI from "./stores/useGUI";
 import useFlow from "./stores/useFlow";
 
 
+
 export default function House(props) {
   const { nodes, materials } = useGLTF("./housev3.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
@@ -19,6 +20,12 @@ export default function House(props) {
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
+
+  //toggle new interface
+  
+
+
+  
 
   //animatecolor
   const [spring, api] = useSpring(() => ({

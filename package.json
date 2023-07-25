@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@react-spring/three": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
     "@react-three/drei": "9.70",
     "@react-three/fiber": "8.13",
     "@react-three/postprocessing": "^2.14.12",

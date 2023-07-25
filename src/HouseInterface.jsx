@@ -7,6 +7,7 @@ import { Vector3 } from "three";
 import useCamera from "./stores/useCamera";
 import useFlow from "./stores/useFlow";
 
+
 export default function HousingInterface() {
     const [selectedBlock, setSelectedBlock] = useState(null)
     // const [zoom, setZoom] = useState(false)
@@ -34,6 +35,11 @@ export default function HousingInterface() {
     const setPhaseFour = useFlow((state) => state.setPhaseFour)
     const setPhaseTen = useFlow((state) => state.setPhaseTen)
     const setPhaseElleven = useFlow((state) => state.setPhaseElleven)
+
+    //Change the state for the new static Interface
+    const toggleInterface = useInterface((state) => state.toggleVisible)
+
+    
     
     // can refactor according the tutorial ~3:31 mark, do not need additional constants below,
     // very redundant 
@@ -60,7 +66,7 @@ export default function HousingInterface() {
         wrapperClass='housingInterface'>
         <div>
             {selectedBlock === null ? (<div className="houseIcon">
-                <button className="houseButton" onClick={() => {startZoom(), handleClick(1)}}>
+                <button className="houseButton" onClick={() => {startZoom(),  toggleInterface()}}>
                     <span className="icon"> 
                         <ion-icon name="home-outline"></ion-icon>
                     </span>

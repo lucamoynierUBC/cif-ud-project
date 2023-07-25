@@ -10,7 +10,7 @@ import { useOrbitControls } from "./Controls";
 
 
 export default function Camera() {
-    const {camera} = useThree()
+    
     const cameraControlRef = useRef()
     const { enableCamera, disableCamera } = useOrbitControls()
     

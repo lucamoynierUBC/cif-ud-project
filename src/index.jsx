@@ -21,8 +21,8 @@ root.render(
             </Suspense>
         </Canvas>
         <Loader />
-        <Nav></Nav>
         <MainInterface></MainInterface>
+        <Nav></Nav>
         <GUI></GUI>  
 
         

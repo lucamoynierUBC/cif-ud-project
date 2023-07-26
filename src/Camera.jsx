@@ -112,7 +112,7 @@ export default function Camera() {
             ref={cameraControlRef}
             zoom={20}
             makeDefault 
-            position={[-50, 40, 35]}
+            position={[-50, 50, 35]}
             fov={50}
             far={150} />
         // </CameraControls>

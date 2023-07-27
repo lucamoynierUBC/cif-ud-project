@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Html, useGLTF } from "@react-three/drei";
 import HousingInterface from "./HouseInterface";
 import useApp from "./stores/useApp";
+import useCamera from "./stores/useCamera";
 import { Select } from "@react-three/postprocessing";
 import useInterface from "./stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
@@ -15,9 +16,12 @@ export default function House(props) {
   const { nodes, materials } = useGLTF("./housev3.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
   const [ idVisible, setIdVisible] = useState(false)
+  //state changes
   const hideNumber = useApp((state) => state.hideNumber)
   const hideAdu = useApp((state) => state.hideAdu)
   const resetClick = useInterface((state) => state.resetClick)
+  const zoomIn = useCamera((state) => state.zoomClose)
+  const toggleInterface = useInterface((state) => state.toggleVisible)
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
@@ -104,7 +108,7 @@ export default function House(props) {
         <animated.mesh
           {...spring}
           {...bind()}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
           castShadow
           receiveShadow
           geometry={nodes.main_house.geometry}
@@ -115,7 +119,7 @@ export default function House(props) {
         <animated.mesh
           {...spring}
           {...bind()}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface()}}
           castShadow
           receiveShadow
           geometry={nodes.main_house_1.geometry}
@@ -153,7 +157,7 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       />
-      {interfaceVisible && <HousingInterface />}
+      {/* {interfaceVisible && <HousingInterface />} */}
       </Select>
     </group>
   );

@@ -16,7 +16,6 @@ export default function Camera() {
     
 
     useEffect(() => {
-        
         const unsubscribeZoom = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {

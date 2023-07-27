@@ -7,6 +7,7 @@ import useInterface from "./stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
 import useGUI from "./stores/useGUI";
 import useFlow from "./stores/useFlow";
+import { useGesture } from "react-use-gesture";
 
 
 
@@ -33,6 +34,12 @@ export default function House(props) {
     trail: 950,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
   }))
+
+  const bind = useGesture({
+    onHover({ hovering }) {
+      api.start({color: hovering ? '#ae561f' : '#d96b27'})
+    }
+  })
   
   
 
@@ -61,7 +68,7 @@ export default function House(props) {
           (state) => state.guiIntroPhase,
           (guiIntroPhase) => {
             if (guiIntroPhase === 'off'){
-              api.start({color: 'orange'})
+              api.start({color: '#d96b27'})
               atticHover(true)
               // handleHouseClick()
             }
@@ -96,6 +103,7 @@ export default function House(props) {
       <group position={[0.042, -23.125, 0]} scale={0.305} onPointerOver={(event) => event.stopPropagation()}>
         <animated.mesh
           {...spring}
+          {...bind()}
           onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
           receiveShadow
@@ -106,6 +114,7 @@ export default function House(props) {
         />
         <animated.mesh
           {...spring}
+          {...bind()}
           onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
           castShadow
           receiveShadow

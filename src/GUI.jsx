@@ -11,8 +11,8 @@ export default function GUI() {
     };
 
     return <div className="gui">
-        <div className="startOver">START OVER</div>
-        <div className="exitTool">EXIT TOOL</div>
+        {/* <div className="startOver">START OVER</div>
+        <div className="exitTool">EXIT TOOL</div> */}
         {showIntroBox && ( <div className="introBox">
             <p className="introText">This tool simulates a block inside a low density neighborhood. 
             These neighborhoods are mainly composed of one and two-family residences, 

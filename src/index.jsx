@@ -8,6 +8,7 @@ import { Loader } from '@react-three/drei'
 
 import MainInterface from './UserInterface/MainInterface'
 import Nav from './Nav/Nav'
+import Modal from './IntroModal/Modal'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
@@ -23,7 +24,8 @@ root.render(
         <Loader />
         <MainInterface></MainInterface>
         <Nav></Nav>
-        <GUI></GUI>  
+        {/* <GUI></GUI>   */}
+        <Modal></Modal>
 
         
     </>

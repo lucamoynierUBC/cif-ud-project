@@ -142,7 +142,7 @@ body,
     /* display: flex;
     justify-content: space-between; */
     padding: 0 10px;
-    background: linear-gradient(white, #f5f5f5 40%, #f5f5f5 40%, transparent);
+    background: linear-gradient(white, #f5f5f5 80%, #f5f5f5 50%, #f5f5f5 20%, transparent);
     
 }
 
@@ -177,7 +177,7 @@ body,
     width: 180px;
     height: 30px;
     padding: 5px;
-    margin: 2px;
+    margin: 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,6 +185,7 @@ body,
     transition: 300ms;
     border: 2px solid #000000; /* Replace #000000 with the color of your choice */
     border-radius: 8px;
+    font-size: 20px;
 }
 
 .text-button:hover

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import "./Modal.css"
 import useGUI from "../stores/useGUI";
-import {Swiper, SwiperSlide} from 'swiper/react';
+import Carousel from "./Carousel";
 
-import 'swiper/css';
 
 export default function Modal(){
     const [visible, setVisible] = useState(true)
@@ -22,11 +21,8 @@ export default function Modal(){
                     <p>This interactive housing model simulates a low density New York City neighborhood. 
                         To navigate the tool:</p>
                 </div>
-                <Swiper>
-                    <SwiperSlide>Slide 1</SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-
-                </Swiper>
+                <Carousel></Carousel>
+                
 
 
             </div>

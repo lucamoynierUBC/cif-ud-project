@@ -16,6 +16,7 @@ import CustomPlot from './CustomPlot'
 import Arrow from './Arrow'
 import PathModel from './PathModel'
 import Person from './Person'
+import DetatchedAdu from './DetatchedAdu'
 
 
 export default function Experience() {
@@ -98,6 +99,7 @@ export default function Experience() {
         <Environment preset='city'/>
         <BackgroundModel></BackgroundModel>
         <Shed></Shed>
+        <DetatchedAdu></DetatchedAdu>
         <Birds></Birds>
         {/* <CustomPlot/> */}
         <Arrow></Arrow>

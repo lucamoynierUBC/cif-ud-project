@@ -17,7 +17,7 @@ export default function Carousel() {
                 pagination={{ clickable: false,  dynamicBullets: true}}
                 style={{
                 "--swiper-pagination-bottom": "8px", 
-                "padding-bottom": "35px",
+                "paddingBottom": "35px",
                 "--swiper-navigation-top-offset": "40%",
                 "--swiper-navigation-color": "#d96b27",
                 "--swiper-pagination-color": "#d96b27"

@@ -2,10 +2,10 @@ import { useSpring, animated } from "@react-spring/three"
 import { useEffect } from "react"
 import useInterface from "./stores/useInterface"
 
-export default function Shed() {
+export default function DetatchedAdu() {
 
     const [spring, api] = useSpring(() => ({
-        visible: false,
+        visible: true,
         color: 'white',
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
     }))
@@ -14,7 +14,7 @@ export default function Shed() {
         const unsubscribeColor = useInterface.subscribe(
             (state) => state.aduVisible,
             (aduVisible) => {
-                if (aduVisible === 'shed'){
+                if (aduVisible === 'detatched'){
                     api.start({color: 'orange'})
                     api.start({visible: true})
                 } else {
@@ -28,7 +28,7 @@ export default function Shed() {
     })
 
     return (
-        <animated.mesh {...spring} position={[-6.4, 0, -0.5]} scale={[1.5, 1.5, 3]} visible={spring.visible}>
+        <animated.mesh {...spring} position={[-4.5, 0, -0.5]} scale={[1.5, 1.5, 3]} visible={spring.visible}>
             <boxGeometry />
             <animated.meshStandardMaterial color={spring.color}/>
         </animated.mesh>

@@ -7,6 +7,31 @@ export default create(subscribeWithSelector((set) => {
         selection: null,
         clickSelection: null,
         visible: false,
+        aduVisible: null,
+
+        shedVisible: () =>{
+            set(() => {
+                return {aduVisible: 'shed'}
+            })
+        },
+
+        detatchedAduVisible: () =>{
+            set(() => {
+                return {aduVisible: 'detatched'}
+            })
+        },
+
+        basementAduVisible: () =>{
+            set(() => {
+                return {aduVisible: 'basement'}
+            })
+        },
+
+        atticAduVisible: () =>{
+            set(() => {
+                return {aduVisible: 'attic'}
+            })
+        },
 
         toggleVisible: () => {
             set((state) => {

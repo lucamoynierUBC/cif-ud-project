@@ -13,7 +13,7 @@ import { useGesture } from "react-use-gesture";
 
 
 export default function House(props) {
-  const { nodes, materials } = useGLTF("./housev3.glb");
+  const { nodes, materials } = useGLTF("/housev5.glb");
   const [interfaceVisible, setInterfaceVisible] = useState(false);
   const [ idVisible, setIdVisible] = useState(false)
   //state changes
@@ -100,69 +100,54 @@ export default function House(props) {
    }, [])
 
 
-
+ 
   return (
-    <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4}>
-      <Select enabled={atticHovered}>
-      <group position={[0.042, -23.125, 0]} scale={0.305} onPointerOver={(event) => event.stopPropagation()}>
-        <animated.mesh
-          {...spring}
-          {...bind()}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
-          castShadow
-          receiveShadow
-          geometry={nodes.main_house.geometry}
-          material={materials.Material_2}
-          material-color={spring.color}
-          material-opacity ={0.5}
-        />
-        <animated.mesh
-          {...spring}
-          {...bind()}
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface()}}
-          castShadow
-          receiveShadow
-          geometry={nodes.main_house_1.geometry}
-          material={materials.Plaster}
-          material-color={spring.color}
-        />
-      </group>
-      <group position={[0.042, -23.125, 0]} scale={0.305}>
-        {/* <Select enabled={atticHovered}> */}
-          <mesh
-            ref={atticRef}
-            onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-            // onPointerOver={() => atticHover(true)}
-            // onPointerOut={() => atticHover(false)}
-            castShadow
-            receiveShadow
-            geometry={nodes.attic.geometry}
-            material={materials.Material_2}
-            
-          />
-        <mesh
-          onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
-          castShadow
-          receiveShadow
-          geometry={nodes.attic_1.geometry}
-          material={materials.Plaster}
-        />
-      </group>
-      <mesh
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick()}}
+  <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4}>
+    <Select enabled={atticHovered}>
+      <animated.mesh
+        {...spring}
+        {...bind()}
         castShadow
         receiveShadow
-        geometry={nodes.housev2.geometry}
-        material={materials.Material_2}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        geometry={nodes.main.geometry}
+        material={materials.mainMat}
+        material-color={spring.color}
         position={[0.042, -23.125, 0]}
         scale={0.305}
       />
-      {/* {interfaceVisible && <HousingInterface />} */}
-      </Select>
-    </group>
-  );
+      <animated.mesh
+        {...spring}
+        {...bind()}
+        castShadow
+        receiveShadow
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        geometry={nodes.attic.geometry}
+        material={materials.atticMat}
+        material-color={spring.color}
+        position={[0.042, -23.125, 0]}
+        scale={0.305}
+        
+      />
+      <animated.mesh
+        {...spring}
+        {...bind()}
+        castShadow
+        receiveShadow
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        geometry={nodes.basement.geometry}
+        material={materials.basementMat}
+        material-color={spring.color}
+        position={[0.042, -23.125, 0]}
+        scale={0.305}
+  
+      />
 
+    </Select>
+    
+</group>
+);
 
-  }
+}
 
-useGLTF.preload("/housev3.glb");
+useGLTF.preload("/housev5.glb");

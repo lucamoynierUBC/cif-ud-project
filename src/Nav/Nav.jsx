@@ -8,7 +8,6 @@ export default function Nav() {
         <NavBar>
             <NavText text="City of Yes"/>
             <NavText text="Urban Design"/>
-            <NavItem icon="🎅🏻"/>
             <NavItem icon=">">
                 <DropdownMenu />
             

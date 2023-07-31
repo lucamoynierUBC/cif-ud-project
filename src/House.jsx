@@ -9,6 +9,7 @@ import { animated, useSpring } from "@react-spring/three";
 import useGUI from "./stores/useGUI";
 import useFlow from "./stores/useFlow";
 import { useGesture } from "react-use-gesture";
+import { ConeCollider } from "@react-three/rapier";
 
 
 
@@ -50,6 +51,7 @@ export default function House(props) {
 
 
   const handleHouseClick = () => {
+    console.log("clicked")
     setInterfaceVisible(!interfaceVisible) // Toggle the visibility
     // TODO: if interface is not visible hide adu ID
   };
@@ -102,15 +104,16 @@ export default function House(props) {
 
 
  
+   // TODO: stop event propogration
   return (
-  <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4}>
+  <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4} >
     <Select enabled={atticHovered}>
       <animated.mesh
         {...spring}
         {...bind()}
         castShadow
         receiveShadow
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.color}
@@ -142,7 +145,7 @@ export default function House(props) {
         {...bind()}
         castShadow
         receiveShadow
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.color}

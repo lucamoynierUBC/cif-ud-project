@@ -148,7 +148,7 @@ body,
 
 .navBar-nav
 {
-    max-width: 95%;
+    max-width: 97%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -183,7 +183,7 @@ body,
     justify-content: center;
     /* background-color: #aaafb5; */
     transition: 300ms;
-    border: 2px solid #000000; /* Replace #000000 with the color of your choice */
+    border: 2px solid #000000; 
     border-radius: 8px;
     font-size: 20px;
 }
@@ -197,15 +197,17 @@ body,
 {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 8px;
     padding: 5px;
-    margin: 2px;
+    margin: 0 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #aaafb5;
     text-decoration: none; /* Remove the underline text decoration */
     transition: 300ms;
+    border: 2px solid #000000; 
+    border-radius: 8px;
+    font-size: 20px;
     
 }
 
@@ -247,7 +249,7 @@ body,
     position: fixed;
     height: 41.4px;
     width: 80.2px;
-    top: 0;
+    top: 5px;
     left: 0;
 }
 .gui

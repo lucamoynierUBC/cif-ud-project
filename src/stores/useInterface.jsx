@@ -35,7 +35,6 @@ export default create(subscribeWithSelector((set) => {
 
         toggleVisible: () => {
             set((state) => {
-                console.log(state)
                 return {visible: !state.visible}
 
             })

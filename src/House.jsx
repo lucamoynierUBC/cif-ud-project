@@ -36,6 +36,7 @@ export default function House(props) {
   const [spring, api] = useSpring(() => ({
     color: 'white',
     trail: 950,
+    opacity: 1,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
   }))
 
@@ -113,8 +114,11 @@ export default function House(props) {
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.color}
+        material-transparent={true}
+        material-opacity={spring.opacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
+        
       />
       <animated.mesh
         {...spring}
@@ -125,8 +129,12 @@ export default function House(props) {
         geometry={nodes.attic.geometry}
         material={materials.atticMat}
         material-color={spring.color}
+        material-transparent={true}
+        material-opacity={spring.opacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
+        opacity={0.5}
+        transparent={true}
         
       />
       <animated.mesh
@@ -138,6 +146,8 @@ export default function House(props) {
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.color}
+        material-transparent={true}
+        material-opacity={spring.opacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
   

@@ -31,12 +31,12 @@
     display: flex;
 }
 
-.titleBtn
+.titleBtn 
 {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #FF5F57; /* Apple's red color for close button */
+    background-color: white; /* Apple's red color for close button */
     position: absolute;
     top: 5px;
     right: 5px;
@@ -44,14 +44,13 @@
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Adding a box shadow */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); Adding a box shadow */
     font-size: 16px;
     font-weight: 1;   
     transition: 300ms; 
-    pointer-events: all;
 }
 
 .titleBtn:hover
 {
-    background-color: hsl(6, 100%, 40%);
+    background-color: grey;
 }

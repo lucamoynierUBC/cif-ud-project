@@ -50,10 +50,10 @@
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    border: 2px solid black;
     /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); Adding a box shadow */
     font-size: 16px;
-    font-weight: 1;   
+    font-weight: bold;   
     transition: 300ms; 
 }
 

@@ -11,7 +11,7 @@ export default function Carousel() {
         <div className='carousel'>
             <Swiper
                 modules={[Navigation, Pagination, A11y]}
-                spaceBetween={150}
+                spaceBetween={100}
                 slidesPerView={3}
                 navigation
                 pagination={{ clickable: false,  dynamicBullets: true}}

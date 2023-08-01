@@ -148,7 +148,7 @@ body,
 
 .navBar-nav
 {
-    max-width: 97%;
+    max-width: 100%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -162,6 +162,7 @@ body,
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 10px;
 }
 
 .nav-item-text
@@ -242,9 +243,55 @@ body,
     font-weight: bold;
     font-size: 20px;
 }
+
 .menu-item:hover
 {
     background-color: #e4e7eb;
+}
+
+.menu {
+    width: 100%;
+}
+
+menu-primary-enter
+{
+    position: absolute;
+    transform: translateX(-110%);
+
+}
+menu-primary-enter-active
+{
+    transform: translateX(0%);
+    transition: all 200ms ease;
+}
+menu-primary-exit
+{
+    position: absolute;
+}
+menu-primary-exit-active
+{
+    transform: translate(-110%);
+    transition: all 200ms ease;
+}
+
+menu-secondary-enter
+{
+    position: absolute;
+    transform: translateX(110%);
+
+}
+menu-secondary-enter-active
+{
+    transform: translateX(0%);
+    transition: all 200ms ease;
+}
+menu-secondaru-exit
+{
+}
+menu-secondary-exit-active
+{
+    transform: translate(110%);
+    transition: all 200ms ease;
 }
 
 .logo-icon

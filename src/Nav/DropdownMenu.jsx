@@ -6,8 +6,6 @@ import './navStyles.css'
 export default function DropdownMenu() {
     const [activeMenu, setActiveMenu] = useState('main')
 
-    console.log(activeMenu)
-
     return (
         <div className="dropdown">
             <CSSTransition 

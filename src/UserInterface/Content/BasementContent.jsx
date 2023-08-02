@@ -1,13 +1,17 @@
-import { useRef, useEffect, useState } from "react"
 import { useInView } from "react-intersection-observer"
 
 export default function BasementContent() {
-    const { ref: myRef, inView: visible} = useInView()
+    const { ref: myRef, inView: visible} = useInView({
+        onChange: (visible) => {
+            
+            console.log("Basement visibility is: ", visible)
+            
+        }
+    })
     
     // const myRef = useRef()
     // const [visible, setVisible] = useState()
 
-    console.log('Visible? ', visible)
     // useEffect(() => {
     //     const observer = new IntersectionObserver ((entries) => {
     //         const entry = entries[0]

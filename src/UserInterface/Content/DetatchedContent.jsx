@@ -1,7 +1,15 @@
+import { useInView } from "react-intersection-observer"
 export default function DetatchedContent() {
+    const { ref: myRef, inView: visible} = useInView({
+        onChange: (visible) => {
+            
+            console.log("Detatched visibility is: ", visible)
+            
+        }
+    })
     return(
         <div>
-            <h2>Detatched ADU</h2>
+            <h2 ref={myRef}>Detatched ADU</h2>
             <p>The detached ADU is similar to the attached. The primary difference is that detached ADUs are not physically connected to their primary unit.
             </p>
             <p>

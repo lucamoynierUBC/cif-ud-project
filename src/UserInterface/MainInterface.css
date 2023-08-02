@@ -46,9 +46,9 @@
     height: 30px;
     border-radius: 50%;
     background-color: white; /* Apple's red color for close button */
-    position: absolute;
-    top: 5px;
-    right: 5px;
+    position: fixed;
+    top: 110px;
+    right: 10px;
     cursor: pointer;
     align-items: center;
     justify-content: center;

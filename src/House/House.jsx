@@ -1,15 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Html, useGLTF } from "@react-three/drei";
-import HousingInterface from "./HouseInterface";
-import useApp from "./stores/useApp";
-import useCamera from "./stores/useCamera";
+import HousingInterface from "../HouseInterface";
+import useApp from "../stores/useApp";
+import useCamera from "../stores/useCamera";
 import { Select } from "@react-three/postprocessing";
-import useInterface from "./stores/useInterface";
+import useInterface from "../stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
-import useGUI from "./stores/useGUI";
-import useFlow from "./stores/useFlow";
+import useGUI from "../stores/useGUI";
+import useFlow from "../stores/useFlow";
 import { useGesture } from "react-use-gesture";
-import { ConeCollider } from "@react-three/rapier";
+import AtticTag from "./Tags/AtticTag";
+import BasementTag from "./Tags/BasementTag";
+import useActions from "../stores/useActions";
+import Shed from "./Shed";
+
+
 
 
 
@@ -26,8 +31,6 @@ export default function House(props) {
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
-
-  //toggle new interface
   
 
 
@@ -37,7 +40,9 @@ export default function House(props) {
   const [spring, api] = useSpring(() => ({
     color: 'white',
     trail: 950,
-    opacity: 1,
+    atticOpacity: 1,
+    houseOpacity: 1,
+    basementOpacity: 1,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
   }))
 
@@ -92,10 +97,32 @@ export default function House(props) {
             }
           }
         )
+
+        const unsubscribeOpacity = useActions.subscribe(
+          (state) => [state.basement, state.attic, state.detatched, state.attatched],
+          ([basement, attic, detatched, attatched]) => {
+            if (basement == true) {
+              api.start({atticOpacity: .2, houseOpacity: .2, basementOpacity: 1})
+            }
+            if (attic == true) {
+              api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: 1})
+            }
+            if (detatched == true) {
+              api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
+            }
+            if (attatched == true) {
+              api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
+            }
+            else if (!basement && !attic && !detatched && !attatched) {
+              api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
+            }
+          }
+        )
         
         // cleaning subscriptions
         return () => {
             // unsubscribeID()
+            unsubscribeOpacity()
             unsubscribeHighlight()
             unsubscribeColor()
             unsubscribeDefaultColor()
@@ -118,7 +145,7 @@ export default function House(props) {
         material={materials.mainMat}
         material-color={spring.color}
         material-transparent={true}
-        material-opacity={spring.opacity}
+        material-opacity={spring.houseOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
         
@@ -133,13 +160,15 @@ export default function House(props) {
         material={materials.atticMat}
         material-color={spring.color}
         material-transparent={true}
-        material-opacity={spring.opacity}
+        material-opacity={spring.atticOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
         opacity={0.5}
         transparent={true}
         
-      />
+      >
+        <AtticTag></AtticTag>
+      </animated.mesh>
       <animated.mesh
         {...spring}
         {...bind()}
@@ -150,14 +179,15 @@ export default function House(props) {
         material={materials.basementMat}
         material-color={spring.color}
         material-transparent={true}
-        material-opacity={spring.opacity}
+        material-opacity={spring.basementOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
   
-      />
+      >
+        <BasementTag></BasementTag>
+      </animated.mesh>
 
     </Select>
-    
 </group>
 );
 

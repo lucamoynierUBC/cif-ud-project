@@ -1,5 +1,5 @@
 import { Selection, EffectComposer, Outline, DepthOfField } from "@react-three/postprocessing";
-import House from "./House";
+import House from "./House/House";
 
 import { useEffect, useState } from "react";
 import useGUI from "./stores/useGUI";

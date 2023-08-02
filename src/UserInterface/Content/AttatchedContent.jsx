@@ -1,7 +1,16 @@
+import { useInView } from "react-intersection-observer"
+
 export default function AttatchedContent() {
+    const { ref: myRef, inView: visible} = useInView({
+        onChange: (visible) => {
+            
+            console.log("Attatched visibility is: ", visible)
+            
+        }
+    })
     return(
         <div>
-            <h2>Attatched ADU</h2>
+            <h2 ref={myRef}>Attatched ADU</h2>
             <p>The first kind of ADU type is attached. This kind of unit often takes up an existing space in a house like an attached garage, 
                 but can also be a newly constructed space.
             </p>

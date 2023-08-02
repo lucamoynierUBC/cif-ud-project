@@ -11,12 +11,12 @@ import OutlineEffect from './OutlineEffect'
 import BackgroundModel from './BackgroundModel'
 import Camera from './Camera'
 import Birds from './Birds'
-import Shed from './Shed'
+import Shed from './House/Shed'
 import CustomPlot from './CustomPlot'
 import Arrow from './Arrow'
 import PathModel from './PathModel'
 import Person from './Person'
-import DetatchedAdu from './DetatchedAdu'
+import DetatchedAdu from './House/DetatchedAdu'
 
 
 export default function Experience() {

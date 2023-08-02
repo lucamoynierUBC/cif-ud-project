@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import useInterface from "../stores/useInterface"
 import { useSpring, animated } from "@react-spring/web"
 import "./MainInterface.css"
@@ -8,6 +8,7 @@ import AttatchedContent from "./Content/AttatchedContent"
 import DetatchedContent from "./Content/DetatchedContent"
 import BasementContent from "./Content/BasementContent"
 import AtticContent from "./Content/AtticContent"
+import useActions from "../stores/useActions"
 
 export default function MainInterface() {
     //TODO: also have to pass visible as a prop
@@ -25,8 +26,27 @@ export default function MainInterface() {
 
             }
         )
+        const unsubscribeScroll = useActions.subscribe(
+            (state) => [state.basement, state.attic, state.detatched, state.attatched],
+            ([basement, attic, detatched, attatched]) => {
+                if (attatched) {
+                    document.getElementById("attatched").scrollIntoView({behavior:"smooth"})
+                }
+                if (detatched) {
+                    document.getElementById("detatched").scrollIntoView({behavior:"smooth"})
+                }
+                if (attic) {
+                    document.getElementById("attic").scrollIntoView({behavior:"smooth"})
+                }
+                if (basement) {
+                    document.getElementById("basement").scrollIntoView({behavior:"smooth"})
+                }
+
+            }
+        )
         return () => {
             unsubscribeVisible()
+            unsubscribeScroll()
         }
     }, [])
     
@@ -54,11 +74,18 @@ export default function MainInterface() {
                         <Dropdown text="WHATS AN ADU"/>
 
                         <p>ADUs are also permissible for two family homes.</p>
-
-                        <AttatchedContent />
-                        <DetatchedContent></DetatchedContent>
-                        <AtticContent></AtticContent>
-                        <BasementContent></BasementContent>
+                        <div id="attatched">
+                            <AttatchedContent/>
+                        </div>
+                        <div id="detatched">
+                            <DetatchedContent />
+                        </div>
+                        <div id="attic">
+                            <AtticContent></AtticContent>
+                        </div>
+                        <div id="basement">
+                            <BasementContent></BasementContent>
+                        </div>
                     </div>
                     
                     <div className="footer"></div>

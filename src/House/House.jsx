@@ -67,13 +67,17 @@ export default function House(props) {
     {
         
         const unsubscribeHighlight = useInterface.subscribe(
-          (state) => state.selection,
-          (selection) => {
+          (state) => [state.selection, state.visible],
+          ([selection , visible]) => {
+            if (!visible){
+              api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
+            }
             if (selection === 1){
               atticHover(true)
             } else {
               atticHover(false)
             }
+            
           }
         )
         const unsubscribeColor = useGUI.subscribe(

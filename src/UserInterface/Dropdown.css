@@ -1,0 +1,37 @@
+.Dropdown-layout
+{
+    background: #DDD;
+}
+
+.title
+{
+    user-select: none;
+}
+
+.content
+{
+    padding: 0 25px 10px;
+}
+
+.content-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .content-enter-active {
+    max-height: 100px; /* desired expanded height */
+    opacity: 1;
+    transition: max-height 200ms ease, opacity 200ms ease;
+  }
+  
+  .content-exit {
+    max-height: 100px; /* desired expanded height */
+    opacity: 1;
+  }
+  
+  .content-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 200ms ease, opacity 200ms ease;
+  }

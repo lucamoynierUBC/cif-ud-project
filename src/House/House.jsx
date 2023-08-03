@@ -152,7 +152,7 @@ export default function House(props) {
  
    // TODO: stop event propogration
   return (
-  <group {...props} dispose={null} position={[0, 0, 5]} scale={0.4} >
+  <group {...props} dispose={null} position={[0, -0.3, 5]} scale={0.4} >
     <Select enabled={atticHovered}>
       <animated.mesh
         {...spring}

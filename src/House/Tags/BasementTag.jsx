@@ -5,6 +5,7 @@ import useInterface from "../../stores/useInterface";
 
 export default function BasementTag() {
     const [visible, setVisible] = useState(false)
+    const [opacity, setOpacity] = useState(1)
     const selectBasement = useActions((state) => state.selectBasement)
 
     useEffect(() => {
@@ -14,14 +15,36 @@ export default function BasementTag() {
                 setVisible(visible)
             })
         )
+        const unsubscribeOpacity = useActions.subscribe(
+            (state) => [state.basement, state.attic, state.detatched, state.attatched],
+            ([basement, attic, detatched, attatched]) => {
+                if (!basement && attic){
+                    setOpacity(0.5)
+                } 
+                if (!basement && detatched) {
+                    setOpacity(0.5)
+                }
+                if (!basement && attatched) {
+                    setOpacity(0.5)
+                }
+                if (!basement && !attatched && !attic && !detatched) {
+                    setOpacity(1)
+                }
+                if (basement){
+                    setOpacity(1)
+                }
+            
+            }
+        )
         
         return () => {
             unsubscribeVisible()
+            unsubscribeOpacity()
         }
     }, [])
 
     return(
-        visible && <Html wrapperClass="idLabel" position={[-80, 70, -35]}> 
+        visible && <Html wrapperClass="idLabel" position={[-80, 70, -35]} style={{opacity: opacity}} > 
             <button onClick={() => {selectBasement()}}>Basement</button>
         </Html>
     )

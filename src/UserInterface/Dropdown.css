@@ -1,6 +1,14 @@
 .Dropdown-layout
 {
     background: #DDD;
+    border-radius: 8px;
+    transition: height 200ms ease;
+    
+}
+
+.Dropdown-layout:hover
+{
+    background: #c4c4c4;
 }
 
 .title
@@ -11,27 +19,36 @@
 .content
 {
     padding: 0 25px 10px;
+    
 }
 
 .content-enter {
+    transform: scaleY(0);
     max-height: 0;
     opacity: 0;
     overflow: hidden;
   }
   
   .content-enter-active {
-    max-height: 100px; /* desired expanded height */
+    
     opacity: 1;
-    transition: max-height 200ms ease, opacity 200ms ease;
+    transform: scaleY(1);
+    transform-origin: top;
+    max-height: 500px;
+    transition: transform 200ms ease, opacity 200ms ease, max-height 200ms ease;
   }
   
   .content-exit {
-    max-height: 100px; /* desired expanded height */
+    transform: scaleY(1);
+    transform-origin: top;
     opacity: 1;
+    max-height: 500px;
   }
   
   .content-exit-active {
-    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: top;
     opacity: 0;
-    transition: max-height 200ms ease, opacity 200ms ease;
+    max-height: 0;
+    transition: transform 100ms ease, opacity 200ms ease, max-height 200ms ease;
   }

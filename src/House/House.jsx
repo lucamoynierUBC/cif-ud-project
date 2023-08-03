@@ -31,7 +31,7 @@ export default function House(props) {
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
-  const [hoverEffect, setHoverEffect] = useState(false)
+  const [hoverEffect, setHoverEffect] = useState(true)
   //useActions
   const unselectAllAdu = useActions((state) => state.unselectAll)
   
@@ -53,6 +53,7 @@ export default function House(props) {
 
   const bind = useGesture({
     onHover({ hovering }) {
+      console.log('hover effect', hoverEffect)
       if (hoverEffect) {
         api.start({atticColor: hovering ? '#ae561f' : '#d96b27'})
         api.start({houseColor: hovering ? '#ae561f' : '#d96b27'})

@@ -18,13 +18,13 @@ export default function Person(props) {
   useFrame((state, delta) =>{
     if (up){
       group.current.position.z += delta
-      if (group.current.position.z >= 5){
+      if (group.current.position.z >= 15){
         up = false
       }
     } else {
       group.current.rotation.y = Math.PI
       group.current.position.z -= delta
-      if (group.current.position.z <= -1){
+      if (group.current.position.z <= -15){
         group.current.rotation.y = Math.PI * 2
         up = true
       }

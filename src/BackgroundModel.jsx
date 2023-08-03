@@ -19146,7 +19146,7 @@ export default function BackgroundModel(props) {
           geometry={nodes.Object_1839.geometry}
           material={materials.Material_133}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.Object_1904.geometry}
@@ -19163,7 +19163,7 @@ export default function BackgroundModel(props) {
           receiveShadow
           geometry={nodes.Object_1906.geometry}
           material={materials.Material_133}
-        />
+        /> */}
         
         {/* <mesh
           castShadow

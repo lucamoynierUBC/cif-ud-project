@@ -19,20 +19,20 @@ export default function Birds(props) {
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play()
   })
-  console.log(actions[names[0]])
+
+
 
   useFrame((state, delta) =>{
-    ref.current.position.z -= delta*3
-
-    if (ref.current.position.z <= -50) {
-        ref.current.position.z = 75
+    ref.current.position.x += delta*3
+    if (ref.current.position.x >= 45) {
+        ref.current.position.x = -70
     }
 
   })
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group ref={ref} name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]} scale={0.05} position={[0 , 15,  75]}>
+        <group ref={ref} name="Sketchfab_model" rotation={[-Math.PI / 2, 0 , -Math.PI / 2]} scale={0.05} position={[-70 , 15,  -20]}>
           <group
             name="caa1de82125e43cab16cdc38a1378805fbx"
             rotation={[Math.PI / 2, 0, 0]}

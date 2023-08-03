@@ -17,6 +17,7 @@ import Arrow from './Arrow'
 import PathModel from './PathModel'
 import Person from './Person'
 import DetatchedAdu from './House/DetatchedAdu'
+import Bus from './Bus'
 
 
 export default function Experience() {
@@ -101,6 +102,7 @@ export default function Experience() {
         <Shed></Shed>
         <DetatchedAdu></DetatchedAdu>
         <Birds></Birds>
+        <Bus></Bus>
         {/* <CustomPlot/> */}
         <Arrow></Arrow>
         <PathModel></PathModel>

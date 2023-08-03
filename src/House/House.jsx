@@ -31,6 +31,9 @@ export default function House(props) {
   //outline effect 
   const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
+  const [hoverEffect, setHoverEffect] = useState(false)
+  //useActions
+  const unselectAllAdu = useActions((state) => state.unselectAll)
   
 
 
@@ -38,7 +41,9 @@ export default function House(props) {
 
   //animatecolor
   const [spring, api] = useSpring(() => ({
-    color: 'white',
+    atticColor: 'white',
+    houseColor:'white',
+    basementColor: 'white',
     trail: 950,
     atticOpacity: 1,
     houseOpacity: 1,
@@ -48,7 +53,11 @@ export default function House(props) {
 
   const bind = useGesture({
     onHover({ hovering }) {
-      api.start({color: hovering ? '#ae561f' : '#d96b27'})
+      if (hoverEffect) {
+        api.start({atticColor: hovering ? '#ae561f' : '#d96b27'})
+        api.start({houseColor: hovering ? '#ae561f' : '#d96b27'})
+        api.start({basementColor: hovering ? '#ae561f' : '#d96b27'})
+      }
     }
   })
   
@@ -62,15 +71,16 @@ export default function House(props) {
   };
 
   
-  
   useEffect(() =>
     {
         
         const unsubscribeHighlight = useInterface.subscribe(
           (state) => [state.selection, state.visible],
           ([selection , visible]) => {
+            setHoverEffect(!visible)
             if (!visible){
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
+              api.start({houseColor: '#d96b27', basementColor: '#d96b27', atticColor: '#d96b27'})
             }
             if (selection === 1){
               atticHover(true)
@@ -84,7 +94,7 @@ export default function House(props) {
           (state) => state.guiIntroPhase,
           (guiIntroPhase) => {
             if (guiIntroPhase === 'off'){
-              api.start({color: '#d96b27'})
+              api.start({atticColor: '#d96b27', houseColor: '#d96b27', basementColor: '#d96b27' })
               atticHover(true)
               // handleHouseClick()
             }
@@ -107,18 +117,23 @@ export default function House(props) {
           ([basement, attic, detatched, attatched]) => {
             if (basement == true) {
               api.start({atticOpacity: .2, houseOpacity: .2, basementOpacity: 1})
+              api.start({houseColor: 'white', atticColor: 'white', basementColor: '#d96b27'})
             }
             if (attic == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: 1})
+              api.start({houseColor: 'white', basementColor: 'white', atticColor: '#d96b27'})
             }
             if (detatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
+              api.start({houseColor: 'white', basementColor: 'white', atticColor: 'white'})
             }
             if (attatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
+              api.start({houseColor: 'white', basementColor: 'white', atticColor: 'white'})
             }
             else if (!basement && !attic && !detatched && !attatched) {
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
+              api.start({houseColor: '#d96b27', basementColor: '#d96b27', atticColor: '#d96b27'})
             }
           }
         )
@@ -147,7 +162,7 @@ export default function House(props) {
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
         geometry={nodes.main.geometry}
         material={materials.mainMat}
-        material-color={spring.color}
+        material-color={spring.houseColor}
         material-transparent={true}
         material-opacity={spring.houseOpacity}
         position={[0.042, -23.125, 0]}
@@ -159,10 +174,10 @@ export default function House(props) {
         {...bind()}
         castShadow
         receiveShadow
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface(), unselectAllAdu()}}
         geometry={nodes.attic.geometry}
         material={materials.atticMat}
-        material-color={spring.color}
+        material-color={spring.atticColor}
         material-transparent={true}
         material-opacity={spring.atticOpacity}
         position={[0.042, -23.125, 0]}
@@ -181,7 +196,7 @@ export default function House(props) {
         onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
-        material-color={spring.color}
+        material-color={spring.basementColor}
         material-transparent={true}
         material-opacity={spring.basementOpacity}
         position={[0.042, -23.125, 0]}

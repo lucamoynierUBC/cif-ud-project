@@ -14,6 +14,8 @@ export default function MainInterface() {
     //TODO: also have to pass visible as a prop
     const [visible, setVisible] = useState(false)
     const setVisibleState = useInterface((state) => state.toggleVisible)
+    //useAction
+    const unselectAllAdu = useActions((state) => state.unselectAll)
     
 
     useEffect(() => {
@@ -61,7 +63,7 @@ export default function MainInterface() {
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
                     <div className="titleCloseBtn-layout">
-                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState()}}> X </button>
+                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu()}}> X </button>
                     </div>
                     <div className="title">
                         <h1> Single Family Home </h1>

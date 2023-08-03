@@ -18,10 +18,10 @@ export default function Shed() {
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             (([basement, attic, detatched, attatched]) => {
                 if (attatched == true){
-                    api.start({opacity: 1})
+                    api.start({opacity: 1, color: '#d96b27'})
                 }
                 if (attatched == false){
-                    api.start({opacity: 0.2})
+                    api.start({opacity: 0.2, color: 'white'})
                 }
             })
         )

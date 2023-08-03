@@ -39,7 +39,7 @@ export default create(subscribeWithSelector((set) => {
         },
         unselectAll: () => {
             set(() => {
-                return {basement: false, attic: false}
+                return {basement: false, attic: false, detatched: false, attatched: false}
             })
         }
     }

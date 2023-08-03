@@ -17,10 +17,10 @@ export default function DetatchedAdu() {
             (state) => [state.basement, state.attic, state.detatched, state.attached],
             (([basement, attic, detatched, attached]) => {
                 if (detatched == true){
-                    api.start({opacity: 1})
+                    api.start({opacity: 1, color: '#d96b27'})
                 }
                 if (detatched == false) {
-                    api.start({opacity: 0.2})
+                    api.start({opacity: 0.2, color: 'white'})
                 }
             })
         )

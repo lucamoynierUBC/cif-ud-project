@@ -2,6 +2,7 @@ import { Html } from "@react-three/drei";
 import useActions from "../../stores/useActions";
 import { useEffect, useState } from "react";
 import useInterface from "../../stores/useInterface";
+import "./TagStyles.css"
 
 export default function AtticTag() {
     const [visible, setVisible] = useState(false)
@@ -44,8 +45,8 @@ export default function AtticTag() {
     }, [])
 
     return(
-        visible && <Html wrapperClass="idLabel" position={[-80, 100, -45]} style={{opacity: opacity}}> 
-            <button onClick={() => {selectAttic()}}>Attic</button>
+        visible && <Html wrapperClass="tag-layout" position={[-80, 100, -65]} style={{opacity: opacity}}> 
+            <button className="tag-button" onClick={() => {selectAttic()}}>Attic</button>
         </Html>
     )
 }

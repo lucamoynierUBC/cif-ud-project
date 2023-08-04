@@ -2,6 +2,7 @@ import { Html } from "@react-three/drei";
 import useActions from "../../stores/useActions";
 import { useState, useEffect } from "react";
 import useInterface from "../../stores/useInterface";
+import "./TagStyles.css"
 
 export default function DetatchedTag() {
     const [visible, setVisible] = useState(false)
@@ -15,7 +16,6 @@ export default function DetatchedTag() {
                 setVisible(visible)
             })
         )
-
         const unsubscribeOpacity = useActions.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
@@ -45,8 +45,8 @@ export default function DetatchedTag() {
     }, [])
 
     return(
-        visible && <Html wrapperClass="idLabel" position={[0, 1, 0]} style={{opacity: opacity}}> 
-            <button onClick={() => {selectDetatched()}}>Detatched ADU</button>
+        visible && <Html wrapperClass="tag-layout" position={[0, 1, 0]} style={{opacity: opacity}}> 
+            <button className="tag-button" onClick={() => {selectDetatched()}}>Detatched ADU</button>
         </Html>
     )
 }

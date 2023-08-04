@@ -18970,7 +18970,7 @@ export default function Model(props) {
           geometry={nodes.Object_1235.geometry}
           material={materials.Material_4}
         />
-        <mesh
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.Object_1299.geometry}
@@ -18987,8 +18987,8 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.Object_1301.geometry}
           material={materials.Material_4}
-        />
-        <mesh
+        /> */}
+        {/* <mesh
           castShadow
           receiveShadow
           geometry={nodes.Object_1302.geometry}
@@ -19005,7 +19005,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.Object_1304.geometry}
           material={materials.Material_4}
-        />
+        /> */}
         <mesh
           castShadow
           receiveShadow

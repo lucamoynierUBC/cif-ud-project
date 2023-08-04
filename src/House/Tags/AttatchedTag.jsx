@@ -2,6 +2,7 @@ import { Html } from "@react-three/drei";
 import useActions from "../../stores/useActions";
 import { useState, useEffect } from "react";
 import useInterface from "../../stores/useInterface";
+import "./TagStyles.css"
 
 export default function AttatchedTag() {
     const selectAttatched = useActions((state) => state.selectAttatched)
@@ -42,10 +43,19 @@ export default function AttatchedTag() {
             unsubscribeOpacity()
         }
     }, [])
-
+    console.log(opacity)
     return(
-        visible && <Html wrapperClass="idLabel" position={[0, .5, -1.5]} style={{opacity: opacity}}> 
-            <button onClick={() => {selectAttatched()}}>Attatched ADU</button>
+        visible && <Html 
+        wrapperClass="tag-layout" 
+        position={[0, .5, .75]} 
+        style={{opacity: opacity}} 
+        onPointerOver={() => setOpacity(1)}  // Set opacity to 1 on hover
+        onPointerOut={() => setOpacity(0.5)}
+        > 
+            <button 
+            className="tag-button" 
+            onClick={() => {selectAttatched()}} 
+             >Attatched ADU</button>
         </Html>
     )
 }

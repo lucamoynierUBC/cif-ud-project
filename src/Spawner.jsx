@@ -1,7 +1,7 @@
 import { PointMaterialImpl } from "@react-three/drei";
-import Birds from "./Birds";
-import Person from "./Person";
-import Bus from "./Bus";
+import Birds from "./3DAssets/Birds";
+import Person from "./3DAssets/Person";
+import Bus from "./3DAssets/Bus";
 import { useEffect, useState } from "react";
 import useGUI from "./stores/useGUI";
 

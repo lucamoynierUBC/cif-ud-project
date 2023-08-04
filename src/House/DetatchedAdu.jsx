@@ -8,7 +8,7 @@ export default function DetatchedAdu() {
     const [spring, api] = useSpring(() => ({
         visible: true,
         color: 'white',
-        opacity: 0.2,
+        opacity: .2,
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
     }))
 

@@ -12,12 +12,13 @@ import BackgroundModel from './BackgroundModel'
 import Camera from './Camera'
 import Birds from './Birds'
 import Shed from './House/Shed'
-import CustomPlot from './CustomPlot'
 import Arrow from './Arrow'
 import PathModel from './PathModel'
 import Person from './Person'
 import DetatchedAdu from './House/DetatchedAdu'
 import Bus from './Bus'
+import Plot from './Plot'
+import Spawner from './Spawner'
 
 
 export default function Experience() {
@@ -101,12 +102,10 @@ export default function Experience() {
         <BackgroundModel></BackgroundModel>
         <Shed></Shed>
         <DetatchedAdu></DetatchedAdu>
-        <Birds></Birds>
-        <Bus></Bus>
-        {/* <CustomPlot/> */}
+        <Spawner></Spawner>
+        <Plot></Plot>
         <Arrow></Arrow>
         <PathModel></PathModel>
-        <Person position={[-16,-.4,0]} scale={0.2}></Person>
         
    
 

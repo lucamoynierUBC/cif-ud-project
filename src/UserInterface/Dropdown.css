@@ -50,5 +50,5 @@
     transform-origin: top;
     opacity: 0;
     max-height: 0;
-    transition: transform 100ms ease, opacity 200ms ease, max-height 200ms ease;
+    transition: transform 200ms ease, opacity 300ms ease, max-height 100ms ease;
   }

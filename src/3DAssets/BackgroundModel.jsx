@@ -21729,6 +21729,7 @@ export default function Model(props) {
           receiveShadow
           geometry={nodes.Object_2422.geometry}
           material={materials.Material_4}
+          
         />
         <mesh
           castShadow

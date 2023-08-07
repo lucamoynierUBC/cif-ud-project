@@ -14,13 +14,13 @@ export default function Modal(){
                 <div className="titleBtn-layout">
                     <button onClick={() => {setVisible(false), turnOffBlur()}} className="titleBtn"> &#x2715; </button>
                 </div>
-                <div className="title">
+                {/* <div className="title">
                     <h1> Welcome to the tool!</h1>
                 </div>
                 <div className="body">
                     <p>This interactive housing model simulates a low density New York City neighborhood. 
                         To navigate the tool:</p>
-                </div>
+                </div> */}
                 <Carousel></Carousel>
                 
 

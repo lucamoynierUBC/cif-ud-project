@@ -12,7 +12,7 @@ export default function Modal(){
         visible && <div className="modalBackground" onPointerOver={(event) => event.stopPropagation()} onPointerOut={ (event) => event.stopPropagation()}>
             <div className="modalContainer" >
                 <div className="titleBtn-layout">
-                    <button onClick={() => {setVisible(false), turnOffBlur()}} className="titleBtn">X</button>
+                    <button onClick={() => {setVisible(false), turnOffBlur()}} className="titleBtn"> &#x2715; </button>
                 </div>
                 <div className="title">
                     <h1> Welcome to the tool!</h1>

@@ -33,19 +33,21 @@
 .titleCloseBtn-layout 
 {
     position: absolute;
-    top: 0px;
-    right: 1px;
+    top: 15px;
+    right: 20px;
     cursor: pointer;
     display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
 .titleCloseBtn 
 {
-    width: 30px;
+    /* width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: white; /* Apple's red color for close button */
+    background-color: white;
     position: fixed;
     top: 110px;
     right: 10px;
@@ -53,15 +55,31 @@
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); Adding a box shadow */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     font-size: 16px;
     font-weight: bold;   
-    transition: 300ms; 
+    transition: 300ms;  */
+    background-color: white;
+    border-radius: 3px;
+    font-size: 20px;
+    color: gray;
+    transition: 200ms;
+    height: 25px;
+    width: 25px;
+    border: 0px;
+    margin: 0 auto;
+    padding-bottom: 0px;
+    display: inline-block;
+    line-height: 0px;
+    text-align: center;
+    position: fixed;
 }
+    
 
 .titleCloseBtn:hover
 {
-    background-color: grey;
+    background-color: rgb(227, 227, 227);
+    color: black;
 }
 
 .title

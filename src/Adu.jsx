@@ -37,7 +37,6 @@ export default function Adu({ onPositionChange, position, id, scale}) {
             
         },
         onHover({ hovering }) {
-            console.log(hovering)
             api.start({scale: hovering ? scale.map(value => value * 1.2) : scale })
             api.start({color: hovering ? 'indianred' : 'white'})
 

@@ -58,7 +58,7 @@ export default function AtticTag() {
     }, [])
 
     const springProps = useSpring({
-        width: hover? '70px' : '40px',
+        width: hover? '60px' : '40px',
         config: { tension: 210, friction: 20, duration: 1},
 
     });

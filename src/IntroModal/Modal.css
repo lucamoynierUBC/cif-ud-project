@@ -37,7 +37,7 @@
     background-color: white;
     border-radius: 4px;
     font-size: 16px;
-    color: gray;
+    color: #00000040;
     transition: 200ms;
     height: 25px;
     width: 25px;
@@ -51,6 +51,6 @@
 
 .titleBtn:hover
 {
-    background-color: rgb(227, 227, 227);
-    color: black;
+    background-color: #D9D9D9FF;
+    color: #000000E0;
 }

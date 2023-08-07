@@ -16,11 +16,12 @@ body {
     border: 2px solid #000000;
     width: 40px;
     height: 40px;
+    transition: 200ms ease;
     
 }
 
 .caret-container:hover {
-    background-color: #828892;
+    background-color: #D9D9D9FF;
 }
 
 .caret {

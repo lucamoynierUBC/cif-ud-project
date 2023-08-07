@@ -15,7 +15,6 @@ export default create(subscribeWithSelector((set) => {
         numberIdentification: 'hide',
 
         showAdu: () => {
-            console.log("spawning adu!")
             set(() => {
                 return {phase: 'showAdu'}
 

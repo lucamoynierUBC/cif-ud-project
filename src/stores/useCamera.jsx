@@ -3,24 +3,22 @@ import { subscribeWithSelector } from 'zustand/middleware'
 
 export default create(subscribeWithSelector((set) => {
     return {
-        zoom: 'far',
+        zoom: false,
         rotate: 'default',
 
         zoomClose: () => {
-            console.log('zoom close')
-            set(() => {
-                return {zoom: 'close'}
+            set((state) => {
+                console.log("zoom is", !state.zoom)
+                return {zoom: !state.zoom}
             })
         },
         zoomFar: () => {
-            console.log('zoom far')
             set(() => {
                 return {guiIntroPhase: 'far'}
             })
         },
 
         rotateToAdu: () => {
-            console.log('paning to adu')
             set(() => {
                 return {rotate: 'adu'}
             })
@@ -29,6 +27,11 @@ export default create(subscribeWithSelector((set) => {
         rotateBirdsEye: () => {
             set(() => {
                 return{rotate: 'birdsEye'}
+            })
+        },
+        resetCamera: () => {
+            set(() => {
+                return{rotate: 'far'}
             })
         }
     }

@@ -27,6 +27,7 @@ export default function House(props) {
   const hideAdu = useApp((state) => state.hideAdu)
   const resetClick = useInterface((state) => state.resetClick)
   const zoomIn = useCamera((state) => state.zoomClose)
+  const resetCamera = useCamera((state) => state.resetCamera)
   const toggleInterface = useInterface((state) => state.toggleVisible)
   //outline effect 
   const atticRef = useRef()

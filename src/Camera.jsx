@@ -20,7 +20,7 @@ export default function Camera() {
             (state) => state.zoom,
             (zoom) => {
                 console.log('zoom set to :', zoom)
-                if (zoom === 'close'){
+                if (zoom){
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
                         duration: 1,

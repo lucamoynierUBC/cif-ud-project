@@ -60,7 +60,7 @@ export default function BasementTag() {
     }, [])
 
     const springProps = useSpring({
-        width: hover? '150px' : '20px',
+        width: hover? '150px' : '40px',
         config: { tension: 210, friction: 20, duration: 1},
 
     });

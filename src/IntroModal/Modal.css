@@ -27,7 +27,6 @@
 @media  only screen and (max-width: 768px) {
     .modalContainer {
         max-width: 80%;
-        height: 60%;
 
     }
 }

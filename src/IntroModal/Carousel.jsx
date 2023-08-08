@@ -1,5 +1,7 @@
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
+import { FiMove } from "react-icons/fi";
+import { AiOutlineZoomIn } from "react-icons/ai";
 
 import './Carousel.css'
 import 'swiper/css';
@@ -30,20 +32,13 @@ export default function Carousel() {
                         <h4>Welcome to the Tool!</h4>
                         <p>Navigate using the side interface and these interactions:</p>
                         <div className='icon-container'>
-                            <div className='zoom-icon'>
-                                <svg width={'50px'} className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4M5 8h6m-3 3V5m7 3A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                                </svg>
+                            <div className='zoom-icon-container'>
+                                <AiOutlineZoomIn size={"60%"}/>
                                 <p className='secondary-text'>Zoom</p>
                             </div>
-                            <div className='pan-icon'>
-                            <svg
-                                viewBox="0 0 24 24"
-                                fill="currentColor"
-                                width="50px"
-                            >
-                                <path d="M12 2.5L8 7h8l-4-4.5M7 8l-4.5 4L7 16V8m10 0v8l4.5-4L17 8m-5 2a2 2 0 00-2 2 2 2 0 002 2 2 2 0 002-2 2 2 0 00-2-2m-4 7l4 4.5 4-4.5H8z" />
-                            </svg>
+                            <div className='pan-icon-container'>
+                                <FiMove size={"60%"} />
+                           
                                 <p className='secondary-text'>Pan</p>
                             </div>
                                 

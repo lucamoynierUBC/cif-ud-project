@@ -14,12 +14,19 @@
     padding-top: 30px;
 }
 
-.zoom-icon{
-    margin: 0 30px;
+.zoom-icon-container{
+    margin: 0 20px;
+    width: 50%;
+    max-width: 100px;
+    min-width: 40px;
 }
-.pan-icon{
-    margin: 0 30px;
+.pan-icon-container{
+    margin: 0 20px;
+    width: 50%;
+    max-width: 100px;
+    min-width: 40px;
 }
+
 
 .secondary-text
 {

@@ -14,8 +14,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30%;
-    max-width: 60%;
+    
+    max-width: 40%; /* Adjust the maximum width as needed */
+    width: 100%;
     padding: 20px;
     background-color: white;
     text-align: center;
@@ -23,6 +24,13 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+@media  only screen and (max-width: 768px) {
+    .modalContainer {
+        max-width: 80%;
+        height: 60%;
+
+    }
+}
 .titleBtn-layout
 {
     position: absolute;
@@ -31,6 +39,7 @@
     cursor: pointer;
     display: flex;
 }
+
 
 .titleBtn 
 {

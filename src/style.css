@@ -145,11 +145,9 @@ body,
     justify-content: space-between; */
     padding: 0 10px;
     background: #F5F5F5FF;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    
-    
-    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);   
 }
+
 
 .navBar-nav
 {
@@ -161,6 +159,7 @@ body,
     align-items: flex-start;
     padding-right: 15px;
 }
+
 
 .nav-item 
 {
@@ -195,6 +194,13 @@ body,
     font-size: 16px;
     color: #00000040;
     user-select: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .text-button {
+        padding: 0 5px;
+        font-size: 14px;
+    }
 }
 
 .text-button:hover

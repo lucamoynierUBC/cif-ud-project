@@ -139,12 +139,14 @@ body,
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 70px;
     /* pointer-events: none;  */
     /* display: flex;
     justify-content: space-between; */
     padding: 0 10px;
-    background: linear-gradient(white, #f5f5f5 80%, #f5f5f5 50%, #f5f5f5 20%, transparent);
+    background: #F5F5F5FF;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    
     
     
 }

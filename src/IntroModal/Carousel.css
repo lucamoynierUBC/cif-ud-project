@@ -5,3 +5,23 @@
     border-radius: 8px;
     margin-top: 20px;
 }
+
+.icon-container
+{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 30px;
+}
+
+.zoom-icon{
+    margin: 0 30px;
+}
+.pan-icon{
+    margin: 0 30px;
+}
+
+.secondary-text
+{
+    color: #000000A6;
+}

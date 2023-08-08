@@ -21,6 +21,7 @@
 
 .tag-button
 {
+    border: 0px;
     border-radius: 10px;
     background-color: white;
     height: 40px;

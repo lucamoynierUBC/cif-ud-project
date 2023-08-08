@@ -6,7 +6,7 @@ export default function NavText(props) {
 
     return(
         <li className="nav-item-text">
-            <h1 className="text-button" onClick={() => setOpen(!open)}>
+            <h1 className="text-button" onClick={() => {setOpen(!open), window.open(props.url, "_blank")}}>
                 {props.text}
             </h1>
             {open && props.children}

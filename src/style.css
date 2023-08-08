@@ -192,6 +192,7 @@ body,
     border-radius: 8px;
     font-size: 16px;
     color: #00000040;
+    user-select: none;
 }
 
 .text-button:hover

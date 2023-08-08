@@ -15,7 +15,8 @@
     top: 100px;
     bottom: 100px;
     right: 0;
-    width: 400px;
+    width: 50%;
+    max-width: 400px;
     height: 800px;
     flex-shrink: 0;
     /* border: 10px solid #C5C5C5; */

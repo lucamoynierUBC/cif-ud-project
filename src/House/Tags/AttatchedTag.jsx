@@ -81,7 +81,7 @@ export default function AttatchedTag() {
     return(
         visible && <Html 
         wrapperClass="tag-layout" 
-        position={[0, .5, .75]} 
+        position={[0, .5, (isMobile ? .4 : .75)]} 
         style={{opacity: opacity}} 
         > 
             <animated.button 

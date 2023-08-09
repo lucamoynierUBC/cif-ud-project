@@ -46,3 +46,10 @@
 .tag-layout:hover{
     opacity: 1;
 }
+
+@media screen and (max-width: 600px) {
+    .tag-button {
+        font-size: 14px;
+        height: 30px;
+    }
+}

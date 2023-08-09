@@ -11,6 +11,7 @@ export default function AttatchedTag() {
     const [visible, setVisible] = useState(false)
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
+    const isMobile = window.innerWidth <= 600;
 
     useEffect(() => {
         const unsubscribeVisible = useInterface.subscribe(
@@ -58,7 +59,7 @@ export default function AttatchedTag() {
     }, [])
 
     const springProps = useSpring({
-        width: hover? '150px' : '40px',
+        width: hover ? (isMobile ? '110px' : '150px') : '40px',
         config: { tension: 210, friction: 20, duration: 1},
 
     });

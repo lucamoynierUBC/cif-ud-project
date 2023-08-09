@@ -183,7 +183,7 @@ body,
 {   
     height: 40px;
     padding: 0 10px;
-    margin: 0 5px;
+    margin: 0 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +199,7 @@ body,
 @media only screen and (max-width: 768px) {
     .text-button {
         padding: 0 5px;
-        font-size: 14px;
+        font-size: 12px;
     }
 }
 

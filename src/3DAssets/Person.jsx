@@ -17,7 +17,6 @@ export default function Person(props) {
   })
   var up = true
   useFrame((state, delta) =>{
-    console.log(group.current.position)
     if (up){
       group.current.position.z += delta
       if (group.current.position.z >= 15){

@@ -15,7 +15,7 @@ export default function Bus(props) {
   })
 
   return (
-    <group ref={group} {...props} dispose={null} scale={0.5} position={[13, -.2, -5]}>
+    <group ref={group} {...props} dispose={null} scale={0.5} position={[25, -.2, -5]}>
       <group
         position={[-2.005, -0.612, 0.865]}
         rotation={[-Math.PI / 2, 0, Math.PI]}

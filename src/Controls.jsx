@@ -37,7 +37,7 @@ export const OrbitControls = ({ children }) => {
       <BaseOrbitControls 
       ref={ref} 
       enabled={isEnabled} 
-      enableRotate={true} 
+      enableRotate={false} 
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}

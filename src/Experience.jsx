@@ -25,16 +25,16 @@ export default function Experience() {
 
     //figure whats going on here, error is occuring because both ADU's use the same ref,
     // TODO: fix later
-    const aduRigidBody = useRef()
-    const aduPosition = useRef({x: 0, z: 0})
+    // const aduRigidBody = useRef()
+    // const aduPosition = useRef({x: 0, z: 0})
     
 
    
-    const handlePositionChange = ({ x, z }) => {
-        aduPosition.current = {x, z}
-        // console.log("X position:", x)
-        // console.log("Z position:", z)
-    }
+    // const handlePositionChange = ({ x, z }) => {
+    //     aduPosition.current = {x, z}
+    //     // console.log("X position:", x)
+    //     // console.log("Z position:", z)
+    // }
 
 
     //retrieving color from store, state is our store information, 
@@ -44,20 +44,20 @@ export default function Experience() {
     })
 
 
-    useFrame(() => {
-        const {x, z} = aduPosition.current
-        // console.log("Rigid Body x: ", x)
-        // console.log("Rigid Body z: ", z)
-        aduRigidBody.current.setNextKinematicTranslation({x: x, y: 0,  z: z})
+    // useFrame(() => {
+    //     const {x, z} = aduPosition.current
+    //     // console.log("Rigid Body x: ", x)
+    //     // console.log("Rigid Body z: ", z)
+    //     aduRigidBody.current.setNextKinematicTranslation({x: x, y: 0,  z: z})
 
-        //set camera parameters here
+    //     //set camera parameters here
 
         
     
 
 
 
-    })
+    // })
 
     return <>
 
@@ -67,22 +67,22 @@ export default function Experience() {
         <color args={['ivory']} attach="background"/>
         <OrbitControls>
             <Camera></Camera>
-            <Physics debug>
+            {/* <Physics debug> */}
                 {/* <RigidBody  gravityScale={0}>
                     {/* <Cube color={color} position={[6, 1, 0]}/> */}
                 {/*</RigidBody> */}
                 {/* rigid body does not move because it is set to fixed */}
-                <RigidBody
+                {/* <RigidBody
                     ref={aduRigidBody} 
                     type="kinematicPosition">
                     <Adu id={4} onPositionChange={handlePositionChange} position={[-5, 1, -5]} scale={[2, 2, 2]}/>
-                </RigidBody>
+                </RigidBody> */}
         
 
 
-            </Physics>
+            {/* </Physics>
             <Adu id={2} onPositionChange={handlePositionChange} position={[2, 0, 0]} scale={[3, 3, 3]}/>
-            <Adu id={3} onPositionChange={handlePositionChange} position={[0, -0.75, .4]} scale={[2.5, 0.75, 4.25]}/>
+            <Adu id={3} onPositionChange={handlePositionChange} position={[0, -0.75, .4]} scale={[2.5, 0.75, 4.25]}/> */}
         
 
             {/* <mesh rotation-x={-(Math.PI/2)} scale={10} position-y={-0.5}>

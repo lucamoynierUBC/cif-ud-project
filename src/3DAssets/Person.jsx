@@ -17,6 +17,7 @@ export default function Person(props) {
   })
   var up = true
   useFrame((state, delta) =>{
+    console.log(group.current.position)
     if (up){
       group.current.position.z += delta
       if (group.current.position.z >= 15){
@@ -31,11 +32,10 @@ export default function Person(props) {
       }
     }
   })
-
   return (
-    <group ref={group} {...props} dispose={null} >
+    <group ref={group} {...props} dispose={null} position={[-4, -0.7, 0]}>
       <group name="Scene">
-        <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+        <group name="Armature"  rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <skinnedMesh
             name="Cube001"
             geometry={nodes.Cube001.geometry}

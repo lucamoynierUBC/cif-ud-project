@@ -16,14 +16,14 @@
 
 .zoom-icon-container{
     margin: 0 20px;
-    width: 50%;
-    max-width: 100px;
+    width: 100%;
+    max-width: 140px;
     min-width: 40px;
 }
 .pan-icon-container{
     margin: 0 20px;
-    width: 50%;
-    max-width: 100px;
+    width: 100%;
+    max-width: 140px;
     min-width: 40px;
 }
 
@@ -31,4 +31,5 @@
 .secondary-text
 {
     color: #000000A6;
+    font-size: 14px;
 }

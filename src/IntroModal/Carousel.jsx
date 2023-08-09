@@ -2,6 +2,8 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
 import { FiMove } from "react-icons/fi";
 import { AiOutlineZoomIn } from "react-icons/ai";
+import { PiMouseDuotone } from "react-icons/pi";
+import { PiMouseSimple } from "react-icons/pi";
 
 import './Carousel.css'
 import 'swiper/css';
@@ -33,13 +35,13 @@ export default function Carousel() {
                         <p>Navigate using the side interface and these interactions:</p>
                         <div className='icon-container'>
                             <div className='zoom-icon-container'>
-                                <AiOutlineZoomIn size={"60%"}/>
-                                <p className='secondary-text'>Zoom</p>
+                                <PiMouseSimple size={"60%"}/>
+                                <p className='secondary-text'>Scroll to zoom in & out</p>
                             </div>
                             <div className='pan-icon-container'>
-                                <FiMove size={"60%"} />
+                                <PiMouseDuotone size={"60%"} />
                            
-                                <p className='secondary-text'>Pan</p>
+                                <p className='secondary-text'>Left click to pan & explore</p>
                             </div>
                                 
 

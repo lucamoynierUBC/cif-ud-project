@@ -17,7 +17,7 @@
     right: 0;
     width: 50%;
     max-width: 400px;
-    height: 800px;
+    height: 85%;
     flex-shrink: 0;
     /* border: 10px solid #C5C5C5; */
     background: #FFF;
@@ -30,7 +30,7 @@
     overflow: scroll; 
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .mainInterfaceContainer {
         position: fixed;
         top: auto;
@@ -40,7 +40,6 @@
         height: 40vh; /* Occupies 50% of viewport height */
         max-width: 100%; /* Full width on smaller screens */
         border-radius: 0; /* Remove border radius on smaller screens */
-        box-shadow: none; /* Remove box shadow on smaller screens */
         
     }
 }
@@ -48,8 +47,8 @@
 .titleCloseBtn-layout 
 {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 20px;
+    right: 25px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -83,10 +82,10 @@
     width: 25px;
     border: 0px;
     margin: 0 auto;
-    padding-bottom: 0px;
-    display: inline-block;
-    line-height: 0px;
-    text-align: center;
+    padding-bottom: 5px;
+    /* display: inline-block; */
+    /* line-height: 5px; */
+    /* text-align: center; */
     position: fixed;
 }
     

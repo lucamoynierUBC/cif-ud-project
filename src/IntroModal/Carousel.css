@@ -1,9 +1,23 @@
 .card
 {
-    height: 300px;
     /* background-color: #F5F5F5FF; */
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 0px;
+    padding: 0 40px;
+}
+
+.text-body
+{
+    text-align: left;
+    font-size: 14px;
+}
+
+.text-body-vertical
+{
+    text-align: left;
+    font-size: 14px;
+    width: 60%;
+    padding-right: 15px;
 }
 
 .icon-container
@@ -32,4 +46,11 @@
 {
     color: #000000A6;
     font-size: 14px;
+}
+
+.vertical-box{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-top: 30px;
 }

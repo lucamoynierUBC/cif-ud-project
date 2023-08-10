@@ -2,10 +2,9 @@
 {
     /* background-color: #F5F5F5FF; */
     border-radius: 8px;
-    margin-top: 0px;
+    margin-top: 10px;
     padding: 0 40px;
 }
-
 .text-body
 {
     text-align: left;
@@ -53,4 +52,9 @@
     justify-content: center;
     display: flex;
     padding-top: 30px;
+}
+
+.carousel
+{
+    height: auto;
 }

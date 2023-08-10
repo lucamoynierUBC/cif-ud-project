@@ -14,6 +14,21 @@ import 'swiper/css/pagination';
 export default function Carousel() {
     const isMobile = window.innerWidth <= 600
     console.log("isMobile:", isMobile);
+
+    const swiperStyle = {
+        "--swiper-pagination-bottom": "8px",
+        "paddingBottom": "35px",
+        "--swiper-navigation-size": "20px",
+        "--swiper-navigation-color": "#d96b27",
+        "--swiper-pagination-color": "#d96b27",
+      };
+
+      if (isMobile) {
+        swiperStyle["--swiper-navigation-top-offset"] = "50%";
+      } else {
+        swiperStyle["--swiper-navigation-top-offset"] = "98%";
+      }
+
     return (
         <div className='carousel'>
             <Swiper
@@ -21,15 +36,8 @@ export default function Carousel() {
                 spaceBetween={100}
                 slidesPerView={1}
                 navigation
-                pagination={{ clickable: false,  dynamicBullets: true}}
-                style={{
-                "--swiper-pagination-bottom": "8px", 
-                "paddingBottom": "35px",
-                "--swiper-navigation-size": "20px",
-                "--swiper-navigation-top-offset": "98%",
-                "--swiper-navigation-color": "#d96b27",
-                "--swiper-pagination-color": "#d96b27"
-             }}
+                pagination={isMobile ? {"type": "progressbar"} : { clickable: false,  dynamicBullets: true}}
+                style={swiperStyle}
         
             >   
                 <SwiperSlide>

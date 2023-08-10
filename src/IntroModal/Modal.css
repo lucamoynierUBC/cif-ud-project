@@ -32,6 +32,7 @@
     .modalContainer {
         max-width: 80%;
         max-height: 70%;
+        top: 50%
 
     }
 }

@@ -4,6 +4,7 @@
     border-radius: 8px;
     margin-top: 0px;
     padding: 0 40px;
+    overflow: scroll;
 }
 
 .text-body

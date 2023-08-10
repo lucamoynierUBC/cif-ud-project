@@ -26,7 +26,7 @@ export default function Carousel() {
                 "--swiper-pagination-bottom": "8px", 
                 "paddingBottom": "35px",
                 "--swiper-navigation-size": "20px",
-                "--swiper-navigation-top-offset": "95%",
+                "--swiper-navigation-top-offset": "98%",
                 "--swiper-navigation-color": "#d96b27",
                 "--swiper-pagination-color": "#d96b27"
              }}

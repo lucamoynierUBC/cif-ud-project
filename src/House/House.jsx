@@ -113,7 +113,6 @@ export default function House(props) {
             }
           }
         )
-
         const unsubscribeOpacity = useActions.subscribe(
           (state) => [state.basement, state.attic, state.detatched, state.attatched],
           ([basement, attic, detatched, attatched]) => {

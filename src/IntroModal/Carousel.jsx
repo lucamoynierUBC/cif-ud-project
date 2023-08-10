@@ -1,9 +1,10 @@
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
-import { FiMove } from "react-icons/fi";
-import { AiOutlineZoomIn } from "react-icons/ai";
-import { PiMouseDuotone } from "react-icons/pi";
+import { PiMouse } from "react-icons/pi";
 import { PiMouseSimple } from "react-icons/pi";
+import { MdOutlinePinch } from "react-icons/md";
+import { TbHandTwoFingers } from "react-icons/tb";
+
 
 import './Carousel.css'
 import 'swiper/css';
@@ -11,6 +12,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Carousel() {
+    const isMobile = window.innerWidth <= 600
+    console.log("isMobile:", isMobile);
     return (
         <div className='carousel'>
             <Swiper
@@ -35,16 +38,13 @@ export default function Carousel() {
                         <p>Navigate using the side interface and these interactions:</p>
                         <div className='icon-container'>
                             <div className='zoom-icon-container'>
-                                <PiMouseSimple size={"60%"}/>
-                                <p className='secondary-text'>Scroll to zoom in & out</p>
+                                {isMobile ? <MdOutlinePinch size={"60%"}/>: <PiMouseSimple size={"60%"}/>}
+                                {isMobile ?  <p className='secondary-text'>Pinch to zoom in & out</p>: <p className='secondary-text'>Scroll to zoom in & out</p>}
                             </div>
                             <div className='pan-icon-container'>
-                                <PiMouseDuotone size={"60%"} />
-                           
-                                <p className='secondary-text'>Left click to pan & explore</p>
+                                {isMobile ? <TbHandTwoFingers size={"60%"}/>: <PiMouse size={"60%"}/>}
+                                {isMobile ? <p className='secondary-text'>Use two fingers to pan & explore</p> :  <p className='secondary-text'>Right click to pan & explore</p>}
                             </div>
-                                
-
                         </div>
                     </div>
                 </SwiperSlide>

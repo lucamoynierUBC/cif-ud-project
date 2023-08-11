@@ -75,16 +75,16 @@
     transition: 300ms;  */
     background-color: white;
     border-radius: 3px;
-    font-size: 16px;
+    font-size: 20px;
     color: #00000040;
     transition: 200ms;
     height: 25px;
     width: 25px;
     border: 0px;
     margin: 0 auto;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     /* display: inline-block; */
-    /* line-height: 5px; */
+    line-height: 0px;
     /* text-align: center; */
     position: fixed;
 }

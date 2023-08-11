@@ -46,13 +46,13 @@ export default function Carousel() {
                         The tool you are about to enter is a work-in-progress being developed to visually engage the broad public on complex planning initiatives. 
                         The tool is meant to explain policy change impacts on the environment while allowing for easy navigation in a neighborhood context. 
                         </p>
-                        <img src='/public/Slide1image.png' alt='Slide Image' width={"200px"} />
+                        <img src='https://i.imgur.com/tIwamTj.jpg' alt='Slide Image' width={"200px"} />
     
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='card'>
-                        <img src='public/Slide3image.png' width={"100px"}/>
+                        <img src='https://i.imgur.com/i4BZki3.png' width={"200px"}/>
                         <p className='text-body'>
                         <b>City of Yes Housing Opportunity</b> is part of an inclusive, citywide approach to expanding and diversifying the housing supply, in which every neighborhood does its part to help meet housing needs and provide equitable access to opportunity for New Yorkers. 
                         The proposal would help meet New Yorkers’ housing needs with small changes citywide – including the highest density areas as well as low density areas.

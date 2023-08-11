@@ -46,7 +46,7 @@ export default function Carousel() {
                         The tool you are about to enter is a work-in-progress being developed to visually engage the broad public on complex planning initiatives. 
                         The tool is meant to explain policy change impacts on the environment while allowing for easy navigation in a neighborhood context. 
                         </p>
-                        <img src='public/Slide1image.png' width={"100px"} />
+                        <img src='/public/Slide1image.png' alt='Slide Image' width={"200px"} />
     
                     </div>
                 </SwiperSlide>

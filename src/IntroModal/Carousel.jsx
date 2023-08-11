@@ -25,7 +25,7 @@ export default function Carousel() {
       if (isMobile) {
         swiperStyle["--swiper-navigation-top-offset"] = "50%";
       } else {
-        swiperStyle["--swiper-navigation-top-offset"] = "98%";
+        swiperStyle["--swiper-navigation-top-offset"] = "97%";
       }
 
     return (

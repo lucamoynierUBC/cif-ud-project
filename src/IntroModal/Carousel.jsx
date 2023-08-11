@@ -17,7 +17,6 @@ export default function Carousel() {
 
     const swiperStyle = {
         "--swiper-pagination-bottom": "8px",
-        "paddingBottom": "35px",
         "--swiper-navigation-size": "20px",
         "--swiper-navigation-color": "#d96b27",
         "--swiper-pagination-color": "#d96b27",

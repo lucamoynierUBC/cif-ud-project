@@ -13,7 +13,7 @@ export default function Camera() {
     
     const cameraControlRef = useRef()
     const { enableCamera, disableCamera } = useOrbitControls()
-    
+    const isMobile = window.innerWidth <= 600
 
     useEffect(() => {
         const unsubscribeZoom = useCamera.subscribe(
@@ -24,7 +24,7 @@ export default function Camera() {
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
                         duration: 1,
-                        zoom: 40,
+                        zoom: (isMobile ? 30: 45),
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();
                           },

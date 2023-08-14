@@ -2,7 +2,7 @@ import { Html } from "@react-three/drei";
 import useActions from "../../stores/useActions";
 import { useEffect, useState } from "react";
 import useInterface from "../../stores/useInterface";
-import "./TagStyles/TagStyles.css"
+import "./Styles/TagStyles.css"
 import { useSpring, animated } from "@react-spring/web"
 
 
@@ -61,7 +61,7 @@ export default function BasementTag() {
     }, [])
 
     const springProps = useSpring({
-        width: hover? (isMobile ? '70px' : '120px') : '40px',
+        width: hover? (isMobile ? '70px' : '140px') : '40px',
         config: { tension: 210, friction: 20, duration: 1},
 
     });

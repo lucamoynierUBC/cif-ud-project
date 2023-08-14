@@ -2,7 +2,7 @@ import { Html } from "@react-three/drei";
 import useActions from "../../stores/useActions";
 import { useState, useEffect } from "react";
 import useInterface from "../../stores/useInterface";
-import "./TagStyles/TagStyles.css"
+import "./Styles/TagStyles.css"
 import { useSpring, animated } from "@react-spring/web"
 
 export default function DetatchedTag() {

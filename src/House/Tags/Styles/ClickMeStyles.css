@@ -1,0 +1,33 @@
+.click-me
+{
+    position: relative;
+    background: #fff;
+    font-size: 20px;
+    line-height: 60px;
+    text-align: center;
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    padding: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+
+.click-me::before 
+{
+	content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-color: #fff transparent;
+    border-width: 20px 20px 0;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -20px;
+}
+
+.body
+{
+}

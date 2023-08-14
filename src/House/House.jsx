@@ -13,6 +13,7 @@ import AtticTag from "./Tags/AtticTag";
 import BasementTag from "./Tags/BasementTag";
 import useActions from "../stores/useActions";
 import Shed from "./Shed";
+import ClickMeButton from "./Tags/ClickMeButton";
 
 
 
@@ -188,6 +189,7 @@ export default function House(props) {
         
       >
         <AtticTag></AtticTag>
+         {/* {!interfaceVisible && <ClickMeButton />} */}
       </animated.mesh>
       <animated.mesh
         {...spring}

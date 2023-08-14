@@ -75,11 +75,6 @@ export default function MainInterface() {
                         <p>Legally, [Character A]’s home is defined as a one “family” residence. 
                             Only certain changes are possible due to  its shape and structure. </p>
 
-                        <Dropdown text="WHATS AN ADU" content="An Accessible Dwelling Unit (ADU) is an additional, private, single housing unit meant to be placed on lots with an existing one or two-family residence. 
-                        They work well in a low density context because owners and residents of homes in these neighborhoods can build ADUs without the need for rezoning. There are four main types."/>
-                        <Dropdown text="BUILDING HEIGHT" content="While not all buildings in these kinds of neighborhoods  keep within a one to two story limit, 
-                        ADUs cannot be more than two stories or be placed on residences that are taller than two stories."/>
-
                         <p>ADUs are also permissible for two family homes.</p>
                         <div id="attatched">
                             <AttatchedContent/>
@@ -93,6 +88,11 @@ export default function MainInterface() {
                         <div id="basement">
                             <BasementContent></BasementContent>
                         </div>
+
+                        <Dropdown text="WHATS AN ADU" content="An Accessible Dwelling Unit (ADU) is an additional, private, single housing unit meant to be placed on lots with an existing one or two-family residence. 
+                        They work well in a low density context because owners and residents of homes in these neighborhoods can build ADUs without the need for rezoning. There are four main types."/>
+                        <Dropdown text="BUILDING HEIGHT" content="While not all buildings in these kinds of neighborhoods  keep within a one to two story limit, 
+                        ADUs cannot be more than two stories or be placed on residences that are taller than two stories."/>
                     </div>
                     
                     <div className="footer"></div>

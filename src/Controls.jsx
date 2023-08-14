@@ -41,6 +41,7 @@ export const OrbitControls = ({ children }) => {
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}
+
   
       />
     </>

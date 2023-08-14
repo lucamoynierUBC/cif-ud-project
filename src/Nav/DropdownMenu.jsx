@@ -6,6 +6,7 @@ import './navStyles.css'
 export default function DropdownMenu() {
     const [activeMenu, setActiveMenu] = useState('main')
 
+    // Use CSSTransition to handle the conditional logic of handling multiple menus and transitions when they are added/removed
     return (
         <div className="dropdown">
             <CSSTransition 

@@ -9,6 +9,7 @@ import DetatchedContent from "./Content/DetatchedContent"
 import BasementContent from "./Content/BasementContent"
 import AtticContent from "./Content/AtticContent"
 import useActions from "../stores/useActions"
+import useCamera from "../stores/useCamera"
 
 export default function MainInterface() {
     //TODO: also have to pass visible as a prop
@@ -16,6 +17,7 @@ export default function MainInterface() {
     const setVisibleState = useInterface((state) => state.toggleVisible)
     //useAction
     const unselectAllAdu = useActions((state) => state.unselectAll)
+    const zoom = useCamera((state) => state.zoomClose)
     
 
     useEffect(() => {
@@ -63,7 +65,7 @@ export default function MainInterface() {
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
                     <div className="titleCloseBtn-layout">
-                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu()}}> &#x2715; </button>
+                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu(), zoom()}}> &#x2715; </button>
                     </div>
                     <div className="title">
                         <h1> Single Family Home </h1>

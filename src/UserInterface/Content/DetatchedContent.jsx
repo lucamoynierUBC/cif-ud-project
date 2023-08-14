@@ -11,7 +11,7 @@ export default function DetatchedContent() {
         <div>
             <h2 ref={myRef}>Detatched ADU</h2>
             <img src="https://i.imgur.com/IPXwVOA.png" width={"100%"}></img>
-            <p>The detached ADU is similar to the attached. The primary difference is that detached ADUs are not physically connected to their primary unit.
+            <p>The <b>detached</b> ADU is similar to the attached. The primary difference is that detached ADUs are not physically connected to their primary unit.
             </p>
             <p>
                 Like its attached counterpart, the detached ADU is particularly great on small lots or on lots where parking is not a need of the primary occupant, 

@@ -42,17 +42,17 @@ export default function Carousel() {
                 <SwiperSlide>
                     <div className='card'>
                         <h3>Welcome to the Tool!</h3>
+                        <img src='https://i.imgur.com/tIwamTj.jpg' alt='Slide Image' width={"90%"} />
                         <p className='text-body'>
                         The tool you are about to enter is a work-in-progress being developed to visually engage the broad public on complex planning initiatives. 
                         The tool is meant to explain policy change impacts on the environment while allowing for easy navigation in a neighborhood context. 
                         </p>
-                        <img src='https://i.imgur.com/tIwamTj.jpg' alt='Slide Image' width={"200px"} />
     
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='card'>
-                        <img src='https://i.imgur.com/i4BZki3.png' width={"200px"}/>
+                        <img src='https://imgur.com/oJBCIDh.png' width={"90%"}/>
                         <p className='text-body'>
                         <b>City of Yes Housing Opportunity</b> is part of an inclusive, citywide approach to expanding and diversifying the housing supply, in which every neighborhood does its part to help meet housing needs and provide equitable access to opportunity for New Yorkers. 
                         The proposal would help meet New Yorkers’ housing needs with small changes citywide – including the highest density areas as well as low density areas.
@@ -68,14 +68,25 @@ export default function Carousel() {
                         
                         <p className='text-body' >Composed of mostly one, two-family homes and some multifamily buildings, low-density housing makes up of <b>35%</b> of total NYC’s housing units. Despite being a large part of the city’s housing stock, these areas have not been contributing as much in added units since 2010. 
                             This presents an opportunity for both the city and homeowners: the city can expand its housing units and homeowners can add a secondary unit to make the best of their investment. 
-                            <br></br><br></br> The map to the right further shows the sub-categories of low-density housing.
+                            <br></br><br></br> The map below further shows the sub-categories of low-density housing.
                         </p>
+                        <img src='https://i.imgur.com/hsFUUei.png' width={"90%"}/>
+                    </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <div className='card'>
+                        <img src='https://i.imgur.com/4aWDYiy.png' width={"100%"} ></img>
+                        <p className='text-body'>Even within the one and two family housing zones, different neighborhoods can look dramatically different from one another. 
+
+                        </p>
+
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='card'>
                         <h4>Welcome to the Tool!</h4>
-                        <p>Navigate using the side interface and these interactions:</p>
+                        <p> The tool will show you how potential new homes can be created in these areas of the city.</p>
+                        <p> Learn more using the side interface and these interactions:</p>
                         <div className='icon-container'>
                             <div className='zoom-icon-container'>
                                 {isMobile ? <MdOutlinePinch size={"60%"}/>: <PiMouseSimple size={"60%"}/>}
@@ -87,32 +98,6 @@ export default function Carousel() {
                             </div>
                         </div>
                     </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='card'>
-                        <p>Housing densities look different across the city. 
-                            The cities' goal is to understand the varied characteristics of homes across NYC and how residents live. 
-                            In doing so, and aligning with the cities goals to increase access to housing, 
-                            we can see where opportunities for safe and vibrant homes can exist in the city's future.</p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='card'>
-                        <p>
-                        Low density is one kind of housing type, typically seen in a more suburban context and throughout neighborhood in the city.
-                        Composed of mostly one- and two-family homes, low density housing neighborhoods areis most common in the city’s outer boroughs. 
-                        See map below where some sub-categories highlight the primary occurrence of these housing typologies.
-                        </p>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='card'></div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='card'></div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className='card'></div>
                 </SwiperSlide>
             </Swiper>
 

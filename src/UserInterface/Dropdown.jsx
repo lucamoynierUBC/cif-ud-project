@@ -22,10 +22,7 @@ export default function Dropdown(props){
             classNames="content"
             unmountOnExit>
                 <div className="content">
-                An Accessible Dwelling Unit (ADU) is an additional, private, 
-                single housing unit meant to be placed on lots with an existing one or two-family residence. 
-                They work well in a low density context because owners and residents of homes in these neighborhoods can build ADUs without the need for rezoning. 
-                There are four main types.
+                {props.content}
                 </div>
             </CSSTransition>
             )}            

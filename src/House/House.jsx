@@ -160,7 +160,7 @@ export default function House(props) {
         {...bind()}
         castShadow
         receiveShadow
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.houseColor}
@@ -194,7 +194,7 @@ export default function House(props) {
         {...bind()}
         castShadow
         receiveShadow
-        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn()}}
+        onClick={() => {handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.basementColor}

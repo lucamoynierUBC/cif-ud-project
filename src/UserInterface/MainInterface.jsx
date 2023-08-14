@@ -69,7 +69,7 @@ export default function MainInterface() {
                         <h1> Single Family Home </h1>
                     </div>
                     <div className="body">
-                        <img width={'100%'} height={'200px'} src="404image" ></img>
+                        <img src="https://i.imgur.com/wVvvk87.png" width={"100%"} ></img>
                         <p>Legally, [Character A]’s home is defined as a one “family” residence. 
                             Only certain changes are possible due to  its shape and structure. </p>
 

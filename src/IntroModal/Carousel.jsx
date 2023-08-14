@@ -65,12 +65,11 @@ export default function Carousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className='card'>
-                        
+                        <img src='https://i.imgur.com/hsFUUei.png' width={"90%"}/>
                         <p className='text-body' >Composed of mostly one, two-family homes and some multifamily buildings, low-density housing makes up of <b>35%</b> of total NYC’s housing units. Despite being a large part of the city’s housing stock, these areas have not been contributing as much in added units since 2010. 
                             This presents an opportunity for both the city and homeowners: the city can expand its housing units and homeowners can add a secondary unit to make the best of their investment. 
                             <br></br><br></br> The map below further shows the sub-categories of low-density housing.
                         </p>
-                        <img src='https://i.imgur.com/hsFUUei.png' width={"90%"}/>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>

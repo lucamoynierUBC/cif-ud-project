@@ -29,11 +29,24 @@ export default function Camera() {
                             cameraControlRef.current.updateProjectionMatrix();
                           },
                     })
-                    gsap.to(cameraControlRef.current.position, {
+                    // gsap.to(cameraControlRef.current.position, {
+                    //     duration: 1,
+                    //     x: -50,
+                    //     y: 30,
+                    //     z: 20,
+                    //     onUpdate: () => {
+                    //         cameraControlRef.current.updateProjectionMatrix();
+                    //       },
+                    // })
+                    enableCamera()
+
+                    
+                }
+                if (!zoom){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
                         duration: 1,
-                        x: -50,
-                        y: 30,
-                        z: 20,
+                        zoom: 20,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();
                           },

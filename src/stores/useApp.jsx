@@ -3,9 +3,7 @@
 import { create } from 'zustand'
 import { subscribeWithSelector } from 'zustand/middleware'
 
-// Im thinking this is how I will be able to share information from the UI and the 3D scene
-
-// also I think I can use this to spawn in objects?
+// This store is no longer being used, served as a testbed for earlir iterations
 export default create(subscribeWithSelector((set) => {
     return {
         color: 'purple',

@@ -6,6 +6,8 @@ import Car from "./3DAssets/Car";
 import { useEffect, useState } from "react";
 import useGUI from "./stores/useGUI";
 
+// Spawner that will only render animated 3D assets when spawn is set to true. 
+// Only spawns in objects once the intro modal is closed. 
 export default function Spawner(){
     const [spawn, setSpawn] = useState(false)
 

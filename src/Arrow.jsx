@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import useFlow from "./stores/useFlow";
 import { Html } from "@react-three/drei";
 
+// NOT USED
 export default function Arrow() {
     const arrowHelperRef = useRef(null);
     const [animate, setAnimate] = useState(false)

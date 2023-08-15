@@ -81,7 +81,6 @@ export default function AttatchedTag() {
         setOpacity(1)
     }
 
-    // If tag is not the 
     const toggleLeave = () =>{
         if (!active){
             setHover(false)

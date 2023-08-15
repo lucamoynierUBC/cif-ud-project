@@ -2,6 +2,7 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from 'zustand/middleware'
 
+// this store is not used anymore
 export default create(subscribeWithSelector((set) => {
     return {
         selection: null,

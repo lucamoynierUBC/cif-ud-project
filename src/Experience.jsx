@@ -20,7 +20,7 @@ import Bus from './3DAssets/Bus'
 import Plot from './Plot'
 import Spawner from './Spawner'
 
-
+// Puts everything related to Three.js inside a main class
 export default function Experience() {
 
     //figure whats going on here, error is occuring because both ADU's use the same ref,

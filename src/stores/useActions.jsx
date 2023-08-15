@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from 'zustand/middleware'
 
+// State management with global states, this store used to determine the logic when the tags are selected
 export default create(subscribeWithSelector((set) => {
     return {
         basement: false,
@@ -8,6 +9,7 @@ export default create(subscribeWithSelector((set) => {
         detatched: false,
         attatched: false, 
 
+        // unselect everything but the basement
         selectBasement: () => {
             set((state) => {
                 console.log("basement tag clicked ", !state.basement)

@@ -14,26 +14,28 @@ export const OrbitControls = ({ children }) => {
 
   // Callback used to ensure that the refrences are not recreated on every render
   const handleEnableCamera = useCallback(() => {
-    ref.current.saveState();
-    ref.current.reset();
-    setIsEnabled(true);
+    ref.current.saveState(); // save the current state of the controls
+    ref.current.reset(); // reset the controls state
+    setIsEnabled(true); // enable the controls
   }, []);
+  // callback that is used to disable orbit conbtrols
   const handleDisableCamera = useCallback(() => {
     setIsEnabled(false);
   }, []);
-
+  // Create a context object to be provided to descendant components
   const context = {
-    isEnabled,
-    enableCamera: handleEnableCamera,
-    disableCamera: handleDisableCamera
+    isEnabled, // Whether Orbit Controls is enabled or not
+    enableCamera: handleEnableCamera, // function to enable controls
+    disableCamera: handleDisableCamera // function to disable controls
   };
 
   return (
     <>
+      {/* provide the orbit controls context to its children components */}
       <OrbitControlsContext.Provider value={context}>
         {children}
       </OrbitControlsContext.Provider>
-      {/* TODO: Adjust polar angles */}
+      {/* Adjusting attributes of orbit controls*/}
       <BaseOrbitControls 
       ref={ref} 
       enabled={isEnabled} 

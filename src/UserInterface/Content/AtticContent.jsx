@@ -1,5 +1,6 @@
 import { useInView } from "react-intersection-observer"
 export default function AtticContent() {
+    // records when this component is viewable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
             

@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from 'zustand/middleware'
 
+// this store is no longer used. Was used in earlier iterations
 export default create(subscribeWithSelector((set) => {
     return {
         phase: 'interaction3',

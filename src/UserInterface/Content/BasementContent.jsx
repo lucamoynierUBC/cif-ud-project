@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer"
 
 export default function BasementContent() {
+    // records when this component is viewable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
             

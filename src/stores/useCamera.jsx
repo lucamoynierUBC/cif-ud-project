@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from 'zustand/middleware'
 
+// Global state for camera, used to determine when to animante its position, zoom etc. 
 export default create(subscribeWithSelector((set) => {
     return {
         zoom: false,

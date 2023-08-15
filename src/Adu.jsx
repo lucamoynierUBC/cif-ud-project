@@ -8,7 +8,7 @@ import { Html } from "@react-three/drei"
 import useInterface from "./stores/useInterface"
 
 
-
+// NOT USED
 export default function Adu({ onPositionChange, position, id, scale}) {
     // acess the size and viewport
     const {size, viewport} = useThree()

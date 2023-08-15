@@ -23,11 +23,11 @@ export default function Birds(props) {
 
 
   useFrame((state, delta) =>{
+    console.log(delta)
     ref.current.position.x += delta*3
     if (ref.current.position.x >= 45) {
         ref.current.position.x = -70
     }
-
   })
   return (
     <group ref={group} {...props} dispose={null}>

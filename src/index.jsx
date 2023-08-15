@@ -12,7 +12,7 @@ import Modal from './IntroModal/Modal'
 
 const root = ReactDOM.createRoot(document.querySelector('#root'))
 
-
+// Entry point into react application. Place main components inside here. 
 root.render(
     <>
     {/*//everything related to R3F goes into canvas, GUI goes outside  */}

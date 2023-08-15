@@ -8,13 +8,15 @@ import { useOrbitControls } from "./Controls";
 
 
 
-
+// Camera component responsible for managing camera position and zoom
 export default function Camera() {
-    
     const cameraControlRef = useRef()
+    // accessing enabling/disabling camera controls from custom hook
     const { enableCamera, disableCamera } = useOrbitControls()
+    // check if device is a mobile device
     const isMobile = window.innerWidth <= 600
 
+    //subscribe to changes from camera store
     useEffect(() => {
         const unsubscribeZoom = useCamera.subscribe(
             (state) => state.zoom,
@@ -57,7 +59,8 @@ export default function Camera() {
                 }
             }
         )
-
+        
+        // These animations below are no longer being used
         const unsubscribePanToAdu = useCamera.subscribe(
             (state) => state.rotate,
             (rotate) => {
@@ -118,8 +121,7 @@ export default function Camera() {
     
 
     
-    return (
-        // <CameraControls ref={cameraControlRef}>
+    return (       
             <OrthographicCamera
             ref={cameraControlRef}
             zoom={20}
@@ -127,10 +129,5 @@ export default function Camera() {
             position={[-50, 50, 35]}
             fov={50}
             far={150} />
-        // </CameraControls>
-        
-
-        
-    )
-    
+    ) 
 }

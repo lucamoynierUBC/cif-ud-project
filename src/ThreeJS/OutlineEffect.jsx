@@ -1,8 +1,8 @@
 import { Selection, EffectComposer, Outline, DepthOfField } from "@react-three/postprocessing";
-import House from "./House/House";
+import House from "../House/House";
 
 import { useEffect, useState } from "react";
-import useGUI from "./stores/useGUI";
+import useGUI from "../stores/useModal";
 
 export default function OutlineEffect() {
     const [bokehValue, setBokehValue] = useState(6)

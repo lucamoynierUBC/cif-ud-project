@@ -1,6 +1,6 @@
 import { OrthographicCamera } from "@react-three/drei";
 import { useRef, useEffect } from "react";
-import useCamera from "./stores/useCamera";
+import useCamera from "../stores/useCamera";
 import { useThree } from "@react-three/fiber";
 import { CameraControls } from "@react-three/drei";
 import { gsap } from "gsap";

@@ -1,7 +1,7 @@
 import { useThree, Canvas } from "@react-three/fiber"
 import { useGesture } from "react-use-gesture"
 import { animated, useSpring} from "@react-spring/three"
-import { useOrbitControls } from "./Controls"
+import { useOrbitControls } from "./ThreeJS/Controls"
 import  useApp  from "./stores/useApp"
 import { useEffect, useState } from "react"
 import { Html } from "@react-three/drei"

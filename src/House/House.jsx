@@ -6,7 +6,7 @@ import useCamera from "../stores/useCamera";
 import { Select } from "@react-three/postprocessing";
 import useInterface from "../stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
-import useGUI from "../stores/useGUI";
+import useGUI from "../stores/useModal";
 import useFlow from "../stores/useFlow";
 import { useGesture } from "react-use-gesture";
 import AtticTag from "./Tags/AtticTag";

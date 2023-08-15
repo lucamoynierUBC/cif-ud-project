@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Modal.css"
-import useGUI from "../stores/useGUI";
+import useGUI from "../stores/useModal";
 import Carousel from "./Carousel";
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import useGUI from "./stores/useGUI";
+import useGUI from "./stores/useModal";
 
 
 export default function GUI() {

@@ -2,11 +2,10 @@ import { useState } from "react"
 import "./Dropdown.css"
 import { CSSTransition } from "react-transition-group";
 
+// component for drop down text boxes
 export default function Dropdown(props){
+
     const [expand, setExpand] = useState(false)
-
-    
-
     const toggleExpansion = () => {
         setExpand((prevExpand) => !prevExpand)
       }

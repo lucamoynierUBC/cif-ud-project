@@ -11,25 +11,27 @@ import AtticContent from "./Content/AtticContent"
 import useActions from "../stores/useActions"
 import useCamera from "../stores/useCamera"
 
+// main component for the sidebar UI
 export default function MainInterface() {
-    //TODO: also have to pass visible as a prop
+    // state for toggling the visibility of the component
     const [visible, setVisible] = useState(false)
+    // Accesing global states from stores
     const setVisibleState = useInterface((state) => state.toggleVisible)
-    //useAction
     const unselectAllAdu = useActions((state) => state.unselectAll)
     const zoom = useCamera((state) => state.zoomClose)
     
-
+    // Subscribe to changes in Interface and Actions stores
     useEffect(() => {
+        // Toggle siderbar UI visibility when global interface state changes 
         const unsubscribeVisible = useInterface.subscribe(
             (state) => state.visible,
             (visible) => {
-                
                 console.log('visible set to: ', visible)
                 setVisible(visible)
-
             }
         )
+        // Auto scroll to relevent section in the sidebar when global action state changes.
+        // Eg. If basement is selected scroll to the basement section on the UI.
         const unsubscribeScroll = useActions.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
@@ -48,12 +50,14 @@ export default function MainInterface() {
 
             }
         )
+        // Clean up subscriptions
         return () => {
             unsubscribeVisible()
             unsubscribeScroll()
         }
     }, [])
-    
+
+    // Animation spring properties for fading in/out the interface
     const springProps = useSpring({
         opacity: visible ? 1 : 0,
       });
@@ -61,7 +65,9 @@ export default function MainInterface() {
 
     return(
         <div>
+            {/* Show caret if interface is not visible */}
             {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)}
+            {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
                     <div className="titleCloseBtn-layout">

@@ -4,7 +4,7 @@
     <img 
         className="logo-icon"
         alt="NYC Planning"
-        src="https://raw.githubusercontent.com/NYCPlanning/dcp-logo/master/dcp_logo_772.png"
+        src="https://raw.githubusercontent.com/NYCPlanning/dcp-logo/master/dcp_logo_white_772.png"
             width = "100">
     </img>
 </p>

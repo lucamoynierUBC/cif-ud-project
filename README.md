@@ -23,6 +23,25 @@
 * Three JS - 3D library
 * Vite - Build tool
 
+## Setup
+To get a local copy up and running follow these steps:
+Download [Node.js](https://nodejs.org/en/download/).
+Run the following commands:
+
+``` bash
+# Install dependencies (only the first time)
+npm install
+
+# Run the local server at localhost:8080
+npm run dev
+```
+<!-- Contributing -->
+## Contributing
+1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+2. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+3. Push to the Branch (`git push origin feature/AmazingFeature`)
+4. Open a Pull Request
+
 ## Project tree
 
  * [📁 public](./public) - contains all .gltf files
@@ -76,22 +95,3 @@
         * [📄 Main Interface](./src/UserInterface/MainInterface.jsx) - main component for interface
     * [📄 Experience](./src/Experience.jsx) - Overall experience component
     * [📄 index](./src/index.jsx) - App entry point
-
-## Setup
-To get a local copy up and running follow these steps:
-Download [Node.js](https://nodejs.org/en/download/).
-Run the following commands:
-
-``` bash
-# Install dependencies (only the first time)
-npm install
-
-# Run the local server at localhost:8080
-npm run dev
-```
-<!-- Contributing -->
-## Contributing
-1. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-2. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-3. Push to the Branch (`git push origin feature/AmazingFeature`)
-4. Open a Pull Request

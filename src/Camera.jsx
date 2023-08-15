@@ -61,60 +61,59 @@ export default function Camera() {
         )
         
         // These animations below are no longer being used
-        const unsubscribePanToAdu = useCamera.subscribe(
-            (state) => state.rotate,
-            (rotate) => {
-                if (rotate === 'adu'){
-                    gsap.to(cameraControlRef.current.position, {
-                        duration: 2,
-                        x: 0,
-                        y: 70,
-                        z: 40,
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                    gsap.to(cameraControlRef.current, {
-                        duration: 2,
-                        zoom: 35,
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                }
-                else if (rotate === 'birdsEye'){
-                    disableCamera()
-                    gsap.to(cameraControlRef.current.position, {
+        // const unsubscribePanToAdu = useCamera.subscribe(
+        //     (state) => state.rotate,
+        //     (rotate) => {
+        //         if (rotate === 'adu'){
+        //             gsap.to(cameraControlRef.current.position, {
+        //                 duration: 2,
+        //                 x: 0,
+        //                 y: 70,
+        //                 z: 40,
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
+        //             gsap.to(cameraControlRef.current, {
+        //                 duration: 2,
+        //                 zoom: 35,
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
+        //         }
+        //         else if (rotate === 'birdsEye'){
+        //             disableCamera()
+        //             gsap.to(cameraControlRef.current.position, {
                         
-                        duration: 2,
-                        x: -5,
-                        y: 70,
-                        z: 40,
-                        ease: 'power3.out',
+        //                 duration: 2,
+        //                 x: -5,
+        //                 y: 70,
+        //                 z: 40,
+        //                 ease: 'power3.out',
                     
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                    gsap.to(cameraControlRef.current, {
-                        duration: 2,
-                        zoom: 40,
-                        ease: 'power3.out',
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
+        //             gsap.to(cameraControlRef.current, {
+        //                 duration: 2,
+        //                 zoom: 40,
+        //                 ease: 'power3.out',
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
 
                     
 
-                }
-            }
-        )
+        //         }
+        //     }
+        // )
         
         return () => {
-            // unsubscribeID()
             unsubscribeZoom()
-            unsubscribePanToAdu()
+            // unsubscribePanToAdu()
         }
 
     }, [])

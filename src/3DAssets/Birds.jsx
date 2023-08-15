@@ -16,14 +16,15 @@ export default function Birds(props) {
   const { nodes, materials, animations } = useGLTF("/birds.glb");
   const { actions, names } = useAnimations(animations, group);
 
+  // Plays the animation imported from the gltf file
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play()
   })
 
 
 
+  // Animate birds x positions, resets position after a threshold
   useFrame((state, delta) =>{
-    console.log(delta)
     ref.current.position.x += delta*3
     if (ref.current.position.x >= 45) {
         ref.current.position.x = -70

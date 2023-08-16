@@ -15,7 +15,7 @@ export default function Spawner(){
         const unsubscribeSpawn = useGUI.subscribe(
             (state) => state.guiIntroPhase,
               (guiIntroPhase) => {
-                if (guiIntroPhase === 'off'){
+                if (guiIntroPhase === "off"){
                   setSpawn(true)
                 }
               }
@@ -24,13 +24,13 @@ export default function Spawner(){
             unsubscribeSpawn()
         }
     },[])
+
     return(
         spawn && <group>
             <Birds></Birds>
             <Person position={[-16,-.4,0]} scale={0.2}></Person>
             <Bus></Bus>
             <Car></Car>
-        
         </group>
     )
 }

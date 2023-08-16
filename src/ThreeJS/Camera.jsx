@@ -6,8 +6,6 @@ import { CameraControls } from "@react-three/drei";
 import { gsap } from "gsap";
 import { useOrbitControls } from "./Controls";
 
-
-
 // Camera component responsible for managing camera position and zoom
 export default function Camera() {
     const cameraControlRef = useRef()
@@ -21,7 +19,7 @@ export default function Camera() {
         const unsubscribeZoom = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                console.log('zoom set to :', zoom)
+                console.log("zoom set to :", zoom)
                 if (zoom){
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
@@ -41,9 +39,8 @@ export default function Camera() {
                     //       },
                     // })
                     enableCamera()
-
-                    
                 }
+
                 if (!zoom){
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
@@ -54,8 +51,6 @@ export default function Camera() {
                           },
                     })
                     enableCamera()
-
-                    
                 }
             }
         )
@@ -64,7 +59,7 @@ export default function Camera() {
         // const unsubscribePanToAdu = useCamera.subscribe(
         //     (state) => state.rotate,
         //     (rotate) => {
-        //         if (rotate === 'adu'){
+        //         if (rotate === "adu"){
         //             gsap.to(cameraControlRef.current.position, {
         //                 duration: 2,
         //                 x: 0,
@@ -82,7 +77,7 @@ export default function Camera() {
         //                   },
         //             })
         //         }
-        //         else if (rotate === 'birdsEye'){
+        //         else if (rotate === "birdsEye"){
         //             disableCamera()
         //             gsap.to(cameraControlRef.current.position, {
                         
@@ -90,7 +85,7 @@ export default function Camera() {
         //                 x: -5,
         //                 y: 70,
         //                 z: 40,
-        //                 ease: 'power3.out',
+        //                 ease: "power3.out",
                     
         //                 onUpdate: () => {
         //                     cameraControlRef.current.updateProjectionMatrix();
@@ -99,14 +94,11 @@ export default function Camera() {
         //             gsap.to(cameraControlRef.current, {
         //                 duration: 2,
         //                 zoom: 40,
-        //                 ease: 'power3.out',
+        //                 ease: "power3.out",
         //                 onUpdate: () => {
         //                     cameraControlRef.current.updateProjectionMatrix();
         //                   },
         //             })
-
-                    
-
         //         }
         //     }
         // )
@@ -115,10 +107,7 @@ export default function Camera() {
             unsubscribeZoom()
             // unsubscribePanToAdu()
         }
-
     }, [])
-    
-
     
     return (       
             <OrthographicCamera

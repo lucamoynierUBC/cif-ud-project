@@ -1,5 +1,5 @@
 import { Html } from "@react-three/drei";
-import useActions from "../../stores/useActions";
+import useTag from "../../stores/useTag";
 import { useEffect, useState } from "react";
 import useInterface from "../../stores/useInterface";
 import "./Styles/TagStyles.css"
@@ -10,7 +10,7 @@ export default function AtticTag() {
     const [opacity, setOpacity] = useState(1)
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
-    const selectAttic = useActions((state) => state.selectAttic)
+    const selectAttic = useTag((state) => state.selectAttic)
 
     useEffect(() => {
         const unsubscribeVisible = useInterface.subscribe(
@@ -19,7 +19,8 @@ export default function AtticTag() {
                 setVisible(visible)
             })
         )
-        const unsubscribeOpacity = useActions.subscribe(
+        
+        const unsubscribeOpacity = useTag.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
                 if (!attic && basement){
@@ -47,7 +48,6 @@ export default function AtticTag() {
                     setHover(true)
                     setActive(true)
                 }
-            
             }
         )
         
@@ -63,7 +63,6 @@ export default function AtticTag() {
 
     });
 
-
     const toggleEnter = () =>{
         setHover(true)
         setOpacity(1)
@@ -75,8 +74,6 @@ export default function AtticTag() {
             setOpacity(0.5)
         }
     }
-
-    
 
     return(
         visible && <Html wrapperClass="tag-layout" position={[-80, 100, -65]} style={{opacity: opacity}}> 

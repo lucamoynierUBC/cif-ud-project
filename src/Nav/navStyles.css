@@ -7,17 +7,19 @@
 {
     position: absolute;
     transform: translateX(-110%);
-
 }
+
 .menu-primary-enter-active
 {
     transform: translateX(0%);
     transition: all 200ms ease;
 }
+
 .menu-primary-exit
 {
     position: absolute;
 }
+
 .menu-primary-exit-active
 {
     transform: translate(-110%);
@@ -26,19 +28,20 @@
 
 .menu-secondary-enter
 {
-
     transform: translateX(110%);
-
 }
+
 .menu-secondary-enter-active
 {
     transform: translateX(0%);
     transition: all 200ms ease;
 }
+
 .menu-secondary-exit
 {
 
 }
+
 .menu-secondary-exit-active
 {
     transform: translate(110%);

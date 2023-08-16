@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Html, useGLTF } from "@react-three/drei";
-import HousingInterface from "../HouseInterface";
+import { useGLTF } from "@react-three/drei";
 import useApp from "../stores/useApp";
 import useCamera from "../stores/useCamera";
 import { Select } from "@react-three/postprocessing";
@@ -11,12 +10,7 @@ import useFlow from "../stores/useFlow";
 import { useGesture } from "react-use-gesture";
 import AtticTag from "./Tags/AtticTag";
 import BasementTag from "./Tags/BasementTag";
-import useActions from "../stores/useActions";
-import Shed from "./Shed";
-import ClickMeButton from "./Tags/ClickMeButton";
-
-
-
+import useTag from "../stores/useTag";
 
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
@@ -24,29 +18,20 @@ export default function House(props) {
   const { nodes, materials } = useGLTF("/housev5.glb");
   // State to track whether the mainInterface is visible, initially set to false
   const [interfaceVisible, setInterfaceVisible] = useState(false);
-  const [ idVisible, setIdVisible] = useState(false)
   const hideNumber = useApp((state) => state.hideNumber)
   const hideAdu = useApp((state) => state.hideAdu)
   const resetClick = useInterface((state) => state.resetClick)
   const zoomIn = useCamera((state) => state.zoomClose)
-  const resetCamera = useCamera((state) => state.resetCamera)
   const toggleInterface = useInterface((state) => state.toggleVisible)
-  //outline effect 
-  const atticRef = useRef()
   const [atticHovered, atticHover] = useState(null)
   const [hoverEffect, setHoverEffect] = useState(true)
-  //useActions
-  const unselectAllAdu = useActions((state) => state.unselectAll)
+  const unselectAllAdu = useTag((state) => state.unselectAll)
   
-
-
-  
-
   // Default configurations when animating the house such as color and opacity
   const [spring, api] = useSpring(() => ({
-    atticColor: 'white',
-    houseColor:'white',
-    basementColor: 'white',
+    atticColor: "white",
+    houseColor:"white",
+    basementColor: "white",
     trail: 950,
     atticOpacity: 1,
     houseOpacity: 1,
@@ -59,14 +44,12 @@ export default function House(props) {
   const bind = useGesture({
     onHover({ hovering }) {
       if (hoverEffect) {
-        api.start({atticColor: hovering ? '#ae561f' : '#d96b27'})
-        api.start({houseColor: hovering ? '#ae561f' : '#d96b27'})
-        api.start({basementColor: hovering ? '#ae561f' : '#d96b27'})
+        api.start({atticColor: hovering ? "#ae561f" : "#d96b27"})
+        api.start({houseColor: hovering ? "#ae561f" : "#d96b27"})
+        api.start({basementColor: hovering ? "#ae561f" : "#d96b27"})
       }
     }
   })
-  
-  
 
   // Handle clicking on the house,
   const handleHouseClick = () => {
@@ -85,7 +68,7 @@ export default function House(props) {
             setHoverEffect(!visible)
             if (!visible){
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: '#d96b27', basementColor: '#d96b27', atticColor: '#d96b27'})
+              api.start({houseColor: "#d96b27", basementColor: "#d96b27", atticColor: "#d96b27"})
             }
             // this is an old feature, TODO: delete and test
             if (selection === 1){
@@ -93,15 +76,15 @@ export default function House(props) {
             } else {
               atticHover(false)
             }
-            
           }
         )
+
         // Animate house color when Intro pop up modal is closed
         const unsubscribeColor = useGUI.subscribe(
           (state) => state.guiIntroPhase,
           (guiIntroPhase) => {
-            if (guiIntroPhase === 'off'){
-              api.start({atticColor: '#d96b27', houseColor: '#d96b27', basementColor: '#d96b27' })
+            if (guiIntroPhase === "off"){
+              api.start({atticColor: "#d96b27", houseColor: "#d96b27", basementColor: "#d96b27" })
               atticHover(true)
             }
           }
@@ -111,45 +94,45 @@ export default function House(props) {
         const unsubscribeDefaultColor = useFlow.subscribe(
           (state) => state.phase,
           (phase) => {
-            if (phase === 'interaction4'){
-              api.start({color: 'white'})
+            if (phase === "interaction4"){
+              api.start({color: "white"})
               atticHover(false)
-              
             }
           }
         )
-        // Subscribing to changes in the useActions Store
-        const unsubscribeOpacity = useActions.subscribe(
+
+        // Subscribing to changes in the useTag Store
+        const unsubscribeOpacity = useTag.subscribe(
           (state) => [state.basement, state.attic, state.detatched, state.attatched],
           ([basement, attic, detatched, attatched]) => {
             // If basement is set to true, lower the opacity of all other elements of the house except the basement
             if (basement == true) {
               api.start({atticOpacity: .2, houseOpacity: .2, basementOpacity: 1})
-              api.start({houseColor: 'white', atticColor: 'white', basementColor: '#d96b27'})
+              api.start({houseColor: "white", atticColor: "white", basementColor: "#d96b27"})
             }
             // If Attic is set to true, lower the opacity of all other elements of the house except the attic
             if (attic == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: 1})
-              api.start({houseColor: 'white', basementColor: 'white', atticColor: '#d96b27'})
+              api.start({houseColor: "white", basementColor: "white", atticColor: "#d96b27"})
             }
             // Lower all elements of the house
             if (detatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
-              api.start({houseColor: 'white', basementColor: 'white', atticColor: 'white'})
+              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
             }
             // Lower all elements of the house
             if (attatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
-              api.start({houseColor: 'white', basementColor: 'white', atticColor: 'white'})
+              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
             }
             // If nothing is selected increase the opacity of all the elements
             else if (!basement && !attic && !detatched && !attatched) {
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: '#d96b27', basementColor: '#d96b27', atticColor: '#d96b27'})
+              api.start({houseColor: "#d96b27", basementColor: "#d96b27", atticColor: "#d96b27"})
             }
           }
         )
-        
+
         // cleaning subscriptions
         return () => {
             unsubscribeOpacity()
@@ -178,7 +161,6 @@ export default function House(props) {
         material-opacity={spring.houseOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
-        
       />
       <animated.mesh
         {...spring}
@@ -196,11 +178,9 @@ export default function House(props) {
         scale={0.305}
         opacity={0.5}
         transparent={true}
-        
       >
         {/* attatch Attic html tag to attic geometry*/}
         <AtticTag></AtticTag>
-         {/* {!interfaceVisible && <ClickMeButton />} */}
       </animated.mesh>
       <animated.mesh
         {...spring}
@@ -216,16 +196,11 @@ export default function House(props) {
         material-opacity={spring.basementOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
-  
       >
         {/* Attatch Basement html tags to basement geometry */}
         <BasementTag></BasementTag>
       </animated.mesh>
-
     </Select>
 </group>
-);
-
-}
-
+);}
 useGLTF.preload("/housev5.glb");

@@ -1,6 +1,6 @@
 // State information for when different elements in the HouseInterface are clicked, hovered, etc.
 import { create } from "zustand";
-import { subscribeWithSelector } from 'zustand/middleware'
+import { subscribeWithSelector } from "zustand/middleware"
 
 // this store is not used anymore
 export default create(subscribeWithSelector((set) => {
@@ -12,35 +12,30 @@ export default create(subscribeWithSelector((set) => {
 
         shedVisible: () =>{
             set(() => {
-                return {aduVisible: 'shed'}
+                return {aduVisible: "shed"}
             })
         },
-
         detatchedAduVisible: () =>{
             set(() => {
-                return {aduVisible: 'detatched'}
+                return {aduVisible: "detatched"}
             })
         },
-
         basementAduVisible: () =>{
             set(() => {
-                return {aduVisible: 'basement'}
+                return {aduVisible: "basement"}
             })
         },
-
         atticAduVisible: () =>{
             set(() => {
-                return {aduVisible: 'attic'}
+                return {aduVisible: "attic"}
             })
         },
-
         toggleVisible: () => {
             set((state) => {
                 return {visible: !state.visible}
 
             })
         },
-
         selectOne: () => {
             set(() => {
                 return {selection: 1}
@@ -91,8 +86,5 @@ export default create(subscribeWithSelector((set) => {
                 return {clickSelection: null}
             })
         },
-        
-
     }
-
 }))

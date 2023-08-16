@@ -4,9 +4,7 @@ export default function BasementContent() {
     // records when this component is viewable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
-            
             console.log("Basement visibility is: ", visible)
-            
         }
     })
     

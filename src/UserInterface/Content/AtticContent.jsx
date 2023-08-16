@@ -3,11 +3,10 @@ export default function AtticContent() {
     // records when this component is viewable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
-            
             console.log("Attic visibility is: ", visible)
-            
         }
     })
+
     return(
         <div>
             <h2 ref={myRef}>Attic ADU</h2>

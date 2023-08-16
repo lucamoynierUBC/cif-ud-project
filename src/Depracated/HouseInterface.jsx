@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Html } from "@react-three/drei";
-import useApp from "./stores/useApp";
-import useInterface from "./stores/useInterface";
+import useApp from "../stores/useApp";
+import useInterface from "../stores/useInterface";
 import { useFrame } from "@react-three/fiber";
 import { Vector3 } from "three";
-import useCamera from "./stores/useCamera";
-import useFlow from "./stores/useFlow";
+import useCamera from "../stores/useCamera";
+import useFlow from "../stores/useFlow";
 
 
 export default function HousingInterface() {

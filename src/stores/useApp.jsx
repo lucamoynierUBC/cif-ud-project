@@ -1,26 +1,24 @@
+import { create } from "zustand"
+import { subscribeWithSelector } from "zustand/middleware"
 // this is where we will put global information. AKA State Management solution 
-
-import { create } from 'zustand'
-import { subscribeWithSelector } from 'zustand/middleware'
-
 // This store is no longer being used, served as a testbed for earlir iterations
 export default create(subscribeWithSelector((set) => {
     return {
-        color: 'purple',
+        color: "purple",
         // state change for displaying each adu
-        phase: 'hideAdu',
+        phase: "hideAdu",
         // state change for displaying the number to identify each adu
-        numberIdentification: 'hide',
+        numberIdentification: "hide",
 
         showAdu: () => {
             set(() => {
-                return {phase: 'showAdu'}
+                return {phase: "showAdu"}
 
             })
         },
         hideAdu: () => {
             set(() => {
-                return {phase: 'hideAdu'}
+                return {phase: "hideAdu"}
 
             })
         },
@@ -33,20 +31,19 @@ export default create(subscribeWithSelector((set) => {
         },
         displayNumber: () => {
             set(() => {
-                return {numberIdentification: 'display'}
+                return {numberIdentification: "display"}
 
             })
         },
         hideNumber: () => {
-            console.log('hiding id')
+            console.log("hiding id")
             set(() => {
-                return {numberIdentification: 'hide'}
+                return {numberIdentification: "hide"}
 
             })
         },
     }
 }))
-
 
 function getRandomColor() {
     const letters = "0123456789ABCDEF";

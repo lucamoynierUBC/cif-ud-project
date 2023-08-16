@@ -43,11 +43,13 @@
     background-color: rgb(217, 107, 39);
 }
 
-.tag-layout:hover{
+.tag-layout:hover
+{
     opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) 
+{
     .tag-button {
         font-size: 14px;
         height: 30px;

@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 export default function NavText(props) {
-
     const [open, setOpen] = useState(false)
 
     // Similar to navItem but is for buttons with text instead of buttons w/ icons
@@ -13,5 +12,4 @@ export default function NavText(props) {
             {open && props.children}
         </li>
     )
-
 }

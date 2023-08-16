@@ -1,5 +1,5 @@
 import { Html } from "@react-three/drei";
-import useActions from "../../stores/useActions";
+import useTag from "../../stores/useTag";
 import { useState, useEffect } from "react";
 import useInterface from "../../stores/useInterface";
 import "./Styles/TagStyles.css"
@@ -10,7 +10,7 @@ export default function DetatchedTag() {
     const [opacity, setOpacity] = useState(1)
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
-    const selectDetatched = useActions((state) => state.selectDetatched)
+    const selectDetatched = useTag((state) => state.selectDetatched)
     const isMobile = window.innerWidth <= 600;
 
     useEffect(() => {
@@ -20,7 +20,8 @@ export default function DetatchedTag() {
                 setVisible(visible)
             })
         )
-        const unsubscribeOpacity = useActions.subscribe(
+
+        const unsubscribeOpacity = useTag.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
                 if (!detatched && attic){
@@ -48,7 +49,6 @@ export default function DetatchedTag() {
                     setHover(true)
                     setActive(true)
                 }
-            
             }
         )
         
@@ -63,7 +63,6 @@ export default function DetatchedTag() {
         config: { tension: 210, friction: 20, duration: 1},
 
     });
-
 
     const toggleEnter = () =>{
         setHover(true)

@@ -40,7 +40,7 @@ export default function Person(props) {
             geometry={nodes.Cube001.geometry}
             material={materials["Material.001"]}
             skeleton={nodes.Cube001.skeleton}
-            material-color={'black'}
+            material-color={"black"}
           />
           <primitive object={nodes.mixamorigHips} />
         </group>

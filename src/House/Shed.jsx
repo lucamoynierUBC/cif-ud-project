@@ -1,16 +1,15 @@
 import { useSpring, animated } from "@react-spring/three"
 import { useEffect } from "react"
-import useActions from "../stores/useActions"
+import useActions from "../stores/useTag"
 import AttatchedTag from "./Tags/AttatchedTag"
 
 // Component for the Attatched ADU model 
 export default function Shed() {
-
     // Using the useSpring library for animations, setting some default css values here and other
     // animation configurations. 
     const [spring, api] = useSpring(() => ({
         visible: true,
-        color: 'white',
+        color: "white",
         opacity: .2,
         config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
     }))
@@ -22,15 +21,16 @@ export default function Shed() {
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             (([basement, attic, detatched, attatched]) => {
                 if (attatched == true){
-                    api.start({opacity: 1, color: '#d96b27'})
+                    api.start({opacity: 1, color: "#d96b27"})
                 }
                 if (attatched == false){
-                    api.start({opacity: 0.2, color: 'white'})
+                    api.start({opacity: 0.2, color: "white"})
                 }
             })
         )
+
         // The returned cleanup function unsubscribes from the state changes when the component unmounts. 
-        // Dependency array '[]' is empty so the effect only runs once after the initial render, this is b/c
+        // Dependency array "[]" is empty so the effect only runs once after the initial render, this is b/c
         // the effect does not dpend on any state or props changes. 
         return () => {
             unsubscribeOpacity()

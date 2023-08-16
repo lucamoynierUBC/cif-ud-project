@@ -15,7 +15,7 @@ export default function Dropdown(props){
             <div className="title">
                 <h3>{props.text}</h3>
             </div>
-            { (<CSSTransition
+            {(<CSSTransition
             in={expand}
             timeout={300}
             classNames="content"
@@ -23,8 +23,7 @@ export default function Dropdown(props){
                 <div className="content">
                 {props.content}
                 </div>
-            </CSSTransition>
-            )}            
+            </CSSTransition>)}            
         </div>
     )
 }

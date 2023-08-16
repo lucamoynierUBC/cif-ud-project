@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function NavItem(props){
-
+    
     // manage whether or not the dropdowm menu is open.
     const [open, setOpen] = useState(false)
 
@@ -13,7 +13,5 @@ export default function NavItem(props){
             </a>
             {open && props.children}
         </li>
-
     )
-
 }

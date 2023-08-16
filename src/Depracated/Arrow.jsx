@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import * as THREE from "three";
 import { gsap } from "gsap";
 import { useFrame } from "@react-three/fiber";
-import useFlow from "./stores/useFlow";
+import useFlow from "../stores/useFlow";
 import { Html } from "@react-three/drei";
 
 // NOT USED

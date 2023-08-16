@@ -1,4 +1,3 @@
-
 import './Caret.css'
 import { PiCaretDoubleLeftBold } from "react-icons/pi";
 import useCamera from '../stores/useCamera';
@@ -15,5 +14,4 @@ export default function Caret(props){
             </div>
         </div>
     )
-    
 }

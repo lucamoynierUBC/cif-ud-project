@@ -1,32 +1,22 @@
-
 import React, { useRef, useEffect, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import * as THREE from "three";
-import useFlow from "./stores/useFlow";
+import useFlow from "../stores/useFlow";
 
 export default function PathModel(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/walkway.glb");
   const { actions, names } = useAnimations(animations, group);
   const [visible, setVisible] = useState(false)
-  
 
-  
-
-
-  
   useEffect(() => {
-    
-    
     const unsubscribeAnimate = useFlow.subscribe(
-        
         (state) => state.phase,
         (phase) => {
             if (phase === 'interaction11'){
                 setVisible(true)
             }
         }
-
     )
     if (visible){
         actions[names[0]].setLoop(THREE.LoopOnce).play()

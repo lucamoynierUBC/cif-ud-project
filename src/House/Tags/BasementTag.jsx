@@ -1,17 +1,16 @@
 import { Html } from "@react-three/drei";
-import useActions from "../../stores/useActions";
+import useTag from "../../stores/useTag";
 import { useEffect, useState } from "react";
 import useInterface from "../../stores/useInterface";
 import "./Styles/TagStyles.css"
 import { useSpring, animated } from "@react-spring/web"
-
 
 export default function BasementTag() {
     const [visible, setVisible] = useState(false)
     const [opacity, setOpacity] = useState(1)
     const [hover, setHover] = useState(false)
     const [active, setActive] = useState(false)
-    const selectBasement = useActions((state) => state.selectBasement)
+    const selectBasement = useTag((state) => state.selectBasement)
     const isMobile = window.innerWidth <= 600;
 
     useEffect(() => {
@@ -21,14 +20,14 @@ export default function BasementTag() {
                 setVisible(visible)
             })
         )
-        const unsubscribeOpacity = useActions.subscribe(
+
+        const unsubscribeOpacity = useTag.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
                 if (!basement && attic){
                     setOpacity(0.5)
                     setHover(false)
                     setActive(false)
-
                 } 
                 if (!basement && detatched) {
                     setOpacity(0.5)
@@ -50,10 +49,8 @@ export default function BasementTag() {
                     setHover(true)
                     setActive(true)
                 }
-            
             }
         )
-        
         return () => {
             unsubscribeVisible()
             unsubscribeOpacity()
@@ -65,7 +62,6 @@ export default function BasementTag() {
         config: { tension: 210, friction: 20, duration: 1},
 
     });
-
 
     const toggleEnter = () =>{
         setHover(true)
@@ -79,15 +75,14 @@ export default function BasementTag() {
         }
     }
         
-
-
-
-
-
-
     return(
         visible && <Html wrapperClass="tag-layout" position={[-80, 70, -35]} style={{opacity: opacity}} > 
-            <animated.button onPointerEnter={() => toggleEnter()} onPointerLeave={() => toggleLeave()} style={springProps} className="tag-button" onClick={() => {selectBasement()}}>Basement</animated.button>
+            <animated.button 
+            onPointerEnter={() => toggleEnter()} 
+            onPointerLeave={() => toggleLeave()} 
+            style={springProps} 
+            className="tag-button" 
+            onClick={() => {selectBasement()}}>Basement</animated.button>
         </Html>
     )
 }

@@ -1,11 +1,11 @@
 import { create } from "zustand";
-import { subscribeWithSelector } from 'zustand/middleware'
+import { subscribeWithSelector } from "zustand/middleware"
 
 // Global state for camera, used to determine when to animante its position, zoom etc. 
 export default create(subscribeWithSelector((set) => {
     return {
         zoom: false,
-        rotate: 'default',
+        rotate: "default",
 
         zoomClose: () => {
             set((state) => {
@@ -15,24 +15,22 @@ export default create(subscribeWithSelector((set) => {
         },
         zoomFar: () => {
             set(() => {
-                return {guiIntroPhase: 'far'}
+                return {guiIntroPhase: "far"}
             })
         },
-
         rotateToAdu: () => {
             set(() => {
-                return {rotate: 'adu'}
+                return {rotate: "adu"}
             })
         },
-
         rotateBirdsEye: () => {
             set(() => {
-                return{rotate: 'birdsEye'}
+                return{rotate: "birdsEye"}
             })
         },
         resetCamera: () => {
             set(() => {
-                return{rotate: 'far'}
+                return{rotate: "far"}
             })
         }
     }

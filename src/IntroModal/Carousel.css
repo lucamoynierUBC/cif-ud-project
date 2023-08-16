@@ -50,23 +50,19 @@
     font-size: 14px;
 }
 
-.vertical-box{
+.vertical-box
+{
     align-items: center;
     justify-content: center;
     display: flex;
     padding-top: 30px;
 }
 
-.carousel
+@media  only screen and (max-width: 800px) 
 {
-
-}
-
-@media  only screen and (max-width: 800px) {
     .carousel {
         padding-bottom: 0px;
         margin-top: 10px;
-       
     }
 
     .card {

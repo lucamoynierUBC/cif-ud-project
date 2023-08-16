@@ -41,14 +41,16 @@
     transition: transform 200ms ease, opacity 200ms ease, max-height 200ms ease;
   }
   
-  .content-exit {
+  .content-exit 
+  {
     transform: scaleY(1);
     transform-origin: top;
     opacity: 1;
     max-height: 500px;
   }
   
-  .content-exit-active {
+  .content-exit-active 
+  {
     transform: scaleY(0);
     transform-origin: top;
     opacity: 0;

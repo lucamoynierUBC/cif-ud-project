@@ -1,14 +1,15 @@
-import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
-import { OrbitControls as BaseOrbitControls } from '@react-three/drei';
+import React, { createContext, useContext, useState, useCallback, useRef } from "react";
+import { OrbitControls as BaseOrbitControls } from "@react-three/drei";
 
 // Create a new context for OrbitControls, allows me to pass data through the component tree
 // and allowing sharing of the state of Orbit Controls with other components
 export const OrbitControlsContext = createContext(undefined);
-OrbitControlsContext.displayName = 'OrbitControlsContext';
+OrbitControlsContext.displayName = "OrbitControlsContext";
 
 export const OrbitControls = ({ children }) => {
   // State to track whether Orbit Controls is enabled or disabled
   const [isEnabled, setIsEnabled] = useState(true);
+
   // ref to access OrbitControls component
   const ref = useRef();
 
@@ -18,10 +19,12 @@ export const OrbitControls = ({ children }) => {
     ref.current.reset(); // reset the controls state
     setIsEnabled(true); // enable the controls
   }, []);
+
   // callback that is used to disable orbit conbtrols
   const handleDisableCamera = useCallback(() => {
     setIsEnabled(false);
   }, []);
+
   // Create a context object to be provided to descendant components
   const context = {
     isEnabled, // Whether Orbit Controls is enabled or not
@@ -43,8 +46,6 @@ export const OrbitControls = ({ children }) => {
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}
-
-  
       />
     </>
   );
@@ -56,8 +57,7 @@ export const useOrbitControls = () => {
   const context = useContext(OrbitControlsContext);
   // If context is undefined throw an error
   if (!context) {
-    throw 'OrbitControls context is undefined. Please make sure to call useOrbitControls as a child of <OrbitControls>.';
+    throw "OrbitControls context is undefined. Please make sure to call useOrbitControls as a child of <OrbitControls>.";
   }
-
   return context;
 };

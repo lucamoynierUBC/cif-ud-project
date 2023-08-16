@@ -1,6 +1,6 @@
 import { useGLTF } from "@react-three/drei";
 import { useSpring, animated } from "@react-spring/three"
-import useActions from "./stores/useActions";
+import useActions from "../stores/useTag";
 import { useEffect } from "react";
 export default function Plot(){
     // const { materials } = useGLTF("/largeblockv4.glb");

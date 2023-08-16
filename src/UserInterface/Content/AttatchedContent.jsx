@@ -4,11 +4,10 @@ export default function AttatchedContent() {
     // records when this component is vieweable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
-            
-            console.log("Attatched visibility is: ", visible)
-            
+            console.log("Attatched visibility is: ", visible)  
         }
     })
+
     return(
         <div>
             <h2 ref={myRef}>Attached ADU</h2>

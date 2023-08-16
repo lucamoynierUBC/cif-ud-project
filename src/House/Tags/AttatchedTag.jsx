@@ -1,12 +1,12 @@
 import { Html } from "@react-three/drei";
-import useActions from "../../stores/useActions";
+import useTag from "../../stores/useTag";
 import { useState, useEffect } from "react";
 import useInterface from "../../stores/useInterface";
 import "./Styles/TagStyles.css"
 import { useSpring, animated } from "@react-spring/web"
 
 export default function AttatchedTag() {
-    const selectAttatched = useActions((state) => state.selectAttatched)
+    const selectAttatched = useTag((state) => state.selectAttatched)
     const [opacity, setOpacity] = useState(1)
     const [visible, setVisible] = useState(false)
     const [hover, setHover] = useState(false)
@@ -24,12 +24,12 @@ export default function AttatchedTag() {
                 setVisible(visible)
             })
         )
-        // Subscribing to changes in the useActions store. 
-        const unsubscribeOpacity = useActions.subscribe(
+
+        // Subscribing to changes in the useTag store. 
+        const unsubscribeOpacity = useTag.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
                 // when attatch tag is not selected and a different tag is selected set its opacity to  0.5,
-
                 if (!attatched && attic){
                     setOpacity(0.5)
                     setHover(false)
@@ -56,11 +56,9 @@ export default function AttatchedTag() {
                     setOpacity(1)
                     setHover(true)
                     setActive(true)
-                }
-            
+                } 
             }
         )
-        
         return () => {
             unsubscribeVisible()
             unsubscribeOpacity()
@@ -73,7 +71,6 @@ export default function AttatchedTag() {
         config: { tension: 210, friction: 20, duration: 1},
 
     });
-
 
     // On pointer enter toggle animation and set opacity
     const toggleEnter = () =>{
@@ -88,7 +85,6 @@ export default function AttatchedTag() {
         }
     }
 
-
     return(
         visible && <Html 
         wrapperClass="tag-layout" 
@@ -100,8 +96,7 @@ export default function AttatchedTag() {
             onPointerLeave={() => toggleLeave()}
             style={springProps}
             className="tag-button" 
-            onClick={() => {selectAttatched()}} 
-             >Attatched ADU</animated.button>
+            onClick={() => {selectAttatched()}}> Attatched ADU </animated.button>
         </Html>
     )
 }

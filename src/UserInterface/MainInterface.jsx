@@ -8,7 +8,7 @@ import AttatchedContent from "./Content/AttatchedContent"
 import DetatchedContent from "./Content/DetatchedContent"
 import BasementContent from "./Content/BasementContent"
 import AtticContent from "./Content/AtticContent"
-import useActions from "../stores/useActions"
+import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 
 // main component for the sidebar UI
@@ -17,7 +17,7 @@ export default function MainInterface() {
     const [visible, setVisible] = useState(false)
     // Accesing global states from stores
     const setVisibleState = useInterface((state) => state.toggleVisible)
-    const unselectAllAdu = useActions((state) => state.unselectAll)
+    const unselectAllAdu = useTag((state) => state.unselectAll)
     const zoom = useCamera((state) => state.zoomClose)
     
     // Subscribe to changes in Interface and Actions stores
@@ -30,9 +30,10 @@ export default function MainInterface() {
                 setVisible(visible)
             }
         )
+
         // Auto scroll to relevent section in the sidebar when global action state changes.
         // Eg. If basement is selected scroll to the basement section on the UI.
-        const unsubscribeScroll = useActions.subscribe(
+        const unsubscribeScroll = useTag.subscribe(
             (state) => [state.basement, state.attic, state.detatched, state.attatched],
             ([basement, attic, detatched, attatched]) => {
                 if (attatched) {
@@ -47,7 +48,6 @@ export default function MainInterface() {
                 if (basement) {
                     document.getElementById("basement").scrollIntoView({behavior:"smooth"})
                 }
-
             }
         )
         // Clean up subscriptions
@@ -61,7 +61,6 @@ export default function MainInterface() {
     const springProps = useSpring({
         opacity: visible ? 1 : 0,
       });
-
 
     return(
         <div>
@@ -94,7 +93,6 @@ export default function MainInterface() {
                         <div id="attic">
                             <AtticContent></AtticContent>
                         </div>
-
                         <Dropdown text="WHATS AN ADU" content={<div dangerouslySetInnerHTML={{ __html: `An <b>Accessible Dwelling Unit (ADU)</b> is an additional, private, single housing unit meant to be placed on lots with an existing one or two-family residence. They work well in a low density context because owners and residents of homes in these neighborhoods can build ADUs without the need for rezoning. There are four main types. `}} />}/>
                         <Dropdown text="BUILDING HEIGHT" content="While not all buildings in these kinds of neighborhoods  keep within a one to two story limit, 
                         ADUs cannot be more than two stories or be placed on residences that are taller than two stories."/>
@@ -102,14 +100,9 @@ export default function MainInterface() {
                         <Dropdown text="PARKING" content="Another way in which ADUs differ from primary units is that they must be reasonably proximate to public transportation, and thus do not require additional parking spots."/>
                         <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
                     </div>
-                    
                     <div className="footer"></div>
-
-
                 </div>
             </animated.div>)}
         </div>
-
     )
-
 }

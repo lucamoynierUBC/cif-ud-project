@@ -36,6 +36,12 @@ export default create(subscribeWithSelector((set) => {
 
             })
         },
+        setVisibleOff: () => {
+            set(() => {
+                return {visible: false}
+
+            })
+        },
         selectOne: () => {
             set(() => {
                 return {selection: 1}

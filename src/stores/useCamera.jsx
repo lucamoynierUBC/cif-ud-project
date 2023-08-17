@@ -15,7 +15,7 @@ export default create(subscribeWithSelector((set) => {
         },
         zoomFar: () => {
             set(() => {
-                return {guiIntroPhase: "far"}
+                return {zoom: false}
             })
         },
         rotateToAdu: () => {

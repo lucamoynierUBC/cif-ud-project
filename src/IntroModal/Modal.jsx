@@ -1,26 +1,27 @@
 import { useState } from "react";
 import "./Modal.css"
-import useGUI from "../stores/useModal";
+import useModal from "../stores/useModal";
 import Carousel from "./Carousel";
 import { useTransition, animated } from "react-spring";
 import ToggleButton from "./ToggleButton";
 
+// this is the main component for the Modal/Carousel
 export default function Modal(){
     const [visible, setVisible] = useState(true)
-    const [render, setRender] = useState(true)
-    const spawn = useGUI((state) => state.guiIntroTurnOff)
-    const unSpawn = useGUI((state) => state.guiIntroTurnOn)
-
+    const spawn = useModal((state) => state.modalToggle)
+    // const unSpawn = useGUI((state) => state.guiIntroTurnOn)
+    // update the state without canceling the animation
     const transition = useTransition(visible, {
         from: { opacity: 0, transform: "translate(-100%, -100%)" },
         enter: { opacity: 1, transform: "translate(-50%, -50%)" },
         leave: { opacity: 0, transform: "translate(-100%, -100%)" },
         config: {
             tension: 300,    
-            friction: 25
+            friction: 35
         },
     });
 
+    // Handle modal visibility
     const handleToggle = () => {
         if (visible) {
             setVisible(false);
@@ -29,18 +30,7 @@ export default function Modal(){
         }
     };
 
-
-    
-
     return(
-        // visible && <div className="modalBackground" onPointerOver={(event) => event.stopPropagation()} onPointerOut={ (event) => event.stopPropagation()}>
-        //     <div className="modalContainer" >
-        //         <div className="titleBtn-layout">
-        //             <button onClick={() => {setVisible(false), turnOffBlur()}} className="titleBtn"> &#x2715; </button>
-        //         </div>
-        //         <Carousel></Carousel>
-        //     </div>
-        // </div>
         <div className="background">
             {transition((style, item) =>
                 item && (
@@ -56,7 +46,7 @@ export default function Modal(){
                         </div>
                 )
             )}
-        <ToggleButton unSpawn={unSpawn} toggle={handleToggle}></ToggleButton>
+        <ToggleButton visible={visible} spawn={spawn} toggle={handleToggle}></ToggleButton>
     </div>
         
 

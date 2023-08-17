@@ -3,11 +3,10 @@ export default function DetatchedContent() {
     // records when this component is viewable in the browser
     const { ref: myRef, inView: visible} = useInView({
         onChange: (visible) => {
-            
             console.log("Detatched visibility is: ", visible)
-            
         }
     })
+
     return(
         <div>
             <h2 ref={myRef}>Detatched ADU</h2>
@@ -20,5 +19,4 @@ export default function DetatchedContent() {
             </p>
         </div>
     )
-
 }

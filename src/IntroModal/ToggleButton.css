@@ -1,0 +1,44 @@
+body 
+{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.toggle-Container
+{
+    pointer-events: all;
+    position: fixed;
+    top: 80px;
+    left: -15px;
+    transform: translateX(50%); /* Center horizontally */
+    background-color: #F5F5F5FF;
+    border-radius: 8px;
+    border: 0px solid #000000;
+    width: 40px;
+    height: 40px;
+    transition: 200ms ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    color: #00000040;
+    pointer-events: all;
+}
+
+
+.toggle-Container:hover 
+{
+    background-color: #D9D9D9FF;
+    color: #000000E0;
+}
+
+.toggle
+{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 5px; */
+    margin: 5px;
+}

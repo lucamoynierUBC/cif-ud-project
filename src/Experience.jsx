@@ -1,22 +1,14 @@
 
 import useApp from "./stores/useApp"
-import Adu from "./Depracated/Adu"
+
 import { OrbitControls } from "./ThreeJS/Controls"
-import { Physics, RigidBody } from "@react-three/rapier"
-import { useRef } from "react"
-import { useFrame } from "@react-three/fiber"
-import { EffectComposer, Selection, Outline } from "@react-three/postprocessing"
+
 import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from "@react-three/drei"
 import OutlineEffect from "./ThreeJS/OutlineEffect"
 import BackgroundModel from "./3DAssets/BackgroundModel"
 import Camera from "./ThreeJS/Camera"
-import Birds from "./3DAssets/Birds"
 import Shed from "./House/Shed"
-import Arrow from "./Depracated/Arrow"
-import PathModel from "./Depracated/PathModel"
-import Person from "./3DAssets/Person"
 import DetatchedAdu from "./House/DetatchedAdu"
-import Bus from "./3DAssets/Bus"
 import Plot from "./Depracated/Plot"
 import Spawner from "./ThreeJS/Spawner"
 
@@ -38,8 +30,8 @@ export default function Experience() {
         <DetatchedAdu></DetatchedAdu>
         <Spawner></Spawner>
         <Plot></Plot>
-        <Arrow></Arrow>
-        <PathModel></PathModel>
+        {/* <Arrow></Arrow>
+        <PathModel></PathModel> */}
         <OutlineEffect></OutlineEffect>   
     </>
 }

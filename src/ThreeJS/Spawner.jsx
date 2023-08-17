@@ -18,6 +18,9 @@ export default function Spawner(){
                 if (guiIntroPhase === "off"){
                   setSpawn(true)
                 }
+                if (guiIntroPhase === "on"){
+                    setSpawn(false)
+                }
               }
         )
         return () => {

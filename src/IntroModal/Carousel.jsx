@@ -39,7 +39,7 @@ export default function Carousel() {
                 <SwiperSlide>
                     <div className="card">
                         <h3>Welcome to the Tool!</h3>
-                        <img src="https://i.imgur.com/tIwamTj.jpg" alt="Slide Image" width={"70%"} />
+                        <img className="img" src="https://i.imgur.com/tIwamTj.jpg" alt="Slide Image" width={isMobile ?"90%": "70%"} />
                         <p className="text-body">
                             The tool you are about to enter is a work-in-progress being developed to visually engage the broad public on complex planning initiatives. 
                             The tool is meant to explain policy change impacts on the environment while allowing for easy navigation in a neighborhood context. 
@@ -48,7 +48,7 @@ export default function Carousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="card">
-                        <img src="https://imgur.com/oJBCIDh.png" width={"90%"}/>
+                        <img className="img" src="https://imgur.com/oJBCIDh.png" width={"90%"}/>
                         <p className="text-body">
                             <b>City of Yes Housing Opportunity</b> is part of an inclusive, citywide approach to expanding and diversifying the housing supply, in which every neighborhood does its part to help meet housing needs and provide equitable access to opportunity for New Yorkers. 
                             The proposal would help meet New Yorkers’ housing needs with small changes citywide – including the highest density areas as well as low density areas.
@@ -61,7 +61,7 @@ export default function Carousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="card">
-                        <img src="https://i.imgur.com/hsFUUei.png" width={"60%"}/>
+                        <img className="img" src="https://i.imgur.com/hsFUUei.png" width={isMobile ?"90%": "60%"}/>
                         <p className="text-body" >Composed of mostly one, two-family homes and some multifamily buildings, low-density housing makes up of <b>35%</b> of total NYC’s housing units. Despite being a large part of the city’s housing stock, these areas have not been contributing as much in added units since 2010. 
                             This presents an opportunity for both the city and homeowners: the city can expand its housing units and homeowners can add a secondary unit to make the best of their investment. 
                             <br></br><br></br> The map below further shows the sub-categories of low-density housing.
@@ -70,15 +70,15 @@ export default function Carousel() {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="card">
-                        <img src="https://i.imgur.com/4aWDYiy.png" width={"100%"} ></img>
                         <p className="text-body">
                             Even within the one and two family housing zones, different neighborhoods can look dramatically different from one another.
                         </p>
+                        <img className="img" src="https://i.imgur.com/6eeXSrx.jpg" width={isMobile ? "90%" : "60%"} ></img>
+                        <img className="img" src="https://i.imgur.com/scFOXO8.jpg" width={isMobile ? "90%" : "60%"} ></img>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="card">
-                        <h4>Welcome to the Tool!</h4>
                         <p> The tool will show you how potential new homes can be created in these areas of the city.</p>
                         <p> Learn more using the side interface and these interactions:</p>
                         <div className="icon-container">

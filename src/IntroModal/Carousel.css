@@ -59,6 +59,12 @@
     padding-top: 30px;
 }
 
+.img
+{
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
 @media  only screen and (max-width: 800px) 
 {
     .carousel {

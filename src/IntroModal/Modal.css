@@ -33,6 +33,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 40%; /* Adjust the maximum width as needed */
+    max-width: 700px;
     width: 100%;
     padding: 20px;
     background-color: white;

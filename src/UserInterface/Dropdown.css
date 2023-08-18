@@ -3,8 +3,7 @@
   background: #F5F5F5FF;
   border-radius: 8px;
   transition: height 200ms ease;
-  margin-bottom: 20px;
-    
+  margin-bottom: 20px; 
 }
 
 .Dropdown-layout:hover
@@ -21,7 +20,6 @@
 .content
 {
   padding: 0 25px 10px;
-    
 }
 
 .content-enter 
@@ -44,17 +42,17 @@
   
 .content-exit 
 {
-    transform: scaleY(1);
-    transform-origin: top;
-    opacity: 1;
-    max-height: 500px;
+  transform: scaleY(1);
+  transform-origin: top;
+  opacity: 1;
+  max-height: 500px;
 }
   
 .content-exit-active 
 {
-    transform: scaleY(0);
-    transform-origin: top;
-    opacity: 0;
-    max-height: 0;
-    transition: transform 200ms ease, opacity 300ms ease, max-height 100ms ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  max-height: 0;
+  transition: transform 200ms ease, opacity 300ms ease, max-height 100ms ease;
 }

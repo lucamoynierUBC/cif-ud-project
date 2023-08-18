@@ -5,6 +5,7 @@ import useInterface from "../../stores/useInterface";
 import "./Styles/TagStyles.css"
 import { useSpring, animated } from "@react-spring/web"
 
+// Read commments for the Attatched tag component, this is a redundant component.
 export default function DetatchedTag() {
     const [visible, setVisible] = useState(false)
     const [opacity, setOpacity] = useState(1)

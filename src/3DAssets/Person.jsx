@@ -6,15 +6,19 @@ import React, { useRef, useEffect, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+// Component for the imported animated person
 export default function Person(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/Person.glb");
   const { actions, names } = useAnimations(animations, group);
   const {visible, setVisible} = useState(false)
   
+  // Play the 'walking' animation created in Blender
   useEffect(() => {
     actions[names[0]].reset().fadeIn(0.5).play() 
   })
+
+  // Animate the persons z position, change its direction and rotation after a certain threshold
   var up = true
   useFrame((state, delta) =>{
     if (up){

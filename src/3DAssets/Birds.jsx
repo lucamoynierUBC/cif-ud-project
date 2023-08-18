@@ -10,6 +10,7 @@ import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+// Imported Bird model
 export default function Birds(props) {
   const group = useRef();
   const ref = useRef()

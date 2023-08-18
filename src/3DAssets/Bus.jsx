@@ -2,10 +2,12 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+// Component for the imported blue bus
 export default function Bus(props) {
   const { nodes, materials } = useGLTF("/busv2.glb");
   const group = useRef();
   
+  // Animate the Bus z position, reset its z position after a certain threshold
   useFrame((state, delta) =>{
     group.current.position.z += delta*3
     if (group.current.position.z > 100){

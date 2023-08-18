@@ -2,14 +2,16 @@
 import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
+// Component for the imported animated car
 export default function BackgroundModel(props) {
     const group = useRef();
     const { nodes, materials, animations } = useGLTF("/BackgroundanimatedV3.glb");
     const { actions, names } = useAnimations(animations, group);
+    
+    // Use the animation created in blender
     useEffect(() => {
       actions[names[0]].reset().play()
     })
-  
   
     return (
     <group ref={group} {...props} dispose={null} scale={0.4} position={[-10, -9.5, -1.5]}>

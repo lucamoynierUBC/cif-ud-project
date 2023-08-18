@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// component for the carousel "cards"
 export default function Carousel() {
     const isMobile = window.innerWidth <= 600
     const swiperStyle = {
@@ -19,7 +20,7 @@ export default function Carousel() {
         "--swiper-navigation-color": "#d96b27",
         "--swiper-pagination-color": "#d96b27",
       };
-
+      
       if (isMobile) {
         swiperStyle["--swiper-navigation-top-offset"] = "50%";
       } else {

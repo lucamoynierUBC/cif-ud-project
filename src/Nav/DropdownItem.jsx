@@ -1,6 +1,5 @@
 export default function DropdownItem(props) {
-
-    //TODO pass state from parent to child
+    // Changes the CSSTransition active menu when clicked on 
     return(
         <a href="#" className="menu-item" onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}>
             {/* <span className="icon-button">{props.leftIcon}</span> */}

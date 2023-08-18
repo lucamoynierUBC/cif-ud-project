@@ -28,6 +28,7 @@
 ## Setup
 To get a local copy up and running follow these steps:
 Download [Node.js](https://nodejs.org/en/download/).
+Clone this repo: 'https://github.com/lucamoynierUBC/cif-ud-project.git'
 Run the following commands:
 
 ``` bash
@@ -54,6 +55,7 @@ npm run dev
         * [📄 Bus](./src/3DAssets/Bus.jsx)
         * [📄 Car](./src/3DAssets/Car.jsx)
         * [📄 Person](./src/3DAssets/Person.jsx)
+   * [📁 Depracted](./src/Depracated) - *contains unused components*
    * [📁 House](./src/House) - *contains all components related to the 3D house object*
         * [📁 Tags](./src/House/Tags) - contains tags for the house
             * [📄 Attatched Tag](./src/House/Tags/AttatchedTag.jsx)

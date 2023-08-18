@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 import { useTransition, animated } from "react-spring";
 import ToggleButton from "./ToggleButton";
 
-// this is the main component for the Modal/Carousel
+// this is the main component for the Modal/Carousel contains the backgorund and the carousel.
 export default function Modal(){
     const [visible, setVisible] = useState(true)
     const spawn = useModal((state) => state.modalToggle)

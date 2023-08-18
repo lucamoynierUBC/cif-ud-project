@@ -5,10 +5,11 @@ import useInterface from "../stores/useInterface";
 import useCamera from "../stores/useCamera";
 
 export default function ToggleButton(props) {
-    //toggles the visibility of the modal
+    // Toggles the visibility of the modal, takes in props from its parent component Modal.jsx
     const turnOffInterface = useInterface((state) => state.setVisibleOff)
     const zoomFar = useCamera((state) => state.zoomFar)
 
+    // Animate the rotation of the Caret
     const springProps = useSpring({
         rotation: !props.visible ? "rotate(90deg)" : "rotate(0deg)",
     })

@@ -9,7 +9,7 @@ import BackgroundModel from "./3DAssets/BackgroundModel"
 import Camera from "./ThreeJS/Camera"
 import Shed from "./House/Shed"
 import DetatchedAdu from "./House/DetatchedAdu"
-import Plot from "./Depracated/Plot"
+import Plot from "./ThreeJS/Plot"
 import Spawner from "./ThreeJS/Spawner"
 
 // Puts everything related to Three.js inside a main class
@@ -30,8 +30,7 @@ export default function Experience() {
         <DetatchedAdu></DetatchedAdu>
         <Spawner></Spawner>
         <Plot></Plot>
-        {/* <Arrow></Arrow>
-        <PathModel></PathModel> */}
+        {/* Outline Effect contains the house model */}
         <OutlineEffect></OutlineEffect>   
     </>
 }

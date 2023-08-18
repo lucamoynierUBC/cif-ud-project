@@ -6,12 +6,11 @@ import React, { useRef} from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useLoader } from "@react-three/fiber";
 
+// Imported background model
 export default function BackgroundModel(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/BackgroundanimatedV3.glb");
   const { actions, names } = useAnimations(animations, group);
-
-
 
   return (
     <group ref={group} {...props} dispose={null} scale={0.4} position={[-10, -9.5, -1.5]}>

@@ -28,7 +28,7 @@
 ## Setup
 To get a local copy up and running follow these steps:
 Download [Node.js](https://nodejs.org/en/download/).
-Clone this repo: 'https://github.com/lucamoynierUBC/cif-ud-project.git'
+Clone this repo: `https://github.com/lucamoynierUBC/cif-ud-project.git`
 Run the following commands:
 
 ``` bash

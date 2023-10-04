@@ -1,4 +1,4 @@
-import { OrthographicCamera } from "@react-three/drei";
+import { OrthographicCamera, PerspectiveCamera } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import useCamera from "../stores/useCamera";
 import { useThree } from "@react-three/fiber";
@@ -110,12 +110,13 @@ export default function Camera() {
     }, [])
     
     return (       
-            <OrthographicCamera
+            <PerspectiveCamera
             ref={cameraControlRef}
-            zoom={20}
+            zoom={1}
             makeDefault 
-            position={[-50, 50, 35]}
-            fov={50}
-            far={150} />
+            position={[-90, 200, 90]}
+            fov={10}
+            far={1000} 
+            />
     ) 
 }

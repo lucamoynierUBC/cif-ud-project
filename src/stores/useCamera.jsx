@@ -6,6 +6,14 @@ export default create(subscribeWithSelector((set) => {
     return {
         zoom: false,
         rotate: "default",
+        orthographic: true,
+
+        changePerspective: () => {
+            set((state) => {
+                console.log("perspective is", !state.orthographic)
+                return {orthographic: !state.orthographic}
+            })
+        },
 
         zoomClose: () => {
             set((state) => {

@@ -1,0 +1,32 @@
+body 
+{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.axiom-container
+{
+    position: fixed;
+    top: 80px;
+    left: 75px;
+    /* background-color: white;
+    border-radius: 8px;
+    border: 0px solid #000000; */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Add this */
+    padding: 0;
+}
+.axiom-button
+{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    font-size: 26px;
+}

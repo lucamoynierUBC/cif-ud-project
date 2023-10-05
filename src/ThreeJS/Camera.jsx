@@ -54,6 +54,48 @@ export default function Camera() {
                 }
             }
         )
+
+        const unsubscribeChangePerspective = useCamera.subscribe(
+            (state) => state.orthographic,
+            (orthographic) => {
+                console.log("perspective set to :", orthographic)
+                if (orthographic) {
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 10,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x:-190,
+                        y: 200,
+                        z: 190
+                    })
+                    enableCamera()
+                }
+                else {
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 50,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x:-12,
+                        y: 2,
+                        z: -6
+                    })
+                    enableCamera()
+                }
+            }
+
+        )
         
         // These animations below are no longer being used
         // const unsubscribePanToAdu = useCamera.subscribe(
@@ -105,16 +147,30 @@ export default function Camera() {
         
         return () => {
             unsubscribeZoom()
+            unsubscribeChangePerspective()
             // unsubscribePanToAdu()
         }
     }, [])
-    
+    // default camera settings: 
+    // ref={cameraControlRef}
+    // zoom={1}
+    // makeDefault 
+    // position={[-190, 200, 190]}
+    // fov={10}
+    // far={1000} 
+    // perspective camera settings:
+    // ref={cameraControlRef}
+    // // zoom={1}
+    // makeDefault 
+    // position={[-12, 2, -6]}
+    // fov={50}
+    // far={1000} 
     return (       
             <PerspectiveCamera
             ref={cameraControlRef}
             zoom={1}
             makeDefault 
-            position={[-90, 200, 90]}
+            position={[-190, 200, 190]}
             fov={10}
             far={1000} 
             />

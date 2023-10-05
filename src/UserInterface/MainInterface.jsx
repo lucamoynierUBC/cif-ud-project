@@ -10,6 +10,7 @@ import BasementContent from "./Content/BasementContent"
 import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
+import AxiomViewButton from "./AxiomViewButton"
 
 // main component for the sidebar UI
 export default function MainInterface() {
@@ -66,6 +67,7 @@ export default function MainInterface() {
         <div>
             {/* Show caret if interface is not visible */}
             {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)}
+            {<AxiomViewButton></AxiomViewButton>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >

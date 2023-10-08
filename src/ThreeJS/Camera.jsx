@@ -79,7 +79,7 @@ export default function Camera() {
                 else {
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
-                        duration: 2,
+                        duration: 0.5,
                         fov: 50,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();

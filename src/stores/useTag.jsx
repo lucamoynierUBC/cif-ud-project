@@ -7,8 +7,8 @@ export default create(subscribeWithSelector((set) => {
         basement: false,
         attic: false,
         detatched: false,
-        attatched: false, 
-
+        attatched: false,
+    
         selectBasement: () => {
             set((state) => {
                 console.log("basement tag clicked ", !state.basement)

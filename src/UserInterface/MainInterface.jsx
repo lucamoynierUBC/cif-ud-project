@@ -72,7 +72,7 @@ export default function MainInterface() {
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
                     <div className="titleCloseBtn-layout">
-                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu(), zoom()}}> &#x2715; </button>
+                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu()}}> &#x2715; </button>
                     </div>
                     <div className="title">
                         <h1> Single Family Home </h1>

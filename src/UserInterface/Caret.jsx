@@ -8,7 +8,7 @@ export default function Caret(props){
 
     return(
         // If caret is clicked on zoom, and toggle its visibility and the visibility of its parent component
-        <div className="caret-container" onClick={() => {props.setVisible(!props.visible), props.setVisibleState(), zoom()}}>
+        <div className="caret-container" onClick={() => {props.setVisible(!props.visible), props.setVisibleState()}}>
             <div className="caret">
                 <PiCaretDoubleLeftBold size={'25px'}/>
             </div>

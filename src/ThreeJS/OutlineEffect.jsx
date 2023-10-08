@@ -26,7 +26,7 @@ export default function OutlineEffect() {
                 <Outline  xRay={false} blur={true} visibleEdgeColor={"white"} hiddenEdgeColor={"white"} edgeStrength={100} width={1000} />
                 {/* <DepthOfField bokehScale={bokehValue}/> */}
         </EffectComposer>
-        <House></House>
+        {/* <House></House> */}
         {/* <CustomPlot></CustomPlot> */}
     </Selection>
 }

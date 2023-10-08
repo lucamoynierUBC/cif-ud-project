@@ -11,6 +11,7 @@ import Shed from "./House/Shed"
 import DetatchedAdu from "./House/DetatchedAdu"
 import Plot from "./ThreeJS/Plot"
 import Spawner from "./ThreeJS/Spawner"
+import House from "./House/House"
 
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
@@ -31,6 +32,7 @@ export default function Experience() {
         <Spawner></Spawner>
         <Plot></Plot>
         {/* Outline Effect contains the house model */}
-        <OutlineEffect></OutlineEffect>   
+        {/* <OutlineEffect></OutlineEffect>    */}
+        <House></House>
     </>
 }

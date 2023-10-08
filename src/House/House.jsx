@@ -44,9 +44,9 @@ export default function House(props) {
   const bind = useGesture({
     onHover({ hovering }) {
       if (hoverEffect) {
-        api.start({atticColor: hovering ? "#ae561f" : "#d96b27"})
-        api.start({houseColor: hovering ? "#ae561f" : "#d96b27"})
-        api.start({basementColor: hovering ? "#ae561f" : "#d96b27"})
+        api.start({atticColor: hovering ? "#ae561f" : "white"})
+        api.start({houseColor: hovering ? "#ae561f" : "white"})
+        api.start({basementColor: hovering ? "#ae561f" : "white"})
       }
     }
   })
@@ -68,13 +68,15 @@ export default function House(props) {
             setHoverEffect(!visible)
             if (!visible){
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: "#d96b27", basementColor: "#d96b27", atticColor: "#d96b27"})
+              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
             }
             // this is an old feature, TODO: delete and test
-            if (selection === 1){
-              atticHover(true)
-            } else {
+            // else if (selection === 1){
+            //   atticHover(true)
+            else {
               atticHover(false)
+              api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
+              
             }
           }
         )
@@ -84,7 +86,7 @@ export default function House(props) {
           (state) => state.modalPhase,
           (modalPhase) => {
             if (!modalPhase){
-              api.start({atticColor: "#d96b27", houseColor: "#d96b27", basementColor: "#d96b27" })
+              api.start({atticColor: "white", houseColor: "white", basementColor: "white" })
               atticHover(true)
             }
           }
@@ -103,9 +105,10 @@ export default function House(props) {
 
         // Subscribing to changes in the useTag Store
         const unsubscribeOpacity = useTag.subscribe(
-          (state) => [state.basement, state.attic, state.detatched, state.attatched],
+          (state) => [state.basement, state.attic, state.detatched, state.attatched, state.active],
           ([basement, attic, detatched, attatched]) => {
             // If basement is set to true, lower the opacity of all other elements of the house except the basement
+    
             if (basement == true) {
               api.start({atticOpacity: .2, houseOpacity: .2, basementOpacity: 1})
               api.start({houseColor: "white", atticColor: "white", basementColor: "#d96b27"})
@@ -125,10 +128,10 @@ export default function House(props) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
               api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
             }
-            // If nothing is selected increase the opacity of all the elements
-            else if (!basement && !attic && !detatched && !attatched) {
+            // If nothing is selected increase the opacity of all the elements and set to default color
+            if (!basement && !attic && !detatched && !attatched) {
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: "#d96b27", basementColor: "#d96b27", atticColor: "#d96b27"})
+              api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
             }
           }
         )
@@ -153,7 +156,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When house is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface()}}
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.houseColor}
@@ -168,7 +171,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When Attic is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface(), unselectAllAdu()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), unselectAllAdu()}}
         geometry={nodes.attic.geometry}
         material={materials.atticMat}
         material-color={spring.atticColor}
@@ -188,7 +191,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When basement is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), zoomIn(), toggleInterface()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface()}}
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.basementColor}

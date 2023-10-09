@@ -14,7 +14,7 @@ body
     left: 75px;
     /* background-color: white;
     border-radius: 8px;
-    border: 0px solid #000000; */
+    border: 0px solid #000000;  */
     width: 40px;
     height: 40px;
     display: flex;
@@ -25,6 +25,7 @@ body
 }
 .axiom-button
 {
+    background-color: white;
     height: 100%;
     width: 100%;
     padding: 0;

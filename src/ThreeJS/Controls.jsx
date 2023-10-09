@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useCallback, useRef } from "react";
 import { OrbitControls as BaseOrbitControls } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 // Create a new context for OrbitControls, allows me to pass data through the component tree
 // and allowing sharing of the state of Orbit Controls with other components
@@ -32,6 +33,7 @@ export const OrbitControls = ({ children }) => {
     disableCamera: handleDisableCamera // function to disable controls
   };
 
+
   return (
     <>
       {/* provide the orbit controls context to its children components */}
@@ -43,6 +45,8 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={false} 
+      enablePan={false}
+      enableZoom={false}
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}

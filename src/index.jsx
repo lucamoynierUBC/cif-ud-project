@@ -10,6 +10,7 @@ import Nav from "./Nav/Nav"
 import Modal from "./IntroModal/Modal"
 
 const root = ReactDOM.createRoot(document.querySelector("#root"))
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 // Entry point into react application. Place main components inside here. 
 root.render(

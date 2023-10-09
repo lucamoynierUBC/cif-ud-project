@@ -26,6 +26,7 @@ export default function House(props) {
   const [atticHovered, atticHover] = useState(null)
   const [hoverEffect, setHoverEffect] = useState(true)
   const unselectAllAdu = useTag((state) => state.unselectAll)
+
   
   // Default configurations when animating the house such as color and opacity
   const [spring, api] = useSpring(() => ({
@@ -68,14 +69,14 @@ export default function House(props) {
             setHoverEffect(!visible)
             if (!visible){
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+              // api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
             }
             // this is an old feature, TODO: delete and test
             // else if (selection === 1){
             //   atticHover(true)
             else {
               atticHover(false)
-              api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
+              // api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
               
             }
           }

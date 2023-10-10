@@ -113,6 +113,7 @@ export default function Camera() {
             position={[-190, 200, 190]}
             fov={10}
             far={1000} 
+            near={3}
             />
     ) 
 }

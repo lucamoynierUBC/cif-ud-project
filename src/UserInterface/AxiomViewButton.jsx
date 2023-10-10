@@ -15,10 +15,14 @@ export default function AxiomViewButton() {
     
     setIsWalking(!isWalking);
   };
+  
 
   return (
     <div className="axiom-container">
-      <button className='axiom-button' onClick={handleClick}>
+      <button 
+      className='axiom-button' 
+      onClick={handleClick}
+      >
         {isWalking ? '✈️' : '🚶'}
       </button>
     </div>

@@ -103,17 +103,7 @@ export default function MainInterface() {
                         <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
                     </div>
                     <div className="footer"></div> */}
-                    <Dropdown 
-                    text="About" 
-                    ></Dropdown>
-                    <Dropdown text="Types"
-                    content={<>
-                        <button>Detatched</button>
-                        <button>Attatched</button>
-                        <button>Basement</button>
-                        <button>Attic</button>
-                        </>}></Dropdown>
-                    <Dropdown text="Parking"></Dropdown>
+                   <Dropdown></Dropdown>
                 </div>
             </animated.div>)}
         </div>

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import "./Dropdown.css"
 import { CSSTransition } from "react-transition-group";
+import { PiCaretCircleDown, PiCaretDownBold } from "react-icons/pi";
 
 // component for drop down text boxes
 export default function Dropdown(props){
@@ -11,9 +12,10 @@ export default function Dropdown(props){
       }
 
     return(
-        <div className="Dropdown-layout" onClick={toggleExpansion}>
-            <div className="title">
-                <h3>{props.text}</h3>
+        <div className="Dropdown-layout">
+            <PiCaretDownBold className="caret-icon" onClick={toggleExpansion}></PiCaretDownBold>
+            <div >
+                <h3 className="title">{props.text}</h3>
             </div>
             {(<CSSTransition
             in={expand}

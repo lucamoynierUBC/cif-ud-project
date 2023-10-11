@@ -19,14 +19,14 @@
     height: 85%;
     flex-shrink: 0;
     /* border: 10px solid #C5C5C5; */
-    background: #FFF;
+    background: none;
     pointer-events: all;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    overflow: scroll; 
+    overflow: none; 
 }
 
 @media screen and (max-width: 600px) 

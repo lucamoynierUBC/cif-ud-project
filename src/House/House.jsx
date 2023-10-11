@@ -185,7 +185,7 @@ export default function House(props) {
         transparent={true}
       >
         {/* attatch Attic html tag to attic geometry*/}
-        <AtticTag></AtticTag>
+        {/* <AtticTag></AtticTag> */}
       </animated.mesh>
       <animated.mesh
         {...spring}
@@ -203,7 +203,7 @@ export default function House(props) {
         scale={0.305}
       >
         {/* Attatch Basement html tags to basement geometry */}
-        <BasementTag></BasementTag>
+        {/* <BasementTag></BasementTag> */}
       </animated.mesh>
     </Select>
 </group>

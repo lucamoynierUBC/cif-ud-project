@@ -2,15 +2,15 @@ import { useEffect, useState, useRef } from "react"
 import useInterface from "../stores/useInterface"
 import { useSpring, animated } from "@react-spring/web"
 import "./MainInterface.css"
-import Caret from "./Caret"
-import Dropdown from "./Dropdown"
+import Caret from "./Components/Caret"
+import Dropdown from "./Components/Dropdown"
 import AttatchedContent from "./Content/AttatchedContent"
 import DetatchedContent from "./Content/DetatchedContent"
 import BasementContent from "./Content/BasementContent"
 import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
-import AxiomViewButton from "./AxiomViewButton"
+import AxiomViewButton from "./Components/AxiomViewButton"
 
 // main component for the sidebar UI
 export default function MainInterface() {
@@ -71,7 +71,7 @@ export default function MainInterface() {
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
-                    <div className="titleCloseBtn-layout">
+                    {/* <div className="titleCloseBtn-layout">
                         <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu()}}> &#x2715; </button>
                     </div>
                     <div className="title">
@@ -102,7 +102,18 @@ export default function MainInterface() {
                         <Dropdown text="PARKING" content="Another way in which ADUs differ from primary units is that they must be reasonably proximate to public transportation, and thus do not require additional parking spots."/>
                         <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
                     </div>
-                    <div className="footer"></div>
+                    <div className="footer"></div> */}
+                    <Dropdown 
+                    text="About" 
+                    ></Dropdown>
+                    <Dropdown text="Types"
+                    content={<>
+                        <button>Detatched</button>
+                        <button>Attatched</button>
+                        <button>Basement</button>
+                        <button>Attic</button>
+                        </>}></Dropdown>
+                    <Dropdown text="Parking"></Dropdown>
                 </div>
             </animated.div>)}
         </div>

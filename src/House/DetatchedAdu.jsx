@@ -41,7 +41,7 @@ export default function DetatchedAdu() {
         <animated.mesh {...spring} position={[7.5, 0, -2]} scale={[1.5, 1.5, 3]} visible={spring.visible}>
             <boxGeometry />
             <animated.meshStandardMaterial color={spring.color} transparent={true} opacity={spring.opacity}/>
-            <DetatchedTag></DetatchedTag>
+            {/* <DetatchedTag></DetatchedTag> */}
         </animated.mesh>
     )
 }

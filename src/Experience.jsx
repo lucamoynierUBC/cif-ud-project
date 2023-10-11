@@ -25,7 +25,7 @@ export default function Experience() {
     function Rig({ children }) {
         const ref = useRef()
         useFrame((state) => {
-          ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, (state.mouse.x * Math.PI) / 40, 0.05)
+          ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, (state.mouse.x * Math.PI) / 60, 0.05)
           
         })
         return <group ref={ref}>{children}</group>

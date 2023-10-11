@@ -1,6 +1,6 @@
 import './Caret.css'
 import { PiCaretDoubleLeftBold } from "react-icons/pi";
-import useCamera from '../stores/useCamera';
+import useCamera from '../../stores/useCamera';
 
 // Component for double left caret icon/button, 
 export default function Caret(props){

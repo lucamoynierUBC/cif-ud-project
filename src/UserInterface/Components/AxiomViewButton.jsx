@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useCamera from '../stores/useCamera';
+import useCamera from '../../stores/useCamera';
 import './AxiomViewButton.css';
 
 export default function AxiomViewButton() {

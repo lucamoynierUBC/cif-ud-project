@@ -41,7 +41,7 @@ export default function Shed() {
         <animated.mesh {...spring} position={[5.6, 0, -2]} scale={[1.5, 1.5, 3]} visible={spring.visible}>
             <boxGeometry />
             <animated.meshStandardMaterial color={spring.color} transparent={true} opacity={spring.opacity}/>
-            <AttatchedTag></AttatchedTag>
+            {/* <AttatchedTag></AttatchedTag> */}
         </animated.mesh>
     )
 }

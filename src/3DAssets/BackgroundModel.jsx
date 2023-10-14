@@ -3008,13 +3008,13 @@ export default function BackgroundModel(props) {
               geometry={nodes.Object_1493.geometry}
               material={materials["Material_2.001"]}
             />
-            <mesh
+            {/* <mesh
               name="Object_1494"
               castShadow
               receiveShadow
               geometry={nodes.Object_1494.geometry}
               material={materials["Material_2.001"]}
-            />
+            /> */}
             <mesh
               name="Object_1495"
               castShadow
@@ -3022,13 +3022,13 @@ export default function BackgroundModel(props) {
               geometry={nodes.Object_1495.geometry}
               material={materials["Material_2.001"]}
             />
-            <mesh
+            {/* <mesh
               name="Object_1496"
               castShadow
               receiveShadow
               geometry={nodes.Object_1496.geometry}
               material={materials["Material_2.001"]}
-            />
+            /> */}
             <mesh
               name="Object_1497"
               castShadow

@@ -34,23 +34,23 @@ export default function MainInterface() {
 
         // Auto scroll to relevent section in the sidebar when global action state changes.
         // Eg. If basement is selected scroll to the basement section on the UI.
-        const unsubscribeScroll = useTag.subscribe(
-            (state) => [state.basement, state.attic, state.detatched, state.attatched],
-            ([basement, attic, detatched, attatched]) => {
-                if (attatched) {
-                    document.getElementById("attatched").scrollIntoView({behavior:"smooth"})
-                }
-                if (detatched) {
-                    document.getElementById("detatched").scrollIntoView({behavior:"smooth"})
-                }
-                if (attic) {
-                    document.getElementById("attic").scrollIntoView({behavior:"smooth"})
-                }
-                if (basement) {
-                    document.getElementById("basement").scrollIntoView({behavior:"smooth"})
-                }
-            }
-        )
+        // const unsubscribeScroll = useTag.subscribe(
+        //     (state) => [state.basement, state.attic, state.detatched, state.attatched],
+        //     ([basement, attic, detatched, attatched]) => {
+        //         if (attatched) {
+        //             document.getElementById("attatched").scrollIntoView({behavior:"smooth"})
+        //         }
+        //         if (detatched) {
+        //             document.getElementById("detatched").scrollIntoView({behavior:"smooth"})
+        //         }
+        //         if (attic) {
+        //             document.getElementById("attic").scrollIntoView({behavior:"smooth"})
+        //         }
+        //         if (basement) {
+        //             document.getElementById("basement").scrollIntoView({behavior:"smooth"})
+        //         }
+        //     }
+        // )
         // Clean up subscriptions
         return () => {
             unsubscribeVisible()
@@ -103,7 +103,8 @@ export default function MainInterface() {
                         <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
                     </div>
                     <div className="footer"></div> */}
-                   <Dropdown></Dropdown>
+                    <Dropdown></Dropdown>
+
                 </div>
             </animated.div>)}
         </div>

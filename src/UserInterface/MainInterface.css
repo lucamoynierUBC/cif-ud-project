@@ -11,21 +11,21 @@
 .mainInterfaceContainer
 {
     position: fixed;
-    top: 100px;
+    top: 300px;
     bottom: 100px;
     right: 0;
     width: 50%;
-    max-width: 400px;
+    max-width:400px;
     height: 85%;
     flex-shrink: 0;
     /* border: 10px solid #C5C5C5; */
-    background: none;
     pointer-events: all;
-    border-radius: 8px;
+    /* border-radius: 8px; */
+    /* border: 2px solid; */
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     overflow: none; 
 }
 
@@ -72,7 +72,7 @@
     font-weight: bold;   
     transition: 300ms;  */
     background-color: white;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     font-size: 20px;
     color: #00000040;
     transition: 200ms;

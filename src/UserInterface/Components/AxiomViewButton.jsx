@@ -3,14 +3,15 @@ import useCamera from '../../stores/useCamera';
 import './AxiomViewButton.css';
 
 export default function AxiomViewButton() {
-  const changePerspective = useCamera((state) => state.changePerspective);
+  const setZoom = useCamera((state) => state.setZoom);
+  
 
   // Define local state to toggle between walking and plane emojis
   const [isWalking, setIsWalking] = useState(true);
 
   const handleClick = () => {
     
-    changePerspective();
+    setZoom("Map");
 
     
     setIsWalking(!isWalking);

@@ -40,9 +40,8 @@ export const OrbitControls = ({ children }) => {
       (state) => state.zoom,
             (zoom) => {
                 if (zoom == "Medium Density"){
-                  console.log("changing target")
                     gsap.to(ref.current.target, {
-                        duration: 0.5,
+                        duration: 2,
                         x: 35,
                         y: 0,
                         z: -1.5,
@@ -51,6 +50,29 @@ export const OrbitControls = ({ children }) => {
                         }
                     })
                 }
+              if (zoom == "Map"){
+                gsap.to(ref.current.target, {
+                    duration: 2,
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    onUpdate: () => {
+                      ref.current.update()
+                    }
+                })
+            }
+            if (zoom == "Adu"){
+              gsap.to(ref.current.target, {
+                  duration: 2,
+                  x: 0,
+                  y: 0,
+                  z: 0,
+                  onUpdate: () => {
+                    ref.current.update()
+                  }
+              })
+          }
+                
               }
     )
     return () => {

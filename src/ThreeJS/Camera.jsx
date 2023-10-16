@@ -36,44 +36,42 @@ export default function Camera() {
                         y: 10,
                         z: 0
                     })
-                    enableCamera()
-                    
-                   
-                    
+                    enableCamera() 
                 }
-                // console.log("zoom set to :", zoom)
-                // if (zoom){
-                //     disableCamera()
-                //     gsap.to(cameraControlRef.current, {
-                //         duration: 1,
-                //         zoom: (isMobile ? 30: 45),
-                //         onUpdate: () => {
-                //             cameraControlRef.current.updateProjectionMatrix();
-                //           },
-                //     })
-                //     // gsap.to(cameraControlRef.current.position, {
-                //     //     duration: 1,
-                //     //     x: -50,
-                //     //     y: 30,
-                //     //     z: 20,
-                //     //     onUpdate: () => {
-                //     //         cameraControlRef.current.updateProjectionMatrix();
-                //     //       },
-                //     // })
-                //     enableCamera()
-                // }
-
-                // if (!zoom){
-                //     disableCamera()
-                //     gsap.to(cameraControlRef.current, {
-                //         duration: 1,
-                //         zoom: 20,
-                //         onUpdate: () => {
-                //             cameraControlRef.current.updateProjectionMatrix();
-                //           },
-                //     })
-                //     enableCamera()
-                // }
+                else if (zoom == "Map"){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 10,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -190,
+                        y: 200,
+                        z: 190
+                    })
+                    enableCamera() 
+                }
+                else if (zoom == "Adu"){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 50,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -12,
+                        y: 2,
+                        z: -6
+                    })
+                    enableCamera() 
+                }
             }
         )
 

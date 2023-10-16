@@ -26,7 +26,7 @@ export default function House(props) {
   const [atticHovered, atticHover] = useState(null)
   const [hoverEffect, setHoverEffect] = useState(true)
   const unselectAllAdu = useTag((state) => state.unselectAll)
-  const changePerspective = useCamera((state) => state.changePerspective);
+  const setZoom = useCamera((state) => state.setZoom);
 
   
   // Default configurations when animating the house such as color and opacity
@@ -158,7 +158,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When house is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), changePerspective()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), setZoom("Adu")}}
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.houseColor}
@@ -173,7 +173,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When Attic is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), unselectAllAdu(), changePerspective()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), unselectAllAdu(), setZoom("Adu")}}
         geometry={nodes.attic.geometry}
         material={materials.atticMat}
         material-color={spring.atticColor}
@@ -193,7 +193,7 @@ export default function House(props) {
         castShadow
         receiveShadow
         // When basement is clicked changes various states and changes states in some of the stores
-        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), changePerspective()}}
+        onClick={(event) => {event.stopPropagation(), handleHouseClick(), hideNumber(), hideAdu(), resetClick(), toggleInterface(), setZoom("Adu")}}
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.basementColor}

@@ -20,39 +20,60 @@ export default function Camera() {
         const unsubscribeZoom = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                console.log("zoom set to :", zoom)
-                if (zoom){
+                if (zoom == "Medium Density"){
                     disableCamera()
+                    
                     gsap.to(cameraControlRef.current, {
-                        duration: 1,
-                        zoom: (isMobile ? 30: 45),
+                        duration: 0.5,
+                        fov: 50,
                         onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
+                            cameraControlRef.current.updateProjectionMatrix();                 
                           },
                     })
-                    // gsap.to(cameraControlRef.current.position, {
-                    //     duration: 1,
-                    //     x: -50,
-                    //     y: 30,
-                    //     z: 20,
-                    //     onUpdate: () => {
-                    //         cameraControlRef.current.updateProjectionMatrix();
-                    //       },
-                    // })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: 20,
+                        y: 10,
+                        z: 0
+                    })
                     enableCamera()
+                    
+                   
+                    
                 }
+                // console.log("zoom set to :", zoom)
+                // if (zoom){
+                //     disableCamera()
+                //     gsap.to(cameraControlRef.current, {
+                //         duration: 1,
+                //         zoom: (isMobile ? 30: 45),
+                //         onUpdate: () => {
+                //             cameraControlRef.current.updateProjectionMatrix();
+                //           },
+                //     })
+                //     // gsap.to(cameraControlRef.current.position, {
+                //     //     duration: 1,
+                //     //     x: -50,
+                //     //     y: 30,
+                //     //     z: 20,
+                //     //     onUpdate: () => {
+                //     //         cameraControlRef.current.updateProjectionMatrix();
+                //     //       },
+                //     // })
+                //     enableCamera()
+                // }
 
-                if (!zoom){
-                    disableCamera()
-                    gsap.to(cameraControlRef.current, {
-                        duration: 1,
-                        zoom: 20,
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                    enableCamera()
-                }
+                // if (!zoom){
+                //     disableCamera()
+                //     gsap.to(cameraControlRef.current, {
+                //         duration: 1,
+                //         zoom: 20,
+                //         onUpdate: () => {
+                //             cameraControlRef.current.updateProjectionMatrix();
+                //           },
+                //     })
+                //     enableCamera()
+                // }
             }
         )
 
@@ -109,7 +130,7 @@ export default function Camera() {
             <PerspectiveCamera
             ref={cameraControlRef}
             zoom={1}
-            makeDefault 
+            makeDefault
             position={[-190, 200, 190]}
             fov={10}
             far={1000} 

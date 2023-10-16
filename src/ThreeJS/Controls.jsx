@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState, useCallback, useRef } from "react";
-import { OrbitControls as BaseOrbitControls } from "@react-three/drei";
+import React, { createContext, useContext, useState, useCallback, useRef, useEffect } from "react";
+import { OrbitControls as BaseOrbitControls} from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
+import useCamera from "../stores/useCamera";
+import { gsap } from "gsap";
 
 // Create a new context for OrbitControls, allows me to pass data through the component tree
 // and allowing sharing of the state of Orbit Controls with other components
@@ -33,6 +35,29 @@ export const OrbitControls = ({ children }) => {
     disableCamera: handleDisableCamera // function to disable controls
   };
 
+  useEffect(() => {
+    const unsubscribeZoom = useCamera.subscribe(
+      (state) => state.zoom,
+            (zoom) => {
+                if (zoom == "Medium Density"){
+                  console.log("changing target")
+                    gsap.to(ref.current.target, {
+                        duration: 0.5,
+                        x: 35,
+                        y: 0,
+                        z: -1.5,
+                        onUpdate: () => {
+                          ref.current.update()
+                        }
+                    })
+                }
+              }
+    )
+    return () => {
+      unsubscribeZoom()
+    }
+  }, [])
+
 
   return (
     <>
@@ -50,6 +75,9 @@ export const OrbitControls = ({ children }) => {
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}
+      autoRotate={false}
+      // TODO: Animate Target!
+      target={[0, 0, 0]}
       />
     </>
   );

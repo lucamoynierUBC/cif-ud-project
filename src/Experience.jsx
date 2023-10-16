@@ -14,6 +14,7 @@ import Spawner from "./ThreeJS/Spawner"
 import House from "./House/House"
 import * as THREE from 'three'
 import { useRef } from "react"
+import MediumDensityBuilding from "./3DAssets/MediumDensityBuilding"
 
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
@@ -34,8 +35,8 @@ export default function Experience() {
     return <> 
         <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <color args={["ivory"]} attach="background"/>
-        <OrbitControls>
-            <Camera></Camera>
+        <OrbitControls >
+            <Camera />
         </OrbitControls>
         <Environment preset="city"/>
         <Rig>
@@ -45,6 +46,7 @@ export default function Experience() {
             <House></House>
             <Spawner></Spawner>
             <Plot></Plot>
+            <MediumDensityBuilding></MediumDensityBuilding>
         </Rig>
         {/* Outline Effect contains the house model */}
         {/* <OutlineEffect></OutlineEffect>    */}

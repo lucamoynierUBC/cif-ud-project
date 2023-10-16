@@ -54,7 +54,6 @@ export default function MainInterface() {
         // Clean up subscriptions
         return () => {
             unsubscribeVisible()
-            unsubscribeScroll()
         }
     }, [])
 

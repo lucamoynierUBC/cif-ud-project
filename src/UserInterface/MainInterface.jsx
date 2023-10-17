@@ -11,6 +11,9 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
+import { Button, Col, Layout, Row} from 'antd';
+import Column from "antd/es/table/Column"
+const { Header, Content, Sider } = Layout;
 
 // main component for the sidebar UI
 export default function MainInterface() {
@@ -19,39 +22,22 @@ export default function MainInterface() {
     // Accesing global states from stores
     const setVisibleState = useInterface((state) => state.toggleVisible)
     const unselectAllAdu = useTag((state) => state.unselectAll)
-    const zoom = useCamera((state) => state.zoomClose)
+    const setZoom = useCamera((state) => state.setZoom)
     
     // Subscribe to changes in Interface and Actions stores
     useEffect(() => {
         // Toggle siderbar UI visibility when global interface state changes 
-        const unsubscribeVisible = useInterface.subscribe(
-            (state) => state.visible,
-            (visible) => {
-                console.log('visible set to: ', visible)
-                setVisible(visible)
+        const unsubscribeVisible = useCamera.subscribe(
+            (state) => state.zoom,
+            (zoom) => {
+                if (zoom == "Adu") {
+                    setVisible(true)
+
+                } else {
+                    setVisible(false)
+                }
             }
         )
-
-        // Auto scroll to relevent section in the sidebar when global action state changes.
-        // Eg. If basement is selected scroll to the basement section on the UI.
-        // const unsubscribeScroll = useTag.subscribe(
-        //     (state) => [state.basement, state.attic, state.detatched, state.attatched],
-        //     ([basement, attic, detatched, attatched]) => {
-        //         if (attatched) {
-        //             document.getElementById("attatched").scrollIntoView({behavior:"smooth"})
-        //         }
-        //         if (detatched) {
-        //             document.getElementById("detatched").scrollIntoView({behavior:"smooth"})
-        //         }
-        //         if (attic) {
-        //             document.getElementById("attic").scrollIntoView({behavior:"smooth"})
-        //         }
-        //         if (basement) {
-        //             document.getElementById("basement").scrollIntoView({behavior:"smooth"})
-        //         }
-        //     }
-        // )
-        // Clean up subscriptions
         return () => {
             unsubscribeVisible()
         }
@@ -65,7 +51,7 @@ export default function MainInterface() {
     return(
         <div>
             {/* Show caret if interface is not visible */}
-            {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)}
+            {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
             {<AxiomViewButton></AxiomViewButton>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
@@ -102,7 +88,39 @@ export default function MainInterface() {
                         <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
                     </div>
                     <div className="footer"></div> */}
-                    <Dropdown></Dropdown>
+                    <Layout style={{background: 'none'}}>
+                        <Header style={{ display: 'flex', alignItems: 'center', color: 'black', background: 'none' }}>Header</Header>
+                        <Content style={{
+                            padding: 24,
+                            margin: 25,
+                            border: '1px solid',
+                            borderRadius: '8px',
+                            background: 'white'
+                            }}>
+                                <Row gutter={[10, 24]} justify={'space-evenly'} align={'middle'}>
+                                    Typology:
+                                    <Col>
+                                        <Button>ADU</Button>
+                                    </Col>
+                                    <Col>
+                                        <Button>World</Button>
+                                    </Col>
+                                    <Col>
+                                        <Button>World</Button>      
+                                    </Col>
+                                </Row>
+
+                                
+                            </Content>
+                        <Content style={{
+                            padding: 24,
+                            margin: 0,
+                            minHeight: 280,
+                            }}>
+                            <Dropdown></Dropdown>
+                        </Content>
+                    </Layout>
+                    
 
                 </div>
             </animated.div>)}

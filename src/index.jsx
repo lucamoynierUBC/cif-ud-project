@@ -10,7 +10,7 @@ import Nav from "./Nav/Nav"
 import Modal from "./IntroModal/Modal"
 
 const root = ReactDOM.createRoot(document.querySelector("#root"))
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme } from 'antd';
 
 // Entry point into react application. Place main components inside here. 
 root.render(
@@ -24,7 +24,7 @@ root.render(
         <Loader />
         
         
-        <ConfigProvider theme={{ hashed: false }}> 
+        <ConfigProvider theme={{ hashed: false,}}> 
             <MainInterface></MainInterface>
         </ConfigProvider>
         <Nav></Nav>

@@ -10,23 +10,25 @@
 
 .mainInterfaceContainer
 {
+
     position: fixed;
-    top: 300px;
+    top: 100px;
     bottom: 100px;
     right: 0;
     width: 50%;
     max-width:400px;
-    height: 85%;
+    /* height: 500px; */
     flex-shrink: 0;
     /* border: 10px solid #C5C5C5; */
     pointer-events: all;
     /* border-radius: 8px; */
-    /* border: 2px solid; */
-    display: flex;
+    /* border: 1px solid; */
+    /* display: flex; */
     flex-direction: column;
     /* justify-content: center; */
     /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     overflow: none; 
+    background: none;
 }
 
 @media screen and (max-width: 600px) 

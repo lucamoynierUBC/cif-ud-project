@@ -10,24 +10,17 @@ body
 .axiom-container
 {
     position: fixed;
-    top: 80px;
-    left: 75px;
+    top: 0px;
+    left: 50px;
     /* background-color: white;
     border-radius: 8px;
     border: 0px solid #000000;  */
-    width: 40px;
-    height: 40px;
+    width: 200px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden; /* Add this */
     padding: 0;
 }
-.axiom-button
-{
-    background-color: white;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    font-size: 26px;
-}
+

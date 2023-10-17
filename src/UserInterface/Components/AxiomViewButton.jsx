@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useCamera from '../../stores/useCamera';
 import './AxiomViewButton.css';
+import { FloatButton, Button } from 'antd';
+
 
 export default function AxiomViewButton() {
   const setZoom = useCamera((state) => state.setZoom);
@@ -20,12 +22,7 @@ export default function AxiomViewButton() {
 
   return (
     <div className="axiom-container">
-      <button 
-      className='axiom-button' 
-      onClick={handleClick}
-      >
-        {isWalking ? '✈️' : '🚶'}
-      </button>
+      <Button type='primary' icon='🗺️' onClick={handleClick}>Return to Map</Button>
     </div>
   );
 }

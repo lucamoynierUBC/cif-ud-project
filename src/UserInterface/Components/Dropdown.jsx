@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./Dropdown.css"
 import { CSSTransition } from "react-transition-group";
 import { PiCaretCircleDown, PiCaretDownBold } from "react-icons/pi";
-import { Collapse , Button,  Space, Radio} from "antd";
+import { Collapse , Button,  Space, Radio, Badge} from "antd";
 import Layout, { Content, Header } from "antd/es/layout/layout";
 import useTag from "../../stores/useTag";
 
@@ -32,7 +32,9 @@ export default function Dropdown(props){
   const items = [
     {
       key: '1',
-      label: 'About',
+      label: <Badge dot>
+          <a href="#">Link something</a>
+        </Badge>,
       children: <p>{text}</p>,
       style: panelStyle
     },
@@ -69,6 +71,7 @@ export default function Dropdown(props){
     
 
     return(
+      
         <Collapse
         style={{
           borderRadius: "0px",
@@ -78,6 +81,7 @@ export default function Dropdown(props){
         items={items}
         accordion={true}
         />
+      
         
     )
 }

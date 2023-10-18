@@ -24,7 +24,7 @@ root.render(
         <Loader />
         
         
-        <ConfigProvider theme={{ hashed: false,}}> 
+        <ConfigProvider theme={{ hashed: false}}> 
             <MainInterface></MainInterface>
         </ConfigProvider>
         <Nav></Nav>

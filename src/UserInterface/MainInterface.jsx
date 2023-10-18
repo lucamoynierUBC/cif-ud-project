@@ -11,8 +11,8 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
-import { Button, Col, Layout, Row} from 'antd';
-import Column from "antd/es/table/Column"
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider} from 'antd';
+
 const { Header, Content, Sider } = Layout;
 
 // main component for the sidebar UI
@@ -23,6 +23,7 @@ export default function MainInterface() {
     const setVisibleState = useInterface((state) => state.toggleVisible)
     const unselectAllAdu = useTag((state) => state.unselectAll)
     const setZoom = useCamera((state) => state.setZoom)
+    const { Meta } = Card;
     
     // Subscribe to changes in Interface and Actions stores
     useEffect(() => {
@@ -89,26 +90,52 @@ export default function MainInterface() {
                     </div>
                     <div className="footer"></div> */}
                     <Layout style={{background: 'none'}}>
-                        <Header style={{ display: 'flex', alignItems: 'center', color: 'black', background: 'none' }}>Header</Header>
                         <Content style={{
-                            padding: 24,
-                            margin: 25,
-                            border: '1px solid',
-                            borderRadius: '8px',
-                            background: 'white'
+                            padding: 0,
+                            margin: 0,
+                            
+                            
+                            
                             }}>
-                                <Row gutter={[10, 24]} justify={'space-evenly'} align={'middle'}>
-                                    Typology:
-                                    <Col>
-                                        <Button>ADU</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button>World</Button>
-                                    </Col>
-                                    <Col>
-                                        <Button>World</Button>      
-                                    </Col>
-                                </Row>
+
+                                <Card title="Hello">
+                                    <Row gutter={[10, 10]} align={'middle'}>
+                                        <Col span={6}>
+                                            Typology:
+                                        </Col>
+                                        
+                                        <Col span={6}>
+                                            <Button>ADU</Button>
+                                        </Col>
+                                        <Col span={6}>
+                                            <Button>World</Button>
+                                        </Col >
+                                        <Col span={6}>
+                                            <Button>World</Button>      
+                                        </Col>
+                                        
+                                        <Col span={12}>
+                                            View:
+                                        </Col>
+                                        <Col span={12}>
+                                            <Radio.Group style={{p: 40}} options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
+                                        </Col>
+                                        <Col span={12}>
+                                            Before/After:
+                                        </Col>
+                                        <Col span={12}>
+                                            <Slider tooltip={{ formatter: null }} disabled={true} marks={["before", "after"]} min={0} max={1}></Slider>
+                                        </Col>
+                                        
+                                        
+
+                                    </Row>
+                                
+                                
+                                </Card>
+                                
+                                
+                              
 
                                 
                             </Content>

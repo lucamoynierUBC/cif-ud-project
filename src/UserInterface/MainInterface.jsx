@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import useInterface from "../stores/useInterface"
 import { useSpring, animated } from "@react-spring/web"
 import "./MainInterface.css"
@@ -11,7 +11,8 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
-import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider} from 'antd';
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification} from 'antd';
+
 
 const { Header, Content, Sider } = Layout;
 
@@ -24,6 +25,18 @@ export default function MainInterface() {
     const unselectAllAdu = useTag((state) => state.unselectAll)
     const setZoom = useCamera((state) => state.setZoom)
     const { Meta } = Card;
+
+    const [api, contextHolder] = notification.useNotification();
+    const openNotification = () => {
+        api.open({
+          message: 'Notification Title',
+          description:
+            'Hello',
+          duration: 0,
+          placement: 'bottomLeft'
+        });
+      };
+
     
     // Subscribe to changes in Interface and Actions stores
     useEffect(() => {
@@ -48,7 +61,6 @@ export default function MainInterface() {
     const springProps = useSpring({
         opacity: visible ? 1 : 0,
       });
-
     return(
         <div>
             {/* Show caret if interface is not visible */}
@@ -105,7 +117,10 @@ export default function MainInterface() {
                                         </Col>
                                         
                                         <Col span={6}>
-                                            <Button>ADU</Button>
+                                            
+                                                {contextHolder}
+                                                <Button onClick={openNotification}>ADU</Button>
+                                            
                                         </Col>
                                         <Col span={6}>
                                             <Button>World</Button>

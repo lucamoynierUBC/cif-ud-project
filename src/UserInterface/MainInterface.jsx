@@ -11,7 +11,7 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
-import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space} from 'antd';
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider} from 'antd';
 
 
 const { Header, Content, Sider } = Layout;
@@ -47,7 +47,7 @@ export default function MainInterface() {
         const unsubscribeVisible = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                if (zoom == "Adu") {
+                if (zoom == "Adu" || zoom == "Medium Density") {
                     setVisible(true)
 
                 } else {
@@ -114,11 +114,11 @@ export default function MainInterface() {
                             }}>
 
                                 <Card title="Conversion ADU" >
-                                    <Row gutter={[100, 20]} align={'middle'}>
+                                    <Row gutter={[80, 0]} align={'middle'}>
                                         
                                         
                                         <Col span={24}>
-                                            <Space size={140} > 
+                                            <Space size={50} > 
                                             
 
                                                 Types: 
@@ -133,6 +133,7 @@ export default function MainInterface() {
                                             </Space>  
                                             
                                         </Col>
+                                        <Divider />
                                         {/* <Col span={4}>
                                             <Button>Detatched</Button>
                                         </Col >
@@ -149,6 +150,7 @@ export default function MainInterface() {
                                         <Col span={12}>
                                             <Radio.Group style={{p: 40}} options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
                                         </Col>
+                                        <Divider />
                                         <Col span={12}>
                                             Before/After:
                                         </Col>
@@ -169,8 +171,8 @@ export default function MainInterface() {
                                 
                             </Content>
                         <Content style={{
-                            padding: 24,
-                            margin: 0,
+                            padding: 0,
+                            marginTop: 50,
                             minHeight: 280,
                             }}>
                             <Dropdown></Dropdown>

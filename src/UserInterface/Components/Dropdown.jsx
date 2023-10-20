@@ -24,16 +24,16 @@ export default function Dropdown(props){
   Nam sed libero sapien. Morbi vel purus fringilla, porttitor magna at, gravida libero. 
   `
   const panelStyle = {
-    background: '#F5F5F5FF',
-
-    
+    background: 'white',
+    marginBottom: 20,
+    borderRadius: 8
   }
 
   const items = [
     {
       key: '1',
       label: <Badge dot>
-          <a href="#">Link something</a>
+          <a href="#">About</a>
         </Badge>,
       children: <p>{text}</p>,
       style: panelStyle
@@ -73,6 +73,7 @@ export default function Dropdown(props){
     return(
       
         <Collapse
+        bordered={false}
         style={{
           borderRadius: "0px",
           borderBottomLeftRadius: "8px",

@@ -11,7 +11,7 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
-import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification} from 'antd';
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space} from 'antd';
 
 
 const { Header, Content, Sider } = Layout;
@@ -27,16 +27,19 @@ export default function MainInterface() {
     const { Meta } = Card;
 
     const [api, contextHolder] = notification.useNotification();
+    notification.config({
+        placement: "bottomLeft",
+        bottom: "50px"
+      });
     const openNotification = () => {
         api.open({
           message: 'Notification Title',
           description:
-            'Hello',
-          duration: 0,
-          placement: 'bottomLeft'
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi laoreet tellus et velit congue pellentesque. In porttitor quis sapien ac rhoncus. Nulla quis diam sapien. Phasellus sollicitudin eleifend velit, sed gravida nisi. Morbi sed suscipit orci, vitae maximus justo. Aenean rutrum finibus mi, id porttitor velit pulvinar sed. ',
+        placement: "bottomLeft"
         });
       };
-
+    
     
     // Subscribe to changes in Interface and Actions stores
     useEffect(() => {
@@ -110,24 +113,35 @@ export default function MainInterface() {
                             
                             }}>
 
-                                <Card title="Hello">
-                                    <Row gutter={[10, 10]} align={'middle'}>
-                                        <Col span={6}>
-                                            Typology:
-                                        </Col>
+                                <Card title="Conversion ADU" >
+                                    <Row gutter={[100, 20]} align={'middle'}>
                                         
-                                        <Col span={6}>
+                                        
+                                        <Col span={24}>
+                                            <Space size={140} > 
                                             
-                                                {contextHolder}
-                                                <Button onClick={openNotification}>ADU</Button>
+
+                                                Types: 
+                                                             
+                                            {contextHolder}
+                                            <Radio.Group size="small">
+                                                <Radio.Button value="a" onClick={openNotification}>Attic</Radio.Button>
+                                                <Radio.Button value="b" >Basement</Radio.Button>
+                                                <Radio.Button value="c" >Attatched</Radio.Button>
+                                                <Radio.Button value="d" >Detatched</Radio.Button>
+                                            </Radio.Group>
+                                            </Space>  
                                             
                                         </Col>
-                                        <Col span={6}>
-                                            <Button>World</Button>
+                                        {/* <Col span={4}>
+                                            <Button>Detatched</Button>
                                         </Col >
-                                        <Col span={6}>
-                                            <Button>World</Button>      
-                                        </Col>
+                                        <Col span={4}>
+                                            <Button>Basement</Button>
+                                        </Col >
+                                        <Col span={4}>
+                                            <Button>Attic</Button>      
+                                        </Col> */}
                                         
                                         <Col span={12}>
                                             View:

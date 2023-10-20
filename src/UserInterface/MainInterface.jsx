@@ -114,7 +114,7 @@ export default function MainInterface() {
                             }}>
 
                                 <Card title="Conversion ADU" >
-                                    <Row gutter={[80, 0]} align={'middle'}>
+                                    <Row gutter={[40, 0]} align={'middle'}>
                                         
                                         
                                         <Col span={24}>
@@ -133,7 +133,8 @@ export default function MainInterface() {
                                             </Space>  
                                             
                                         </Col>
-                                        <Divider />
+                                        <Divider/>
+                                        
                                         {/* <Col span={4}>
                                             <Button>Detatched</Button>
                                         </Col >
@@ -150,7 +151,8 @@ export default function MainInterface() {
                                         <Col span={12}>
                                             <Radio.Group style={{p: 40}} options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
                                         </Col>
-                                        <Divider />
+                                        <Divider/>
+                                        
                                         <Col span={12}>
                                             Before/After:
                                         </Col>

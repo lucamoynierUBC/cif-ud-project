@@ -117,7 +117,11 @@ export default function MainInterface() {
                             
                             }}>
 
-                                <Card title={<Meta title="Conversion ADU" style={{padding: "15px 0"}} description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag></Space>}/>}>
+                                <Card title={<Meta 
+                                title="Conversion ADU" 
+                                style={{padding: "15px 0"}} 
+                                description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
+                                >
                                     <Row gutter={[0, 0]} align={'middle'}>
                                         
                                         

@@ -145,7 +145,7 @@ body,
     /* display: flex;
     justify-content: space-between; */
     padding: 0 10px;
-    background: #F5F5F5FF;
+    background: rgb(255, 255, 255);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);   
 }
 

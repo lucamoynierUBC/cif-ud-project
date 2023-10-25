@@ -24,9 +24,9 @@ export default function Dropdown(props){
   Nam sed libero sapien. Morbi vel purus fringilla, porttitor magna at, gravida libero. 
   `
   const panelStyle = {
-    background: 'white',
-    marginBottom: 20,
-    borderRadius: 8
+    background: '#ffffff',
+    
+    borderRadius: 8,
   }
 
   const items = [

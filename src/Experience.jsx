@@ -33,21 +33,20 @@ export default function Experience() {
     }
 
     return <> 
-        <directionalLight position={[1, 2, 3]} intensity={1.5}/>
         <color args={["ivory"]} attach="background"/>
         <OrbitControls >
             <Camera />
         </OrbitControls>
         <Environment preset="city"/>
-        <Rig>
-            <BackgroundModel></BackgroundModel>
-            <Shed></Shed>
-            <DetatchedAdu></DetatchedAdu>
-            <House></House>
-            <Spawner></Spawner>
-            <Plot></Plot>
-            <MediumDensityBuilding></MediumDensityBuilding>
-        </Rig>
+        
+        <BackgroundModel></BackgroundModel>
+        <Shed></Shed>
+        <DetatchedAdu></DetatchedAdu>
+        <House></House>
+        <Spawner></Spawner>
+        <Plot></Plot>
+        <MediumDensityBuilding></MediumDensityBuilding>
+        
         {/* Outline Effect contains the house model */}
         {/* <OutlineEffect></OutlineEffect>    */}
         

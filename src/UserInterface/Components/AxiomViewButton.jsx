@@ -22,7 +22,7 @@ export default function AxiomViewButton() {
 
   return (
     <div className="axiom-container">
-      <Button type='primary' icon='🗺️' onClick={handleClick}>Return to Map</Button>
+      <Button type='primary' icon={"🗺️"} onClick={handleClick}>Return to Map</Button>
     </div>
   );
 }

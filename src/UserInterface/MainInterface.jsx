@@ -11,7 +11,7 @@ import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
-import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider} from 'antd';
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag} from 'antd';
 
 
 const { Header, Content, Sider } = Layout;
@@ -64,6 +64,10 @@ export default function MainInterface() {
     const springProps = useSpring({
         opacity: visible ? 1 : 0,
       });
+
+    const cardStyles = {
+        background: "f5f5f5"
+    }
     return(
         <div>
             {/* Show caret if interface is not visible */}
@@ -113,8 +117,8 @@ export default function MainInterface() {
                             
                             }}>
 
-                                <Card title="Conversion ADU" >
-                                    <Row gutter={[40, 0]} align={'middle'}>
+                                <Card title={<Meta title="Conversion ADU" style={{padding: "15px 0"}} description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag></Space>}/>}>
+                                    <Row gutter={[0, 0]} align={'middle'}>
                                         
                                         
                                         <Col span={24}>
@@ -124,7 +128,7 @@ export default function MainInterface() {
                                                 Types: 
                                                              
                                             {contextHolder}
-                                            <Radio.Group size="small">
+                                            <Radio.Group size="small" buttonStyle="solid">
                                                 <Radio.Button value="a" onClick={openNotification}>Attic</Radio.Button>
                                                 <Radio.Button value="b" >Basement</Radio.Button>
                                                 <Radio.Button value="c" >Attatched</Radio.Button>
@@ -149,7 +153,7 @@ export default function MainInterface() {
                                             View:
                                         </Col>
                                         <Col span={12}>
-                                            <Radio.Group style={{p: 40}} options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
+                                            <Radio.Group size="large" options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
                                         </Col>
                                         <Divider/>
                                         
@@ -157,7 +161,7 @@ export default function MainInterface() {
                                             Before/After:
                                         </Col>
                                         <Col span={12}>
-                                            <Slider tooltip={{ formatter: null }} disabled={true} marks={["before", "after"]} min={0} max={1}></Slider>
+                                            <Slider tooltip={{ formatter: null }} disabled={false} marks={["before", "after"]} min={0} max={1}></Slider>
                                         </Col>
                                         
                                         

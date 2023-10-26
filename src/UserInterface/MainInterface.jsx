@@ -12,6 +12,8 @@ import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
 import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag} from 'antd';
+import Icon from "@ant-design/icons/lib/components/Icon"
+import { PiSlidersHorizontal } from "react-icons/pi"
 
 
 const { Header, Content, Sider } = Layout;
@@ -112,13 +114,14 @@ export default function MainInterface() {
                         <Content style={{
                             padding: 0,
                             margin: 0,
-                            
-                            
-                            
                             }}>
 
-                                <Card title={<Meta 
+                                <Card 
+                                type="inner" 
+                                extra={<PiSlidersHorizontal size={"25px"}></PiSlidersHorizontal>}
+                                title={<Meta 
                                 title="Conversion ADU" 
+                            
                                 style={{padding: "15px 0"}} 
                                 description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
                                 >
@@ -182,8 +185,8 @@ export default function MainInterface() {
                             </Content>
                         <Content style={{
                             padding: 0,
-                            marginTop: 50,
                             minHeight: 280,
+                            marginTop: 40
                             }}>
                             <Dropdown></Dropdown>
                         </Content>

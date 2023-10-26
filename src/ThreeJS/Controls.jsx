@@ -93,7 +93,7 @@ export const OrbitControls = ({ children }) => {
       enabled={isEnabled} 
       enableRotate={false} 
       enablePan={false}
-      enableZoom={false}
+      enableZoom={true}
       dampingFactor={0.5}
       maxZoom={40}
       minZoom={20}

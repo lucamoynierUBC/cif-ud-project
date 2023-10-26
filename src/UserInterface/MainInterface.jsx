@@ -14,6 +14,7 @@ import AxiomViewButton from "./Components/AxiomViewButton"
 import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag} from 'antd';
 import Icon from "@ant-design/icons/lib/components/Icon"
 import { PiSlidersHorizontal } from "react-icons/pi"
+import Configurator from "./Components/Configurator"
 
 
 const { Header, Content, Sider } = Layout;
@@ -115,73 +116,7 @@ export default function MainInterface() {
                             padding: 0,
                             margin: 0,
                             }}>
-
-                                <Card 
-                                type="inner" 
-                                extra={<PiSlidersHorizontal size={"25px"}></PiSlidersHorizontal>}
-                                title={<Meta 
-                                title="Conversion ADU" 
-                            
-                                style={{padding: "15px 0"}} 
-                                description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
-                                >
-                                    <Row gutter={[0, 0]} align={'middle'}>
-                                        
-                                        
-                                        <Col span={24}>
-                                            <Space size={50} > 
-                                            
-
-                                                Types: 
-                                                             
-                                            {contextHolder}
-                                            <Radio.Group size="small" buttonStyle="solid">
-                                                <Radio.Button value="a" onClick={openNotification}>Attic</Radio.Button>
-                                                <Radio.Button value="b" >Basement</Radio.Button>
-                                                <Radio.Button value="c" >Attatched</Radio.Button>
-                                                <Radio.Button value="d" >Detatched</Radio.Button>
-                                            </Radio.Group>
-                                            </Space>  
-                                            
-                                        </Col>
-                                        <Divider/>
-                                        
-                                        {/* <Col span={4}>
-                                            <Button>Detatched</Button>
-                                        </Col >
-                                        <Col span={4}>
-                                            <Button>Basement</Button>
-                                        </Col >
-                                        <Col span={4}>
-                                            <Button>Attic</Button>      
-                                        </Col> */}
-                                        
-                                        <Col span={12}>
-                                            View:
-                                        </Col>
-                                        <Col span={12}>
-                                            <Radio.Group size="large" options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
-                                        </Col>
-                                        <Divider/>
-                                        
-                                        <Col span={12}>
-                                            Before/After:
-                                        </Col>
-                                        <Col span={12}>
-                                            <Slider tooltip={{ formatter: null }} disabled={false} marks={["before", "after"]} min={0} max={1}></Slider>
-                                        </Col>
-                                        
-                                        
-
-                                    </Row>
-                                
-                                
-                                </Card>
-                                
-                                
-                              
-
-                                
+                               <Configurator />
                             </Content>
                         <Content style={{
                             padding: 0,

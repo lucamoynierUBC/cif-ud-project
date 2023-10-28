@@ -11,6 +11,7 @@ import { useGesture } from "react-use-gesture";
 import AtticTag from "./Tags/AtticTag";
 import BasementTag from "./Tags/BasementTag";
 import useTag from "../stores/useTag";
+import Popup from "../UserInterface/Components/PopUp";
 
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
@@ -167,6 +168,7 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       />
+      <Popup></Popup>
       <animated.mesh
         {...spring}
         {...bind()}

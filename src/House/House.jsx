@@ -14,6 +14,7 @@ import useTag from "../stores/useTag";
 import Popup from "../UserInterface/Components/PopUp";
 
 
+
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
   // Importing the model with the useGLTF library
@@ -169,7 +170,8 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       />
-      <Popup position={[-25, 4, -10]}/>
+      {/* <Popup position={[-25, 4, -10]}/> */}
+      <Popup position={[-23, 4, -10]}></Popup>
       <animated.mesh
         {...spring}
         {...bind()}

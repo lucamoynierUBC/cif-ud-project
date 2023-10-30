@@ -2,16 +2,19 @@ import { Html } from "@react-three/drei";
 import { FloatButton, Popover, Statistic } from "antd";
 import CountUp from 'react-countup';
 import {InfoOutlined} from '@ant-design/icons';
+import { useState, useEffect } from "react";
+import useCamera from "../../stores/useCamera";
 
 
-export default function Popup() {
+export default function Popup({position}) {
     const buttonStyles = {
         border: "1px solid",
         color: "transparent",
-        border: "1px solid black"
     }
+
+    const [visible, setVisible] = useState(false)
     
-    const formatter = (value) => <CountUp end={value} separator="," />;
+    const formatter = (value) => <CountUp end={value} separator=","/>;
     
     const content = (
         <>
@@ -22,11 +25,29 @@ export default function Popup() {
         </>
     )
 
+    useEffect(() => {
+        // Toggle popup
+        const unsubscribeVisible = useCamera.subscribe(
+            (state) => state.zoom,
+            (zoom) => {
+                if (zoom == "Adu") {
+                    setTimeout(() => setVisible(true), 2000)
+
+                } else {
+                    setVisible(false)
+                }
+            }
+        )
+        return () => {
+            unsubscribeVisible()
+        }
+    }, [])
+
     return (
-        <Html style={{backdropFilter: "blur(10px)"}} >
+        visible && (<Html position={position} style={{backdropFilter: "blur(10px)"}} >
             <Popover title="Hello" content={content}>
                     <FloatButton  style={buttonStyles}  badge={{dot: true}} icon={<InfoOutlined width={"3px"}/>}></FloatButton>
             </Popover>
-        </Html>
+        </Html>)
     )
 }

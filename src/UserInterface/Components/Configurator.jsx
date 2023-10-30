@@ -1,8 +1,11 @@
 import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag, Switch, Flex} from 'antd';
+import { useEffect } from 'react';
 import { PiSlidersHorizontal } from 'react-icons/pi';
+import useConfigurator from '../../stores/useConfigurator';
 export default function(Configurator){
     const [api, contextHolder] = notification.useNotification();
     const { Meta } = Card;
+    const setToggle = useConfigurator((state) => state.setToggle)
 
     notification.config({
         placement: "bottomLeft",
@@ -17,6 +20,16 @@ export default function(Configurator){
         placement: "bottomLeft"
         });
       };
+
+    const onChange = (checked) => {
+        console.log(`switch to ${checked}`);
+        if (checked) {
+            setToggle("Medium Density")
+        } else {
+            setToggle(null)
+        }
+
+    }
 
     return(
         <Card 
@@ -57,7 +70,7 @@ export default function(Configurator){
                     </Col>
                     <Col span={12}>
                        <Flex justify='flex-end'>
-                            <Switch checkedChildren="After" unCheckedChildren="Before"/>
+                            <Switch checkedChildren="After" unCheckedChildren="Before" onChange={onChange}/>
                        </Flex>
                     </Col>
                 </Row>

@@ -168,7 +168,7 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       />
-      <Popup></Popup>
+      <Popup position={[-25, 4, -10]}/>
       <animated.mesh
         {...spring}
         {...bind()}

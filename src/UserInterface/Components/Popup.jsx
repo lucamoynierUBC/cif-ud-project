@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import useCamera from "../../stores/useCamera";
 
 
-export default function Popup({position}) {
+export default function PopUp({position}) {
     const buttonStyles = {
         border: "1px solid",
         color: "transparent",

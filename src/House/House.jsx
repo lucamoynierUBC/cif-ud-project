@@ -13,6 +13,7 @@ import BasementTag from "./Tags/BasementTag";
 import useTag from "../stores/useTag";
 import Popup from "../UserInterface/Components/PopUp";
 
+
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
   // Importing the model with the useGLTF library

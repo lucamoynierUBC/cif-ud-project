@@ -2,10 +2,17 @@ import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Sp
 import { useEffect } from 'react';
 import { PiSlidersHorizontal } from 'react-icons/pi';
 import useConfigurator from '../../stores/useConfigurator';
-export default function(Configurator){
+import useTag from '../../stores/useTag';
+
+export default function Configurator({title}){
     const [api, contextHolder] = notification.useNotification();
     const { Meta } = Card;
     const setToggle = useConfigurator((state) => state.setToggle)
+
+    const selectAttatched = useTag((state) => state.selectAttatched)
+    const selectDetatched = useTag((state) => state.selectDetatched)
+    const seletctAttic = useTag((state) => state.selectAttic)
+    const selectBasement = useTag((state) => state.selectBasement)
 
     notification.config({
         placement: "bottomLeft",
@@ -36,9 +43,9 @@ export default function(Configurator){
             type="inner" 
             extra={<PiSlidersHorizontal size={"25px"}></PiSlidersHorizontal>}
             title={<Meta 
-            title="Conversion ADU" 
+            title={title}
             style={{padding: "15px 0"}} 
-            description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="purple">Queens</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
+            description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
             >
                 <Row gutter={[0, 0]} align={'middle'}>
                     <Col span={24}>
@@ -47,10 +54,10 @@ export default function(Configurator){
                         {contextHolder}
                         
                             <Radio.Group size="small" buttonStyle="solid">
-                                <Radio.Button value="a" onClick={openNotification}>Attic</Radio.Button>
-                                <Radio.Button value="b" >Basement</Radio.Button>
-                                <Radio.Button value="c" >Attatched</Radio.Button>
-                                <Radio.Button value="d" >Detatched</Radio.Button>
+                                <Radio.Button value="a" onChange={seletctAttic}>Attic</Radio.Button>
+                                <Radio.Button value="b" onChange={selectBasement}>Basement</Radio.Button>
+                                <Radio.Button value="c" onChange={selectAttatched}>Attatched</Radio.Button>
+                                <Radio.Button value="d" onChange={selectDetatched}>Detatched</Radio.Button>
                             </Radio.Group>
                         </Flex>
                     </Col>

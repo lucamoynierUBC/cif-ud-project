@@ -4,10 +4,6 @@ import { useSpring, animated } from "@react-spring/web"
 import "./MainInterface.css"
 import Caret from "./Components/Caret"
 import Dropdown from "./Components/Dropdown"
-import AttatchedContent from "./Content/AttatchedContent"
-import DetatchedContent from "./Content/DetatchedContent"
-import BasementContent from "./Content/BasementContent"
-import AtticContent from "./Content/AtticContent"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
@@ -71,6 +67,19 @@ export default function MainInterface() {
     const cardStyles = {
         background: "f5f5f5"
     }
+
+    const panel1Text = <p>
+        Across the city, small homeowners face challenges with rising costs and aging in place. 
+        Regulations limit what New Yorkers can do with their own property, which means families have to move farther away from their grandparents or grandchildren, or are forced into uncomfortably cramped houses. 
+        Meanwhile, spaces like garages can go unused when small improvements could make them comfortable homes. 
+        <br /> <br />Accessory dwelling units (backyard cottages, garage conversions) can add new homes and support homeowners without significantly changing the look and feel of a neighborhood.
+    </p>
+
+    const panel2Text = <p>
+        Allowing "accessory dwelling units," or ADUs — like backyard cottages, garage conversions, and basement apartments — can give homeowners extra cash or provide more space for multi-generational families.
+    </p>
+
+
     return(
         <div>
             {/* Show caret if interface is not visible */}
@@ -79,51 +88,19 @@ export default function MainInterface() {
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >
-                    {/* <div className="titleCloseBtn-layout">
-                        <button className="titleCloseBtn" onClick={() => {setVisible(false), setVisibleState(), unselectAllAdu()}}> &#x2715; </button>
-                    </div>
-                    <div className="title">
-                        <h1> Single Family Home </h1>
-                    </div>
-                    <div className="body">
-                        <img src="https://i.imgur.com/wVvvk87.png" width={"100%"} ></img>
-                        <p>Legally, this home is defined as a one family residence. Only certain additional housing options are possible due to its shape and structure. 
-                            In this case, an Accessible Dwelling Unit (ADU) might be a good option! </p>
-
-                        <p>ADUs are also permissible for two family homes.</p>
-                        <div id="attatched">
-                            <AttatchedContent/>
-                        </div>
-                        <div id="detatched">
-                            <DetatchedContent />
-                        </div>
-                        <div id="basement">
-                            <BasementContent></BasementContent>
-                        </div>
-                        <div id="attic">
-                            <AtticContent></AtticContent>
-                        </div>
-                        <Dropdown text="WHATS AN ADU" content={<div dangerouslySetInnerHTML={{ __html: `An <b>Accessible Dwelling Unit (ADU)</b> is an additional, private, single housing unit meant to be placed on lots with an existing one or two-family residence. They work well in a low density context because owners and residents of homes in these neighborhoods can build ADUs without the need for rezoning. There are four main types. `}} />}/>
-                        <Dropdown text="BUILDING HEIGHT" content="While not all buildings in these kinds of neighborhoods  keep within a one to two story limit, 
-                        ADUs cannot be more than two stories or be placed on residences that are taller than two stories."/>
-                        <Dropdown text="CLIMATE" content={<div dangerouslySetInnerHTML={{ __html: `Another important consideration for <b>basement</b> types is flooding. In regions at risk of water surges—either by storm surge on land or in regions near the coast—this type is not allowed. Click here to find out if this applies to your home! `}} />}/>
-                        <Dropdown text="PARKING" content="Another way in which ADUs differ from primary units is that they must be reasonably proximate to public transportation, and thus do not require additional parking spots."/>
-                        <Dropdown text="LIGHT & AIR" content={<div dangerouslySetInnerHTML={{ __html: `Proper ventilation and visual comfort are essential to the health, safety, and energy needs of New York residents. Thus, <b>at least half</b> of <b>basement</b> units must be above ground to meet minimum airflow and natural lighting requirements. Basements failing to meet this requirement are not suited for ADUs. `}} />}/>
-                    </div>
-                    <div className="footer"></div> */}
                     <Layout style={{background: 'none'}}>
                         <Content style={{
                             padding: 0,
                             margin: 0,
                             }}>
-                               <Configurator />
+                               <Configurator title="Accessory Dwelling Unit" />
                             </Content>
                         <Content style={{
                             padding: 0,
                             minHeight: 280,
                             marginTop: 40
                             }}>
-                            <Dropdown></Dropdown>
+                            <Dropdown panel1Text={panel1Text} panel2Text={panel2Text}></Dropdown>
                         </Content>
                     </Layout>
                     

@@ -47,6 +47,7 @@ export default function House(props) {
   const bind = useGesture({
     onHover({ hovering }) {
       if (hoverEffect) {
+        console.log(hovering)
         api.start({atticColor: hovering ? "#ae561f" : "white"})
         api.start({houseColor: hovering ? "#ae561f" : "white"})
         api.start({basementColor: hovering ? "#ae561f" : "white"})
@@ -65,24 +66,18 @@ export default function House(props) {
   useEffect(() =>
     {
         // When Interface is turned off reset house opacity and enable house to be hoverable 
-        const unsubscribeHighlight = useInterface.subscribe(
-          (state) => [state.selection, state.visible],
-          ([selection , visible]) => {
-            setHoverEffect(!visible)
-            if (!visible){
-              api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              // api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+        const unsubscribeHighlight = useCamera.subscribe(
+          (state) => state.zoom,
+          (zoom) => {
+            if (zoom == "Adu") {
+              setHoverEffect(false)
+            } else {
+              setHoverEffect(true)
             }
-            // this is an old feature, TODO: delete and test
-            // else if (selection === 1){
-            //   atticHover(true)
-            else {
-              atticHover(false)
-              // api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
-              
-            }
+           
           }
         )
+        
 
         // Animate house color when Intro pop up modal is closed
         const unsubscribeColor = useModal.subscribe(
@@ -91,17 +86,6 @@ export default function House(props) {
             if (!modalPhase){
               api.start({atticColor: "white", houseColor: "white", basementColor: "white" })
               atticHover(true)
-            }
-          }
-        )
-
-        // TODO: Delete 
-        const unsubscribeDefaultColor = useFlow.subscribe(
-          (state) => state.phase,
-          (phase) => {
-            if (phase === "interaction4"){
-              api.start({color: "white"})
-              atticHover(false)
             }
           }
         )
@@ -134,7 +118,8 @@ export default function House(props) {
             // If nothing is selected increase the opacity of all the elements and set to default color
             if (!basement && !attic && !detatched && !attatched) {
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: "#ae561f", basementColor: "#ae561f", atticColor: "#ae561f"})
+              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+              
             }
           }
         )
@@ -144,7 +129,6 @@ export default function House(props) {
             unsubscribeOpacity()
             unsubscribeHighlight()
             unsubscribeColor()
-            unsubscribeDefaultColor()
         }
    }, [])
 

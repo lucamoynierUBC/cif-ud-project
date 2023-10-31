@@ -33,6 +33,8 @@ export default function PopUp({position}) {
                 if (zoom == "Adu") {
                     setTimeout(() => setVisible(true), 2000)
 
+                } else if(zoom = "Map") {
+                    setVisible(false)
                 } else {
                     setVisible(false)
                 }

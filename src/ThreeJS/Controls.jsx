@@ -91,8 +91,8 @@ export const OrbitControls = ({ children }) => {
       <BaseOrbitControls 
       ref={ref} 
       enabled={isEnabled} 
-      enableRotate={false} 
-      enablePan={false}
+      enableRotate={true} 
+      enablePan={true}
       enableZoom={true}
       dampingFactor={0.5}
       maxZoom={40}

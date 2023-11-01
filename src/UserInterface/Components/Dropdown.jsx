@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { CSSTransition } from "react-transition-group";
 import { PiCaretCircleDown, PiCaretDownBold } from "react-icons/pi";
-import { Collapse , Button,  Space, Radio, Badge, notification} from "antd";
+import { Collapse , Button,  Space, Radio, Badge, notification, ConfigProvider} from "antd";
 import Layout, { Content, Header } from "antd/es/layout/layout";
 import useTag from "../../stores/useTag";
 
@@ -17,6 +17,8 @@ export default function Dropdown({panel1Text, panel2Text, panel3Text}){
   const panelStyle = {
     background: '#ffffff',
     borderRadius: 8,
+    margin: ' 10px 0'
+
   }
 
   const items = [
@@ -50,18 +52,23 @@ export default function Dropdown({panel1Text, panel2Text, panel3Text}){
     
 
     return(
-      
+    
         <Collapse
-        bordered={false}
-        defaultActiveKey={['1']}
-        style={{
-          borderRadius: "0px",
-          borderBottomLeftRadius: "8px",
-          borderBottomRightRadius: "8px",
-        }}
-        items={items}
-        accordion={true}
-        />
+      bordered={false}
+      defaultActiveKey={['1']}
+      style={{
+        borderRadius: "0px",
+        borderBottomLeftRadius: "8px",
+        borderBottomRightRadius: "8px",
+        background: 'none',
+      }}
+      items={items}
+      accordion={true}
+      />
+      
+
+      
+    
       
         
     )

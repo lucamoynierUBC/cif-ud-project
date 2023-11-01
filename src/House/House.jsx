@@ -12,6 +12,7 @@ import AtticTag from "./Tags/AtticTag";
 import BasementTag from "./Tags/BasementTag";
 import useTag from "../stores/useTag";
 import PopUp from "../UserInterface/Components/PopUp";
+import { Edges } from "@react-three/drei";
 
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
@@ -135,7 +136,7 @@ export default function House(props) {
   // Component for the imported model. Generated using https://gltf.pmnd.rs/ each object in the 3D scene gets its own component
   return (
   <group {...props} dispose={null} position={[12, -0.3, 3.5]} scale={0.4} >
-    <Select enabled={atticHovered}>
+    <Select multiple box enabled={atticHovered}>
       <animated.mesh
         // Spread the properties from the Spring object and bind function to the component
         {...spring}
@@ -191,6 +192,7 @@ export default function House(props) {
       >
         {/* Attatch Basement html tags to basement geometry */}
         {/* <BasementTag></BasementTag> */}
+        <PopUp position={[-100,70,-30]}></PopUp>
       </animated.mesh>
     </Select>
 </group>

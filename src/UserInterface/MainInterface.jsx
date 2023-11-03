@@ -10,7 +10,7 @@ import AxiomViewButton from "./Components/AxiomViewButton"
 import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag} from 'antd';
 import Icon from "@ant-design/icons/lib/components/Icon"
 import { PiSlidersHorizontal } from "react-icons/pi"
-import Configurator from "./Components/Configurator"
+import ConfiguratorAdu from "./Components/ConfiguratorAdu"
 
 
 const { Header, Content, Sider } = Layout;
@@ -93,7 +93,7 @@ export default function MainInterface() {
                             padding: 0,
                             margin: 0,
                             }}>
-                               <Configurator title="Accessory Dwelling Unit" />
+                               <ConfiguratorAdu title="Accessory Dwelling Unit" />
                             </Content>
                         <Content style={{
                             padding: 0,

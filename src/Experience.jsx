@@ -16,6 +16,7 @@ import * as THREE from 'three'
 import { useRef } from "react"
 import MediumDensityBuilding from "./3DAssets/MediumDensityBuilding"
 
+
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
     const color = useApp((state) => {

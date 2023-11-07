@@ -3,7 +3,7 @@ import useInterface from "../stores/useInterface"
 import { useSpring, animated } from "@react-spring/web"
 import "./MainInterface.css"
 import Caret from "./Components/Caret"
-import Dropdown from "./Components/Dropdown"
+import DropdownADU from "./Components/DropdownADU"
 import useTag from "../stores/useTag"
 import useCamera from "../stores/useCamera"
 import AxiomViewButton from "./Components/AxiomViewButton"
@@ -12,6 +12,7 @@ import Icon from "@ant-design/icons/lib/components/Icon"
 import { PiSlidersHorizontal } from "react-icons/pi"
 import ConfiguratorAdu from "./Components/ConfiguratorAdu"
 import ConfiguratorUAP from "./Components/ConfigurartorUAP"
+import DropdownUAP from "./Components/DropdownUAP"
 
 
 const { Header, Content, Sider } = Layout;
@@ -93,6 +94,19 @@ export default function MainInterface() {
         Allowing "accessory dwelling units," or ADUs — like backyard cottages, garage conversions, and basement apartments — can give homeowners extra cash or provide more space for multi-generational families.
     </p>
 
+    const panel1TextUAP = <p>
+        In recent decades, high-demand neighborhoods have lost affordable housing and become increasingly out of reach to working families.
+        The Universal Affordability Preference is a new tool that would allow buildings to add 20% more housing, but only if the additional units are affordable. 
+        As a result, it will deliver new affordable housing in high-cost neighborhoods across New York City to working families.
+        As an example of how this policy would work, take a proposa
+    </p>
+
+    const panel2TextUAP = <p>
+        As an example of how this policy would work, take a proposal for a 100% affordable building in a high-cost neighborhood in Manhattan like the Upper West Side.
+        Under the Universal Affordability Preference, the building can be built with 20% more space, so long as it uses that extra space for affordable housing.
+        The result is more affordable units in a high-cost neighborhood, and more opportunities for working families to live and thrive in New York.
+    </p>
+
 
     return(
         <div>
@@ -121,7 +135,13 @@ export default function MainInterface() {
                             minHeight: 280,
                             marginTop: 40
                             }}>
-                            <Dropdown panel1Text={panel1Text} panel2Text={panel2Text}></Dropdown>
+                                {configuratorType == "Adu" && (
+                                    <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text}/>
+                                )}
+                                {configuratorType == "Medium Density" && (
+                                    <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP}/>
+                                )}
+
                         </Content>
                     </Layout>
                     

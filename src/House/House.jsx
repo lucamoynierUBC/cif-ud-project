@@ -152,7 +152,9 @@ export default function House(props) {
         material-opacity={spring.houseOpacity}
         position={[0.042, -23.125, 0]}
         scale={0.305}
-      />
+      >
+        <Edges/>
+      </animated.mesh>
       {/* <Popup position={[-25, 4, -10]}/> */}
       <PopUp position={[-23, 4, -10]}></PopUp>
       <animated.mesh
@@ -172,6 +174,7 @@ export default function House(props) {
         opacity={0.5}
         transparent={true}
       >
+        <Edges/>
         {/* attatch Attic html tag to attic geometry*/}
         {/* <AtticTag></AtticTag> */}
       </animated.mesh>
@@ -193,6 +196,7 @@ export default function House(props) {
         {/* Attatch Basement html tags to basement geometry */}
         {/* <BasementTag></BasementTag> */}
         <PopUp position={[-100,70,-30]}></PopUp>
+        <Edges/>
       </animated.mesh>
     </Select>
 </group>

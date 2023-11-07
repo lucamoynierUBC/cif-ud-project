@@ -32,9 +32,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: 50,
-                        y: 5,
-                        z: 30
+                        x: 48,
+                        y: 1,
+                        z: 20
                     })
                     enableCamera() 
                 }

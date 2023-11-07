@@ -47,7 +47,7 @@ export default function Experience() {
         <DetatchedAdu></DetatchedAdu>
         <House></House>
         {/* <Spawner></Spawner> */}
-        <Plot></Plot>
+        {/* <Plot></Plot> */}
         <MediumDensityBuilding></MediumDensityBuilding>
         
         {/* Outline Effect contains the house model */}

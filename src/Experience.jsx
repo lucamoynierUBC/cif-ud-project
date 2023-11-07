@@ -15,6 +15,7 @@ import House from "./House/House"
 import * as THREE from 'three'
 import { useRef } from "react"
 import MediumDensityBuilding from "./3DAssets/MediumDensityBuilding"
+import Cityscape from "./3DAssets/Cityscape"
 
 
 // Puts everything related to Three.js inside a main class
@@ -40,11 +41,12 @@ export default function Experience() {
         </OrbitControls>
         <Environment preset="city"/>
         
-        <BackgroundModel></BackgroundModel>
+        {/* <BackgroundModel></BackgroundModel> */}
+        <Cityscape></Cityscape>
         <Shed></Shed>
         <DetatchedAdu></DetatchedAdu>
         <House></House>
-        <Spawner></Spawner>
+        {/* <Spawner></Spawner> */}
         <Plot></Plot>
         <MediumDensityBuilding></MediumDensityBuilding>
         

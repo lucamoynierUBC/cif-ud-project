@@ -42,9 +42,9 @@ export const OrbitControls = ({ children }) => {
                 if (zoom == "Medium Density"){
                     gsap.to(ref.current.target, {
                         duration: 2,
-                        x: 35,
+                        x: 55,
                         y: 0,
-                        z: -1.5,
+                        z: 45,
                         onUpdate: () => {
                           ref.current.update()
                         }

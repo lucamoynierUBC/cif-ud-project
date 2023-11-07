@@ -32,9 +32,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: 15,
-                        y: 15,
-                        z: 0
+                        x: 50,
+                        y: 5,
+                        z: 30
                     })
                     enableCamera() 
                 }
@@ -131,7 +131,7 @@ export default function Camera() {
             makeDefault
             position={[-190, 200, 190]}
             fov={10}
-            far={1000} 
+            far={3000} 
             near={3}
             />
     ) 

@@ -6,7 +6,7 @@ import { useControls } from "leva";
 
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
-    const [scale, setScale] = useState([10, 5, 4])
+    const [scale, setScale] = useState([4, 5, 10])
     const [color, setColor] = useState("orange")
 
     const store = {
@@ -23,11 +23,11 @@ export default function MediumDensityBuilding() {
                 (state) => state.toggle,
                 (toggle) => {
                     if (toggle == "Medium Density") {
-                        setScale([10, 10, 4])
+                        setScale([4, 10, 10])
                         setColor("hotpink")
 
                     } else {
-                        setScale([10, 5, 4])
+                        setScale([4, 5, 10])
                         setColor("orange")
                     }
                 }
@@ -39,7 +39,7 @@ export default function MediumDensityBuilding() {
         }, [])
 
     return (
-        <mesh  position={[35, 2,-1.5]} scale={scale} onClick={() => setZoom("Medium Density")}>
+        <mesh  position={[55, 2, 44]} scale={scale} onClick={() => setZoom("Medium Density")}>
             {/* <meshPhongMaterial /> */}
             <MeshTransmissionMaterial color={color} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32} ></MeshTransmissionMaterial>
             <Edges>

@@ -11,6 +11,7 @@ import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Sp
 import Icon from "@ant-design/icons/lib/components/Icon"
 import { PiSlidersHorizontal } from "react-icons/pi"
 import ConfiguratorAdu from "./Components/ConfiguratorAdu"
+import ConfiguratorUAP from "./Components/ConfigurartorUAP"
 
 
 const { Header, Content, Sider } = Layout;
@@ -19,6 +20,9 @@ const { Header, Content, Sider } = Layout;
 export default function MainInterface() {
     // state for toggling the visibility of the component
     const [visible, setVisible] = useState(false)
+    // toggle visibility of different configurators
+    const [configuratorType, setConfiguratorType] = useState(null)
+
     // Accesing global states from stores
     const setVisibleState = useInterface((state) => state.toggleVisible)
     const unselectAllAdu = useTag((state) => state.unselectAll)
@@ -41,23 +45,33 @@ export default function MainInterface() {
     
     
     // Subscribe to changes in Interface and Actions stores
+
     useEffect(() => {
         // Toggle siderbar UI visibility when global interface state changes 
         const unsubscribeVisible = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                if (zoom == "Adu" || zoom == "Medium Density") {
+                if (zoom === "Medium Density") {
                     setVisible(true)
-
+                    setConfiguratorType("Medium Density")
+                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
+                }
+                else if (zoom === "Adu") {
+                    setVisible(true)
+                    setConfiguratorType("Adu")
+                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
+                
                 } else {
                     setVisible(false)
+                    setConfiguratorType(null)
+                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 }
             }
         )
         return () => {
             unsubscribeVisible()
         }
-    }, [])
+    }, )
 
     // Animation spring properties for fading in/out the interface
     const springProps = useSpring({
@@ -93,7 +107,14 @@ export default function MainInterface() {
                             padding: 0,
                             margin: 0,
                             }}>
-                               <ConfiguratorAdu title="Accessory Dwelling Unit" />
+                                {configuratorType == "Adu" && (
+                                    <ConfiguratorAdu title="Accessory Dwelling Unit"/>
+                                )}
+                            
+                               {configuratorType == "Medium Density" && (
+                                    <ConfiguratorUAP title="Universal Affordability Preference"/>
+                               )}
+                              
                             </Content>
                         <Content style={{
                             padding: 0,

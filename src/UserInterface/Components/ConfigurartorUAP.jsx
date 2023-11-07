@@ -4,7 +4,7 @@ import { PiSlidersHorizontal } from 'react-icons/pi';
 import useConfigurator from '../../stores/useConfigurator';
 import useTag from '../../stores/useTag';
 
-export default function Configurator({title}){
+export default function ConfiguratorUAP({title}){
     const [api, contextHolder] = notification.useNotification();
     const { Meta } = Card;
     const setToggle = useConfigurator((state) => state.setToggle)
@@ -48,7 +48,7 @@ export default function Configurator({title}){
             description={<Space size={[0, 8]} wrap><Tag color="blue">Low Density</Tag><Tag color="magenta">Multi-Family Home</Tag></Space>}/>}
             >
                 <Row gutter={[0, 0]} align={'middle'}>
-                    <Col span={24}>
+                    {/* <Col span={24}>
                         <Flex justify='space-between' align='flex-end'>
                         Types:                
                         {contextHolder}
@@ -61,7 +61,7 @@ export default function Configurator({title}){
                             </Radio.Group>
                         </Flex>
                     </Col>
-                    <Divider/>
+                    <Divider/> */}
                     <Col span={12}>
                         View:
                     </Col>
@@ -71,7 +71,7 @@ export default function Configurator({title}){
                         </Flex>
                         
                     </Col>
-                    {/* <Divider/>
+                    <Divider/>
                     <Col span={12}>
                         Before/After:
                     </Col>
@@ -79,7 +79,7 @@ export default function Configurator({title}){
                        <Flex justify='flex-end'>
                             <Switch checkedChildren="After" unCheckedChildren="Before" onChange={onChange}/>
                        </Flex>
-                    </Col> */}
+                    </Col>
                 </Row>
             </Card>
     )

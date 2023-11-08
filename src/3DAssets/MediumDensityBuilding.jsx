@@ -3,6 +3,8 @@ import useCamera from "../stores/useCamera";
 import useConfigurator from "../stores/useConfigurator";
 import { Edges, MeshTransmissionMaterial } from "@react-three/drei";
 import { useControls } from "leva";
+import PopUpUAP from "../UserInterface/Components/PopUpUAP";
+
 
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
@@ -45,6 +47,7 @@ export default function MediumDensityBuilding() {
             <Edges>
                
             </Edges>
+            <PopUpUAP position={[0,0,0]}></PopUpUAP>
            
             <boxGeometry></boxGeometry>
         </mesh>

@@ -30,12 +30,15 @@ export default function House(props) {
   const unselectAllAdu = useTag((state) => state.unselectAll)
   const setZoom = useCamera((state) => state.setZoom);
 
+  const defaultColor = '#e55c30'
+  const altColor = '#f6d746'
+
   
   // Default configurations when animating the house such as color and opacity
   const [spring, api] = useSpring(() => ({
-    atticColor: "white",
-    houseColor:"white",
-    basementColor: "white",
+    atticColor: defaultColor,
+    houseColor: defaultColor,
+    basementColor: defaultColor,
     trail: 950,
     atticOpacity: 1,
     houseOpacity: 1,
@@ -49,9 +52,9 @@ export default function House(props) {
     onHover({ hovering }) {
       if (hoverEffect) {
         console.log(hovering)
-        api.start({atticColor: hovering ? "#ae561f" : "white"})
-        api.start({houseColor: hovering ? "#ae561f" : "white"})
-        api.start({basementColor: hovering ? "#ae561f" : "white"})
+        api.start({atticColor: hovering ? altColor : defaultColor})
+        api.start({houseColor: hovering ? altColor : defaultColor})
+        api.start({basementColor: hovering ? altColor : defaultColor})
       }
     }
   })
@@ -85,7 +88,7 @@ export default function House(props) {
           (state) => state.modalPhase,
           (modalPhase) => {
             if (!modalPhase){
-              api.start({atticColor: "white", houseColor: "white", basementColor: "white" })
+              api.start({atticColor: defaultColor, houseColor: defaultColor, basementColor: defaultColor })
               atticHover(true)
             }
           }
@@ -99,27 +102,27 @@ export default function House(props) {
     
             if (basement == true) {
               api.start({atticOpacity: .2, houseOpacity: .2, basementOpacity: 1})
-              api.start({houseColor: "white", atticColor: "white", basementColor: "#d96b27"})
+              api.start({houseColor: defaultColor, atticColor: defaultColor, basementColor: altColor})
             }
             // If Attic is set to true, lower the opacity of all other elements of the house except the attic
             if (attic == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: 1})
-              api.start({houseColor: "white", basementColor: "white", atticColor: "#d96b27"})
+              api.start({houseColor: defaultColor, basementColor: defaultColor, atticColor: altColor})
             }
             // Lower all elements of the house
             if (detatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
-              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+              api.start({houseColor: defaultColor, basementColor: defaultColor, atticColor: defaultColor})
             }
             // Lower all elements of the house
             if (attatched == true) {
               api.start({houseOpacity: .2, basementOpacity: .2, atticOpacity: .2})
-              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+              api.start({houseColor: defaultColor, basementColor: defaultColor, atticColor: defaultColor})
             }
             // If nothing is selected increase the opacity of all the elements and set to default color
             if (!basement && !attic && !detatched && !attatched) {
               api.start({houseOpacity: 1, basementOpacity: 1, atticOpacity: 1})
-              api.start({houseColor: "white", basementColor: "white", atticColor: "white"})
+              api.start({houseColor: defaultColor, basementColor: defaultColor, atticColor: defaultColor})
               
             }
           }

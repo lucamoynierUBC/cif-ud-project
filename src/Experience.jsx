@@ -3,7 +3,7 @@ import useApp from "./stores/useApp"
 
 import { OrbitControls } from "./ThreeJS/Controls"
 import { useFrame } from "@react-three/fiber"
-import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Sky } from "@react-three/drei"
+import { Cloud, Environment, OrthographicCamera, PerspectiveCamera, Resize, Sky, Stage, Stars } from "@react-three/drei"
 import OutlineEffect from "./ThreeJS/OutlineEffect"
 import BackgroundModel from "./3DAssets/BackgroundModel"
 import Camera from "./ThreeJS/Camera"
@@ -20,10 +20,11 @@ import Cityscape from "./3DAssets/Cityscape"
 
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
-    const color = useApp((state) => {
-        return state.color
-    })
+    // const color = useApp((state) => {
+    //     return state.color
+    // })
 
+   
     //
     function Rig({ children }) {
         const ref = useRef()
@@ -35,20 +36,33 @@ export default function Experience() {
     }
 
     return <> 
-        <color args={["ivory"]} attach="background"/>
+        <color args={["#140b34"]} attach="background"/>
+        {/* <Lighting></Lighting> */}
         <OrbitControls >
             <Camera />
         </OrbitControls>
-        <Environment preset="city"/>
+        
         
         {/* <BackgroundModel></BackgroundModel> */}
-        <Cityscape></Cityscape>
-        <Shed></Shed>
-        <DetatchedAdu></DetatchedAdu>
-        <House></House>
-        {/* <Spawner></Spawner> */}
-        {/* <Plot></Plot> */}
-        <MediumDensityBuilding></MediumDensityBuilding>
+        {/* <Lighting></Lighting> */}
+        <Stars fade speed={10}/>
+
+        <Stage adjustCamera={false} shadows={{type: 'contact', scale: [500, 600],  position: [0, 1, 0], opacity: .75, blur: 0.1, frames: 1}}>
+            <Cityscape></Cityscape>
+            <Shed></Shed>
+            <DetatchedAdu></DetatchedAdu>
+            <House></House>
+            <MediumDensityBuilding></MediumDensityBuilding>
+        </Stage>
+       
+
+
+       
+
+        
+        
+
+        
         
         {/* Outline Effect contains the house model */}
         {/* <OutlineEffect></OutlineEffect>    */}

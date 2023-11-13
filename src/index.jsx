@@ -16,7 +16,7 @@ import { ConfigProvider, theme } from 'antd';
 root.render(
     <>
     {/*//everything related to R3F goes into canvas, GUI goes outside  */}
-        <Canvas>
+        <Canvas shadows>
             <Suspense fallback={null}>
                 <Experience />
             </Suspense>

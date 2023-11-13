@@ -6,6 +6,7 @@ import { useThree } from "@react-three/fiber";
 import { CameraControls } from "@react-three/drei";
 import { gsap } from "gsap";
 import { useOrbitControls } from "./Controls";
+import { useControls } from "leva";
 
 // Camera component responsible for managing camera position and zoom
 export default function Camera() {
@@ -14,6 +15,12 @@ export default function Camera() {
     const { enableCamera, disableCamera } = useOrbitControls()
     // check if device is a mobile device
     const isMobile = window.innerWidth <= 600
+
+    const {x, y, z} = useControls({
+        x: {value: -190, min: -1000, max: 1000 },
+        y: {value: 200, min: 0, max: 100 },
+        z: {value: 190, min: -500, max: 500 }
+    })
 
     //subscribe to changes from camera store
     useEffect(() => {
@@ -75,51 +82,51 @@ export default function Camera() {
             }
         )
 
-        const unsubscribeChangePerspective = useCamera.subscribe(
-            (state) => state.orthographic,
-            (orthographic) => {
-                console.log("perspective set to :", orthographic)
-                if (orthographic) {
-                    disableCamera()
-                    gsap.to(cameraControlRef.current, {
-                        duration: 2,
-                        fov: 10,
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                    gsap.to(cameraControlRef.current.position, {
-                        duration: 2,
-                        x:-190,
-                        y: 200,
-                        z: 190
-                    })
-                    enableCamera()
-                }
-                else {
-                    disableCamera()
-                    gsap.to(cameraControlRef.current, {
-                        duration: 0.5,
-                        fov: 50,
-                        onUpdate: () => {
-                            cameraControlRef.current.updateProjectionMatrix();
-                          },
-                    })
-                    gsap.to(cameraControlRef.current.position, {
-                        duration: 2,
-                        x:-12,
-                        y: 2,
-                        z: -6
-                    })
-                    enableCamera()
-                }
-            }
+        // const unsubscribeChangePerspective = useCamera.subscribe(
+        //     (state) => state.orthographic,
+        //     (orthographic) => {
+        //         console.log("perspective set to :", orthographic)
+        //         if (orthographic) {
+        //             disableCamera()
+        //             gsap.to(cameraControlRef.current, {
+        //                 duration: 2,
+        //                 fov: 10,
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
+        //             gsap.to(cameraControlRef.current.position, {
+        //                 duration: 2,
+        //                 x:-190,
+        //                 y: 200,
+        //                 z: 190
+        //             })
+        //             enableCamera()
+        //         }
+        //         else {
+        //             disableCamera()
+        //             gsap.to(cameraControlRef.current, {
+        //                 duration: 0.5,
+        //                 fov: 50,
+        //                 onUpdate: () => {
+        //                     cameraControlRef.current.updateProjectionMatrix();
+        //                   },
+        //             })
+        //             gsap.to(cameraControlRef.current.position, {
+        //                 duration: 2,
+        //                 x:-12,
+        //                 y: 2,
+        //                 z: -6
+        //             })
+        //             enableCamera()
+        //         }
+        //     }
 
-        )
+        // )
         
         return () => {
             unsubscribeZoom()
-            unsubscribeChangePerspective()
+            // unsubscribeChangePerspective()
             // unsubscribePanToAdu()
         }
     }, [])
@@ -129,7 +136,7 @@ export default function Camera() {
             ref={cameraControlRef}
             zoom={1}
             makeDefault
-            position={[-190, 200, 190]}
+            position={[x, y, z]}
             fov={10}
             far={3000} 
             near={3}

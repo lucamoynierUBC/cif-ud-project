@@ -3,6 +3,7 @@ import { OrbitControls as BaseOrbitControls} from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useCamera from "../stores/useCamera";
 import { gsap } from "gsap";
+import { useControls } from "leva";
 
 // Create a new context for OrbitControls, allows me to pass data through the component tree
 // and allowing sharing of the state of Orbit Controls with other components
@@ -34,6 +35,12 @@ export const OrbitControls = ({ children }) => {
     enableCamera: handleEnableCamera, // function to enable controls
     disableCamera: handleDisableCamera // function to disable controls
   };
+
+  const {xControl, yControl, zControl} = useControls({
+    xControl: {value: 0, min: -100, max: 100 },
+    yControl: {value: 0, min: -100, max: 100 },
+    zControl: {value: 0, min: -100, max: 100 }
+})
 
   useEffect(() => {
     const unsubscribeZoom = useCamera.subscribe(
@@ -95,11 +102,12 @@ export const OrbitControls = ({ children }) => {
       enablePan={true}
       enableZoom={true}
       dampingFactor={0.5}
-      maxZoom={40}
-      minZoom={20}
+      // maxZoom={40}
+      // minZoom={20}
       autoRotate={false}
+      makeDefault
       // TODO: Animate Target!
-      target={[0, 0, 0]}
+      target={[xControl, yControl, zControl]}
       />
     </>
   );

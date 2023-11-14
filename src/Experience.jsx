@@ -45,7 +45,7 @@ export default function Experience() {
         
         {/* <BackgroundModel></BackgroundModel> */}
         {/* <Lighting></Lighting> */}
-        <Stars fade speed={10}/>
+        {/* <Stars  radius={500} count={50000} fade speed={0.5}/> */}
 
         <Stage adjustCamera={false} shadows={{type: 'contact', scale: [500, 600],  position: [0, 1, 0], opacity: .75, blur: 0.1, frames: 1}}>
             <Cityscape></Cityscape>

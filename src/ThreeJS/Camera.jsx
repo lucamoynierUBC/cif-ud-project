@@ -18,8 +18,8 @@ export default function Camera() {
 
     const {x, y, z} = useControls({
         x: {value: -190, min: -1000, max: 1000 },
-        y: {value: 200, min: 0, max: 100 },
-        z: {value: 190, min: -500, max: 500 }
+        y: {value: 200, min: -100, max: 400 },
+        z: {value: 190, min: -1000, max: 1000 }
     })
 
     //subscribe to changes from camera store
@@ -39,9 +39,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: 48,
-                        y: 1,
-                        z: 20
+                        x: -45,
+                        y: -17,
+                        z: -160
                     })
                     enableCamera() 
                 }
@@ -56,9 +56,10 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -190,
-                        y: 200,
-                        z: 190
+                        x: -530,
+                        y: 400,
+                        z: 370
+                        
                     })
                     enableCamera() 
                 }
@@ -73,9 +74,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -12,
-                        y: 2,
-                        z: -6
+                        x: -102,
+                        y: -20,
+                        z: -189
                     })
                     enableCamera() 
                 }
@@ -136,7 +137,8 @@ export default function Camera() {
             ref={cameraControlRef}
             zoom={1}
             makeDefault
-            position={[x, y, z]}
+            position={[-530, 400, 370]}
+            // position={[x, y, z]}
             fov={10}
             far={3000} 
             near={3}

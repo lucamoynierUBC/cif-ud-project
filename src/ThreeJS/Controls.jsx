@@ -39,7 +39,7 @@ export const OrbitControls = ({ children }) => {
   const {xControl, yControl, zControl} = useControls({
     xControl: {value: 0, min: -100, max: 100 },
     yControl: {value: 0, min: -100, max: 100 },
-    zControl: {value: 0, min: -100, max: 100 }
+    zControl: {value: 0, min: -200, max: 200 }
 })
 
   useEffect(() => {
@@ -49,9 +49,9 @@ export const OrbitControls = ({ children }) => {
                 if (zoom == "Medium Density"){
                     gsap.to(ref.current.target, {
                         duration: 2,
-                        x: 55,
-                        y: 0,
-                        z: 45,
+                        x: 52,
+                        y: -48,
+                        z: 116,
                         onUpdate: () => {
                           ref.current.update()
                         }
@@ -60,9 +60,9 @@ export const OrbitControls = ({ children }) => {
               if (zoom == "Map"){
                 gsap.to(ref.current.target, {
                     duration: 2,
-                    x: 0,
-                    y: 0,
-                    z: 0,
+                    x: -54,
+                    y: -12,
+                    z: -152,
                     onUpdate: () => {
                       ref.current.update()
                     }
@@ -71,9 +71,9 @@ export const OrbitControls = ({ children }) => {
             if (zoom == "Adu"){
               gsap.to(ref.current.target, {
                   duration: 2,
-                  x: 0,
-                  y: 0,
-                  z: 0,
+                  x: -12,
+                  y: -28,
+                  z: -144,
                   onUpdate: () => {
                     ref.current.update()
                   }
@@ -107,7 +107,8 @@ export const OrbitControls = ({ children }) => {
       autoRotate={false}
       makeDefault
       // TODO: Animate Target!
-      target={[xControl, yControl, zControl]}
+      target={[-54, -12, -152]}
+      // target={[xControl, yControl, zControl]}
       />
     </>
   );

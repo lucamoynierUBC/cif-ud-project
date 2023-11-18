@@ -7,7 +7,6 @@ export default function Cityscape(props) {
   return (
     <group {...props} dispose={null} scale={3.0} position={[78,0.5,19]}>
       <mesh
-      
         castShadow
         receiveShadow
         geometry={nodes["testing,_testing"].geometry}
@@ -17,11 +16,6 @@ export default function Cityscape(props) {
         scale={0.038}
       >
         <Edges threshold={25}/>
-        
-
-      
-        
-    
     </mesh>
     </group>
   );

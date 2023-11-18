@@ -12,32 +12,23 @@ import Modal from "./IntroModal/Modal"
 const root = ReactDOM.createRoot(document.querySelector("#root"))
 import { ConfigProvider, theme } from 'antd';
 
+
+
 // Entry point into react application. Place main components inside here. 
 root.render(
     <>
     {/*//everything related to R3F goes into canvas, GUI goes outside  */}
-        <Canvas shadows>
-            <Suspense fallback={null}>
-                <Experience />
-            </Suspense>
-        </Canvas>
+        <Suspense fallback={null}>
+            <Canvas shadows>
+                    <Experience />
+            </Canvas>
+            
+            <ConfigProvider theme={{ hashed: false}}> 
+                <MainInterface></MainInterface>
+            </ConfigProvider>
+            <Nav></Nav>
+        </Suspense>    
         <Loader />
-        
-        
-        <ConfigProvider theme={{ hashed: false}}> 
-            <MainInterface></MainInterface>
-        </ConfigProvider>
-        <Nav></Nav>
-        {/* <GUI></GUI>   */}
-        <Modal></Modal>
-
-        
     </>
-
-	
-
-    
-
-
 		
 )

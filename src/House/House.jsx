@@ -13,6 +13,7 @@ import BasementTag from "./Tags/BasementTag";
 import useTag from "../stores/useTag";
 import PopUp from "../UserInterface/Components/PopUp";
 import { Edges } from "@react-three/drei";
+import Reference from "./Reference";
 
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
@@ -178,6 +179,7 @@ export default function House(props) {
         transparent={true}
       >
         <Edges/>
+        <Reference></Reference>
         {/* attatch Attic html tag to attic geometry*/}
         {/* <AtticTag></AtticTag> */}
       </animated.mesh>

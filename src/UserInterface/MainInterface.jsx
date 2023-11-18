@@ -13,6 +13,7 @@ import { PiSlidersHorizontal } from "react-icons/pi"
 import ConfiguratorAdu from "./Components/ConfiguratorAdu"
 import ConfiguratorUAP from "./Components/ConfigurartorUAP"
 import DropdownUAP from "./Components/DropdownUAP"
+import TourGuide from "./Components/TourGuide"
 
 
 const { Header, Content, Sider } = Layout;
@@ -112,6 +113,7 @@ export default function MainInterface() {
         <div>
             {/* Show caret if interface is not visible */}
             {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
+            <TourGuide></TourGuide>
             {<AxiomViewButton></AxiomViewButton>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">

@@ -57,6 +57,17 @@ export const OrbitControls = ({ children }) => {
                         }
                     })
                 }
+                if (zoom == "Medium Density - BOV"){
+                  gsap.to(ref.current.target, {
+                      duration: 2,
+                      x: 0,
+                      y: -100,
+                      z: 0,
+                      onUpdate: () => {
+                        ref.current.update()
+                      }
+                  })
+              }
               if (zoom == "Map"){
                 gsap.to(ref.current.target, {
                     duration: 2,
@@ -67,12 +78,23 @@ export const OrbitControls = ({ children }) => {
                       ref.current.update()
                     }
                 })
+              }
+              if (zoom == "Adu"){
+                gsap.to(ref.current.target, {
+                    duration: 2,
+                    x: -12,
+                    y: -28,
+                    z: -144,
+                    onUpdate: () => {
+                      ref.current.update()
+                    }
+                })
             }
-            if (zoom == "Adu"){
+            if (zoom == "Adu - BOV"){
               gsap.to(ref.current.target, {
                   duration: 2,
                   x: -12,
-                  y: -28,
+                  y: -48,
                   z: -144,
                   onUpdate: () => {
                     ref.current.update()
@@ -80,7 +102,7 @@ export const OrbitControls = ({ children }) => {
               })
           }
                 
-              }
+          }
     )
     return () => {
       unsubscribeZoom()
@@ -101,7 +123,9 @@ export const OrbitControls = ({ children }) => {
       enableRotate={true} 
       enablePan={true}
       enableZoom={true}
-      dampingFactor={0.5}
+      dampingFactor={0.25}
+      rotateSpeed={0.5}
+      panSpeed={0.5}
       // maxZoom={40}
       // minZoom={20}
       autoRotate={false}

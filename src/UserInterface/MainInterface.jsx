@@ -53,16 +53,17 @@ export default function MainInterface() {
         const unsubscribeVisible = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                if (zoom === "Medium Density") {
+                if (zoom === "Medium Density" | zoom === "Medium Density - BOV") {
                     setVisible(true)
                     setConfiguratorType("Medium Density")
                     console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 }
-                else if (zoom === "Adu") {
+                else if (zoom === "Adu" | zoom === "Adu - BOV") {
                     setVisible(true)
                     setConfiguratorType("Adu")
                     console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 
+
                 } else {
                     setVisible(false)
                     setConfiguratorType(null)
@@ -123,11 +124,11 @@ export default function MainInterface() {
                             padding: 0,
                             margin: 0,
                             }}>
-                                {configuratorType == "Adu" && (
+                                {configuratorType == "Adu" | "Adu - BOV" && (
                                     <ConfiguratorAdu title="Accessory Dwelling Unit"/>
                                 )}
                             
-                               {configuratorType == "Medium Density" && (
+                               {configuratorType == "Medium Density" | configuratorType == "Medium Density - BOV" && (
                                     <ConfiguratorUAP title="Universal Affordability Preference"/>
                                )}
                               
@@ -137,10 +138,10 @@ export default function MainInterface() {
                             minHeight: 280,
                             marginTop: 40
                             }}>
-                                {configuratorType == "Adu" && (
+                                {configuratorType == "Adu" | configuratorType == "Adu - BOV" && (
                                     <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text}/>
                                 )}
-                                {configuratorType == "Medium Density" && (
+                                {configuratorType == "Medium Density" | configuratorType == "Medium Density - BOV" && (
                                     <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP}/>
                                 )}
 

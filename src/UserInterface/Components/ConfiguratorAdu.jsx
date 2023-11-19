@@ -1,13 +1,18 @@
 import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag, Switch, Flex} from 'antd';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { PiSlidersHorizontal } from 'react-icons/pi';
 import useConfigurator from '../../stores/useConfigurator';
 import useTag from '../../stores/useTag';
+import useCamera from '../../stores/useCamera';
+
 
 export default function Configurator({title}){
     const [api, contextHolder] = notification.useNotification();
     const { Meta } = Card;
     const setToggle = useConfigurator((state) => state.setToggle)
+    const [value, setValue] = useState(1)
+
+    const setZoom = useCamera((state) => state.setZoom)
 
     const selectAttatched = useTag((state) => state.selectAttatched)
     const selectDetatched = useTag((state) => state.selectDetatched)
@@ -38,6 +43,10 @@ export default function Configurator({title}){
 
     }
 
+    const onChangeValue = (e) => {
+        setValue(e.target.value);
+      };
+
     return(
         <Card 
             type="inner" 
@@ -67,7 +76,10 @@ export default function Configurator({title}){
                     </Col>
                     <Col span={12}>
                         <Flex justify='flex-end'>
-                            <Radio.Group size="large" options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} />
+                            <Radio.Group onChange={onChangeValue} value={value} size="large">
+                                <Radio onClick={() => setZoom("Adu")} value={1}>👁️</Radio>
+                                <Radio onClick={() => setZoom("Adu - BOV")} value={2}>✈️</Radio>
+                            </Radio.Group>
                         </Flex>
                         
                     </Col>

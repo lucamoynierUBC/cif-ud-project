@@ -44,6 +44,25 @@ export default function Camera() {
                         z: -160
                     })
                     enableCamera() 
+                } 
+                else if (zoom == "Medium Density - BOV"){
+                    disableCamera()
+                    
+                    gsap.to(cameraControlRef.current, {
+                        duration: 0.5,
+                        fov: 50,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -45,
+                        y: 5,
+                        z: -180
+                    })
+                    enableCamera() 
+
                 }
                 else if (zoom == "Map"){
                     disableCamera()
@@ -77,6 +96,23 @@ export default function Camera() {
                         x: -102,
                         y: -20,
                         z: -189
+                    })
+                    enableCamera() 
+                }
+                else if (zoom == "Adu - BOV"){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 50,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -120,
+                        y: -5,
+                        z: -200
                     })
                     enableCamera() 
                 }

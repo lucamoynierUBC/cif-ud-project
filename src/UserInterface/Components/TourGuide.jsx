@@ -13,7 +13,7 @@ export default function TourGuide() {
           title: 'City of Yes for Housing Opportunity',
           description: 'Every day, New Yorkers struggle with our housing shortage. High housing costs, long commutes, cramped apartments, and instability are all the result of a lack of options.',
           cover: (
-            <img  src="https://i.imgur.com/mtvZTyP.png"/>
+            <img src="https://i.imgur.com/mtvZTyP.png"/>
           ),
           target: null
         },

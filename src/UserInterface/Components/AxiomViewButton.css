@@ -10,13 +10,13 @@ body
 .axiom-container
 {
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 90px;
+    left: 10px;
+    background-color: white;
     /* background-color: white;
     border-radius: 8px;
     border: 0px solid #000000;  */
-    width: 200px;
-    height: 200px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,8 +1,9 @@
-import { Selection, EffectComposer, Outline, DepthOfField } from "@react-three/postprocessing";
+import { Selection, EffectComposer, Outline, Bloom, Select, SelectiveBloom, GodRays, Pixelation } from "@react-three/postprocessing";
 import House from "../House/House";
-
 import { useEffect, useState } from "react";
 import useGUI from "../stores/useModal";
+import MediumDensityBuilding from "../3DAssets/MediumDensityBuilding";
+import Cityscape from "../3DAssets/Cityscape";
 
 export default function OutlineEffect() {
     const [bokehValue, setBokehValue] = useState(6)
@@ -21,12 +22,19 @@ export default function OutlineEffect() {
     //     }
     // },[])
 
-    return <Selection>
-        <EffectComposer multisampling={8} autoClear={false}>
-                <Outline  xRay={false} blur={true} visibleEdgeColor={"white"} hiddenEdgeColor={"white"} edgeStrength={100} width={1000} />
-                {/* <DepthOfField bokehScale={bokehValue}/> */}
-        </EffectComposer>
-        {/* <House></House> */}
-        {/* <CustomPlot></CustomPlot> */}
-    </Selection>
+    return (
+    <Selection >
+
+            {/* <EffectComposer multisampling={8}>
+                <Bloom luminanceThreshold={0}
+          luminanceSmoothing={0.9}
+          opacity={3}></Bloom>
+            </EffectComposer>
+            <Select enabled>
+                <House></House>
+                <MediumDensityBuilding></MediumDensityBuilding>
+
+            </Select> */}
+            </Selection>
+    )
 }

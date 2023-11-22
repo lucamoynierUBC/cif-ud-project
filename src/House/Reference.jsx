@@ -8,9 +8,7 @@ export default function Reference() {
     const { setRef } = useRefStore();
 
     useEffect(() => {
-        
         setRef(ref);
-
     }, []);
     
     const styles = {
@@ -21,9 +19,8 @@ export default function Reference() {
       };
 
     return (
-        <Html position={[-100, 100, -80]} scale={20}>
-            <div ref={ref} style={styles}>
-            </div>
+        <Html position={[-100, 100, -80]} ref={ref} scale={20}>
+            <div style={styles}/>
         </Html>
     )
 }

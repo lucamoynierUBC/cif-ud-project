@@ -124,11 +124,11 @@ export default function MainInterface() {
                             padding: 0,
                             margin: 0,
                             }}>
-                                {configuratorType == "Adu" | "Adu - BOV" && (
+                                {configuratorType == "Adu" && (
                                     <ConfiguratorAdu title="Accessory Dwelling Unit"/>
                                 )}
                             
-                               {configuratorType == "Medium Density" | configuratorType == "Medium Density - BOV" && (
+                               {configuratorType == "Medium Density" && (
                                     <ConfiguratorUAP title="Universal Affordability Preference"/>
                                )}
                               
@@ -136,12 +136,12 @@ export default function MainInterface() {
                         <Content style={{
                             padding: 0,
                             minHeight: 280,
-                            marginTop: 40
+                            marginTop: 40,
                             }}>
-                                {configuratorType == "Adu" | configuratorType == "Adu - BOV" && (
+                                {(configuratorType == "Adu" || configuratorType == "Adu - BOV") &&  (
                                     <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text}/>
                                 )}
-                                {configuratorType == "Medium Density" | configuratorType == "Medium Density - BOV" && (
+                                {(configuratorType == "Medium Density" || configuratorType == "Medium Density - BOV") && (
                                     <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP}/>
                                 )}
 

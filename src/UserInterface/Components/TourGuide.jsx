@@ -10,18 +10,38 @@ export default function TourGuide() {
     
     const steps = [
         {
-          title: 'City of Yes for Housing Opportunity',
-          description: 'Every day, New Yorkers struggle with our housing shortage. High housing costs, long commutes, cramped apartments, and instability are all the result of a lack of options.',
+          title: 'NYC Housing Condition',
+          description: (
+            <p style={{margin: 0}}>
+              Every day, New Yorkers struggle with our housing shortage. High housing costs, long commutes, cramped apartments, and instability are all the result of a lack of options.
+              <br/>
+              <br/>
+              A more affordable city is possible. If we create more housing in every neighborhood, we can ensure every New Yorker has the opportunity to stay and thrive in this city.
+              
+            </p>),
           cover: (
-            <img src="https://i.imgur.com/mtvZTyP.png"/>
+            <img style={{height:'auto', width: 350}} src="https://i.imgur.com/mtvZTyP.png"/>
           ),
           target: null
+          
         },
         {
-            title: 'More Housing Choices',
+            title: 'City of Yes for Housing Opportunity',
             description: 'The City of Yes initiative would unlock housing growth in every neighborhood. Each aspect of the proposal—from helping offices convert to residential, to giving homeowners the option to add small rental units, to adding more affordable housing in high-demand neighborhoods—is a proven strategy to help lower housing costs and help neighborhoods thrive. ',
+            cover: (
+              <img style={{height:'auto', width: 'auto'}} src="https://i.imgur.com/SESSezH.png"/>
+            ),
             
-          },
+        },
+
+        {
+            title: 'City Densities',
+            description: 'This cityscape offers varying levels of population and building density across the city, highlighting areas from the more open spaces to the busiest urban centers. ',
+            
+            
+        },
+
+
         {
           title: 'Explore proposals',
           description: 'Click on higlighted buildings to explore how they will be affected by City of Yes Housing Oppurtunity.',

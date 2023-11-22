@@ -41,9 +41,9 @@ export default function MediumDensityBuilding() {
         }, [])
 
     return (
-        <mesh castShadow receiveShadow position={[55, 3, 44]} scale={scale} onClick={() => setZoom("Medium Density")}>
+        <mesh name="UAP" castShadow receiveShadow position={[55, 3, 44]} scale={scale} onClick={() => setZoom("Medium Density")}>
             {/* <meshPhongMaterial /> */}
-            <MeshTransmissionMaterial color={color} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32} ></MeshTransmissionMaterial>
+            <MeshTransmissionMaterial toneMapped={false} emissiveIntensity={4} emissive={color} color={color} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32} ></MeshTransmissionMaterial>
             <Edges>
                
             </Edges>

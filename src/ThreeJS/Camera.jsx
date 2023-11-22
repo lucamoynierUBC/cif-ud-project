@@ -176,7 +176,7 @@ export default function Camera() {
             position={[-530, 400, 370]}
             // position={[x, y, z]}
             fov={10}
-            far={3000} 
+            far={5000} 
             near={3}
             />
     ) 

@@ -6,14 +6,12 @@ import { Select } from "@react-three/postprocessing";
 import useInterface from "../stores/useInterface";
 import { animated, useSpring } from "@react-spring/three";
 import useModal from "../stores/useModal";
-import useFlow from "../stores/useFlow";
 import { useGesture } from "react-use-gesture";
-import AtticTag from "./Tags/AtticTag";
-import BasementTag from "./Tags/BasementTag";
 import useTag from "../stores/useTag";
 import PopUp from "../UserInterface/Components/PopUp";
 import { Edges } from "@react-three/drei";
 import Reference from "./Reference";
+
 
 // House component that represents a 3D model with interactive elements
 export default function House(props) {
@@ -139,7 +137,7 @@ export default function House(props) {
 
   // Component for the imported model. Generated using https://gltf.pmnd.rs/ each object in the 3D scene gets its own component
   return (
-  <group {...props} dispose={null} position={[12, -0.3, 3.5]} scale={0.4} >
+  <group name="ADU" {...props} dispose={null} position={[12, -0.3, 3.5]} scale={0.4} >
     <Select multiple box enabled={atticHovered}>
       <animated.mesh
         // Spread the properties from the Spring object and bind function to the component

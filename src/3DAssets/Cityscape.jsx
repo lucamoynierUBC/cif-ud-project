@@ -12,7 +12,7 @@ export default function Cityscape(props) {
         receiveShadow
         geometry={nodes["testing,_testing"].geometry}
         material={materials.Clay}
-        material-color={'#140b34'}
+        material-color={'grey'}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.038}
       >

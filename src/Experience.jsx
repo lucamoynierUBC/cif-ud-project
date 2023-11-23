@@ -3,7 +3,7 @@ import useApp from "./stores/useApp"
 
 import { OrbitControls } from "./ThreeJS/Controls"
 import { useFrame, useThree } from "@react-three/fiber"
-import { Environment, OrthographicCamera, PerspectiveCamera, Resize, Sky, Stage, Stars } from "@react-three/drei"
+import { Environment, OrthographicCamera, PerspectiveCamera, RandomizedLight, Resize, Sky, Stage, Stars } from "@react-three/drei"
 import OutlineEffect from "./ThreeJS/OutlineEffect"
 import BackgroundModel from "./3DAssets/BackgroundModel"
 import Shed from "./House/Shed"
@@ -18,6 +18,7 @@ import Cityscape from "./3DAssets/Cityscape"
 import { Bloom, EffectComposer, Selection } from "@react-three/postprocessing"
 import Camera from "./ThreeJS/Camera"
 import useClosestObject from "./stores/useClosestObject"
+import TownCenter from "./3DAssets/TownCenter"
 
 
 // Puts everything related to Three.js inside a main class
@@ -59,7 +60,7 @@ export default function Experience() {
 
     let objectsToCheck = []
     scene.traverse(function (child) {
-        if (child.name === "UAP" || child.name === "ADU") {
+        if (child.name === "UAP" || child.name === "ADU" || child.name === "Town Center") {
             objectsToCheck.push(child)
         }
     })
@@ -91,13 +92,15 @@ export default function Experience() {
             }
           });
           // After checking all objects, print the closest one
-        // if (closestObject) {
-        //     console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
-        // }
+        if (closestObject) {
+            console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+        }
         if (closestObject.name === "UAP"){
           setClosestObject("UAP")
         } else if (closestObject.name === "ADU"){
           setClosestObject("ADU")
+        } else if (closestObject.name === "Town Center"){
+          setClosestObject("Town Center")
         }
     
     });
@@ -115,16 +118,17 @@ export default function Experience() {
         {/* <BackgroundModel></BackgroundModel> */}
         {/* <Lighting></Lighting> */}
         {/* <Stars  radius={500} count={50000} fade speed={0.5}/> */}
-        <Stage adjustCamera={false} shadows={{type: 'contact', scale: [500, 600],  position: [0, 1.1, 0], opacity: .75, blur: 0.1, frames: 1}}>
+        <Stage intensity={0.5} adjustCamera={false} shadows={{type: 'contact', radius: 0.1, position: [0,2.65,0], scale: [500,600], blur:0.1, opacity:0.4, frames: 1}}>
             <Cityscape></Cityscape>
             <Shed></Shed>
             <DetatchedAdu></DetatchedAdu>
             <Selection>
-                <EffectComposer>
-                    <Bloom mipmapBlur luminanceThreshold={1} levels={8} intensity={0.4} ></Bloom>
-                </EffectComposer>
+                {/* <EffectComposer>
+                    <Bloom mipmapBlur luminanceThreshold={1} levels={8} intensity={0.2} ></Bloom>
+                </EffectComposer> */}
                 <House></House>
                 <MediumDensityBuilding></MediumDensityBuilding>
+                <TownCenter></TownCenter>
             </Selection>  
         </Stage>    
     </>

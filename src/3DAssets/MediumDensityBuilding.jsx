@@ -54,7 +54,6 @@ export default function MediumDensityBuilding() {
                 (state) => state.closestObject,
                 (closestObject) => {
 
-                    console.log('Closest object:', closestObject);
                     if (closestObject === "UAP"){
                         api.start({bloom: 2})
                     } else {

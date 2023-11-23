@@ -3,7 +3,7 @@ import useApp from "./stores/useApp"
 
 import { OrbitControls } from "./ThreeJS/Controls"
 import { useFrame, useThree } from "@react-three/fiber"
-import { Environment, OrthographicCamera, PerspectiveCamera, RandomizedLight, Resize, Sky, Stage, Stars } from "@react-three/drei"
+import { BakeShadows, Environment, OrthographicCamera, PerspectiveCamera, RandomizedLight, Resize, Sky, Stage, Stars } from "@react-three/drei"
 import OutlineEffect from "./ThreeJS/OutlineEffect"
 import BackgroundModel from "./3DAssets/BackgroundModel"
 import Shed from "./House/Shed"
@@ -19,6 +19,7 @@ import { Bloom, EffectComposer, Selection } from "@react-three/postprocessing"
 import Camera from "./ThreeJS/Camera"
 import useClosestObject from "./stores/useClosestObject"
 import TownCenter from "./3DAssets/TownCenter"
+import useCamera from "./stores/useCamera"
 
 
 // Puts everything related to Three.js inside a main class
@@ -42,17 +43,29 @@ export default function Experience() {
     }
 
     const mouse = new THREE.Vector2
-
+    const [highlight, setHighlight] = useState(false)
     useEffect(() => {
         const onMouseMove = (event) => {
           mouse.x = (event.clientX / sizes.width) * 2 - 1;
           mouse.y = -(event.clientY / sizes.height) * 2 + 1;
         };
+
+        const unsubscribeCamera = useCamera.subscribe(
+          (state) => state.zoom,
+          (zoom) => {
+            if (zoom === 'Map') {
+              setHighlight(true)
+            } else {
+              setHighlight(false)
+            }
+          }
+        )
       
         window.addEventListener('mousemove', onMouseMove);
         return () => {
           window.removeEventListener('mousemove', onMouseMove);
-        };
+          unsubscribeCamera()
+        }
       }, [sizes]);
 
     const {camera, scene} = useThree()
@@ -64,7 +77,6 @@ export default function Experience() {
             objectsToCheck.push(child)
         }
     })
-
 
     useFrame(() => {
         let closestObject = null;
@@ -92,16 +104,32 @@ export default function Experience() {
             }
           });
           // After checking all objects, print the closest one
-        if (closestObject) {
+
+        if (!highlight) {
+          setClosestObject(null)
+        } else {
+
+          if (closestObject) {
             console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+          }
+          if (closestObject.name === "UAP"){
+            setClosestObject("UAP")
+          } else if (closestObject.name === "ADU"){
+            setClosestObject("ADU")
+          } else if (closestObject.name === "Town Center"){
+            setClosestObject("Town Center")
+          }
         }
-        if (closestObject.name === "UAP"){
-          setClosestObject("UAP")
-        } else if (closestObject.name === "ADU"){
-          setClosestObject("ADU")
-        } else if (closestObject.name === "Town Center"){
-          setClosestObject("Town Center")
-        }
+        // if (closestObject) {
+        //     console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+        // }
+        // if (closestObject.name === "UAP"){
+        //   setClosestObject("UAP")
+        // } else if (closestObject.name === "ADU"){
+        //   setClosestObject("ADU")
+        // } else if (closestObject.name === "Town Center"){
+        //   setClosestObject("Town Center")
+        // }
     
     });
 
@@ -110,7 +138,7 @@ export default function Experience() {
 
 
     return <> 
-        <color args={["#140b34"]} attach="background"/>
+        <color args={["ivory"]} attach="background"/>
         {/* <Lighting></Lighting> */}
         <OrbitControls >
             <Camera/>
@@ -118,7 +146,12 @@ export default function Experience() {
         {/* <BackgroundModel></BackgroundModel> */}
         {/* <Lighting></Lighting> */}
         {/* <Stars  radius={500} count={50000} fade speed={0.5}/> */}
-        <Stage intensity={0.5} adjustCamera={false} shadows={{type: 'contact', radius: 0.1, position: [0,2.65,0], scale: [500,600], blur:0.1, opacity:0.4, frames: 1}}>
+        <Stage 
+        intensity={0.5} 
+        adjustCamera={false} 
+        shadows={{type: 'contact', radius: 0.1, position: [0,2.65,0], scale: [500,600], blur:0.1, opacity:0.5, frames: 1}}
+        >
+            <BakeShadows></BakeShadows>
             <Cityscape></Cityscape>
             <Shed></Shed>
             <DetatchedAdu></DetatchedAdu>

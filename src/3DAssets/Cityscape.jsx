@@ -16,7 +16,7 @@ export default function Cityscape(props) {
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.038}
       >
-        <Edges threshold={25}/>
+        <Edges color={'grey'} threshold={25}/>
     </mesh>
     </group>
   );

@@ -40,12 +40,12 @@ export default function MediumDensityBuilding() {
                 (toggle) => {
                     if (toggle == "Medium Density") {
                         setScale([4, 10, 10])
-                        setColor('orange')
+                        setColor('hotpink')
                         
 
                     } else {
                         setScale([4, 5, 10])
-                        setColor('hotpink')
+                        setColor('orange')
                     }
                     console.log("COLOR IS ", spring.mainColor)
                 }

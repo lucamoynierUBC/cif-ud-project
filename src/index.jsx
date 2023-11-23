@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client"
 import { Canvas } from "@react-three/fiber"
 import Experience from "./Experience.jsx"
 import { Suspense } from "react"
-import { Loader } from "@react-three/drei"
+import { Loader, Stats} from "@react-three/drei"
 
 import MainInterface from "./UserInterface/MainInterface"
 import Nav from "./Nav/Nav"
@@ -21,6 +21,7 @@ root.render(
         <Suspense fallback={null}>
             <Canvas shadows>
                     <Experience />
+                    <Stats></Stats>
             </Canvas>
             
             <ConfigProvider theme={{ hashed: false}}> 

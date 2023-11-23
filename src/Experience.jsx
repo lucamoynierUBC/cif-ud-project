@@ -12,16 +12,19 @@ import Plot from "./ThreeJS/Plot"
 import Spawner from "./ThreeJS/Spawner"
 import House from "./House/House"
 import * as THREE from 'three'
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, useState } from "react"
 import MediumDensityBuilding from "./3DAssets/MediumDensityBuilding"
 import Cityscape from "./3DAssets/Cityscape"
 import { Bloom, EffectComposer, Selection } from "@react-three/postprocessing"
 import Camera from "./ThreeJS/Camera"
+import useClosestObject from "./stores/useClosestObject"
 
 
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
-    const cameraControlRef = useRef()
+
+  const setClosestObject = useClosestObject((state) => state.setClosestObject)
+
     function Rig({ children }) {
         const ref = useRef()
         useFrame((state) => {
@@ -61,7 +64,6 @@ export default function Experience() {
         }
     })
 
-    console.log(camera)
 
     useFrame(() => {
         let closestObject = null;
@@ -71,7 +73,7 @@ export default function Experience() {
               const vector = new THREE.Vector3();
               object.getWorldPosition(vector); // Get the object's world position
               vector.project(camera); // Project the world position into NDC space
-              console.log
+        
             
               // Convert projected coordinates to screen space
               const screenX = (vector.x + 1) * sizes.width / 2;
@@ -89,9 +91,15 @@ export default function Experience() {
             }
           });
           // After checking all objects, print the closest one
-        if (closestObject) {
-            console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+        // if (closestObject) {
+        //     console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+        // }
+        if (closestObject.name === "UAP"){
+          setClosestObject("UAP")
+        } else if (closestObject.name === "ADU"){
+          setClosestObject("ADU")
         }
+    
     });
 
     

@@ -11,6 +11,7 @@ import useTag from "../stores/useTag";
 import PopUp from "../UserInterface/Components/PopUp";
 import { Edges } from "@react-three/drei";
 import Reference from "./Reference";
+import useClosestObject from "../stores/useClosestObject";
 
 
 // House component that represents a 3D model with interactive elements
@@ -28,6 +29,7 @@ export default function House(props) {
   const [hoverEffect, setHoverEffect] = useState(true)
   const unselectAllAdu = useTag((state) => state.unselectAll)
   const setZoom = useCamera((state) => state.setZoom);
+  // const [bloom, setBloom] = useState(0)
 
   const defaultColor = '#e55c30'
   const altColor = '#f6d746'
@@ -43,6 +45,7 @@ export default function House(props) {
     houseOpacity: 1,
     basementOpacity: 1,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
+    bloom: 0
   }))
 
   // Gesture handling for when the house is hovered over, animate color when hovered over.
@@ -83,15 +86,15 @@ export default function House(props) {
         
 
         // Animate house color when Intro pop up modal is closed
-        const unsubscribeColor = useModal.subscribe(
-          (state) => state.modalPhase,
-          (modalPhase) => {
-            if (!modalPhase){
-              api.start({atticColor: defaultColor, houseColor: defaultColor, basementColor: defaultColor })
-              atticHover(true)
-            }
-          }
-        )
+        // const unsubscribeColor = useModal.subscribe(
+        //   (state) => state.modalPhase,
+        //   (modalPhase) => {
+        //     if (!modalPhase){
+        //       api.start({atticColor: defaultColor, houseColor: defaultColor, basementColor: defaultColor })
+        //       atticHover(true)
+        //     }
+        //   }
+        // )
 
         // Subscribing to changes in the useTag Store
         const unsubscribeOpacity = useTag.subscribe(
@@ -127,11 +130,25 @@ export default function House(props) {
           }
         )
 
+        const unsubscribeClosestObject = useClosestObject.subscribe(
+          (state) => state.closestObject,
+                (closestObject) => {
+                    if (closestObject === "ADU"){
+                      api.start({bloom: 2})
+                    } else {
+                      api.start({bloom: 0})
+                    }
+
+                }
+          
+        )
+
         // cleaning subscriptions
         return () => {
             unsubscribeOpacity()
             unsubscribeHighlight()
-            unsubscribeColor()
+            // unsubscribeColor()
+            unsubscribeClosestObject()
         }
    }, [])
 
@@ -150,6 +167,9 @@ export default function House(props) {
         geometry={nodes.main.geometry}
         material={materials.mainMat}
         material-color={spring.houseColor}
+        material-toneMapped={false}
+        material-emissiveIntensity={spring.bloom}
+        material-emissive={'orange'}
         material-transparent={true}
         material-opacity={spring.houseOpacity}
         position={[0.042, -23.125, 0]}
@@ -169,6 +189,9 @@ export default function House(props) {
         geometry={nodes.attic.geometry}
         material={materials.atticMat}
         material-color={spring.atticColor}
+        material-toneMapped={false}
+        material-emissiveIntensity={spring.bloom}
+        material-emissive={'orange'}
         material-transparent={true}
         material-opacity={spring.atticOpacity}
         position={[0.042, -23.125, 0]}
@@ -191,6 +214,9 @@ export default function House(props) {
         geometry={nodes.basement.geometry}
         material={materials.basementMat}
         material-color={spring.basementColor}
+        material-toneMapped={false}
+        material-emissiveIntensity={spring.bloom}
+        material-emissive={'orange'}
         material-transparent={true}
         material-opacity={spring.basementOpacity}
         position={[0.042, -23.125, 0]}

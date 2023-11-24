@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import useCamera from "../stores/useCamera";
 import useConfigurator from "../stores/useConfigurator";
-import { Edges, MeshTransmissionMaterial } from "@react-three/drei";
+import { Edges, Html, MeshTransmissionMaterial } from "@react-three/drei";
 import { useControls } from "leva";
 import PopUpUAP from "../UserInterface/Components/PopUpUAP";
 import useClosestObject from "../stores/useClosestObject";
 import { animated, useSpring, config } from "@react-spring/three";
 import { useGesture } from "react-use-gesture";
+import { Popover } from "antd";
 
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
@@ -14,6 +15,7 @@ export default function MediumDensityBuilding() {
     const [color, setColor] = useState("orange")
     // const [bloom, setBloom] = useState(0)
     const [selected, setSelected] = useState(0)
+    const [open, setOpen] = useState(false)
 
     const store = {
         color: { value: 'hotpink' },
@@ -56,8 +58,10 @@ export default function MediumDensityBuilding() {
 
                     if (closestObject === "UAP"){
                         api.start({bloom: 2})
+                        setOpen(true)
                     } else {
                         api.start({bloom: 0})
+                        setOpen(false)
                     }
 
                 }
@@ -78,6 +82,10 @@ export default function MediumDensityBuilding() {
             <PopUpUAP position={[0,0,0]}></PopUpUAP>
            
             <boxGeometry></boxGeometry>
+            <Html>
+                <Popover className="Popover" title={'Universal Affordability Preference'} open={open}>
+                </Popover>
+            </Html>
         </animated.mesh>
     )
 }

@@ -3,7 +3,7 @@ import useApp from "./stores/useApp"
 
 import { OrbitControls } from "./ThreeJS/Controls"
 import { useFrame, useThree } from "@react-three/fiber"
-import { BakeShadows, Environment, OrthographicCamera, PerspectiveCamera, RandomizedLight, Resize, Sky, Stage, Stars } from "@react-three/drei"
+import { Backdrop, BakeShadows, Environment, OrthographicCamera, PerspectiveCamera, RandomizedLight, Resize, Sky, Stage, Stars } from "@react-three/drei"
 import OutlineEffect from "./ThreeJS/OutlineEffect"
 import BackgroundModel from "./3DAssets/BackgroundModel"
 import Shed from "./House/Shed"
@@ -20,7 +20,8 @@ import Camera from "./ThreeJS/Camera"
 import useClosestObject from "./stores/useClosestObject"
 import TownCenter from "./3DAssets/TownCenter"
 import useCamera from "./stores/useCamera"
-
+import TransitDevelopment from "./3DAssets/TransitDevelopment"
+import { CombindedProposals } from "./3DAssets/CombinedProposals"
 
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
@@ -41,10 +42,12 @@ export default function Experience() {
         width: window.innerWidth,
         height: window.innerHeight
     }
-
+    const {camera, scene, controls} = useThree()
+    console.log(controls)
     const mouse = new THREE.Vector2
     const [highlight, setHighlight] = useState(false)
     useEffect(() => {
+      if (controls) {
         const onMouseMove = (event) => {
           mouse.x = (event.clientX / sizes.width) * 2 - 1;
           mouse.y = -(event.clientY / sizes.height) * 2 + 1;
@@ -54,7 +57,8 @@ export default function Experience() {
           (state) => state.zoom,
           (zoom) => {
             if (zoom === 'Map') {
-              setHighlight(true)
+
+              setTimeout(() => {setHighlight(true)}, 2000)
             } else {
               setHighlight(false)
             }
@@ -62,18 +66,34 @@ export default function Experience() {
         )
       
         window.addEventListener('mousemove', onMouseMove);
+
+        const onStart = () => {
+          setHighlight(false);
+        };
+      
+        // Event handler for when the controls stop being used
+        const onEnd = () => {
+          setHighlight(true);
+        };
+        controls.addEventListener('start', onStart);
+        controls.addEventListener('end', onEnd);
+
+      
+
         return () => {
           window.removeEventListener('mousemove', onMouseMove);
+          controls.removeEventListener('start', onStart);
+          controls.removeEventListener('end', onEnd);
           unsubscribeCamera()
         }
-      }, [sizes]);
+      }
+      }, [sizes, controls]);
 
-    const {camera, scene} = useThree()
   
 
     let objectsToCheck = []
     scene.traverse(function (child) {
-        if (child.name === "UAP" || child.name === "ADU" || child.name === "Town Center") {
+        if (child.name === "UAP" || child.name === "ADU" || child.name === "Town Center" || child.name === "Transit Development") {
             objectsToCheck.push(child)
         }
     })
@@ -109,28 +129,19 @@ export default function Experience() {
           setClosestObject(null)
         } else {
 
-          if (closestObject) {
-            console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
-          }
+          // if (closestObject) {
+          //   console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
+          // }
           if (closestObject.name === "UAP"){
             setClosestObject("UAP")
           } else if (closestObject.name === "ADU"){
             setClosestObject("ADU")
           } else if (closestObject.name === "Town Center"){
             setClosestObject("Town Center")
+          } else if (closestObject.name === "Transit Development") {
+            setClosestObject("Transit Development")
           }
         }
-        // if (closestObject) {
-        //     console.log(`${closestObject.name} is the closest to the mouse, approximately ${minimumDistance}px away in screen space`);
-        // }
-        // if (closestObject.name === "UAP"){
-        //   setClosestObject("UAP")
-        // } else if (closestObject.name === "ADU"){
-        //   setClosestObject("ADU")
-        // } else if (closestObject.name === "Town Center"){
-        //   setClosestObject("Town Center")
-        // }
-    
     });
 
     
@@ -138,7 +149,7 @@ export default function Experience() {
 
 
     return <> 
-        <color args={["ivory"]} attach="background"/>
+        <color args={['ivory']} attach="background"/>
         {/* <Lighting></Lighting> */}
         <OrbitControls >
             <Camera/>
@@ -149,6 +160,7 @@ export default function Experience() {
         <Stage 
         intensity={0.5} 
         adjustCamera={false} 
+        environment={'city'}
         shadows={{type: 'contact', radius: 0.1, position: [0,2.65,0], scale: [500,600], blur:0.1, opacity:0.5, frames: 1}}
         >
             <BakeShadows></BakeShadows>
@@ -162,6 +174,8 @@ export default function Experience() {
                 <House></House>
                 <MediumDensityBuilding></MediumDensityBuilding>
                 <TownCenter></TownCenter>
+                <TransitDevelopment></TransitDevelopment>
+                <CombindedProposals></CombindedProposals>
             </Selection>  
         </Stage>    
     </>

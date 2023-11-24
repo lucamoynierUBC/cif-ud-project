@@ -2,10 +2,12 @@ import { Button, Flex, Tour } from "antd";
 import { useContext, useRef, useState} from "react";
 import './TourGuide.css';
 import useRefStore from "../../stores/useRefStore";
+import useCamera from "../../stores/useCamera";
 
 export default function TourGuide() {
     const [open, setOpen] = useState(true);
     const { ref } = useRefStore();
+    const setZoom = useCamera((state) => state.setZoom)
     
     
     const steps = [
@@ -29,7 +31,7 @@ export default function TourGuide() {
             title: 'City of Yes for Housing Opportunity',
             description: 'The City of Yes initiative would unlock housing growth in every neighborhood. Each aspect of the proposal—from helping offices convert to residential, to giving homeowners the option to add small rental units, to adding more affordable housing in high-demand neighborhoods—is a proven strategy to help lower housing costs and help neighborhoods thrive. ',
             cover: (
-              <img style={{height:'auto', width: 'auto'}} src="https://i.imgur.com/SESSezH.png"/>
+              <img style={{height:'auto', width: '500px'}} src="https://i.imgur.com/i4BZki3.png"/>
             ),
             
         },
@@ -55,7 +57,7 @@ export default function TourGuide() {
 
     return (
         <>
-            <Tour  open={open} onClose={() => setOpen(false)} steps={steps}></Tour>
+            <Tour open={open} onClose={() => [setOpen(false), setZoom('Map')]} steps={steps}></Tour>
         </>
     )
 }

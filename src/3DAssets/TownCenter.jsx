@@ -1,16 +1,12 @@
-import { Edges, MeshTransmissionMaterial } from "@react-three/drei"
+import { Edges, Html, MeshTransmissionMaterial } from "@react-three/drei"
 import { useControls } from "leva"
 import { animated, useSpring, config } from "@react-spring/three"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import useClosestObject from "../stores/useClosestObject"
+import { Popover } from "antd"
 
 export default function TownCenter() {
-    const {townX, townY, townZ} = useControls({
-        townX: {value: 0, min: -100, max: 100 },
-        townY: {value: 0, min: -100, max: 100 },
-        townZ: {value: 0, min: -100, max: 100 }
-    })
-
+    const [open, setOpen] = useState(false)
     const [spring, api] = useSpring(() => ({
         bloom: 0,
         config: config.stiff
@@ -22,8 +18,10 @@ export default function TownCenter() {
             (closestObject) => {
                 if (closestObject === "Town Center"){
                     api.start({bloom: 2})
+                    setOpen(true)
                 } else {
                     api.start({bloom: 0})
+                    setOpen(false)
                 }
             }
 
@@ -39,6 +37,10 @@ export default function TownCenter() {
             <MeshTransmissionMaterial toneMapped={false} emissive={'orange'} color={'orange'} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32}/>
             <Edges></Edges>
             <boxGeometry></boxGeometry>
+            <Html>
+                <Popover overlayStyle={{width: '105px'}} className="Popover" title={'Town Center'} open={open}>
+                </Popover>
+            </Html>
         </animated.mesh>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import useApp from "../stores/useApp";
 import useCamera from "../stores/useCamera";
 import { Select } from "@react-three/postprocessing";
@@ -12,6 +12,7 @@ import PopUp from "../UserInterface/Components/PopUp";
 import { Edges } from "@react-three/drei";
 import Reference from "./Reference";
 import useClosestObject from "../stores/useClosestObject";
+import { Popover } from "antd";
 
 
 // House component that represents a 3D model with interactive elements
@@ -29,6 +30,7 @@ export default function House(props) {
   const [hoverEffect, setHoverEffect] = useState(true)
   const unselectAllAdu = useTag((state) => state.unselectAll)
   const setZoom = useCamera((state) => state.setZoom);
+  const [open, setOpen] = useState(false)
   // const [bloom, setBloom] = useState(0)
 
   const defaultColor = '#e55c30'
@@ -135,8 +137,10 @@ export default function House(props) {
                 (closestObject) => {
                     if (closestObject === "ADU"){
                       api.start({bloom: 2})
+                      setOpen(true)
                     } else {
                       api.start({bloom: 0})
+                      setOpen(false)
                     }
 
                 }
@@ -175,6 +179,10 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       >
+        <Html position={[-100, 70, -30]}>
+          <Popover overlayStyle={{width: '180px'}} title={'Accessory Dwelling Unit'} open={open}>
+          </Popover>
+        </Html>
         <Edges/>
       </animated.mesh>
       {/* <Popup position={[-25, 4, -10]}/> */}
@@ -199,6 +207,7 @@ export default function House(props) {
         opacity={0.5}
         transparent={true}
       >
+        
         <Edges/>
         <Reference></Reference>
         {/* attatch Attic html tag to attic geometry*/}

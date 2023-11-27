@@ -6,7 +6,7 @@ import useTag from '../../stores/useTag';
 import useCamera from '../../stores/useCamera';
 
 
-export default function ConfiguratorUAP({title}){
+export default function ConfiguratorCombo({title}){
     const [api, contextHolder] = notification.useNotification();
     const { Meta } = Card;
     const setToggle = useConfigurator((state) => state.setToggle)
@@ -49,7 +49,7 @@ export default function ConfiguratorUAP({title}){
             title={<Meta 
             title={title}
             style={{padding: "15px 0"}} 
-            description={<Space size={[0, 8]} wrap><Tag color="volcano">Medium Density</Tag><Tag color="purple">Apartment Building</Tag></Space>}/>}
+            description={<Space size={[0, 8]} wrap><Tag color="geekblue">Multi-Use</Tag><Tag color="purple">Apartment Building</Tag></Space>}/>}
             >
                 <Row gutter={[0, 0]} align={'middle'}>
                     {/* <Col span={24}>

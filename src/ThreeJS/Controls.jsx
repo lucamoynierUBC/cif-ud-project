@@ -100,7 +100,20 @@ export const OrbitControls = ({ children }) => {
                     ref.current.update()
                   }
               })
-          }
+            }
+
+
+            if (zoom == "Combo"){
+              gsap.to(ref.current.target, {
+                  duration: 2,
+                  x: -180,
+                  y: -90,
+                  z: 0,
+                  onUpdate: () => {
+                    ref.current.update()
+                  }
+              })
+            }  
                 
           }
     )

@@ -1,4 +1,3 @@
-
 import useApp from "./stores/useApp"
 
 import { OrbitControls } from "./ThreeJS/Controls"
@@ -57,7 +56,6 @@ export default function Experience() {
           (state) => state.zoom,
           (zoom) => {
             if (zoom === 'Map') {
-
               setTimeout(() => {setHighlight(true)}, 2000)
             } else {
               setHighlight(false)
@@ -67,6 +65,7 @@ export default function Experience() {
       
         window.addEventListener('mousemove', onMouseMove);
 
+
         const onStart = () => {
           setHighlight(false);
         };
@@ -75,10 +74,9 @@ export default function Experience() {
         const onEnd = () => {
           setHighlight(true);
         };
+
         controls.addEventListener('start', onStart);
         controls.addEventListener('end', onEnd);
-
-      
 
         return () => {
           window.removeEventListener('mousemove', onMouseMove);
@@ -93,7 +91,8 @@ export default function Experience() {
 
     let objectsToCheck = []
     scene.traverse(function (child) {
-        if (child.name === "UAP" || child.name === "ADU" || child.name === "Town Center" || child.name === "Transit Development") {
+        if (child.name === "UAP" || child.name === "ADU" 
+        || child.name === "Town Center" || child.name === "Transit Development" || child.name === "Combined Proposals") {
             objectsToCheck.push(child)
         }
     })
@@ -101,6 +100,7 @@ export default function Experience() {
     useFrame(() => {
         let closestObject = null;
         let minimumDistance = Infinity;
+
         objectsToCheck.forEach(object => {
             if (object) {
               const vector = new THREE.Vector3();
@@ -140,6 +140,8 @@ export default function Experience() {
             setClosestObject("Town Center")
           } else if (closestObject.name === "Transit Development") {
             setClosestObject("Transit Development")
+          } else if (closestObject.name === "Combined Proposals") {
+            setClosestObject("Combined Proposals")
           }
         }
     });

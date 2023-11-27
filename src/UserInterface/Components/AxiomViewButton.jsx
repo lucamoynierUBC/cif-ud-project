@@ -27,10 +27,10 @@ export default function AxiomViewButton() {
     const unsubscribeZoom = useCamera.subscribe(
       (state) => state.zoom,
       (zoom) => {
+        console.log("State of camera ", zoom)
         if (zoom == "Map"){
-          // setTimeout(() => setDisabled(true), 2000)
-          setLoad(true)
           setTimeout(() => setLoad(false), 2000)
+          setLoad(true)
          
           
 

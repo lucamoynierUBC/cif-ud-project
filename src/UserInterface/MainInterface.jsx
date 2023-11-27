@@ -14,6 +14,7 @@ import ConfiguratorAdu from "./Components/ConfiguratorAdu"
 import ConfiguratorUAP from "./Components/ConfigurartorUAP"
 import DropdownUAP from "./Components/DropdownUAP"
 import TourGuide from "./Components/TourGuide"
+import ConfiguratorCombo from "./Components/ConfiguratorCombo"
 
 
 const { Header, Content, Sider } = Layout;
@@ -56,18 +57,19 @@ export default function MainInterface() {
                 if (zoom === "Medium Density" | zoom === "Medium Density - BOV") {
                     setVisible(true)
                     setConfiguratorType("Medium Density")
-                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 }
                 else if (zoom === "Adu" | zoom === "Adu - BOV") {
                     setVisible(true)
                     setConfiguratorType("Adu")
-                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 
+                } else if (zoom === "Combo") {
+                    setVisible(true)
+                    setConfiguratorType("Combo")
+
 
                 } else {
                     setVisible(false)
                     setConfiguratorType(null)
-                    console.log("ZOOOM IS: "+zoom, "VISIBILITY SET TO: " + visible)
                 }
             }
         )
@@ -130,6 +132,9 @@ export default function MainInterface() {
                             
                                {configuratorType == "Medium Density" && (
                                     <ConfiguratorUAP title="Universal Affordability Preference"/>
+                               )}
+                               {configuratorType == "Combo" && (
+                                    <ConfiguratorCombo title={"Combined Proposals"}/>
                                )}
                               
                             </Content>

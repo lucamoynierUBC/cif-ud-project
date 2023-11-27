@@ -116,6 +116,24 @@ export default function Camera() {
                     })
                     enableCamera() 
                 }
+                else if (zoom == "Combo"){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 50,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -120,
+                        y: 20,
+                        z: -190
+                    })
+                    enableCamera() 
+
+                }
             }
         )
 

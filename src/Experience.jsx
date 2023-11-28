@@ -45,6 +45,7 @@ export default function Experience() {
     console.log(controls)
     const mouse = new THREE.Vector2
     const [highlight, setHighlight] = useState(false)
+    const [map, setMap] = useState(true)
     useEffect(() => {
       if (controls) {
         const onMouseMove = (event) => {
@@ -57,8 +58,11 @@ export default function Experience() {
           (zoom) => {
             if (zoom === 'Map') {
               setTimeout(() => {setHighlight(true)}, 2000)
+              setMap(true)
+
             } else {
               setHighlight(false)
+              setMap(false)
             }
           }
         )
@@ -67,12 +71,16 @@ export default function Experience() {
 
 
         const onStart = () => {
-          setHighlight(false);
+          if (map) {
+            setHighlight(false);
+          }
         };
       
         // Event handler for when the controls stop being used
         const onEnd = () => {
-          setHighlight(true);
+          if (map) {
+            setHighlight(true);
+          }
         };
 
         controls.addEventListener('start', onStart);
@@ -168,6 +176,14 @@ export default function Experience() {
             <BakeShadows></BakeShadows>
             <Cityscape></Cityscape>
             <Shed></Shed>
+            {/* <Sky></Sky> */}
+            {/* <Backdrop floor={5} position={[0,-1,-300]} scale={[1000, 100, 100]}>
+              <meshStandardMaterial color="grey" />
+            </Backdrop>
+            
+            <Backdrop rotation={[0, Math.PI, 0]} floor={5} position={[0,-1.5,300]} scale={[1000, 100, 100]}>
+              <meshStandardMaterial color="grey" />
+            </Backdrop> */}
             <DetatchedAdu></DetatchedAdu>
             <Selection>
                 {/* <EffectComposer>

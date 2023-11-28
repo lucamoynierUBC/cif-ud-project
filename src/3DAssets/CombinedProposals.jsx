@@ -4,6 +4,7 @@ import useClosestObject from "../stores/useClosestObject";
 import { Popover } from "antd";
 import { animated, useSpring, config } from "@react-spring/three";
 import useCamera from "../stores/useCamera";
+import useConfigurator from "../stores/useConfigurator";
 
 export function CombindedProposals(props) {
   const { nodes, materials } = useGLTF("/CombinedProposals.glb");
@@ -13,28 +14,58 @@ export function CombindedProposals(props) {
   const [spring, api] = useSpring(() => ({
     color: '#ae561f',
     scale: 0.39,
+    visibleConversion: false,
+    visibleInfill: false,
     config: config.stiff,
 
 
   }))
   
   useEffect(()=> {
-    const unsubscribeClosestObject = useClosestObject.subscribe(
-            (state) => state.closestObject,
-            (closestObject) => {
-                if (closestObject === "Combined Proposals"){
-                  setOpen(true)
-                  api.start({color: '#ffc861', scale: 0.4})
-                    
-                } else {
-                    setOpen(false)
-                    api.start({color: '#ae561f', scale: 0.39})
+        const unsubscribeClosestObject = useClosestObject.subscribe(
+                (state) => state.closestObject,
+                (closestObject) => {
+                    if (closestObject === "Combined Proposals"){
+                      setOpen(true)
+                      api.start({color: '#ffc861', scale: 0.4})
+                        
+                    } else {
+                        setOpen(false)
+                        api.start({color: '#ae561f', scale: 0.39})
+                    }
                 }
-            }
 
         )
+
+        const unsubscribeConfigurator = useConfigurator.subscribe(
+          (state) => state.toggle,
+          (toggle) => {
+
+              let visibleConversion = false;
+              let visibleInfill = false;
+
+      
+              if (Array.isArray(toggle) && toggle.length > 0) {
+                  toggle.forEach((t) => {
+                      if (t === 1) {
+                          visibleConversion = true;
+                      }
+                      if (t === 2) {
+                          visibleInfill = true;
+                      }
+                  });
+              }
+              api.start({visibleConversion: visibleConversion, visibleInfill: visibleInfill})
+            }
+        )
+          
+      
+        
+  
+
         return () => {
             unsubscribeClosestObject()
+            unsubscribeConfigurator()
         }
     }, [])
 
@@ -54,6 +85,7 @@ export function CombindedProposals(props) {
       <animated.mesh
         castShadow
         receiveShadow
+        visible={spring.visibleConversion}
         geometry={nodes.residential1.geometry}
         material={materials["Material.001"]}
         material-color={spring.color}
@@ -63,6 +95,7 @@ export function CombindedProposals(props) {
       <animated.mesh
         castShadow
         receiveShadow
+        visible={spring.visibleInfill}
         geometry={nodes.residential2.geometry}
         material={materials["Material.003"]}
         material-color={spring.color}

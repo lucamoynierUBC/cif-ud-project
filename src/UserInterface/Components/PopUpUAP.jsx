@@ -1,5 +1,5 @@
 import { Html } from "@react-three/drei";
-import { Flex, FloatButton, Popover, Space, Statistic } from "antd";
+import { Button, Card, Flex, FloatButton, Popover, Space, Statistic } from "antd";
 import CountUp from 'react-countup';
 import {InfoOutlined} from '@ant-design/icons';
 import { useState, useEffect } from "react";
@@ -48,7 +48,7 @@ export default function PopUpUAP({position}) {
         const unsubscribeVisible = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                if (zoom == "Medium Density") {
+                if (zoom == "Medium Density" ) {
                     setTimeout(() => setVisible(true), 2000)
 
                 } else if(zoom = "Map") {
@@ -61,6 +61,7 @@ export default function PopUpUAP({position}) {
         const unsubcribeToggle = useConfigurator.subscribe(
             (state) => state.toggle,
             (toggle) => {
+                console.log(toggle)
                 if (toggle == "Medium Density"){
                     setToggle(true)
                 } else {
@@ -76,10 +77,22 @@ export default function PopUpUAP({position}) {
     }, [])
 
     return (
-        visible && (<Html position={position} style={{backdropFilter: "blur(10px)"}} >
-            <Popover trigger="hover" title="Changes" content={content}>
+        visible && (<Html position={[2,0,0]}  style={{backdropFilter: "blur(10px)"}} >
+            {/* <Popover placement="right"  open={true} title="Changes" content={content}>
                     <FloatButton style={buttonStyles}  badge={{dot: true}} icon={<InfoOutlined width={"3px"}/>}></FloatButton>
-            </Popover>
+                    
+            </Popover> */}
+            <Card size="small" hoverable title="Changes" content="yes">
+                <Flex >
+                    <Space size={"large"}>
+                        {!toggled && (<Statistic title="Floors" value={4} formatter={formatter}/>)}
+                        {!toggled && (<Statistic title="Units" value={10} formatter={formatter}/>)}
+                        
+                        {toggled && (<Statistic title="Floors" value={7} formatter={formatter}/>)}
+                        {toggled && (<Statistic title="Units" value={18} formatter={formatter}/>)}
+                    </Space>
+                </Flex>
+            </Card>
         </Html>)
     )
 }

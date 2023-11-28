@@ -7,7 +7,7 @@ import { Loader, Stats} from "@react-three/drei"
 
 import MainInterface from "./UserInterface/MainInterface"
 import Nav from "./Nav/Nav"
-import Modal from "./IntroModal/Modal"
+import { Route, Switch } from "wouter"
 
 const root = ReactDOM.createRoot(document.querySelector("#root"))
 import { ConfigProvider, theme } from 'antd';
@@ -20,12 +20,17 @@ root.render(
     {/*//everything related to R3F goes into canvas, GUI goes outside  */}
         <Suspense fallback={null}>
             <Canvas shadows>
-                    <Experience />
+                    <Experience/>
                     <Stats></Stats>
             </Canvas>
             
-            <ConfigProvider theme={{ hashed: false}}> 
-                <MainInterface></MainInterface>
+            <ConfigProvider theme={{ hashed: false}}>
+           
+                    
+              
+               
+                <MainInterface/>
+         
             </ConfigProvider>
             <Nav></Nav>
         </Suspense>    

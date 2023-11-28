@@ -15,7 +15,7 @@ import ConfiguratorUAP from "./Components/ConfigurartorUAP"
 import DropdownUAP from "./Components/DropdownUAP"
 import TourGuide from "./Components/TourGuide"
 import ConfiguratorCombo from "./Components/ConfiguratorCombo"
-
+import { Route, Router, Link } from "wouter";
 
 const { Header, Content, Sider } = Layout;
 
@@ -113,6 +113,7 @@ export default function MainInterface() {
 
 
     return(
+        <Router>
         <div>
             {/* Show caret if interface is not visible */}
             {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
@@ -136,6 +137,9 @@ export default function MainInterface() {
                                {configuratorType == "Combo" && (
                                     <ConfiguratorCombo title={"Combined Proposals"}/>
                                )}
+                                {/* <Route path="/adu" component={ConfiguratorAdu} />
+                                <Route path="/medium-density" component={ConfiguratorUAP} />
+                                <Route path="/combo" component={ConfiguratorCombo} /> */}
                               
                             </Content>
                         <Content style={{
@@ -149,6 +153,9 @@ export default function MainInterface() {
                                 {(configuratorType == "Medium Density" || configuratorType == "Medium Density - BOV") && (
                                     <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP}/>
                                 )}
+                                {/* <Link href="/adu">ADU Configurator</Link>
+                                <Link href="/medium-density">UAP Configurator</Link>
+                                <Link href="/combo">Combined Proposals</Link> */}
 
                         </Content>
                     </Layout>
@@ -157,5 +164,6 @@ export default function MainInterface() {
                 </div>
             </animated.div>)}
         </div>
+        </Router>
     )
 }

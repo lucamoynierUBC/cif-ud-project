@@ -1,4 +1,4 @@
-import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag, Switch, Flex} from 'antd';
+import { Button, Card, Col, Layout, Radio, Row, Avatar, Slider, notification, Space, Divider, Tag, Switch, Flex, Select} from 'antd';
 import { useEffect, useState } from 'react';
 import { PiSlidersHorizontal } from 'react-icons/pi';
 import useConfigurator from '../../stores/useConfigurator';
@@ -11,7 +11,6 @@ export default function ConfiguratorCombo({title}){
     const { Meta } = Card;
     const setToggle = useConfigurator((state) => state.setToggle)
     const [value, setValue] = useState(1)
-    
     const setZoom = useCamera((state) => state.setZoom)
 
     notification.config({
@@ -40,8 +39,21 @@ export default function ConfiguratorCombo({title}){
     const onChangeValue = (e) => {
         setValue(e.target.value);
       };
-    
 
+    const options = [
+        ({value: 1, label: "Residential Conversion"}),
+        ({value: 2, label: "Campus Infill"}),
+    ]
+
+    const handleChange = (value) => {
+        console.log(`selected ${value}`)
+        console.log(value)
+        if (value){
+            setToggle(value)
+        }
+    }
+
+    
     return(
         <Card 
             type="inner" 
@@ -52,20 +64,6 @@ export default function ConfiguratorCombo({title}){
             description={<Space size={[0, 8]} wrap><Tag color="geekblue">Multi-Use</Tag><Tag color="purple">Apartment Building</Tag></Space>}/>}
             >
                 <Row gutter={[0, 0]} align={'middle'}>
-                    {/* <Col span={24}>
-                        <Flex justify='space-between' align='flex-end'>
-                        Types:                
-                        {contextHolder}
-                        
-                            <Radio.Group size="small" buttonStyle="solid">
-                                <Radio.Button value="a" onChange={seletctAttic}>Attic</Radio.Button>
-                                <Radio.Button value="b" onChange={selectBasement}>Basement</Radio.Button>
-                                <Radio.Button value="c" onChange={selectAttatched}>Attatched</Radio.Button>
-                                <Radio.Button value="d" onChange={selectDetatched}>Detatched</Radio.Button>
-                            </Radio.Group>
-                        </Flex>
-                    </Col>
-                    <Divider/> */}
                     <Col span={12}>
                         View:
                     </Col>
@@ -73,19 +71,26 @@ export default function ConfiguratorCombo({title}){
                         <Flex justify='flex-end'>
                             <Radio.Group onChange={onChangeValue} value={value} size="large" >
                             {/* options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} */}
-                            <Radio onClick={() => setZoom("Medium Density")} value={1}>👁️</Radio>
-                            <Radio onClick={() => setZoom("Medium Density - BOV")} value={2}>✈️</Radio>
+                            <Radio value={1}>👁️</Radio>
+                            <Radio value={2}>✈️</Radio>
                             </Radio.Group>
                         </Flex>
                         
                     </Col>
                     <Divider/>
-                    <Col span={12}>
-                        Before/After:
+                    <Col span={6}>
+                        Select Proposals:
                     </Col>
-                    <Col span={12}>
+                    <Col span={18}>
                        <Flex justify='flex-end'>
-                            <Switch checkedChildren="After" unCheckedChildren="Before" onChange={onChange}/>
+                           <Select
+                            style={{width: '100%'}}
+                            mode='multiple'
+                            placeholder="Select Proposals"
+                            options={options}
+                            onChange={handleChange}
+
+                           />
                        </Flex>
                     </Col>
                 </Row>

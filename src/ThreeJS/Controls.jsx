@@ -106,9 +106,9 @@ export const OrbitControls = ({ children }) => {
             if (zoom == "Combo"){
               gsap.to(ref.current.target, {
                   duration: 2,
-                  x: -180,
-                  y: -90,
-                  z: 0,
+                  x: -150,
+                  y: 0,
+                  z: -140,
                   onUpdate: () => {
                     ref.current.update()
                   }

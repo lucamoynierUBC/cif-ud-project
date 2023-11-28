@@ -3,6 +3,7 @@ import useCamera from '../../stores/useCamera';
 import './AxiomViewButton.css';
 import { FloatButton, Button } from 'antd';
 import useTag from '../../stores/useTag';
+import { Link } from "wouter"
 
 
 export default function AxiomViewButton() {
@@ -48,7 +49,9 @@ export default function AxiomViewButton() {
 
   return (
     <div className="axiom-container">
-      <Button disabled={false} loading={load} type='primary' icon={"🗺️"} onClick={handleClick}>Return to Map</Button>
+      <Button disabled={false} loading={load} type='primary' icon={"🗺️"} onClick={handleClick}>
+        {<Link href='/'>Return to Map </Link>}
+      </Button>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useControls } from "leva"
 import { animated, useSpring, config } from "@react-spring/three"
 import { useEffect, useState } from "react"
 import useClosestObject from "../stores/useClosestObject"
-import { Popover } from "antd"
+import { Popover, Tooltip } from "antd"
 
 export default function TownCenter() {
     const [open, setOpen] = useState(false)
@@ -38,8 +38,7 @@ export default function TownCenter() {
             <Edges></Edges>
             <boxGeometry></boxGeometry>
             <Html>
-                <Popover overlayStyle={{width: '105px'}} className="Popover" title={'Town Center'} open={open}>
-                </Popover>
+                <Tooltip open={open} title="Town Center"></Tooltip>
             </Html>
         </animated.mesh>
     )

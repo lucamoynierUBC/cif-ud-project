@@ -5,43 +5,25 @@ import {InfoOutlined} from '@ant-design/icons';
 import { useState, useEffect } from "react";
 import useCamera from "../../stores/useCamera";
 import useConfigurator from "../../stores/useConfigurator";
+import { useSpring, config, animated } from "react-spring";
 
 
 export default function PopUpUAP({position}) {
-    const buttonStyles = {
-        border: "1px solid",
-        color: "transparent",
-    }
-
     const [visible, setVisible] = useState(false)
     const [toggled, setToggle] = useState(false)
     
     const formatter = (value) => <CountUp end={value} separator=","/>;
-    
-    const content = (
-        <>
-            {!toggled && (<p>
-                This is an existing building with 4 floors and 10 units.
-            </p>)}
-            {toggled && (<p>
-                Under the Universal Affordability Preference, 
-                <br/>the building can be built with 20% more space, 
-                <br/>
-                so long as it uses that extra space for affordable 
-                <br></br>
-                housing.
-            </p>)}
-            <Flex >
-                <Space size={"large"}>
-                    {!toggled && (<Statistic title="Floors" value={4} formatter={formatter}/>)}
-                    {!toggled && (<Statistic title="Units" value={10} formatter={formatter}/>)}
-                    
-                    {toggled && (<Statistic title="Floors" value={7} formatter={formatter}/>)}
-                    {toggled && (<Statistic title="Units" value={18} formatter={formatter}/>)}
-                </Space>
-            </Flex>
-        </>
-    )
+
+
+
+    const [spring, api] = useSpring(() => ({
+        y: 0,
+        scale: 1,
+        width: '150px',
+        height: '.75px', // Adjust thickness as needed
+        backgroundColor: 'black', // Line color
+        config: config.stiff
+    }))
 
     useEffect(() => {
         // Toggle popup
@@ -64,8 +46,10 @@ export default function PopUpUAP({position}) {
                 console.log(toggle)
                 if (toggle == "Medium Density"){
                     setToggle(true)
+                    api.start({scale: 1, y:-150})
                 } else {
                     setToggle(false)
+                    api.start({scale: 1 , y:0})
                 }
             }
 
@@ -75,24 +59,22 @@ export default function PopUpUAP({position}) {
             unsubcribeToggle()
         }
     }, [])
+    
+
 
     return (
-        visible && (<Html position={[2,0,0]}  style={{backdropFilter: "blur(10px)"}} >
-            {/* <Popover placement="right"  open={true} title="Changes" content={content}>
-                    <FloatButton style={buttonStyles}  badge={{dot: true}} icon={<InfoOutlined width={"3px"}/>}></FloatButton>
-                    
-            </Popover> */}
-            <Card size="small" hoverable title="Changes" content="yes">
-                <Flex >
-                    <Space size={"large"}>
-                        {!toggled && (<Statistic title="Floors" value={4} formatter={formatter}/>)}
-                        {!toggled && (<Statistic title="Units" value={10} formatter={formatter}/>)}
-                        
-                        {toggled && (<Statistic title="Floors" value={7} formatter={formatter}/>)}
-                        {toggled && (<Statistic title="Units" value={18} formatter={formatter}/>)}
-                    </Space>
-                </Flex>
-            </Card>
+        visible && (<Html {...spring} scaleFactor={10} position={[2.5, 0, 0]}>
+                <animated.div style={spring}>
+                    <Flex >
+                            <Space size={"large"}>
+                                {!toggled && (<Statistic title="Floors" value={4} formatter={formatter}/>)}
+                                {!toggled && (<Statistic title="Units" value={10} formatter={formatter}/>)}
+                                
+                                {toggled && (<Statistic title="Floors" value={7} formatter={formatter}/>)}
+                                {toggled && (<Statistic title="Units" value={18} formatter={formatter}/>)}
+                            </Space>
+                        </Flex>
+                </animated.div>
         </Html>)
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Edges, Html, useGLTF } from "@react-three/drei";
 import useClosestObject from "../stores/useClosestObject";
-import { Popover } from "antd";
+import { Popover, Tooltip } from "antd";
 import { animated, useSpring, config } from "@react-spring/three";
 import useCamera from "../stores/useCamera";
 import useConfigurator from "../stores/useConfigurator";
@@ -166,9 +166,7 @@ export function CombindedProposals(props) {
         scale={0.254}
       />
       <Html position={[0,25,0]}>
-        <Popover className="Popover" title={'Combined Proposal'} content={"Conversion + Infill"} open={open}>
-        </Popover>
-
+        <Tooltip open={open} title="Combined Proposal"></Tooltip>
       </Html>
     </animated.group>
   );

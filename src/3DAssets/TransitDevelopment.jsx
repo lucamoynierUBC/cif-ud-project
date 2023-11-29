@@ -3,7 +3,7 @@ import { useControls } from "leva"
 import { animated, useSpring, config } from "@react-spring/three"
 import { useEffect, useState } from "react"
 import useClosestObject from "../stores/useClosestObject"
-import { Button, Popover } from "antd"
+import { Button, Popover, Tooltip } from "antd"
 
 export default function TransitDevelopment() {
     const [open, setOpen] = useState(false)
@@ -44,8 +44,7 @@ export default function TransitDevelopment() {
             <Edges></Edges>
             <boxGeometry></boxGeometry>
             <Html>
-                <Popover title={'Transit Oriented Development'} open={open}>
-                </Popover>
+                <Tooltip open={open} title="Transit Oriented Development"></Tooltip>
             </Html>
         </animated.mesh>
     )

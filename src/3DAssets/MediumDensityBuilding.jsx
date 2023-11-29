@@ -7,7 +7,7 @@ import PopUpUAP from "../UserInterface/Components/PopUpUAP";
 import useClosestObject from "../stores/useClosestObject";
 import { animated, useSpring, config } from "@react-spring/three";
 import { useGesture } from "react-use-gesture";
-import { Popover } from "antd";
+import { Popover, Tooltip } from "antd";
 
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
@@ -83,8 +83,7 @@ export default function MediumDensityBuilding() {
            
             <boxGeometry></boxGeometry>
             <Html>
-                <Popover className="Popover" title={'Universal Affordability Preference'} open={open}>
-                </Popover>
+                <Tooltip open={open} title="Universal Affordability Preference"></Tooltip>
             </Html>
         </animated.mesh>
     )

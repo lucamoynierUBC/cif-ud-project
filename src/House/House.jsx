@@ -12,7 +12,7 @@ import PopUp from "../UserInterface/Components/PopUp";
 import { Edges } from "@react-three/drei";
 import Reference from "./Reference";
 import useClosestObject from "../stores/useClosestObject";
-import { Popover } from "antd";
+import { Popover, Tooltip } from "antd";
 
 
 // House component that represents a 3D model with interactive elements
@@ -33,8 +33,8 @@ export default function House(props) {
   const [open, setOpen] = useState(false)
   // const [bloom, setBloom] = useState(0)
 
-  const defaultColor = '#e55c30'
-  const altColor = '#f6d746'
+  const defaultColor = '#ae561f'
+  const altColor = '#ffc861'
 
   
   // Default configurations when animating the house such as color and opacity
@@ -47,7 +47,8 @@ export default function House(props) {
     houseOpacity: 1,
     basementOpacity: 1,
     config: {mass: 1, tension: 210, friction: 20, precision: 0.0001},
-    bloom: 0
+    bloom: 0,
+    scale: 0.4
   }))
 
   // Gesture handling for when the house is hovered over, animate color when hovered over.
@@ -136,10 +137,10 @@ export default function House(props) {
           (state) => state.closestObject,
                 (closestObject) => {
                     if (closestObject === "ADU"){
-                      api.start({bloom: 2})
+                      api.start({atticColor: altColor, houseColor: altColor, basementColor: altColor, scale: 0.41})
                       setOpen(true)
                     } else {
-                      api.start({bloom: 0})
+                      api.start({atticColor: defaultColor, houseColor: defaultColor, basementColor: defaultColor, scale: 0.4})
                       setOpen(false)
                     }
 
@@ -158,7 +159,7 @@ export default function House(props) {
 
   // Component for the imported model. Generated using https://gltf.pmnd.rs/ each object in the 3D scene gets its own component
   return (
-  <group name="ADU" {...props} dispose={null} position={[12, -0.3, 3.5]} scale={0.4} >
+  <animated.group name="ADU" {...props} dispose={null} position={[12, -0.3, 3.5]} scale={spring.scale} >
     <Select multiple box enabled={atticHovered}>
       <animated.mesh
         // Spread the properties from the Spring object and bind function to the component
@@ -180,10 +181,8 @@ export default function House(props) {
         scale={0.305}
       >
         <Html position={[-100, 70, -30]}>
-          <Popover overlayStyle={{width: '180px'}} title={'Accessory Dwelling Unit'} open={open}>
-          </Popover>
+          <Tooltip open={open} title="Accessory Dwelling Unit"></Tooltip>
         </Html>
-        <Edges/>
       </animated.mesh>
       {/* <Popup position={[-25, 4, -10]}/> */}
       <PopUp position={[-23, 4, -10]}></PopUp>
@@ -208,7 +207,6 @@ export default function House(props) {
         transparent={true}
       >
         
-        <Edges/>
         <Reference></Reference>
         {/* attatch Attic html tag to attic geometry*/}
         {/* <AtticTag></AtticTag> */}
@@ -234,9 +232,9 @@ export default function House(props) {
         {/* Attatch Basement html tags to basement geometry */}
         {/* <BasementTag></BasementTag> */}
         <PopUp position={[-100,70,-30]}></PopUp>
-        <Edges/>
+
       </animated.mesh>
     </Select>
-</group>
+</animated.group>
 );}
 useGLTF.preload("/housev5.glb");

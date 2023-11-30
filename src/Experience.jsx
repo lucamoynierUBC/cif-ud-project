@@ -190,9 +190,9 @@ export default function Experience() {
             </Backdrop> */}
             <DetatchedAdu></DetatchedAdu>
 
-            <EffectComposer>
+            {/* <EffectComposer>
               <DepthOfField ref={dof} focusDistance={0} focalLength={0.01} bokehScale={0}></DepthOfField>
-            </EffectComposer>
+            </EffectComposer> */}
           
                 
             <House></House>

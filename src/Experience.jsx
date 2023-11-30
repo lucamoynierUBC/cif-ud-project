@@ -14,16 +14,18 @@ import * as THREE from 'three'
 import { useRef, useEffect, useState } from "react"
 import MediumDensityBuilding from "./3DAssets/MediumDensityBuilding"
 import Cityscape from "./3DAssets/Cityscape"
-import { Bloom, EffectComposer, Selection } from "@react-three/postprocessing"
+import { Bloom, DepthOfField, EffectComposer, Selection } from "@react-three/postprocessing"
 import Camera from "./ThreeJS/Camera"
 import useClosestObject from "./stores/useClosestObject"
 import TownCenter from "./3DAssets/TownCenter"
 import useCamera from "./stores/useCamera"
 import TransitDevelopment from "./3DAssets/TransitDevelopment"
 import { CombindedProposals } from "./3DAssets/CombinedProposals"
-
+import gsap from "gsap"
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
+
+  const dof = useRef()
 
   const setClosestObject = useClosestObject((state) => state.setClosestObject)
 
@@ -42,7 +44,6 @@ export default function Experience() {
         height: window.innerHeight
     }
     const {camera, scene, controls} = useThree()
-    console.log(controls)
     const mouse = new THREE.Vector2
     const [highlight, setHighlight] = useState(false)
     const [map, setMap] = useState(true)
@@ -57,9 +58,9 @@ export default function Experience() {
           (state) => state.zoom,
           (zoom) => {
             if (zoom === 'Map') {
+              console.log("zoom from experience is", zoom)
               setTimeout(() => {setHighlight(true)}, 2000)
               setMap(true)
-
             } else {
               setHighlight(false)
               setMap(false)
@@ -104,6 +105,7 @@ export default function Experience() {
             objectsToCheck.push(child)
         }
     })
+
 
     useFrame(() => {
         let closestObject = null;
@@ -154,6 +156,8 @@ export default function Experience() {
         }
     });
 
+    console.log(dof.current)
+
     
 
 
@@ -185,16 +189,18 @@ export default function Experience() {
               <meshStandardMaterial color="grey" />
             </Backdrop> */}
             <DetatchedAdu></DetatchedAdu>
-            <Selection>
-                {/* <EffectComposer>
-                    <Bloom mipmapBlur luminanceThreshold={1} levels={8} intensity={0.2} ></Bloom>
-                </EffectComposer> */}
-                <House></House>
-                <MediumDensityBuilding></MediumDensityBuilding>
-                <TownCenter></TownCenter>
-                <TransitDevelopment></TransitDevelopment>
-                <CombindedProposals></CombindedProposals>
-            </Selection>  
+
+            <EffectComposer>
+              <DepthOfField ref={dof} focusDistance={0} focalLength={0.01} bokehScale={0}></DepthOfField>
+            </EffectComposer>
+          
+                
+            <House></House>
+            <MediumDensityBuilding></MediumDensityBuilding>
+            <TownCenter></TownCenter>
+            <TransitDevelopment></TransitDevelopment>
+            <CombindedProposals></CombindedProposals>
+           
         </Stage>    
     </>
 }

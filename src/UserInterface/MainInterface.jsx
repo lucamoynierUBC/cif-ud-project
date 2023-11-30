@@ -16,6 +16,7 @@ import DropdownUAP from "./Components/DropdownUAP"
 import TourGuide from "./Components/TourGuide"
 import ConfiguratorCombo from "./Components/ConfiguratorCombo"
 import { Route, Router, Link } from "wouter";
+import { useProgress } from "@react-three/drei"
 
 const { Header, Content, Sider } = Layout;
 
@@ -25,12 +26,8 @@ export default function MainInterface() {
     const [visible, setVisible] = useState(false)
     // toggle visibility of different configurators
     const [configuratorType, setConfiguratorType] = useState(null)
-
-    // Accesing global states from stores
-    const setVisibleState = useInterface((state) => state.toggleVisible)
-    const unselectAllAdu = useTag((state) => state.unselectAll)
-    const setZoom = useCamera((state) => state.setZoom)
-    const { Meta } = Card;
+    const {progress} = useProgress()
+    const [isUILoaded, setIsUILoaded] = useState(false);
 
     const [api, contextHolder] = notification.useNotification();
     notification.config({
@@ -73,10 +70,13 @@ export default function MainInterface() {
                 }
             }
         )
+        if (progress >= 100) {
+            setIsUILoaded(true);
+        }
         return () => {
             unsubscribeVisible()
         }
-    }, )
+    }, [progress])
 
     // Animation spring properties for fading in/out the interface
     const springProps = useSpring({
@@ -117,8 +117,8 @@ export default function MainInterface() {
         <div>
             {/* Show caret if interface is not visible */}
             {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
-            <TourGuide></TourGuide>
-            {<AxiomViewButton></AxiomViewButton>}
+            {isUILoaded && <TourGuide></TourGuide>}
+            {isUILoaded && <AxiomViewButton></AxiomViewButton>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >

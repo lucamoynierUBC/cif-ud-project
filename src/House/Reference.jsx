@@ -15,7 +15,6 @@ export default function Reference() {
         const unsubscibeZoom = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                console.log("zoom from ref", zoom)
                 if (zoom === 'Map'){
                     setVisible(false)
                 }

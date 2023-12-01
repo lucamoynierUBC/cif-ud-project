@@ -14,8 +14,6 @@ export default function PopUpUAP({position}) {
     
     const formatter = (value) => <CountUp end={value} separator=","/>;
 
-
-
     const [spring, api] = useSpring(() => ({
         y: 0,
         scale: 1,
@@ -43,7 +41,6 @@ export default function PopUpUAP({position}) {
         const unsubcribeToggle = useConfigurator.subscribe(
             (state) => state.toggle,
             (toggle) => {
-                console.log(toggle)
                 if (toggle == "Medium Density"){
                     setToggle(true)
                     api.start({scale: 1, y:-150})

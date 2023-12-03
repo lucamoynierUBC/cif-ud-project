@@ -61,7 +61,7 @@ export default function ComboAnnotation5() {
     return (
         <Html position={[-10,10,10]}>
             <animated.div style={spring} >
-                Build residential unit on existing building
+                Build residential unit on existing church admin building
             </animated.div>
       </Html>
     )

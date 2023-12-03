@@ -21,8 +21,11 @@ export function CombindedProposals(props) {
   const [spring, api] = useSpring(() => ({
     color: '#ae561f',
     scale: 0.39,
-    visibleConversion: false,
-    visibleInfill: false,
+    infillOpacity: 0,
+    schoolOpacity: 1,
+    schoolColor: '#ae561f',
+    churchColor: '#ae561f',
+    adminbuildingColor: '#ae561f',
     config: config.stiff,
   }))
 
@@ -32,11 +35,11 @@ export function CombindedProposals(props) {
                 (closestObject) => {
                     if (closestObject === "Combined Proposals"){
                       setOpen(true)
-                      api.start({color: '#ffc861', scale: 0.4})
+                      api.start({color: '#ffc861',churchColor: '#ffc861', schoolColor: '#ffc861', adminbuildingColor: '#ffc861',  scale: 0.4})
                         
                     } else {
                         setOpen(false)
-                        api.start({color: '#ae561f', scale: 0.39})
+                        api.start({color: '#ae561f', churchColor: '#ae561f', schoolColor: '#ae561f', adminbuildingColor: '#ae561f', scale: 0.39})
                     }
                 }
         )
@@ -45,9 +48,9 @@ export function CombindedProposals(props) {
           (state) => state.zoom,
           (zoom) => {
               if (zoom === 'Combo'){
-                api.start({color: 'grey'})
+                api.start({color: '#808080', churchColor: '#808080', schoolColor: '#808080', adminbuildingColor: '#808080'})
               } else {
-                api.start({color: '#ae561f'})
+                api.start({color: '#ae561f', churchColor: '#ae561f', schoolColor: '#ae561f', adminbuildingColor: '#ae561f'})
               }
             }
         )
@@ -67,7 +70,20 @@ export function CombindedProposals(props) {
                       }
                   });
               }
-              api.start({visibleConversion: visibleConversion, visibleInfill: visibleInfill})
+              if (visibleConversion && !visibleInfill) {
+                api.start({schoolColor:'#ae561f', adminbuildingColor: '#6495ED', churchColor: '#6495ED'})
+
+              }
+              if (!visibleConversion && visibleInfill) {
+                api.start({infillOpacity: 1, schoolOpacity:0.5, schoolColor: '#808080', color: '#ffc861'})
+              }
+              if (visibleConversion && visibleInfill) {
+                api.start({infillOpacity: 1, schoolOpacity:1, schoolColor: '#ae561f', color: '#ffc861'})
+              }
+              if (!visibleInfill && !visibleConversion) {
+                api.start({schoolColor: '#808080', adminbuildingColor: '#808080', churchColor: '#808080', infillOpacity:0, schoolOpacity:1})
+              }
+              
             }
         )
         return () => {
@@ -80,19 +96,23 @@ export function CombindedProposals(props) {
   return (
     <animated.group name="Combined Proposals" {...props} position={[-45, -.5, 55.5]} rotation={[0, Math.PI/2, 0]} scale={spring.scale} dispose={null}>
       <animated.mesh
+        {...spring}
         onClick={(event) => {event.stopPropagation(), setZoom('Combo')}}
         castShadow
         receiveShadow
         geometry={nodes.School.geometry}
+        material-transparent={true}
+        material-opacity={spring.schoolOpacity}
         material={materials["Material.002"]}
-        material-color={spring.color}
+        material-color={spring.schoolColor}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.254}
       />
       <animated.mesh
         castShadow
         receiveShadow
-        visible={spring.visibleConversion}
+        material-transparent={true}
+        material-opacity={spring.infillOpacity}
         geometry={nodes.residential1.geometry}
         material={materials["Material.001"]}
         material-color={spring.color}
@@ -102,7 +122,8 @@ export function CombindedProposals(props) {
       <animated.mesh
         castShadow
         receiveShadow
-        visible={spring.visibleInfill}
+        material-transparent={true}
+        material-opacity={spring.infillOpacity}
         geometry={nodes.residential2.geometry}
         material={materials["Material.003"]}
         material-color={spring.color}
@@ -114,7 +135,7 @@ export function CombindedProposals(props) {
         receiveShadow
         geometry={nodes.church.geometry}
         material={materials["Material.010"]}
-        material-color={spring.color}
+        material-color={spring.churchColor}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.254}
       />
@@ -168,7 +189,7 @@ export function CombindedProposals(props) {
         receiveShadow
         geometry={nodes.adminbuilding.geometry}
         material={materials["Material.004"]}
-        material-color={spring.color}
+        material-color={spring.adminbuildingColor}
         rotation={[Math.PI / 2, 0, 0]}
         scale={0.254}
       />

@@ -3,7 +3,7 @@ import { ContactShadows, Edges, MeshTransmissionMaterial, useGLTF} from "@react-
 
 
 export default function Cityscape(props) {
-  const { nodes, materials } = useGLTF("/cityscape3JS.glb");
+  const { nodes, materials } = useGLTF("/cityscape.glb");
 
   return (
     <group {...props} dispose={null} scale={3.0} position={[78,0.5,19]}>
@@ -22,4 +22,4 @@ export default function Cityscape(props) {
   );
 }
 
-useGLTF.preload("/cityscape3JS.glb");
+useGLTF.preload("/cityscape.glb");

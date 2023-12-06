@@ -49,9 +49,9 @@ export const OrbitControls = ({ children }) => {
                 if (zoom == "Medium Density"){
                     gsap.to(ref.current.target, {
                         duration: 2,
-                        x: 52,
-                        y: -48,
-                        z: 116,
+                        x: 10,
+                        y: -11,
+                        z: 10,
                         onUpdate: () => {
                           ref.current.update()
                         }
@@ -71,9 +71,9 @@ export const OrbitControls = ({ children }) => {
               if (zoom == "Map"){
                 gsap.to(ref.current.target, {
                     duration: 2,
-                    x: -54,
-                    y: -12,
-                    z: -152,
+                    x: 0,
+                    y: 0,
+                    z: 0,
                     onUpdate: () => {
                       ref.current.update()
                     }
@@ -82,9 +82,9 @@ export const OrbitControls = ({ children }) => {
               if (zoom == "Adu"){
                 gsap.to(ref.current.target, {
                     duration: 2,
-                    x: -12,
-                    y: -28,
-                    z: -144,
+                    x: -46,
+                    y: -13,
+                    z: -16,
                     onUpdate: () => {
                       ref.current.update()
                     }
@@ -106,9 +106,9 @@ export const OrbitControls = ({ children }) => {
             if (zoom == "Combo"){
               gsap.to(ref.current.target, {
                   duration: 2,
-                  x: -150,
-                  y: 0,
-                  z: -140,
+                  x: -86,
+                  y: -20,
+                  z: 42,
                   onUpdate: () => {
                     ref.current.update()
                   }
@@ -121,6 +121,12 @@ export const OrbitControls = ({ children }) => {
       unsubscribeZoom()
     }
   }, [])
+
+  useFrame(() => {
+    if (ref.current && ref.current.target) {
+        console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
+    }
+  });
 
 
   return (
@@ -144,7 +150,7 @@ export const OrbitControls = ({ children }) => {
       autoRotate={false}
       makeDefault
       // TODO: Animate Target!
-      target={[-54, -12, -152]}
+      target={[0, 0, 0]}
       // target={[xControl, yControl, zControl]}
       />
     </>

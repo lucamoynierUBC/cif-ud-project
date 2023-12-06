@@ -18,7 +18,7 @@ export default function Camera() {
 
     const {x, y, z} = useControls({
         x: {value: -190, min: -1000, max: 1000 },
-        y: {value: 200, min: -100, max: 400 },
+        y: {value: 200, min: -100, max: 1000 },
         z: {value: 190, min: -1000, max: 1000 }
     })
 
@@ -39,9 +39,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -45,
-                        y: -17,
-                        z: -160
+                        x: 4,
+                        y: -3.5,
+                        z: -4
                     })
                     enableCamera() 
                 } 
@@ -75,9 +75,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -530,
-                        y: 400,
-                        z: 370
+                        x: -1000,
+                        y: 1000,
+                        z: 1000
                         
                     })
                     enableCamera() 
@@ -93,9 +93,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -102,
-                        y: -20,
-                        z: -189
+                        x: -63,
+                        y: -10,
+                        z: -22
                     })
                     enableCamera() 
                 }
@@ -127,9 +127,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -80,
-                        y: 30,
-                        z: -200
+                        x: -40,
+                        y: 29,
+                        z: -26
                     })
                     enableCamera() 
 
@@ -185,14 +185,20 @@ export default function Camera() {
             // unsubscribePanToAdu()
         }
     }, [])
+
+    useFrame(() => {
+        if (cameraControlRef.current) {
+            console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
+        }
+    });
     
     return (       
             <PerspectiveCamera
             ref={cameraControlRef}
             zoom={1}
             makeDefault
-            position={[-530, 400, 370]}
             // position={[x, y, z]}
+            position={[-1000, 1000, 1000]}
             fov={10}
             far={5000} 
             near={3}

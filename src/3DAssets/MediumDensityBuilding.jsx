@@ -8,6 +8,7 @@ import useClosestObject from "../stores/useClosestObject";
 import { animated, useSpring, config } from "@react-spring/three";
 import { useGesture } from "react-use-gesture";
 import { Popover, Tooltip } from "antd";
+import { TownCenterBefore } from "./TownCenterBefore";
 
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
@@ -74,13 +75,12 @@ export default function MediumDensityBuilding() {
         }, [])
 
     return (
-        <animated.mesh {...spring} name="UAP" material-emissiveIntensity={spring.bloom} castShadow receiveShadow position={[55, 3, 44]} scale={scale} onClick={() => setZoom("Medium Density")}>
+        <animated.mesh {...spring} name="UAP" material-emissiveIntensity={spring.bloom} castShadow receiveShadow position={[55, 3, 44]} onClick={() => setZoom("Medium Density")}>
             {/* <meshPhongMaterial /> */}
             
             <MeshTransmissionMaterial toneMapped={false} emissive={color} color={color} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32}/>
             <Edges/>
             <PopUpUAP position={[0,0,0]}></PopUpUAP>
-           
             <boxGeometry></boxGeometry>
             <Html>
                 <Tooltip open={open} title="Universal Affordability Preference"></Tooltip>

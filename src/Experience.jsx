@@ -22,6 +22,8 @@ import useCamera from "./stores/useCamera"
 import TransitDevelopment from "./3DAssets/TransitDevelopment"
 import { CombindedProposals } from "./3DAssets/CombinedProposals"
 import gsap from "gsap"
+import { TownCenterBefore } from "./3DAssets/TownCenterBefore"
+import { TownCenterAfter } from "./3DAssets/TowCenterAfter"
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
 
@@ -175,7 +177,7 @@ export default function Experience() {
         intensity={0.5} 
         adjustCamera={false} 
         environment={'city'}
-        shadows={{type: 'contact', radius: 0.1, position: [0,2.65,0], scale: [500,600], blur:0.1, opacity:0.5, frames: 1}}
+        shadows={{type: 'contact', radius: 0.1, position: [0,2.6,0], scale: [500,600], blur:0.1, opacity:0.5, frames: 1}}
         >
             <BakeShadows></BakeShadows>
             <Cityscape></Cityscape>
@@ -196,10 +198,12 @@ export default function Experience() {
           
                 
             <House></House>
-            <MediumDensityBuilding></MediumDensityBuilding>
+            {/* <MediumDensityBuilding></MediumDensityBuilding> */}
             <TownCenter></TownCenter>
-            <TransitDevelopment></TransitDevelopment>
+            {/* <TransitDevelopment></TransitDevelopment> */}
             <CombindedProposals></CombindedProposals>
+            <TownCenterBefore></TownCenterBefore>
+            <TownCenterAfter></TownCenterAfter>
            
         </Stage>    
     </>

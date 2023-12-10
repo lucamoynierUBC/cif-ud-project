@@ -39,9 +39,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: 4,
-                        y: -3.5,
-                        z: -4
+                        x: 62.8,
+                        y: -15.6,
+                        z: 26.1
                     })
                     enableCamera() 
                 } 
@@ -57,9 +57,9 @@ export default function Camera() {
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -45,
-                        y: 5,
-                        z: -180
+                        x: 51.2,
+                        y: 1.8,
+                        z: 25.1
                     })
                     enableCamera() 
 
@@ -186,11 +186,11 @@ export default function Camera() {
         }
     }, [])
 
-    // useFrame(() => {
-    //     if (cameraControlRef.current) {
-    //         console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
-    //     }
-    // });
+    useFrame(() => {
+        if (cameraControlRef.current) {
+            console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
+        }
+    });
     
     return (       
             <PerspectiveCamera

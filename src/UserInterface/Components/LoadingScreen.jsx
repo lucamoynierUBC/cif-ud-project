@@ -25,10 +25,13 @@ export default function LoadingScreen() {
 
     return (
         <div style={containerStyle}>
+            <Flex justify="center">
+                <img width={'40%'} alt="NYC Planning" src="https://raw.githubusercontent.com/NYCPlanning/dcp-logo/master/dcp_logo_772.png" />
+            </Flex>
             <Progress percent={Math.round(roundedProgress)}  strokeColor={twoColors}/>
             <Flex justify="center" >
                 <div  style={{ marginTop: '10px' }}>
-                    <Statistic title="Importing assets:" value={loaded} suffix="/ 20"/>
+                    <Statistic title="Importing assets:" value={loaded} suffix="/ 22"/>
                 </div>
             </Flex>
 

@@ -49,9 +49,9 @@ export const OrbitControls = ({ children }) => {
                 if (zoom == "Medium Density"){
                     gsap.to(ref.current.target, {
                         duration: 2,
-                        x: 10,
-                        y: -11,
-                        z: 10,
+                        x: 75.4,
+                        y: -15.6,
+                        z: 14.7,
                         onUpdate: () => {
                           ref.current.update()
                         }
@@ -60,9 +60,9 @@ export const OrbitControls = ({ children }) => {
                 if (zoom == "Medium Density - BOV"){
                   gsap.to(ref.current.target, {
                       duration: 2,
-                      x: 0,
-                      y: -100,
-                      z: 0,
+                      x: 64.7,
+                      y: -6.3,
+                      z: 18.7,
                       onUpdate: () => {
                         ref.current.update()
                       }
@@ -122,11 +122,11 @@ export const OrbitControls = ({ children }) => {
     }
   }, [])
 
-  // useFrame(() => {
-  //   if (ref.current && ref.current.target) {
-  //       console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
-  //   }
-  // });
+  useFrame(() => {
+    if (ref.current && ref.current.target) {
+        console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
+    }
+  });
 
 
   return (

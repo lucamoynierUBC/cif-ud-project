@@ -196,7 +196,7 @@ export default function Camera() {
     return (       
             <PerspectiveCamera
             ref={cameraControlRef}
-            zoom={0.9}
+            zoom={0.8}
             makeDefault
             // position={[x, y, z]}
             position={[-1000, 1000, 1000]}

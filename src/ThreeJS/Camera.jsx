@@ -69,6 +69,7 @@ export default function Camera() {
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 10,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
@@ -195,7 +196,7 @@ export default function Camera() {
     return (       
             <PerspectiveCamera
             ref={cameraControlRef}
-            zoom={1}
+            zoom={0.9}
             makeDefault
             // position={[x, y, z]}
             position={[-1000, 1000, 1000]}

@@ -16,12 +16,16 @@ export default function Reference() {
             (state) => state.zoom,
             (zoom) => {
                 if (zoom === 'Map'){
+                    
+                    setRef(ref);
                     setVisible(false)
                 }
             }   
-        )
+        ) 
+        
         return () => {
             unsubscibeZoom()
+
         }
     }, []);
     

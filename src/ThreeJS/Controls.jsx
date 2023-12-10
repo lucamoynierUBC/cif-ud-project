@@ -122,11 +122,11 @@ export const OrbitControls = ({ children }) => {
     }
   }, [])
 
-  useFrame(() => {
-    if (ref.current && ref.current.target) {
-        console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
-    }
-  });
+  // useFrame(() => {
+  //   if (ref.current && ref.current.target) {
+  //       console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
+  //   }
+  // });
 
 
   return (

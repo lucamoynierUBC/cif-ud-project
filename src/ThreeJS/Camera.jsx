@@ -186,11 +186,11 @@ export default function Camera() {
         }
     }, [])
 
-    useFrame(() => {
-        if (cameraControlRef.current) {
-            console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
-        }
-    });
+    // useFrame(() => {
+    //     if (cameraControlRef.current) {
+    //         console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
+    //     }
+    // });
     
     return (       
             <PerspectiveCamera

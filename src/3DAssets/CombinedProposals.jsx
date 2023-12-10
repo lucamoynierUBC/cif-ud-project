@@ -12,6 +12,7 @@ import ComboAnnotation4 from "../UserInterface/Components/Annotations/ComboAnnot
 import ComboAnnotation5 from "../UserInterface/Components/Annotations/ComboAnnotation5";
 import ComboAnnotation6 from "../UserInterface/Components/Annotations/ComboAnnotation6";
 import ComboAnnotation7 from "../UserInterface/Components/Annotations/ComboAnnotation7";
+import ComboReference from "./ComboReference";
 
 export function CombindedProposals(props) {
   const { nodes, materials } = useGLTF("/CombinedProposals.glb");
@@ -203,13 +204,16 @@ export function CombindedProposals(props) {
       lineWidth={1} 
       >
       </Line>
-      <ComboAnnotation1/>
+      {/* <ComboAnnotation1/>
       <ComboAnnotation2/>
       <ComboAnnotation3/>
       <ComboAnnotation4/>
       <ComboAnnotation5/>
       <ComboAnnotation6/>
-      <ComboAnnotation7/>
+      <ComboAnnotation7/> */}
+      <ComboReference></ComboReference>
+   
+      
     </animated.group>
   );
 }

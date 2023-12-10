@@ -17,6 +17,7 @@ import TourGuide from "./Components/TourGuide"
 import ConfiguratorCombo from "./Components/ConfiguratorCombo"
 import { Route, Router, Link } from "wouter";
 import { useProgress } from "@react-three/drei"
+import ComboAnnotation from "./Components/Annotations/ComboAnnotation"
 
 const { Header, Content, Sider } = Layout;
 
@@ -118,6 +119,7 @@ export default function MainInterface() {
             {/* Show caret if interface is not visible */}
             {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
             {isUILoaded && <TourGuide></TourGuide>}
+            {/* {isUILoaded && <ComboAnnotation></ComboAnnotation>} */}
             {isUILoaded && <AxiomViewButton></AxiomViewButton>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">

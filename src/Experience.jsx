@@ -21,14 +21,14 @@ import TownCenter from "./3DAssets/TownCenter"
 import useCamera from "./stores/useCamera"
 import TransitDevelopment from "./3DAssets/TransitDevelopment"
 import { CombindedProposals } from "./3DAssets/CombinedProposals"
-import gsap from "gsap"
+import gsap from "gsap/all"
 import { TownCenterBefore } from "./3DAssets/TownCenterBefore"
 import { TownCenterAfter } from "./3DAssets/TowCenterAfter"
 // Puts everything related to Three.js inside a main class
 export default function Experience() {
 
   const dof = useRef()
-
+  
   const setClosestObject = useClosestObject((state) => state.setClosestObject)
 
     function Rig({ children }) {
@@ -46,6 +46,10 @@ export default function Experience() {
         height: window.innerHeight
     }
     const {camera, scene, controls} = useThree()
+    if (controls) {
+      controls.touches.ONE = THREE.TOUCH.PAN;
+      controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
+    }
     const mouse = new THREE.Vector2
     const [highlight, setHighlight] = useState(false)
     const [map, setMap] = useState(true)
@@ -57,9 +61,11 @@ export default function Experience() {
         };
 
         const unsubscribeCamera = useCamera.subscribe(
+          
           (state) => state.zoom,
           (zoom) => {
             if (zoom === 'Map') {
+              
               console.log("zoom from experience is", zoom)
               setTimeout(() => {setHighlight(true)}, 2000)
               setMap(true)
@@ -158,7 +164,9 @@ export default function Experience() {
         }
     });
 
-    console.log(dof.current)
+
+
+
 
     
 
@@ -192,8 +200,8 @@ export default function Experience() {
             </Backdrop> */}
             <DetatchedAdu></DetatchedAdu>
 
-            {/* <EffectComposer>
-              <DepthOfField ref={dof} focusDistance={0} focalLength={0.01} bokehScale={0}></DepthOfField>
+            {/* <EffectComposer disableNormalPass>
+              <DepthOfField ref={dof} focusDistance={0} focalLength={10} bokehScale={6}></DepthOfField>
             </EffectComposer> */}
           
                 

@@ -6,7 +6,6 @@ import { useThree } from "@react-three/fiber";
 import { CameraControls } from "@react-three/drei";
 import { gsap } from "gsap";
 import { useOrbitControls } from "./Controls";
-import { useControls } from "leva";
 
 // Camera component responsible for managing camera position and zoom
 export default function Camera() {
@@ -15,12 +14,6 @@ export default function Camera() {
     const { enableCamera, disableCamera } = useOrbitControls()
     // check if device is a mobile device
     const isMobile = window.innerWidth <= 600
-
-    const {x, y, z} = useControls({
-        x: {value: -190, min: -1000, max: 1000 },
-        y: {value: 200, min: -100, max: 1000 },
-        z: {value: 190, min: -1000, max: 1000 }
-    })
 
     //subscribe to changes from camera store
     useEffect(() => {
@@ -187,11 +180,11 @@ export default function Camera() {
         }
     }, [])
 
-    useFrame(() => {
-        if (cameraControlRef.current) {
-            console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
-        }
-    });
+    // useFrame(() => {
+    //     if (cameraControlRef.current) {
+    //         console.log(`Camera Position: x=${cameraControlRef.current.position.x}, y=${cameraControlRef.current.position.y}, z=${cameraControlRef.current.position.z}`);
+    //     }
+    // });
     
     return (       
             <PerspectiveCamera

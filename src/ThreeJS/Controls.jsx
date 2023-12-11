@@ -3,7 +3,7 @@ import { OrbitControls as BaseOrbitControls} from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import useCamera from "../stores/useCamera";
 import { gsap } from "gsap";
-import { useControls } from "leva";
+import * as THREE from 'three'
 
 // Create a new context for OrbitControls, allows me to pass data through the component tree
 // and allowing sharing of the state of Orbit Controls with other components
@@ -16,6 +16,7 @@ export const OrbitControls = ({ children }) => {
 
   // ref to access OrbitControls component
   const ref = useRef();
+
 
   // Callback used to ensure that the refrences are not recreated on every render
   const handleEnableCamera = useCallback(() => {
@@ -36,11 +37,6 @@ export const OrbitControls = ({ children }) => {
     disableCamera: handleDisableCamera // function to disable controls
   };
 
-  const {xControl, yControl, zControl} = useControls({
-    xControl: {value: 0, min: -100, max: 100 },
-    yControl: {value: 0, min: -100, max: 100 },
-    zControl: {value: 0, min: -200, max: 200 }
-})
 
   useEffect(() => {
     const unsubscribeZoom = useCamera.subscribe(
@@ -122,11 +118,11 @@ export const OrbitControls = ({ children }) => {
     }
   }, [])
 
-  useFrame(() => {
-    if (ref.current && ref.current.target) {
-        console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
-    }
-  });
+  // useFrame(() => {
+  //   if (ref.current && ref.current.target) {
+  //       console.log(`Orbit Controls Target Position: x=${ref.current.target.x}, y=${ref.current.target.y}, z=${ref.current.target.z}`);
+  //   }
+  // });
 
 
   return (
@@ -139,10 +135,11 @@ export const OrbitControls = ({ children }) => {
       <BaseOrbitControls 
       ref={ref} 
       enabled={isEnabled} 
-      enableRotate={true} 
+      enableRotate={false} 
       enablePan={true}
       enableZoom={true}
       dampingFactor={0.25}
+    
       rotateSpeed={0.5}
       panSpeed={0.5}
       // maxZoom={40}

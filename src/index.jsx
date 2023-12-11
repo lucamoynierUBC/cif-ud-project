@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client"
 import { Canvas } from "@react-three/fiber"
 import Experience from "./Experience.jsx"
 import { Suspense } from "react"
-import { Loader, Stats, useProgress} from "@react-three/drei"
 
 import MainInterface from "./UserInterface/MainInterface"
 import Nav from "./Nav/Nav"
@@ -19,7 +18,7 @@ root.render(
         <Suspense fallback={<LoadingScreen/>}>
             <Canvas shadows>
                     <Experience/>
-                    <Stats></Stats>
+                    {/* <Stats></Stats> */}
             </Canvas>
             <ConfigProvider theme={{ hashed: false}}>
                 <MainInterface/>

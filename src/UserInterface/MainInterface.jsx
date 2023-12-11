@@ -18,6 +18,8 @@ import ConfiguratorCombo from "./Components/ConfiguratorCombo"
 import { Route, Router, Link } from "wouter";
 import { useProgress } from "@react-three/drei"
 import ComboAnnotation from "./Components/Annotations/ComboAnnotation"
+import Modal from "antd/es/modal/Modal"
+import MobileModaL from "./Components/MobileModal"
 
 const { Header, Content, Sider } = Layout;
 
@@ -29,6 +31,7 @@ export default function MainInterface() {
     const [configuratorType, setConfiguratorType] = useState(null)
     const {progress} = useProgress()
     const [isUILoaded, setIsUILoaded] = useState(false);
+    const isMobile = window.innerWidth <= 600
 
     const [api, contextHolder] = notification.useNotification();
     notification.config({
@@ -118,9 +121,10 @@ export default function MainInterface() {
         <div>
             {/* Show caret if interface is not visible */}
             {/* {!visible && (<Caret visible={visible} setVisible={setVisible} setVisibleState={setVisibleState}></Caret>)} */}
-            {isUILoaded && <TourGuide></TourGuide>}
+            {isUILoaded && !isMobile && <TourGuide></TourGuide>}
             {/* {isUILoaded && <ComboAnnotation></ComboAnnotation>} */}
-            {isUILoaded && <AxiomViewButton></AxiomViewButton>}
+            {isUILoaded &&  <AxiomViewButton></AxiomViewButton>}
+            {isUILoaded && isMobile && <MobileModaL></MobileModaL>}
             {/* Show main interface/sidebar UI if visible */}
             {visible && (<animated.div style={springProps} className="mainInterface">
                 <div className="mainInterfaceContainer"  >

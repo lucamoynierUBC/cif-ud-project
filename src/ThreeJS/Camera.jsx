@@ -62,7 +62,7 @@ export default function Camera() {
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 10,
-                        zoom: 1,
+                        zoom: 2,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },

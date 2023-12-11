@@ -10,7 +10,6 @@
 </p>
 
 ## About the project
-
 3D web app for the Urban Design team at NYC Department of City Planning. This tool is meant to communicate NYC Department of City Planning's [Good Urban Design Principles](https://www.nyc.gov/site/planning/planning-level/urban-design/urban-design-principle.page) and the [City of Yes](https://www.nyc.gov/site/planning/plans/city-of-yes/city-of-yes-overview.page) initiative.
 <br />
 <br />
@@ -34,7 +33,6 @@ Run the following commands:
 ``` bash
 # Install dependencies (only the first time)
 npm install
-
 # Run the local server at localhost:8080
 npm run dev
 ```

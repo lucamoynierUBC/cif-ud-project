@@ -137,7 +137,7 @@ export default function House(props) {
           (state) => state.closestObject,
                 (closestObject) => {
                     if (closestObject === "ADU"){
-                      api.start({atticColor: altColor, houseColor: altColor, basementColor: altColor, scale: 0.41})
+                      api.start({atticColor: altColor, houseColor: altColor, basementColor: altColor, scale: 0.42})
                       setOpen(true)
                     } else {
                       api.start({atticColor: defaultColor, houseColor: defaultColor, basementColor: defaultColor, scale: 0.4})
@@ -180,7 +180,7 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       >
-        <Html position={[-100, 70, -30]}>
+        <Html position={[-100, 120, -30]}>
           <Tooltip open={open} title="Accessory Dwelling Unit"></Tooltip>
         </Html>
       </animated.mesh>

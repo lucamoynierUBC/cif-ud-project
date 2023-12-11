@@ -62,7 +62,7 @@ export function TownCenterBefore(props) {
         material-color={spring.color}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <Html center position={[0, 30, 20]}>
+      <Html center position={[0, 50, 20]}>
         <Tooltip open={open} title="Universal Affordability Preference"></Tooltip>
       </Html>
     </animated.group>

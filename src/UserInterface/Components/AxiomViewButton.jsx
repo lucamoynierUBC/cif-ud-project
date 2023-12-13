@@ -49,7 +49,7 @@ export default function AxiomViewButton() {
 
   return (
     <div className="axiom-container">
-      <Button  disabled={false} loading={load} type='primary' icon={"🗺️"} onClick={handleClick}>
+      <Button disabled={false} loading={load} type='primary' icon={"🗺️"} onClick={handleClick}>
         {<Link href='/'>Return to Map </Link>}
       </Button>
     </div>

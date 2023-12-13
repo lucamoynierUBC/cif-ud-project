@@ -47,9 +47,12 @@ export default function Experience() {
         height: window.innerHeight
     }
     const {camera, scene, controls} = useThree()
+    
     if (controls) {
-      controls.touches.ONE = THREE.TOUCH.PAN;
-      controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
+      controls.touches.ONE = THREE.TOUCH.PAN
+      controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE
+      controls.mouseButtons.LEFT = THREE.MOUSE.PAN
+      
     }
     const mouse = new THREE.Vector2
     const [highlight, setHighlight] = useState(false)
@@ -164,15 +167,6 @@ export default function Experience() {
           }
         }
     });
-
-
-
-
-
-    
-
-
-
     return <> 
         <color args={['ivory']} attach="background"/>
         {/* <Lighting></Lighting> */}
@@ -191,25 +185,9 @@ export default function Experience() {
             <BakeShadows></BakeShadows>
             <Cityscape></Cityscape>
             <Shed></Shed>
-            {/* <Sky></Sky> */}
-            {/* <Backdrop floor={5} position={[0,-1,-300]} scale={[1000, 100, 100]}>
-              <meshStandardMaterial color="grey" />
-            </Backdrop>
-            
-            <Backdrop rotation={[0, Math.PI, 0]} floor={5} position={[0,-1.5,300]} scale={[1000, 100, 100]}>
-              <meshStandardMaterial color="grey" />
-            </Backdrop> */}
-            <DetatchedAdu></DetatchedAdu>
-
-            {/* <EffectComposer disableNormalPass>
-              <DepthOfField ref={dof} focusDistance={0} focalLength={10} bokehScale={6}></DepthOfField>
-            </EffectComposer> */}
-          
-                
+            <DetatchedAdu></DetatchedAdu> 
             <House></House>
-            {/* <MediumDensityBuilding></MediumDensityBuilding> */}
             <TownCenter></TownCenter>
-            {/* <TransitDevelopment></TransitDevelopment> */}
             <CombindedProposals></CombindedProposals>
             <TownCenterBefore></TownCenterBefore>
             <TownCenterAfter></TownCenterAfter>

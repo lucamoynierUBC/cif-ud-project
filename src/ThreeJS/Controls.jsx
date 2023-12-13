@@ -147,7 +147,7 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={false} 
-      enablePan={false}
+      enablePan={true}
       enableZoom={false}
       dampingFactor={0.25}
     

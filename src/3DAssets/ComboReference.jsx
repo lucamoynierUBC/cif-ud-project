@@ -17,21 +17,27 @@ export default function ComboReference() {
 
     useEffect(() => {
         // setRef(ref);
+
+        let used = false
         const unsubscibeZoom = useCamera.subscribe(
             (state) => state.zoom,
             (zoom) => {
-                if (zoom === 'Combo'){
+                if (zoom === 'Combo' && !used){
                     resetAnnotation()
                     setTimeout(() => setRef(ref), 2000)
                     setTimeout(() => setOpen(true), 2000)
                     setVisible(true)
+                    used = true
 
-                } else if (zoom === 'Combo - BOV') {
-                    resetAnnotation()
-                    setTimeout(() => setRef(ref), 2000)
-                    setTimeout(() => setOpen(true), 2000)
-                    setVisible(true)
+                } else if (zoom === 'Combo' && used) {
+                    setVisible(false)
+                    setTimeout(() => setVisible(true), 2000)
+                }else if (zoom == "Combo - BOV") {
+                    setVisible(false)
+                    setTimeout(() => setVisible(true), 2000)
                 } else {
+                    console.log("HAAAAAAAAAAAAAAAAAAAAAAAAAAN")
+                    used = false
                     resetAnnotation()
                 }
 
@@ -49,8 +55,10 @@ export default function ComboReference() {
         const unsubcribeToggle = useConfigurator.subscribe(
             (state) => state.toggle,
             (toggle) => {
+                console.log("toggle is: ", toggle)
                 let infillToggle = false
                 let conversionToggle = false
+                console.log("infille toggle: ", infillToggle, "Conversion toggle: ", conversionToggle)
                 if (Array.isArray(toggle) && toggle.length > 0) {
                     toggle.forEach((t) => {
                         if (t === 2) {

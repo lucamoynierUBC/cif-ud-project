@@ -71,8 +71,8 @@ export default function ConfiguratorCombo({title}){
                         <Flex justify='flex-end'>
                             <Radio.Group onChange={onChangeValue} value={value} size="large" >
                             {/* options={[{ label: '👁️', value: 'Apple' }, { label: '✈️', value: 'Pear' }]} */}
-                            <Radio value={1}>👁️</Radio>
-                            <Radio value={2}>✈️</Radio>
+                            <Radio onClick={() => setZoom("Combo")} value={1}>👁️</Radio>
+                            <Radio onClick={() => setZoom("Combo - BOV")} value={2}>✈️</Radio>
                             </Radio.Group>
                         </Flex>
                         

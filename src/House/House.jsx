@@ -184,8 +184,6 @@ export default function House(props) {
           <Tooltip open={open} title="Accessory Dwelling Unit"></Tooltip>
         </Html>
       </animated.mesh>
-      {/* <Popup position={[-25, 4, -10]}/> */}
-      <PopUp position={[-23, 4, -10]}></PopUp>
       <animated.mesh
         {...spring}
         {...bind()}
@@ -229,9 +227,6 @@ export default function House(props) {
         position={[0.042, -23.125, 0]}
         scale={0.305}
       >
-        {/* Attatch Basement html tags to basement geometry */}
-        {/* <BasementTag></BasementTag> */}
-        <PopUp position={[-100,70,-30]}></PopUp>
 
       </animated.mesh>
     </Select>

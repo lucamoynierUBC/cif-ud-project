@@ -24,8 +24,9 @@ export default function Camera() {
                     disableCamera()
                     
                     gsap.to(cameraControlRef.current, {
-                        duration: 0.5,
+                        duration: 2,
                         fov: 50,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
@@ -42,8 +43,9 @@ export default function Camera() {
                     disableCamera()
                     
                     gsap.to(cameraControlRef.current, {
-                        duration: 0.5,
+                        duration: 2,
                         fov: 50,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
@@ -62,7 +64,7 @@ export default function Camera() {
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 10,
-                        zoom: 2,
+                        zoom: 1.5,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
@@ -81,15 +83,16 @@ export default function Camera() {
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 50,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -63,
-                        y: -10,
-                        z: -22
+                        x: -47,
+                        y: -18.6,
+                        z: -17.2
                     })
                     enableCamera() 
                 }
@@ -98,23 +101,25 @@ export default function Camera() {
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 50,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
                     })
                     gsap.to(cameraControlRef.current.position, {
                         duration: 2,
-                        x: -120,
-                        y: -5,
-                        z: -200
+                        x: -56.3,
+                        y: -9.6,
+                        z: -22
                     })
                     enableCamera() 
                 }
-                else if (zoom == "Combo"){
+                else if (zoom == "Combo - BOV"){
                     disableCamera()
                     gsap.to(cameraControlRef.current, {
                         duration: 2,
                         fov: 50,
+                        zoom: 1,
                         onUpdate: () => {
                             cameraControlRef.current.updateProjectionMatrix();                 
                           },
@@ -128,50 +133,29 @@ export default function Camera() {
                     enableCamera() 
 
                 }
+
+                else if (zoom == "Combo"){
+                    disableCamera()
+                    gsap.to(cameraControlRef.current, {
+                        duration: 2,
+                        fov: 50,
+                        zoom: 1,
+                        onUpdate: () => {
+                            cameraControlRef.current.updateProjectionMatrix();                 
+                          },
+                    })
+                    gsap.to(cameraControlRef.current.position, {
+                        duration: 2,
+                        x: -71.8,
+                        y: -12.6,
+                        z: 0.2
+                    })
+                    enableCamera() 
+
+                }
             }
         )
 
-        // const unsubscribeChangePerspective = useCamera.subscribe(
-        //     (state) => state.orthographic,
-        //     (orthographic) => {
-        //         console.log("perspective set to :", orthographic)
-        //         if (orthographic) {
-        //             disableCamera()
-        //             gsap.to(cameraControlRef.current, {
-        //                 duration: 2,
-        //                 fov: 10,
-        //                 onUpdate: () => {
-        //                     cameraControlRef.current.updateProjectionMatrix();
-        //                   },
-        //             })
-        //             gsap.to(cameraControlRef.current.position, {
-        //                 duration: 2,
-        //                 x:-190,
-        //                 y: 200,
-        //                 z: 190
-        //             })
-        //             enableCamera()
-        //         }
-        //         else {
-        //             disableCamera()
-        //             gsap.to(cameraControlRef.current, {
-        //                 duration: 0.5,
-        //                 fov: 50,
-        //                 onUpdate: () => {
-        //                     cameraControlRef.current.updateProjectionMatrix();
-        //                   },
-        //             })
-        //             gsap.to(cameraControlRef.current.position, {
-        //                 duration: 2,
-        //                 x:-12,
-        //                 y: 2,
-        //                 z: -6
-        //             })
-        //             enableCamera()
-        //         }
-        //     }
-
-        // )
         
         return () => {
             unsubscribeZoom()

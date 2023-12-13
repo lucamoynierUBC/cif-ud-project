@@ -45,9 +45,21 @@ export function TownCenterBefore(props) {
         }
     )
 
+
+    const unsubscribeZoom = useCamera.subscribe(
+      (state) => state.zoom,
+      (zoom) => {
+        if (zoom == "Map"){
+          setVisible(true)
+        }
+      }
+
+    )
+
     return () => {
         unsubscribeConfigurator()
         unsubscribeClosestObject()
+        unsubscribeZoom()
     }
    }, [])
 
@@ -63,7 +75,7 @@ export function TownCenterBefore(props) {
         rotation={[Math.PI / 2, 0, 0]}
       />
       <Html center position={[0, 50, 20]}>
-        <Tooltip open={open} title="Universal Affordability Preference"></Tooltip>
+        <Tooltip open={open} title="Town Center"></Tooltip>
       </Html>
     </animated.group>
   );

@@ -16,7 +16,7 @@ export default function DropdownADU({panel1Text, panel2Text, panel3Text}){
 
   const panelStyle = {
     background: '#ffffff',
-    borderRadius: 8,
+    borderRadius: 2,
     margin: ' 10px 0'
 
   }

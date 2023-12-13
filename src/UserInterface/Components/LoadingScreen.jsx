@@ -31,7 +31,7 @@ export default function LoadingScreen() {
             <Progress percent={Math.round(roundedProgress)}  strokeColor={twoColors}/>
             <Flex justify="center" >
                 <div  style={{ marginTop: '10px' }}>
-                    <Statistic title="Importing assets:" value={loaded} suffix="/ 24"/>
+                    <Statistic title="Importing assets:" value={loaded} suffix="/ 25"/>
                 </div>
             </Flex>
 

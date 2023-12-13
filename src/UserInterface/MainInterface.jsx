@@ -63,7 +63,7 @@ export default function MainInterface() {
                     setVisible(true)
                     setConfiguratorType("Adu")
                 
-                } else if (zoom === "Combo") {
+                } else if (zoom === "Combo" | zoom === "Combo - BOV") {
                     setVisible(true)
                     setConfiguratorType("Combo")
 
@@ -103,18 +103,28 @@ export default function MainInterface() {
     </p>
 
     const panel1TextUAP = <p>
-        In recent decades, high-demand neighborhoods have lost affordable housing and become increasingly out of reach to working families.
-        The Universal Affordability Preference is a new tool that would allow buildings to add 20% more housing, but only if the additional units are affordable. 
-        As a result, it will deliver new affordable housing in high-cost neighborhoods across New York City to working families.
-        As an example of how this policy would work, take a proposa
+
+        New York is a city of neighborhoods, and each neighborhood is anchored by commercial corridors with shops and vibrant street life — a little town center for every community.
+        <br/>
+        <br/>
+        These types of buildings, with stores on the street level and apartments above them, exist across the five boroughs. However, in many places, regulations preclude the creation of new mixed-use corridors.
+        <br/>
+        <br/>
+        Unfortunately, today’s regulations can make it impossible to add housing above businesses — even on active commercial streets.
+        <br/>
+        <br/>
+        By legalizing new housing above businesses on commercial streets, City of Yes will create affordable housing, help neighbors reach small businesses, and build vibrant mixed-use neighborhoods.
+        
     </p>
 
     const panel2TextUAP = <p>
-        As an example of how this policy would work, take a proposal for a 100% affordable building in a high-cost neighborhood in Manhattan like the Upper West Side.
-        Under the Universal Affordability Preference, the building can be built with 20% more space, so long as it uses that extra space for affordable housing.
-        The result is more affordable units in a high-cost neighborhood, and more opportunities for working families to live and thrive in New York.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus ante lectus, luctus posuere augue vestibulum ac. In hac habitasse platea dictumst. Duis sed tempus sapien. 
+        Quisque bibendum elit in odio feugiat sollicitudin. Curabitur pharetra facilisis nulla, et auctor felis dignissim quis.
     </p>
-
+    const panel3TextUAP = <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus ante lectus, luctus posuere augue vestibulum ac. In hac habitasse platea dictumst. Duis sed tempus sapien. 
+    Quisque bibendum elit in odio feugiat sollicitudin. Curabitur pharetra facilisis nulla, et auctor felis dignissim quis.
+    </p>
 
     return(
         <Router>
@@ -138,7 +148,7 @@ export default function MainInterface() {
                                 )}
                             
                                {configuratorType == "Medium Density" && (
-                                    <ConfiguratorUAP title="Universal Affordability Preference"/>
+                                    <ConfiguratorUAP title="Town Center"/>
                                )}
                                {configuratorType == "Combo" && (
                                     <ConfiguratorCombo title={"Combined Proposals"}/>
@@ -154,10 +164,10 @@ export default function MainInterface() {
                             marginTop: 40,
                             }}>
                                 {(configuratorType == "Adu" || configuratorType == "Adu - BOV") &&  (
-                                    <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text}/>
+                                    <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text} panel3Text={panel3TextUAP}/>
                                 )}
                                 {(configuratorType == "Medium Density" || configuratorType == "Medium Density - BOV") && (
-                                    <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP}/>
+                                    <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP} panel3Text={panel3TextUAP}/>
                                 )}
                                 {/* <Link href="/adu">ADU Configurator</Link>
                                 <Link href="/medium-density">UAP Configurator</Link>

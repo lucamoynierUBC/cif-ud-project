@@ -33,12 +33,12 @@ export default function TownCenter() {
 
 
     return(
-        <animated.mesh {...spring} material-emissiveIntensity={spring.bloom} name="Town Center" scale={[7, 7, 10]} position={[-41, 0, -54]}>
+        <animated.mesh {...spring} material-emissiveIntensity={spring.bloom} name="Town Center" scale={[7, 7, 10]} position={[-41, 2.5, -54]}>
             <MeshTransmissionMaterial toneMapped={false} emissive={'orange'} color={'orange'} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32}/>
             <Edges></Edges>
             <boxGeometry></boxGeometry>
             <Html>
-                <Tooltip open={open} title="Town Center"></Tooltip>
+                <Tooltip open={open} title="Universal Affordability Preference "></Tooltip>
             </Html>
         </animated.mesh>
     )

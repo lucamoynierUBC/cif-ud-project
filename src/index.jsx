@@ -20,11 +20,17 @@ root.render(
                     <Experience/>
                     {/* <Stats></Stats> */}
             </Canvas>
-            <ConfigProvider theme={{ hashed: false}}>
+            <ConfigProvider theme={{ 
+                hashed: false,
+                token: {
+                    // Seed Token
+                    colorPrimary: '#d96b27',
+                    borderRadius: 2,
+                  }
+                }}>
                 <MainInterface/>
+                <Nav></Nav> 
             </ConfigProvider>
-
-            <Nav></Nav> 
         </Suspense>    
     </>
 		

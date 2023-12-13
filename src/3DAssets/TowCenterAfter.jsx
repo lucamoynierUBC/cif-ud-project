@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import useConfigurator from "../stores/useConfigurator";
+import useCamera from "../stores/useCamera";
 
 export function TownCenterAfter(props) {
   const { nodes, materials } = useGLTF("/TownCenterAfter.glb");
@@ -18,8 +19,19 @@ export function TownCenterAfter(props) {
         }
     )
 
+    const unsubscribeZoom = useCamera.subscribe(
+      (state) => state.zoom,
+      (zoom) => {
+        if (zoom == "Map"){
+          setVisible(false)
+        }
+      }
+
+    )
+
     return () => {
         unsubscribeConfigurator()
+        unsubscribeZoom()
     }
    }, [])
 

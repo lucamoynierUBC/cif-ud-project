@@ -45,13 +45,17 @@ export function CombindedProposals(props) {
                 }
         )
 
+        let used = false
         const unsubscribeZoom = useCamera.subscribe(
           (state) => state.zoom,
           (zoom) => {
-              if (zoom === 'Combo'){
+              if (zoom === 'Combo' && !used){
                 api.start({color: '#808080', churchColor: '#808080', schoolColor: '#808080', adminbuildingColor: '#808080'})
+              } else if (zoom === 'Combo - BOV') {
+                used = true
               } else {
-                api.start({color: '#ae561f', churchColor: '#ae561f', schoolColor: '#ae561f', adminbuildingColor: '#ae561f'})
+                used = false
+                api.start({color: '#ae561f', churchColor: '#ae561f', schoolColor: '#ae561f', adminbuildingColor: '#ae561f', schoolOpacity: 1, infillOpacity: 0})
               }
             }
         )

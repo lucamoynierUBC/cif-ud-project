@@ -49,7 +49,7 @@ export default function ConfiguratorUAP({title}){
             title={<Meta 
             title={title}
             style={{padding: "15px 0"}} 
-            description={<Space size={[0, 8]} wrap><Tag color="volcano">Medium Density</Tag><Tag color="purple">Apartment Building</Tag></Space>}/>}
+            description={<Space size={[0, 8]} wrap><Tag color="volcano">Low-Medium Density</Tag><Tag color="purple">Apartment Building</Tag></Space>}/>}
             >
                 <Row gutter={[0, 0]} align={'middle'}>
                     {/* <Col span={24}>

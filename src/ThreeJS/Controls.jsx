@@ -78,9 +78,9 @@ export const OrbitControls = ({ children }) => {
               if (zoom == "Adu"){
                 gsap.to(ref.current.target, {
                     duration: 2,
-                    x: -46,
-                    y: -13,
-                    z: -16,
+                    x: -30.5,
+                    y: -21.8,
+                    z: -10,
                     onUpdate: () => {
                       ref.current.update()
                     }
@@ -89,9 +89,9 @@ export const OrbitControls = ({ children }) => {
             if (zoom == "Adu - BOV"){
               gsap.to(ref.current.target, {
                   duration: 2,
-                  x: -12,
-                  y: -48,
-                  z: -144,
+                  x: -42,
+                  y: -17.2,
+                  z: -13.4,
                   onUpdate: () => {
                     ref.current.update()
                   }
@@ -99,12 +99,23 @@ export const OrbitControls = ({ children }) => {
             }
 
 
-            if (zoom == "Combo"){
+            if (zoom == "Combo - BOV"){
               gsap.to(ref.current.target, {
                   duration: 2,
                   x: -86,
                   y: -20,
                   z: 42,
+                  onUpdate: () => {
+                    ref.current.update()
+                  }
+              })
+            }  
+            if (zoom == "Combo"){
+              gsap.to(ref.current.target, {
+                  duration: 2,
+                  x: -103,
+                  y: -8.5,
+                  z: 90.4,
                   onUpdate: () => {
                     ref.current.update()
                   }
@@ -136,8 +147,8 @@ export const OrbitControls = ({ children }) => {
       ref={ref} 
       enabled={isEnabled} 
       enableRotate={false} 
-      enablePan={true}
-      enableZoom={true}
+      enablePan={false}
+      enableZoom={false}
       dampingFactor={0.25}
     
       rotateSpeed={0.5}

@@ -24,7 +24,9 @@ export default function TourGuide() {
           cover: (
             <img style={{height:'auto', width: 350}} src="https://i.imgur.com/mtvZTyP.png"/>
           ),
-          target: null
+          target: null,
+
+        
           
         },
         {
@@ -33,13 +35,14 @@ export default function TourGuide() {
             cover: (
               <img style={{height:'auto', width: '500px'}} src="https://i.imgur.com/i4BZki3.png"/>
             ),
+            target: null
             
         },
 
         {
             title: 'City Densities',
             description: 'This cityscape offers varying levels of population and building density across the city, highlighting areas from the more open spaces to the busiest urban centers. ',
-            
+            target: null
             
         },
 
@@ -57,7 +60,7 @@ export default function TourGuide() {
 
     return (
         <>
-            <Tour open={open} onClose={() => [setOpen(false), setZoom('Map')]} steps={steps}></Tour>
+            <Tour mask={true} open={open} onClose={() => [setOpen(false), setZoom('Map')]} steps={steps}></Tour>
         </>
     )
 }

@@ -21,18 +21,31 @@ export default function ComboReference() {
             (state) => state.zoom,
             (zoom) => {
                 if (zoom === 'Combo'){
+                    resetAnnotation()
+                    setTimeout(() => setRef(ref), 2000)
+                    setTimeout(() => setOpen(true), 2000)
+                    setVisible(true)
+
+                } else if (zoom === 'Combo - BOV') {
+                    resetAnnotation()
                     setTimeout(() => setRef(ref), 2000)
                     setTimeout(() => setOpen(true), 2000)
                     setVisible(true)
                 } else {
-                    setOpen(false)
-                    setOpen1(false)
-                    setOpen2(false)
-                    setOpen3(false)
-                    setVisible(false)
+                    resetAnnotation()
                 }
+
             }   
         )
+        
+        const resetAnnotation = () => {
+            setOpen(false)
+            setOpen1(false)
+            setOpen2(false)
+            setOpen3(false)
+            setVisible(false)
+        }
+
         const unsubcribeToggle = useConfigurator.subscribe(
             (state) => state.toggle,
             (toggle) => {
@@ -76,6 +89,7 @@ export default function ComboReference() {
             }
 
         )
+        
         return () => {
             unsubscibeZoom()
             unsubcribeToggle()

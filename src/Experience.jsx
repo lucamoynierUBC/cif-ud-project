@@ -167,6 +167,7 @@ export default function Experience() {
           }
         }
     });
+
     return <> 
         <color args={['ivory']} attach="background"/>
         {/* <Lighting></Lighting> */}

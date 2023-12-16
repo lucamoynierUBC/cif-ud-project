@@ -7,6 +7,7 @@ import useConfigurator from "../stores/useConfigurator";
 
 
 export default function ComboReference() {
+    // states for opening and closing the annotated bubbles
     const ref = useRef(null);
     const { setRef } = useRefStore();
     const [visible, setVisible] = useState(false)
@@ -15,8 +16,9 @@ export default function ComboReference() {
     const[open2, setOpen2] = useState(false)
     const[open3, setOpen3] = useState(false)
 
+    // using useEffect to subscribe to changes in the stores
     useEffect(() => {
-        // setRef(ref);
+    
 
         let used = false
         const unsubscibeZoom = useCamera.subscribe(
@@ -36,7 +38,7 @@ export default function ComboReference() {
                     setVisible(false)
                     setTimeout(() => setVisible(true), 2000)
                 } else {
-                    console.log("HAAAAAAAAAAAAAAAAAAAAAAAAAAN")
+        
                     used = false
                     resetAnnotation()
                 }
@@ -55,10 +57,8 @@ export default function ComboReference() {
         const unsubcribeToggle = useConfigurator.subscribe(
             (state) => state.toggle,
             (toggle) => {
-                console.log("toggle is: ", toggle)
                 let infillToggle = false
                 let conversionToggle = false
-                console.log("infille toggle: ", infillToggle, "Conversion toggle: ", conversionToggle)
                 if (Array.isArray(toggle) && toggle.length > 0) {
                     toggle.forEach((t) => {
                         if (t === 2) {
@@ -104,6 +104,7 @@ export default function ComboReference() {
         }
     }, []);
     
+    // styles for the html
     const styles = {
         width: '50px',
         height: '50px',
@@ -112,7 +113,7 @@ export default function ComboReference() {
       };
 
 
-
+    // Component for the annotated bubbles
     return (
         visible && <>
         <Html center position={[10, 0, 10]} ref={ref} scale={20}>

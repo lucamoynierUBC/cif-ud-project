@@ -10,7 +10,7 @@
 </p>
 
 ## About the project
-3D web app for the Urban Design team at NYC Department of City Planning. This tool is meant to communicate NYC Department of City Planning's [Good Urban Design Principles](https://www.nyc.gov/site/planning/planning-level/urban-design/urban-design-principle.page) and the [City of Yes](https://www.nyc.gov/site/planning/plans/city-of-yes/city-of-yes-overview.page) initiative.
+3D web app for the Urban Design team at NYC Department of City Planning. This tool is meant to communicate NYC Department of City Planning's [City of Yes](https://www.nyc.gov/site/planning/plans/city-of-yes/city-of-yes-overview.page) initiative.
 <br />
 <br />
 **Disclaimer**:
@@ -48,52 +48,53 @@ npm run dev
  * [📁 public](./public) - *contains all .gltf files*
  * [📁 src](./src)
    * [📁 3DAssets](./src/3DAssets) - *contains all .gltf components*
-        * [📄 BackgroundModel](./src/3DAssets/BackgroundModel.jsx)
+        <!-- * [📄 BackgroundModel](./src/3DAssets/BackgroundModel.jsx)
         * [📄 Birds](./src/3DAssets/Birds.jsx)
         * [📄 Bus](./src/3DAssets/Bus.jsx)
         * [📄 Car](./src/3DAssets/Car.jsx)
-        * [📄 Person](./src/3DAssets/Person.jsx)
+        * [📄 Cityscape](./src/3DAssets/citysc.jsx)
+        * [📄 Person](./src/3DAssets/Person.jsx) -->
    * [📁 Depracted](./src/Depracated) - *contains unused components*
    * [📁 House](./src/House) - *contains all components related to the 3D house object*
         * [📁 Tags](./src/House/Tags) - *contains tags for the house*
-            * [📄 Attatched Tag](./src/House/Tags/AttatchedTag.jsx)
+            <!-- * [📄 Attatched Tag](./src/House/Tags/AttatchedTag.jsx)
             * [📄 Detatched Tag](./src/House/Tags/DetatchedTag.jsx)
             * [📄 Baement Tag](./src/House/Tags/BasementTag.jsx)
             * [📄 Attic Tag](./src/House/Tags/AtticTag.jsx)
-        * [📄 Detatched ADU](./src/House/DetatchedAdu.jsx)
+        <!-- * [📄 Detatched ADU](./src/House/DetatchedAdu.jsx)
         * [📄 House](./src/House/House.jsx) - *main component for the house*
-        * [📄 Shed](./src/House/Shed.jsx)
+        * [📄 Shed](./src/House/Shed.jsx) --> -->
    * [📁 IntroModal](./src/IntroModal) - *contains all components related to pop-up modal*
-        * [📄 Carousel](./src/IntroModal/Carousel.jsx) - *component for the carousel/swiper*
-        * [📄 Modal](./src/IntroModal/Modal.jsx) - *main component for modal*
+        <!-- * [📄 Carousel](./src/IntroModal/Carousel.jsx) - *component for the carousel/swiper*
+        * [📄 Modal](./src/IntroModal/Modal.jsx) - *main component for modal* -->
    * [📁 Nav](./src/Nav) - *contains all components related to the nav bar*
-        * [📄 Dropdown Item](./src/Nav/DropdownItem.jsx)
+        <!-- * [📄 Dropdown Item](./src/Nav/DropdownItem.jsx)
         * [📄 Dropdown Menu](./src/Nav/DropdownMenu.jsx)
         * [📄 Nav](./src/Nav/Nav.jsx) - *main component for nav bar*
         * [📄 Nav Bar](./src/Nav/NavBar.jsx)
         * [📄 Nav Icon Buttom](./src/Nav/NavItem.jsx)
         * [📄 Nav Logo](./src/Nav/NavLogo.jsx)
-        * [📄 Nav Text Button](./src/Nav)
+        * [📄 Nav Text Button](./src/Nav) -->
     * [📁 Stores](./src/stores) - *Global states*
-        * [📄 useActions](./src/stores/useActions.jsx)
+        <!-- * [📄 useActions](./src/stores/useActions.jsx)
         * [📄 useApp](./src/stores/useApp.jsx)
         * [📄 useCamera](./src/stores/useCamera.jsx)
         * [📄 useFlow](./src/stores/useFlow.jsx)
         * [📄 useModal](./src/stores/Modal.jsx)
-        * [📄 useInterface](./src/stores/useInterface.jsx)
+        * [📄 useInterface](./src/stores/useInterface.jsx) -->
     * [📁 Three JS](./src/ThreeJS) - *contains all helpers for Three.js*
-        * [📄 Camera](./src/ThreeJS/Camera.jsx)
+        <!-- * [📄 Camera](./src/ThreeJS/Camera.jsx)
         * [📄 Orbit Controls](./src/ThreeJS/Controls.jsx)
         * [📄 Outline Effect](./src/ThreeJS/OutlineEffect.jsx)
-        * [📄 Spawner](./src/ThreeJS/Spawner.jsx)
+        * [📄 Spawner](./src/ThreeJS/Spawner.jsx) -->
     * [📁 User Interface](./src/UserInterface/) - *contains all components related to the interface*
         * [📁 Content](./src/UserInterface/Content/)
-            * [📄 Attatched ADU Conent](./src/UserInterface/Content/AttatchedContent.jsx)
+            <!-- * [📄 Attatched ADU Conent](./src/UserInterface/Content/AttatchedContent.jsx)
             * [📄 Attic ADU Content](./src/UserInterface/Content/AtticContent.jsx)
             * [📄 Basement ADU Content](./src/UserInterface/Content/BasementContent.jsx)
-            * [📄 Detatched ADU Content](./src/UserInterface/Content/DetatchedContent.jsx)
-        * [📄 Caret](./src/UserInterface/Caret.jsx)
+            * [📄 Detatched ADU Content](./src/UserInterface/Content/DetatchedContent.jsx) -->
+        <!-- * [📄 Caret](./src/UserInterface/Caret.jsx)
         * [📄 Dropdown text](./src/UserInterface/Dropdown.jsx)
-        * [📄 Main Interface](./src/UserInterface/MainInterface.jsx) - *main component for interface*
-    * [📄 Experience](./src/Experience.jsx) - *Overall experience component*
-    * [📄 index](./src/index.jsx) - *App entry point*
+        * [📄 Main Interface](./src/UserInterface/MainInterface.jsx) - *main component for interface* -->
+    <!-- * [📄 Experience](./src/Experience.jsx) - *Overall experience component*
+    * [📄 index](./src/index.jsx) - *App entry point* -->

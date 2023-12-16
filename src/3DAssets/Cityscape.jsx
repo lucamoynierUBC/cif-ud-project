@@ -5,6 +5,8 @@ import { ContactShadows, Edges, MeshTransmissionMaterial, useGLTF} from "@react-
 export default function Cityscape(props) {
   const { nodes, materials } = useGLTF("/cityscape.glb");
 
+
+  // imported cityscape/background model
   return (
     <group {...props} dispose={null} scale={3.0} position={[78,0.5,19]}>
       <mesh

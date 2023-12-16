@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-
+// imported model for the city blocks/floor
 export function Grid(props) {
   const { nodes, materials } = useGLTF("/grid.glb");
   return (

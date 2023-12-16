@@ -161,13 +161,13 @@ export default function MainInterface() {
                         <Content style={{
                             padding: 0,
                             minHeight: 280,
-                            marginTop: 40,
+                            marginTop: 20,
                             }}>
                                 {(configuratorType == "Adu" || configuratorType == "Adu - BOV") &&  (
                                     <DropdownADU panel1Text={panel1Text} panel2Text={panel2Text} panel3Text={panel3TextUAP}/>
                                 )}
                                 {(configuratorType == "Medium Density" || configuratorType == "Medium Density - BOV") && (
-                                    <DropdownUAP panel1Text={panel1TextUAP} panel2Text={panel2TextUAP} panel3Text={panel3TextUAP}/>
+                                    <DropdownUAP  panel1Text={panel1TextUAP} panel2Text={panel2TextUAP} panel3Text={panel3TextUAP}/>
                                 )}
                                 {/* <Link href="/adu">ADU Configurator</Link>
                                 <Link href="/medium-density">UAP Configurator</Link>

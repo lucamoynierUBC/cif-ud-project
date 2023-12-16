@@ -10,11 +10,11 @@ import { useGesture } from "react-use-gesture";
 import { Popover, Tooltip } from "antd";
 import { TownCenterBefore } from "./TownCenterBefore";
 
+
 export default function MediumDensityBuilding() {
     const setZoom = useCamera((state) => state.setZoom)
     const [scale, setScale] = useState([4, 5, 10])
     const [color, setColor] = useState("orange")
-    // const [bloom, setBloom] = useState(0)
     const [selected, setSelected] = useState(0)
     const [open, setOpen] = useState(false)
 
@@ -75,9 +75,7 @@ export default function MediumDensityBuilding() {
         }, [])
 
     return (
-        <animated.mesh {...spring} name="UAP" material-emissiveIntensity={spring.bloom} castShadow receiveShadow position={[55, 3, 44]} onClick={() => setZoom("Medium Density")}>
-            {/* <meshPhongMaterial /> */}
-            
+        <animated.mesh {...spring} name="UAP" material-emissiveIntensity={spring.bloom} castShadow receiveShadow position={[55, 3, 44]} onClick={() => setZoom("Medium Density")}> 
             <MeshTransmissionMaterial toneMapped={false} emissive={color} color={color} roughness={0.5} thickness={0.5} transmission={1} metalness={0.5} resolution={256} samples={32}/>
             <Edges/>
             <PopUpUAP position={[0,0,0]}></PopUpUAP>

@@ -14,11 +14,13 @@ import ComboAnnotation6 from "../UserInterface/Components/Annotations/ComboAnnot
 import ComboAnnotation7 from "../UserInterface/Components/Annotations/ComboAnnotation7";
 import ComboReference from "./ComboReference";
 
+// imported combined proposal model
 export function CombindedProposals(props) {
   const { nodes, materials } = useGLTF("/CombinedProposals.glb");
   const setZoom = useCamera((state) => state.setZoom)
   const [open, setOpen] = useState(false)
   
+  // Spring constants and their default values
   const [spring, api] = useSpring(() => ({
     color: '#ae561f',
     scale: 0.39,
@@ -30,6 +32,7 @@ export function CombindedProposals(props) {
     config: config.stiff,
   }))
 
+  // using a useEffect to subscribe to changes in the stores
   useEffect(()=> {
         const unsubscribeClosestObject = useClosestObject.subscribe(
                 (state) => state.closestObject,
@@ -56,7 +59,6 @@ export function CombindedProposals(props) {
               } else if (zoom === 'Combo' && used) {
                 // do nothing
               } else {
-                console.log("RUNNNNNN")
                 used = false
                 api.start({color: '#ae561f', churchColor: '#ae561f', schoolColor: '#ae561f', adminbuildingColor: '#ae561f', schoolOpacity: 1, infillOpacity: 0})
               }
@@ -101,6 +103,7 @@ export function CombindedProposals(props) {
         }
     }, [])
 
+  // component for combined proposal model
   return (
     <animated.group name="Combined Proposals" {...props} position={[-45, -.5, 55.5]} rotation={[0, Math.PI/2, 0]} scale={spring.scale} dispose={null}>
       <animated.mesh
